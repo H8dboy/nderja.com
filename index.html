@@ -182,9 +182,37 @@
     .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
     .reveal.in{opacity:1;transform:none}
   }
-  @media (max-width:600px){
-    section{padding:4.5rem 6vw}
-    .hero{padding:0 6vw}
+  /* ---------- mobile ---------- */
+  @media (max-width:700px){
+    /* fixed header would stack logo+langs+menu+submenu into a wall that
+       covers the page on small screens — let it scroll with the page */
+    header{position:static;backdrop-filter:none}
+    .hrow{padding:.8rem 4vw;flex-wrap:wrap;gap:.7rem;justify-content:center}
+    .logo img{height:30px}
+    .langs{flex-wrap:wrap;justify-content:center;gap:.3rem}
+    .langs button{padding:.28rem .5rem;font-size:.64rem;letter-spacing:.1em}
+    .menu{padding:0 2vw}
+    .menu button{padding:.6rem .65rem;font-size:.68rem;letter-spacing:.1em}
+    .submenu{padding:0 2vw}
+    .submenu button{padding:.5rem .65rem;font-size:.64rem;letter-spacing:.12em}
+    .hero{min-height:72vh;padding:0 6vw}
+    .scroll-hint{display:none}
+    section{padding:3.6rem 6vw 3.2rem}
+    h2{margin-bottom:1.6rem}
+    .card2{padding:1.7rem 1.2rem}
+    .stance{padding:2rem 1.2rem}
+    blockquote{margin:2rem 0;font-size:1.25rem}
+    footer{flex-direction:column;text-align:center;gap:1rem;padding:2.4rem 6vw}
+    #map{height:62vh}
+    .figs{gap:.6rem}
+    .fig{padding:.5rem .7rem;gap:.6rem}
+    .fig img,.fig .fava{width:38px;height:38px}
+    .mapform{gap:.5rem}
+    .searchwrap{min-width:100%}
+    .mapform input{min-width:0;flex:1}
+    .art-card img{height:150px}
+    .fab{right:1rem;bottom:1rem}
+    .fab .fdot{width:48px;height:48px;font-size:1.4rem}
   }
 </style>
 </head>
