@@ -61,6 +61,16 @@
   .post ul{max-width:680px;color:var(--muted);margin:0 0 1.2rem 1.4rem}
   .post .byline{margin-top:2rem;color:var(--text);font-family:var(--serif);font-style:italic;font-size:1.1rem}
 
+  /* ---------- article cards ---------- */
+  .arts{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem;margin-top:2.4rem}
+  .art-card{background:var(--panel);border:1px solid var(--line);cursor:pointer;transition:.25s;overflow:hidden}
+  .art-card:hover{border-color:var(--green)}
+  .art-card img{width:100%;height:170px;object-fit:cover;display:block}
+  .art-card .ac-body{padding:1.1rem 1.2rem 1.3rem}
+  .art-card h3{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--text);font-weight:500;line-height:1.3;margin-bottom:.6rem}
+  .art-card .ac-by{font-size:.78rem;color:var(--muted);letter-spacing:.05em}
+  .artview .btn{font-size:.72rem;letter-spacing:.15em;padding:.55rem 1rem;margin-top:2rem;cursor:pointer;background:none;font-family:var(--sans)}
+
   /* ---------- flamingo submenu ---------- */
   .submenu{display:none;justify-content:center;gap:.2rem;flex-wrap:wrap;border-top:1px solid var(--line);padding:0 5vw}
   .submenu.show{display:flex}
@@ -444,7 +454,18 @@
     <div class="frame">
       <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
       <h2 data-i="ar_t">Articles</h2>
-        <article class="post" style="border-top:none;padding-top:0">
+      <div class="arts" id="art-list">
+        <div class="art-card" data-art="1">
+          <img src="img/rama-ben-ali.jpg" alt="">
+          <div class="ac-body">
+            <h3>Edi Rama eshte sikur Ben Aliu i Tunizise</h3>
+            <div class="ac-by">Erjon Vorfa</div>
+          </div>
+        </div>
+      </div>
+      <div class="artview" id="art-1" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
           <h4>Edi Rama eshte sikur Ben Aliu i Tunizise</h4>
           <img src="img/rama-ben-ali.jpg" alt="Edi Rama dhe Zine El Abidine Ben Ali">
           <p>Një krahasim midis sundimit të Edi Ramës në Shqipëri dhe Zine El Abidine Ben Aliut në Tunizi na jep shume ngjashmeri. Qe te dy ishin sundimtare autokrate. Zagare te Perendimit, qe Perendimi i mbajti ne pushtet pse ju duheshin per te shtypur popullatat vendase.</p>
@@ -496,6 +517,7 @@
           <p>Por tunizianet e cliruan veten e tyre gjate Pranveres Arabe. Shqiptaret, akoma!</p>
           <p class="byline">Erjon Vorfa</p>
         </article>
+      </div>
     </div>
   </section>
   </div>
@@ -581,6 +603,7 @@ const T = {
     mp_city:'Search your city or area',
     mp_newfig:'Another name…',
     mp_addfig:'Add',
+    ar_back:'← Back to articles',
     mp_offline:'The shared map is not active yet — pins cannot be saved right now.',
     mp_pick:'First give a figure a thumb up or down.',
     mp_leg:'Green = loved · Red = hated.',
@@ -677,6 +700,7 @@ const T = {
     mp_city:'Kërko qytetin a zonën tënde',
     mp_newfig:'Një emër tjetër…',
     mp_addfig:'Shto',
+    ar_back:'← Kthehu te artikujt',
     mp_offline:'Harta e përbashkët nuk është ende aktive — gjilpërat nuk mund të ruhen tani.',
     mp_pick:'Jepi më parë një figure pëlqim ose mospëlqim.',
     mp_leg:'Jeshile = i dashur · E kuqe = i urryer.',
@@ -773,6 +797,7 @@ const T = {
     mp_city:'Cerca la tua città o zona',
     mp_newfig:'Un altro nome…',
     mp_addfig:'Aggiungi',
+    ar_back:'← Torna agli articoli',
     mp_offline:'La mappa condivisa non è ancora attiva — per ora i pin non vengono salvati.',
     mp_pick:'Prima metti un pollice a una figura.',
     mp_leg:'Verde = amato · Rosso = odiato.',
@@ -869,6 +894,7 @@ const T = {
     mp_city:'Cherche ta ville ou ta zone',
     mp_newfig:'Un autre nom…',
     mp_addfig:'Ajouter',
+    ar_back:'← Retour aux articles',
     mp_offline:'La carte partagée n’est pas encore active — les épingles ne peuvent pas être enregistrées pour l’instant.',
     mp_pick:'Donne d’abord un pouce à une figure.',
     mp_leg:'Vert = aimé · Rouge = détesté.',
@@ -965,6 +991,7 @@ const T = {
     mp_city:'Such deine Stadt oder Gegend',
     mp_newfig:'Ein anderer Name…',
     mp_addfig:'Hinzufügen',
+    ar_back:'← Zurück zu den Artikeln',
     mp_offline:'Die gemeinsame Karte ist noch nicht aktiv — Pins können gerade nicht gespeichert werden.',
     mp_pick:'Gib zuerst einer Figur einen Daumen.',
     mp_leg:'Grün = geliebt · Rot = gehasst.',
@@ -1061,6 +1088,7 @@ const T = {
     mp_city:'Sök din stad eller ditt område',
     mp_newfig:'Ett annat namn…',
     mp_addfig:'Lägg till',
+    ar_back:'← Tillbaka till artiklarna',
     mp_offline:'Den delade kartan är inte aktiv ännu — nålar kan inte sparas just nu.',
     mp_pick:'Ge först en figur en tumme.',
     mp_leg:'Grönt = älskad · Rött = hatad.',
@@ -1157,6 +1185,7 @@ const T = {
     mp_city:'Αναζήτησε την πόλη ή την περιοχή σου',
     mp_newfig:'Άλλο όνομα…',
     mp_addfig:'Πρόσθεσε',
+    ar_back:'← Πίσω στα άρθρα',
     mp_offline:'Ο κοινός χάρτης δεν είναι ακόμη ενεργός — οι πινέζες δεν αποθηκεύονται προς το παρόν.',
     mp_pick:'Δώσε πρώτα αντίχειρα σε μια φιγούρα.',
     mp_leg:'Πράσινο = αγαπητός · Κόκκινο = μισητός.',
@@ -1313,6 +1342,7 @@ const T = {
     mp_city:'Zoek je stad of streek',
     mp_newfig:'Een andere naam…',
     mp_addfig:'Toevoegen',
+    ar_back:'← Terug naar artikelen',
     mp_offline:'De gedeelde kaart is nog niet actief — spelden kunnen nu niet worden opgeslagen.',
     mp_pick:'Geef eerst een figuur een duim.',
     mp_leg:'Groen = geliefd · Rood = gehaat.',
@@ -1421,6 +1451,7 @@ const T = {
     mp_city:'Busca tu ciudad o zona',
     mp_newfig:'Otro nombre…',
     mp_addfig:'Añadir',
+    ar_back:'← Volver a los artículos',
     mp_offline:'El mapa compartido aún no está activo — por ahora los pines no se guardan.',
     mp_pick:'Primero dale un pulgar a una figura.',
     mp_leg:'Verde = amado · Rojo = odiado.',
@@ -1628,6 +1659,19 @@ document.getElementById('mp-addfig').addEventListener('click',async()=>{
     selFig=f.id; selVote=0; inp.value=''; renderFigs(); renderPins();
   }catch(e){ mpStatus(tr('mp_offline')); }
 });
+
+/* article cards */
+document.querySelectorAll('.art-card').forEach(c=>c.addEventListener('click',()=>{
+  document.getElementById('art-list').style.display='none';
+  const v=document.getElementById('art-'+c.dataset.art);
+  if(v) v.style.display='block';
+  window.scrollTo({top:0});
+}));
+function closeArticle(){
+  document.querySelectorAll('.artview').forEach(v=>v.style.display='none');
+  document.getElementById('art-list').style.display='';
+  window.scrollTo({top:0});
+}
 
 /* city search: places of ethnic Albania grouped by province [name, province, lat, lng] */
 const PLACES=[
