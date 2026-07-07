@@ -256,20 +256,57 @@
       <div class="eyebrow" data-i="mx_eyebrow">The tool</div>
       <h2 data-i-html="mx_title">M4TR<em>1X</em></h2>
       <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
+      <p data-i="mx_p3">Inside it is everything a social network is supposed to be: a feed, stories, photos, video, music, forums, encrypted messages. Built on open protocols — Nostr, PeerTube, Mastodon, Funkwhale — so that no single company, including us, can own the conversation.</p>
+      <p data-i="mx_p4">Identity is a cryptographic key pair signed with ML-DSA-65, the post-quantum standard (NIST FIPS-204): what you publish today cannot be forged tomorrow. On censored networks, traffic moves through Tor first. And all of it is open source, MIT licensed — verify us, don't take our word.</p>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3 data-i="mx_f1_t">Desktop</h3>
+          <p data-i="mx_f1_p">The full experience for Windows, macOS and Linux: feed, stories, music, forums, encrypted messaging. One app, no account — your keys never leave your machine.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="mx_f2_t">Mobile</h3>
+          <p data-i="mx_f2_p">Android APK and iOS app, installed directly — no App Store, no gatekeeper. Download, point it at a node you trust, done.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="mx_f3_t">Node</h3>
+          <p data-i="mx_f3_p">The self-hosted heart: relay, media storage and video streaming in a single server. An ordinary home computer is enough to turn a citizen into infrastructure.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="mx_f4_t">AI Detector</h3>
+          <p data-i="mx_f4_p">An open detector for AI-generated video, trained collectively through the network itself. A network built for truth must be able to recognize a fake.</p>
+        </div>
+      </div>
+      <p style="margin-top:2.5rem" data-i="mx_stat">Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.</p>
       <p data-i="mx_p2">The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.</p>
-      <p style="margin-top:2rem">
-        <a href="https://github.com/H8dboy/m4tr1x-electron" class="btn" data-i="mx_cta">Run a node</a>
+      <p style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="https://github.com/H8dboy/m4tr1x-node" class="btn" data-i="mx_cta">Run a node</a>
+        <a href="https://github.com/H8dboy/m4tr1x-electron" class="btn" data-i="mx_cta2">Get the app</a>
       </p>
+      <div class="srcnote"><span data-i="mx_code">All code is public — MIT license</span>: <a href="https://github.com/H8dboy/m4tr1x-electron" target="_blank" rel="noopener">m4tr1x-electron</a> · <a href="https://github.com/H8dboy/m4tr1x-android" target="_blank" rel="noopener">m4tr1x-android</a> · <a href="https://github.com/H8dboy/m4tr1x-node" target="_blank" rel="noopener">m4tr1x-node</a> · <a href="https://github.com/H8dboy/m4tr1x-ai-detector" target="_blank" rel="noopener">m4tr1x-ai-detector</a></div>
     </div>
   </section>
 
   <!-- ELEA -->
   <section id="elea">
     <div class="frame">
-      <div class="card2 reveal" style="margin-top:0">
-        <h3 data-i="elea_t">Elea Vending</h3>
-        <p data-i="elea_p">The physical arm: independent vending machines that pay the bills and double as network relay points. Every machine is a small piece of infrastructure on the street — coffee above, sovereignty below.</p>
+      <div class="eyebrow" data-i="el_eyebrow">The ground</div>
+      <h2 data-i-html="el_title">Elea <em>Vending</em></h2>
+      <p data-i="elea_p1">The physical arm of H8-Group: independent vending machines that pay the bills and prove the philosophy on the street. No investors, no franchise — machines bought used, rebuilt by hand, and placed where people actually work.</p>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3 data-i="el_f1_t">Second life</h3>
+          <p data-i="el_f1_p">We don't buy new machines — we resurrect old ones. Bodywork, wrap film, 3D-printed parts, a tablet as the new face: a unit headed for scrap returns as a modern machine at a fraction of the cost, dressed in the colors of the place that hosts it.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="el_f2_t">An honest cash box</h3>
+          <p data-i="el_f2_p">An AI layer counts every coin, follows every product lot from loading to expiry date, and rearranges the shelves around real demand. Almost zero waste, almost zero counting errors — trust you can audit.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="el_f3_t">One Shot</h3>
+          <p data-i="el_f3_p">Our own coffee: a dense, low-acid espresso blend — Brazil for body, India for crema, Ethiopia for aroma. Roasted in Italy today; Albanian roasteries as we grow. One shot: a single sip, taken seriously.</p>
+        </div>
       </div>
+      <p style="margin-top:2.5rem" data-i="elea_p2">And every machine leads a double life. Above, it serves coffee and pays the bills that keep the movement independent; below, it can host a relay of the M4TR1X network. Sovereignty, one street corner at a time.</p>
     </div>
   </section>
 </div>
@@ -308,8 +345,13 @@ const T = {
     h8_eyebrow:'The engine',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'Philosophy without means is a wish. H8-Group is the independent economic engine that funds the movement — no party money, no foreign grants. Two projects, one logic: sovereignty you can touch.',
-    elea_t:'Elea Vending',
-    elea_p:'The physical arm: independent vending machines that pay the bills and double as network relay points. Every machine is a small piece of infrastructure on the street — coffee above, sovereignty below.',
+    el_eyebrow:'The ground',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'The physical arm of H8-Group: independent vending machines that pay the bills and prove the philosophy on the street. No investors, no franchise — machines bought used, rebuilt by hand, and placed where people actually work.',
+    el_f1_t:'Second life', el_f1_p:"We don't buy new machines — we resurrect old ones. Bodywork, wrap film, 3D-printed parts, a tablet as the new face: a unit headed for scrap returns as a modern machine at a fraction of the cost, dressed in the colors of the place that hosts it.",
+    el_f2_t:'An honest cash box', el_f2_p:'An AI layer counts every coin, follows every product lot from loading to expiry date, and rearranges the shelves around real demand. Almost zero waste, almost zero counting errors — trust you can audit.',
+    el_f3_t:'One Shot', el_f3_p:'Our own coffee: a dense, low-acid espresso blend — Brazil for body, India for crema, Ethiopia for aroma. Roasted in Italy today; Albanian roasteries as we grow. One shot: a single sip, taken seriously.',
+    elea_p2:'And every machine leads a double life. Above, it serves coffee and pays the bills that keep the movement independent; below, it can host a relay of the M4TR1X network. Sovereignty, one street corner at a time.',
     nw_eyebrow:'News',
     nw_title:'Why <em>now</em>',
     nw_p1:'For years we built in silence. We come into the open now because Albania is living a rare moment: for over a month, citizens have filled the squares demanding transparency and a state that answers to its people. Staying silent while this happens would betray everything nderja means.',
@@ -326,6 +368,15 @@ const T = {
     mx_p1:'Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.',
     mx_p2:"The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.",
     mx_cta:'Run a node',
+    mx_cta2:'Get the app',
+    mx_p3:'Inside it is everything a social network is supposed to be: a feed, stories, photos, video, music, forums, encrypted messages. Built on open protocols — Nostr, PeerTube, Mastodon, Funkwhale — so that no single company, including us, can own the conversation.',
+    mx_p4:"Identity is a cryptographic key pair signed with ML-DSA-65, the post-quantum standard (NIST FIPS-204): what you publish today cannot be forged tomorrow. On censored networks, traffic moves through Tor first. And all of it is open source, MIT licensed — verify us, don't take our word.",
+    mx_f1_t:'Desktop', mx_f1_p:'The full experience for Windows, macOS and Linux: feed, stories, music, forums, encrypted messaging. One app, no account — your keys never leave your machine.',
+    mx_f2_t:'Mobile', mx_f2_p:'Android APK and iOS app, installed directly — no App Store, no gatekeeper. Download, point it at a node you trust, done.',
+    mx_f3_t:'Node', mx_f3_p:'The self-hosted heart: relay, media storage and video streaming in a single server. An ordinary home computer is enough to turn a citizen into infrastructure.',
+    mx_f4_t:'AI Detector', mx_f4_p:'An open detector for AI-generated video, trained collectively through the network itself. A network built for truth must be able to recognize a fake.',
+    mx_stat:"Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.",
+    mx_code:'All code is public — MIT license',
     hero_kicker:"The movement",
     hero_sub:"Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.",
     hero_def:"— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.",
@@ -367,8 +418,13 @@ const T = {
     h8_eyebrow:'Motori',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'Filozofia pa mjete është dëshirë. H8-Group është motori i pavarur ekonomik që financon lëvizjen — pa para partish, pa grante të huaja. Dy projekte, një logjikë: sovranitet që mund ta prekësh.',
-    elea_t:'Elea Vending',
-    elea_p:'Krahu fizik: makina shitjeje të pavarura që paguajnë faturat dhe shërbejnë edhe si pika rele të rrjetit. Çdo makinë është një copë e vogël infrastrukture në rrugë — kafe sipër, sovranitet poshtë.',
+    el_eyebrow:'Terreni',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'Krahu fizik i H8-Group: makina shitjeje të pavarura që paguajnë faturat dhe e provojnë filozofinë në rrugë. Pa investitorë, pa franshizë — makina të blera të përdorura, të rindërtuara me dorë dhe të vendosura aty ku njerëzit punojnë vërtet.',
+    el_f1_t:'Jetë e dytë', el_f1_p:'Nuk blejmë makina të reja — ringjallim të vjetrat. Karroceri, pellikula wrap, pjesë të printuara në 3D, një tablet si fytyrë e re: një makinë e destinuar për skrap kthehet si njësi moderne me një thërrime të kostos, e veshur me ngjyrat e vendit që e pret.',
+    el_f2_t:'Një arkë e ndershme', el_f2_p:'Një shtresë IA numëron çdo monedhë, ndjek çdo parti produkti nga ngarkimi te data e skadencës dhe i rirendit raftet sipas kërkesës reale. Pothuajse zero mbetje, pothuajse zero gabime numërimi — besim që mund të verifikohet.',
+    el_f3_t:'One Shot', el_f3_p:'Kafja jonë: një përzierje espresso e dendur, me aciditet të ulët — Brazili për trupin, India për kremën, Etiopia për aromën. Sot pjekur në Itali; torrefaksione shqiptare teksa rritemi. One shot: një gllënjkë e vetme, e marrë seriozisht.',
+    elea_p2:'Dhe çdo makinë jeton një jetë të dyfishtë. Sipër shërben kafe dhe paguan faturat që e mbajnë lëvizjen të pavarur; poshtë mund të mbajë një rele të rrjetit M4TR1X. Sovranitet, një cep rruge në herë.',
     nw_eyebrow:'Lajme',
     nw_title:'Pse <em>tani</em>',
     nw_p1:'Për vite ndërtuam në heshtje. Dalim hapur tani sepse Shqipëria po jeton një moment të rrallë: prej më shumë se një muaji, qytetarët kanë mbushur sheshet duke kërkuar transparencë dhe një shtet që i përgjigjet popullit të vet. Të heshtnim tani do të tradhtonte gjithçka që nderja do të thotë.',
@@ -385,6 +441,15 @@ const T = {
     mx_p1:"Instrumenti ynë i parë: një rrjet social i decentralizuar pa server qendror, pa llogari, pa mbikëqyrje. Kriptografi post-kuantike, rrugëtim Tor, identitet i vetë-strehuar. Nuk ka ndërtesë për t'u bastisur, as çelës për t'u fikur.",
     mx_p2:'Rrjeti është i ri. Rritet nyjë pas nyje — dhe çdo nyjë është shtëpia e një qytetari, jo kulla e një kompanie. Nëse di të përdorësh një kompjuter, mund të mbash një copë të rrjetit.',
     mx_cta:'Ngri një nyjë',
+    mx_cta2:'Merr aplikacionin',
+    mx_p3:'Brenda ka gjithçka që duhet të jetë një rrjet social: feed, stories, foto, video, muzikë, forume, mesazhe të enkriptuara. I ndërtuar mbi protokolle të hapura — Nostr, PeerTube, Mastodon, Funkwhale — që asnjë kompani, as ne vetë, të mos e zotërojë bisedën.',
+    mx_p4:'Identiteti është një çift çelësash kriptografikë i firmosur me ML-DSA-65, standardin post-kuantik (NIST FIPS-204): ajo që publikon sot nuk mund të falsifikohet nesër. Në rrjete të censuruara trafiku kalon së pari nga Tor. Dhe gjithçka është open source, me licencë MIT — verifikona, mos na beso me fjalë.',
+    mx_f1_t:'Desktop', mx_f1_p:'Përvoja e plotë për Windows, macOS dhe Linux: feed, stories, muzikë, forume, mesazhe të enkriptuara. Një aplikacion, asnjë llogari — çelësat e tu nuk e lënë kurrë makinën tënde.',
+    mx_f2_t:'Mobile', mx_f2_p:'APK për Android dhe aplikacion iOS me instalim të drejtpërdrejtë — pa App Store, pa rojtarë. E shkarkon, e lidh me një nyjë që i beson, gati.',
+    mx_f3_t:'Nyja', mx_f3_p:'Zemra e vetë-strehuar: rele, arkiv mediash dhe transmetim videosh në një server të vetëm. Mjafton një kompjuter i zakonshëm shtëpie që një qytetar të bëhet infrastrukturë.',
+    mx_f4_t:'Detektori i IA-së', mx_f4_p:'Një detektor i hapur për video të krijuara nga IA, i stërvitur kolektivisht përmes vetë rrjetit. Një rrjet i ndërtuar për të vërtetën duhet të dijë të njohë një falsifikim.',
+    mx_stat:'Ku jemi, me ndershmëri: developer preview. Nyja e parë publike është online; softueri është mjaft i qëndrueshëm për ta vetë-strehuar dhe për të ndërtuar mbi të, ende jo për përdorime me rrezik të lartë. Të thuash çfarë punon e çfarë jo — edhe kjo është nder.',
+    mx_code:'I gjithë kodi është publik — licencë MIT',
     hero_kicker:"Lëvizja",
     hero_sub:"Aftësia është parakushti i qytetarisë. Nuk je i lirë nëse çdo mjet thelbësor i jetës tënde — identiteti, zëri, paraja, dija — i përket dikujt tjetër.",
     hero_def:"— nderi. Në traditën shqiptare, e vetmja pasuri që nuk dhurohet: fitohet dhe mbrohet.",
@@ -426,8 +491,13 @@ const T = {
     h8_eyebrow:'Il motore',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'Una filosofia senza mezzi è un desiderio. H8-Group è il motore economico indipendente che finanzia il movimento — niente soldi di partito, niente fondi esteri. Due progetti, una logica: sovranità che puoi toccare.',
-    elea_t:'Elea Vending',
-    elea_p:'Il braccio fisico: distributori automatici indipendenti che pagano le bollette e fungono da punti relay della rete. Ogni macchina è un piccolo pezzo di infrastruttura in strada — caffè sopra, sovranità sotto.',
+    el_eyebrow:'Il terreno',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'Il braccio fisico di H8-Group: distributori automatici indipendenti che pagano le bollette e dimostrano la filosofia per strada. Niente investitori, niente franchising — macchine comprate usate, ricostruite a mano e piazzate dove la gente lavora davvero.',
+    el_f1_t:'Seconda vita', el_f1_p:'Non compriamo macchine nuove — resuscitiamo quelle vecchie. Carrozzeria, pellicole wrap, pezzi stampati in 3D, un tablet come nuovo volto: un distributore destinato alla rottamazione torna macchina moderna a una frazione del costo, vestito dei colori del luogo che lo ospita.',
+    el_f2_t:'Una cassa onesta', el_f2_p:'Un livello di IA conta ogni moneta, segue ogni lotto dal carico alla scadenza e riorganizza gli scaffali sulla domanda reale. Quasi zero sprechi, quasi zero errori di conteggio — fiducia che si può verificare.',
+    el_f3_t:'One Shot', el_f3_p:'Il nostro caffè: una miscela espresso densa e a bassa acidità — Brasile per il corpo, India per la crema, Etiopia per l\'aroma. Oggi tostato in Italia; torrefazioni albanesi man mano che cresciamo. One shot: un solo sorso, preso sul serio.',
+    elea_p2:'E ogni macchina vive una doppia vita. Sopra serve il caffè e paga le bollette che tengono il movimento indipendente; sotto può ospitare un relay della rete M4TR1X. Sovranità, un angolo di strada alla volta.',
     nw_eyebrow:'News',
     nw_title:'Perché <em>ora</em>',
     nw_p1:"Per anni abbiamo costruito in silenzio. Usciamo allo scoperto ora perché l'Albania vive un momento raro: da oltre un mese i cittadini riempiono le piazze chiedendo trasparenza e uno Stato che risponda al suo popolo. Tacere adesso tradirebbe tutto ciò che nderja significa.",
@@ -444,6 +514,15 @@ const T = {
     mx_p1:"Il nostro primo strumento: un social network decentralizzato senza server centrale, senza account, senza sorveglianza. Crittografia post-quantum, routing Tor, identità self-hosted. Non c'è un palazzo da perquisire, né un interruttore da spegnere.",
     mx_p2:"La rete è giovane. Cresce un nodo alla volta — e ogni nodo è la casa di un cittadino, non la torre di un'azienda. Se sai usare un computer, puoi custodire un pezzo della rete.",
     mx_cta:'Attiva un nodo',
+    mx_cta2:"Scarica l'app",
+    mx_p3:'Dentro c\'è tutto ciò che un social dovrebbe essere: feed, storie, foto, video, musica, forum, messaggi cifrati. Costruito su protocolli aperti — Nostr, PeerTube, Mastodon, Funkwhale — perché nessuna azienda, noi compresi, possa possedere la conversazione.',
+    mx_p4:"L'identità è una coppia di chiavi crittografiche firmata con ML-DSA-65, lo standard post-quantum (NIST FIPS-204): ciò che pubblichi oggi non potrà essere falsificato domani. Sulle reti censurate il traffico passa prima da Tor. E tutto è open source, licenza MIT — verificateci, non fidatevi sulla parola.",
+    mx_f1_t:'Desktop', mx_f1_p:"L'esperienza completa per Windows, macOS e Linux: feed, storie, musica, forum, messaggi cifrati. Un'app, nessun account — le tue chiavi non lasciano mai la tua macchina.",
+    mx_f2_t:'Mobile', mx_f2_p:'APK Android e app iOS a installazione diretta — niente App Store, niente guardiani. Scarichi, la punti su un nodo di cui ti fidi, fatto.',
+    mx_f3_t:'Nodo', mx_f3_p:'Il cuore self-hosted: relay, archivio media e streaming video in un solo server. Basta un normale computer di casa per trasformare un cittadino in infrastruttura.',
+    mx_f4_t:'AI Detector', mx_f4_p:"Un rilevatore aperto di video generati dall'IA, addestrato collettivamente attraverso la rete stessa. Una rete costruita per la verità deve saper riconoscere un falso.",
+    mx_stat:'Dove siamo, onestamente: developer preview. Il primo nodo pubblico è online; il software è abbastanza stabile da essere self-hostato e da costruirci sopra, non ancora pensato per usi ad alto rischio. Dire cosa funziona e cosa no — anche questo è onore.',
+    mx_code:'Tutto il codice è pubblico — licenza MIT',
     hero_kicker:"Il movimento",
     hero_sub:"La capacità è il prerequisito della cittadinanza. Non sei libero se ogni strumento essenziale della tua vita — identità, voce, denaro, conoscenza — appartiene a qualcun altro.",
     hero_def:"— onore. Nella tradizione albanese, l'unico bene che non si concede: si conquista e si difende.",
@@ -485,8 +564,13 @@ const T = {
     h8_eyebrow:'Le moteur',
     h8_title:'H8-<em>Group</em>',
     h8_p1:"Une philosophie sans moyens est un vœu. H8-Group est le moteur économique indépendant qui finance le mouvement — pas d'argent de parti, pas de fonds étrangers. Deux projets, une logique : une souveraineté que l'on peut toucher.",
-    elea_t:'Elea Vending',
-    elea_p:"Le bras physique : des distributeurs automatiques indépendants qui paient les factures et servent de points relais du réseau. Chaque machine est un petit morceau d'infrastructure dans la rue — le café au-dessus, la souveraineté en dessous.",
+    el_eyebrow:'Le terrain',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:"Le bras physique de H8-Group : des distributeurs automatiques indépendants qui paient les factures et prouvent la philosophie dans la rue. Pas d'investisseurs, pas de franchise — des machines achetées d'occasion, reconstruites à la main et placées là où les gens travaillent vraiment.",
+    el_f1_t:'Seconde vie', el_f1_p:"Nous n'achetons pas de machines neuves — nous ressuscitons les anciennes. Carrosserie, film de covering, pièces imprimées en 3D, une tablette comme nouveau visage : une machine promise à la casse redevient moderne pour une fraction du coût, habillée aux couleurs du lieu qui l'accueille.",
+    el_f2_t:'Une caisse honnête', el_f2_p:'Une couche d\'IA compte chaque pièce, suit chaque lot du chargement à la date de péremption et réorganise les rayons selon la demande réelle. Presque zéro gaspillage, presque zéro erreur de comptage — une confiance vérifiable.',
+    el_f3_t:'One Shot', el_f3_p:"Notre café : un espresso dense, à faible acidité — Brésil pour le corps, Inde pour la crème, Éthiopie pour l'arôme. Torréfié en Italie aujourd'hui ; des torréfacteurs albanais à mesure que nous grandissons. One shot : une seule gorgée, prise au sérieux.",
+    elea_p2:'Et chaque machine mène une double vie. En haut, elle sert le café et paie les factures qui gardent le mouvement indépendant ; en bas, elle peut héberger un relais du réseau M4TR1X. La souveraineté, un coin de rue à la fois.',
     nw_eyebrow:'Actualités',
     nw_title:'Pourquoi <em>maintenant</em>',
     nw_p1:"Pendant des années, nous avons construit en silence. Nous sortons de l'ombre maintenant parce que l'Albanie vit un moment rare : depuis plus d'un mois, les citoyens remplissent les places pour exiger la transparence et un État qui réponde à son peuple. Se taire maintenant trahirait tout ce que nderja signifie.",
@@ -503,6 +587,15 @@ const T = {
     mx_p1:"Notre premier instrument : un réseau social décentralisé sans serveur central, sans comptes, sans surveillance. Cryptographie post-quantique, routage Tor, identité auto-hébergée. Il n'y a pas d'immeuble à perquisitionner, pas d'interrupteur à couper.",
     mx_p2:"Le réseau est jeune. Il grandit nœud après nœud — et chaque nœud est la maison d'un citoyen, pas la tour d'une entreprise. Si tu sais utiliser un ordinateur, tu peux tenir un morceau du réseau.",
     mx_cta:'Lancer un nœud',
+    mx_cta2:"Télécharger l'app",
+    mx_p3:"À l'intérieur, tout ce qu'un réseau social devrait être : fil, stories, photos, vidéo, musique, forums, messages chiffrés. Construit sur des protocoles ouverts — Nostr, PeerTube, Mastodon, Funkwhale — pour qu'aucune entreprise, nous compris, ne puisse posséder la conversation.",
+    mx_p4:"L'identité est une paire de clés cryptographiques signée en ML-DSA-65, le standard post-quantique (NIST FIPS-204) : ce que tu publies aujourd'hui ne pourra pas être falsifié demain. Sur les réseaux censurés, le trafic passe d'abord par Tor. Et tout est open source, licence MIT — vérifiez-nous, ne nous croyez pas sur parole.",
+    mx_f1_t:'Desktop', mx_f1_p:"L'expérience complète pour Windows, macOS et Linux : fil, stories, musique, forums, messages chiffrés. Une application, aucun compte — tes clés ne quittent jamais ta machine.",
+    mx_f2_t:'Mobile', mx_f2_p:"APK Android et application iOS en installation directe — pas d'App Store, pas de gardien. Tu télécharges, tu la pointes vers un nœud de confiance, c'est fait.",
+    mx_f3_t:'Nœud', mx_f3_p:'Le cœur auto-hébergé : relais, stockage des médias et streaming vidéo dans un seul serveur. Un simple ordinateur domestique suffit pour transformer un citoyen en infrastructure.',
+    mx_f4_t:'Détecteur IA', mx_f4_p:'Un détecteur ouvert de vidéos générées par IA, entraîné collectivement à travers le réseau lui-même. Un réseau construit pour la vérité doit savoir reconnaître un faux.',
+    mx_stat:"Où nous en sommes, honnêtement : developer preview. Le premier nœud public est en ligne ; le logiciel est assez stable pour être auto-hébergé et servir de base, pas encore pensé pour des usages à haut risque. Dire ce qui marche et ce qui ne marche pas — c'est aussi cela, l'honneur.",
+    mx_code:'Tout le code est public — licence MIT',
     hero_kicker:"Le mouvement",
     hero_sub:"La capacité est le prérequis de la citoyenneté. Tu n'es pas libre si chaque outil essentiel de ta vie — identité, voix, argent, savoir — appartient à quelqu'un d'autre.",
     hero_def:"— l'honneur. Dans la tradition albanaise, le seul bien qui ne s'accorde pas : il se conquiert et se défend.",
@@ -544,8 +637,13 @@ const T = {
     h8_eyebrow:'Der Motor',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'Eine Philosophie ohne Mittel ist ein Wunsch. H8-Group ist der unabhängige wirtschaftliche Motor, der die Bewegung finanziert — kein Parteigeld, keine ausländischen Zuschüsse. Zwei Projekte, eine Logik: Souveränität zum Anfassen.',
-    elea_t:'Elea Vending',
-    elea_p:'Der physische Arm: unabhängige Verkaufsautomaten, die die Rechnungen bezahlen und zugleich als Relaispunkte des Netzwerks dienen. Jede Maschine ist ein kleines Stück Infrastruktur auf der Straße — oben Kaffee, unten Souveränität.',
+    el_eyebrow:'Der Boden',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'Der physische Arm der H8-Group: unabhängige Verkaufsautomaten, die die Rechnungen bezahlen und die Philosophie auf der Straße beweisen. Keine Investoren, kein Franchise — gebraucht gekaufte Maschinen, von Hand wiederaufgebaut und dort aufgestellt, wo Menschen wirklich arbeiten.',
+    el_f1_t:'Zweites Leben', el_f1_p:'Wir kaufen keine neuen Maschinen — wir erwecken alte wieder. Karosseriearbeit, Folierung, 3D-gedruckte Teile, ein Tablet als neues Gesicht: Eine Maschine auf dem Weg zum Schrott kehrt als modernes Gerät zurück, zu einem Bruchteil der Kosten, ganz in den Farben des Ortes, der sie beherbergt.',
+    el_f2_t:'Eine ehrliche Kasse', el_f2_p:'Eine KI-Schicht zählt jede Münze, verfolgt jede Charge vom Befüllen bis zum Ablaufdatum und ordnet die Fächer nach der echten Nachfrage. Fast null Verschwendung, fast null Zählfehler — überprüfbares Vertrauen.',
+    el_f3_t:'One Shot', el_f3_p:'Unser eigener Kaffee: eine dichte Espressomischung mit wenig Säure — Brasilien für den Körper, Indien für die Crema, Äthiopien für das Aroma. Heute in Italien geröstet; albanische Röstereien, wenn wir wachsen. One Shot: ein einziger Schluck, ernst genommen.',
+    elea_p2:'Und jede Maschine führt ein Doppelleben. Oben serviert sie Kaffee und bezahlt die Rechnungen, die die Bewegung unabhängig halten; unten kann sie ein Relais des M4TR1X-Netzwerks tragen. Souveränität, eine Straßenecke nach der anderen.',
     nw_eyebrow:'News',
     nw_title:'Warum <em>jetzt</em>',
     nw_p1:'Jahrelang haben wir im Stillen gebaut. Wir treten jetzt an die Öffentlichkeit, weil Albanien einen seltenen Moment erlebt: Seit über einem Monat füllen Bürger die Plätze und fordern Transparenz und einen Staat, der seinem Volk antwortet. Jetzt zu schweigen würde alles verraten, was nderja bedeutet.',
@@ -562,6 +660,15 @@ const T = {
     mx_p1:'Unser erstes Instrument: ein dezentrales soziales Netzwerk ohne zentralen Server, ohne Konten, ohne Überwachung. Post-Quanten-Kryptographie, Tor-Routing, selbstgehostete Identität. Es gibt kein Gebäude zu durchsuchen, keinen Schalter umzulegen.',
     mx_p2:'Das Netzwerk ist jung. Es wächst Knoten für Knoten — und jeder Knoten ist das Haus eines Bürgers, nicht der Turm eines Unternehmens. Wer einen Computer bedienen kann, kann ein Stück des Netzwerks halten.',
     mx_cta:'Einen Knoten betreiben',
+    mx_cta2:'App herunterladen',
+    mx_p3:'Darin steckt alles, was ein soziales Netzwerk sein sollte: Feed, Stories, Fotos, Video, Musik, Foren, verschlüsselte Nachrichten. Gebaut auf offenen Protokollen — Nostr, PeerTube, Mastodon, Funkwhale — damit kein Unternehmen, auch wir nicht, das Gespräch besitzen kann.',
+    mx_p4:'Die Identität ist ein kryptographisches Schlüsselpaar, signiert mit ML-DSA-65, dem Post-Quanten-Standard (NIST FIPS-204): Was du heute veröffentlichst, kann morgen nicht gefälscht werden. In zensierten Netzen läuft der Verkehr zuerst über Tor. Und alles ist Open Source, MIT-Lizenz — prüft uns, statt uns zu glauben.',
+    mx_f1_t:'Desktop', mx_f1_p:'Die volle Erfahrung für Windows, macOS und Linux: Feed, Stories, Musik, Foren, verschlüsselte Nachrichten. Eine App, kein Konto — deine Schlüssel verlassen nie deinen Rechner.',
+    mx_f2_t:'Mobil', mx_f2_p:'Android-APK und iOS-App zur Direktinstallation — kein App Store, kein Türsteher. Herunterladen, auf einen vertrauten Knoten richten, fertig.',
+    mx_f3_t:'Knoten', mx_f3_p:'Das selbstgehostete Herz: Relais, Medienspeicher und Video-Streaming in einem Server. Ein gewöhnlicher Heimcomputer genügt, um aus einem Bürger Infrastruktur zu machen.',
+    mx_f4_t:'KI-Detektor', mx_f4_p:'Ein offener Detektor für KI-generierte Videos, kollektiv trainiert über das Netzwerk selbst. Ein Netzwerk, das für die Wahrheit gebaut ist, muss eine Fälschung erkennen können.',
+    mx_stat:'Wo wir stehen, ehrlich: Developer Preview. Der erste öffentliche Knoten ist online; die Software ist stabil genug zum Selbsthosten und Weiterbauen, noch nicht für Hochrisiko-Anwendungen gedacht. Zu sagen, was funktioniert und was nicht — auch das ist Ehre.',
+    mx_code:'Der gesamte Code ist öffentlich — MIT-Lizenz',
     hero_kicker:"Die Bewegung",
     hero_sub:"Fähigkeit ist die Voraussetzung der Bürgerschaft. Du bist nicht frei, wenn jedes wesentliche Werkzeug deines Lebens — Identität, Stimme, Geld, Wissen — jemand anderem gehört.",
     hero_def:"— die Ehre. In der albanischen Tradition das einzige Gut, das nicht verliehen wird: Man erwirbt und verteidigt es.",
@@ -603,8 +710,13 @@ const T = {
     h8_eyebrow:'Motorn',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'En filosofi utan medel är en önskan. H8-Group är den oberoende ekonomiska motor som finansierar rörelsen — inga partipengar, inga utländska bidrag. Två projekt, en logik: suveränitet du kan röra vid.',
-    elea_t:'Elea Vending',
-    elea_p:'Den fysiska armen: oberoende varuautomater som betalar räkningarna och samtidigt fungerar som reläpunkter i nätverket. Varje maskin är en liten bit infrastruktur på gatan — kaffe ovanpå, suveränitet under.',
+    el_eyebrow:'Marken',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'H8-Groups fysiska arm: oberoende varuautomater som betalar räkningarna och bevisar filosofin på gatan. Inga investerare, ingen franchise — maskiner köpta begagnade, ombyggda för hand och placerade där människor faktiskt arbetar.',
+    el_f1_t:'Andra liv', el_f1_p:'Vi köper inga nya maskiner — vi återuppväcker gamla. Plåtarbete, foliering, 3D-printade delar, en surfplatta som nytt ansikte: en maskin på väg till skroten återvänder som modern enhet till en bråkdel av kostnaden, klädd i färgerna hos platsen som hyser den.',
+    el_f2_t:'En ärlig kassa', el_f2_p:'Ett AI-lager räknar varje mynt, följer varje varuparti från påfyllning till utgångsdatum och ordnar om hyllorna efter verklig efterfrågan. Nästan noll svinn, nästan noll räknefel — förtroende som går att granska.',
+    el_f3_t:'One Shot', el_f3_p:'Vårt eget kaffe: en tät espressoblandning med låg syra — Brasilien för kroppen, Indien för creman, Etiopien för aromen. Rostat i Italien i dag; albanska rosterier när vi växer. One shot: en enda klunk, tagen på allvar.',
+    elea_p2:'Och varje maskin lever ett dubbelliv. Ovanpå serverar den kaffe och betalar räkningarna som håller rörelsen oberoende; under kan den bära ett relä i M4TR1X-nätverket. Suveränitet, ett gathörn i taget.',
     nw_eyebrow:'Nyheter',
     nw_title:'Varför <em>nu</em>',
     nw_p1:'I åratal byggde vi i tysthet. Vi träder fram nu eftersom Albanien lever ett sällsynt ögonblick: i över en månad har medborgare fyllt torgen och krävt transparens och en stat som svarar inför sitt folk. Att tiga nu vore att förråda allt vad nderja betyder.',
@@ -621,6 +733,15 @@ const T = {
     mx_p1:'Vårt första instrument: ett decentraliserat socialt nätverk utan central server, utan konton, utan övervakning. Postkvantkryptografi, Tor-routing, självhostad identitet. Det finns ingen byggnad att razzia, ingen strömbrytare att slå av.',
     mx_p2:'Nätverket är ungt. Det växer nod för nod — och varje nod är en medborgares hus, inte ett företags torn. Kan du använda en dator kan du hålla en bit av nätverket.',
     mx_cta:'Kör en nod',
+    mx_cta2:'Hämta appen',
+    mx_p3:'Inuti finns allt ett socialt nätverk borde vara: flöde, stories, foton, video, musik, forum, krypterade meddelanden. Byggt på öppna protokoll — Nostr, PeerTube, Mastodon, Funkwhale — så att inget företag, inte ens vi, kan äga samtalet.',
+    mx_p4:'Identiteten är ett kryptografiskt nyckelpar signerat med ML-DSA-65, postkvantstandarden (NIST FIPS-204): det du publicerar i dag kan inte förfalskas i morgon. På censurerade nät går trafiken först genom Tor. Och allt är öppen källkod, MIT-licens — granska oss, tro oss inte på ordet.',
+    mx_f1_t:'Desktop', mx_f1_p:'Hela upplevelsen för Windows, macOS och Linux: flöde, stories, musik, forum, krypterade meddelanden. En app, inget konto — dina nycklar lämnar aldrig din maskin.',
+    mx_f2_t:'Mobil', mx_f2_p:'Android-APK och iOS-app med direktinstallation — ingen App Store, ingen grindvakt. Ladda ner, peka den mot en nod du litar på, klart.',
+    mx_f3_t:'Nod', mx_f3_p:'Det självhostade hjärtat: relä, medielagring och videoströmning i en enda server. En vanlig hemdator räcker för att göra en medborgare till infrastruktur.',
+    mx_f4_t:'AI-detektor', mx_f4_p:'En öppen detektor för AI-genererad video, kollektivt tränad genom nätverket självt. Ett nätverk byggt för sanning måste kunna känna igen en förfalskning.',
+    mx_stat:'Var vi står, ärligt: developer preview. Den första publika noden är online; mjukvaran är stabil nog att självhosta och bygga vidare på, ännu inte tänkt för högriskanvändning. Att säga vad som fungerar och vad som inte gör det — också det är heder.',
+    mx_code:'All kod är offentlig — MIT-licens',
     hero_kicker:"Rörelsen",
     hero_sub:"Förmåga är medborgarskapets förutsättning. Du är inte fri om varje väsentligt verktyg i ditt liv — identitet, röst, pengar, kunskap — tillhör någon annan.",
     hero_def:"— hedern. I den albanska traditionen den enda egendom som inte skänks: den förtjänas och försvaras.",
@@ -662,8 +783,13 @@ const T = {
     h8_eyebrow:'Η μηχανή',
     h8_title:'H8-<em>Group</em>',
     h8_p1:'Φιλοσοφία χωρίς μέσα είναι ευχή. Η H8-Group είναι η ανεξάρτητη οικονομική μηχανή που χρηματοδοτεί το κίνημα — χωρίς κομματικά χρήματα, χωρίς ξένες επιχορηγήσεις. Δύο έργα, μία λογική: κυριαρχία που μπορείς να αγγίξεις.',
-    elea_t:'Elea Vending',
-    elea_p:'Ο φυσικός βραχίονας: ανεξάρτητοι αυτόματοι πωλητές που πληρώνουν τους λογαριασμούς και λειτουργούν και ως σημεία αναμετάδοσης του δικτύου. Κάθε μηχανή είναι ένα μικρό κομμάτι υποδομής στον δρόμο — καφές από πάνω, κυριαρχία από κάτω.',
+    el_eyebrow:'Το έδαφος',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'Ο φυσικός βραχίονας της H8-Group: ανεξάρτητοι αυτόματοι πωλητές που πληρώνουν τους λογαριασμούς και αποδεικνύουν τη φιλοσοφία στον δρόμο. Χωρίς επενδυτές, χωρίς franchise — μηχανές αγορασμένες μεταχειρισμένες, ξαναχτισμένες στο χέρι και τοποθετημένες εκεί όπου οι άνθρωποι πραγματικά δουλεύουν.',
+    el_f1_t:'Δεύτερη ζωή', el_f1_p:'Δεν αγοράζουμε καινούργιες μηχανές — ανασταίνουμε παλιές. Φανοποιία, μεμβράνες περιτύλιξης, εξαρτήματα τυπωμένα σε 3D, ένα tablet ως νέο πρόσωπο: μια μηχανή προορισμένη για παλιοσίδερα επιστρέφει ως σύγχρονη μονάδα με ένα κλάσμα του κόστους, ντυμένη στα χρώματα του χώρου που τη φιλοξενεί.',
+    el_f2_t:'Ένα τίμιο ταμείο', el_f2_p:'Ένα στρώμα ΤΝ μετρά κάθε κέρμα, παρακολουθεί κάθε παρτίδα από τη φόρτωση ως την ημερομηνία λήξης και αναδιατάσσει τα ράφια κατά την πραγματική ζήτηση. Σχεδόν μηδέν σπατάλη, σχεδόν μηδέν λάθη μέτρησης — εμπιστοσύνη που ελέγχεται.',
+    el_f3_t:'One Shot', el_f3_p:'Ο δικός μας καφές: ένα πυκνό χαρμάνι espresso με χαμηλή οξύτητα — Βραζιλία για το σώμα, Ινδία για την κρέμα, Αιθιοπία για το άρωμα. Σήμερα καβουρδίζεται στην Ιταλία· αλβανικά καβουρδιστήρια καθώς μεγαλώνουμε. One shot: μία μόνο γουλιά, παρμένη στα σοβαρά.',
+    elea_p2:'Και κάθε μηχανή ζει διπλή ζωή. Από πάνω σερβίρει καφέ και πληρώνει τους λογαριασμούς που κρατούν το κίνημα ανεξάρτητο· από κάτω μπορεί να φιλοξενεί έναν αναμεταδότη του δικτύου M4TR1X. Κυριαρχία, μια γωνιά δρόμου τη φορά.',
     nw_eyebrow:'Νέα',
     nw_title:'Γιατί <em>τώρα</em>',
     nw_p1:'Για χρόνια χτίζαμε στη σιωπή. Βγαίνουμε στο φως τώρα γιατί η Αλβανία ζει μια σπάνια στιγμή: για πάνω από έναν μήνα, πολίτες γεμίζουν τις πλατείες απαιτώντας διαφάνεια και ένα κράτος που λογοδοτεί στον λαό του. Το να σιωπήσουμε τώρα θα πρόδιδε ό,τι σημαίνει η nderja.',
@@ -680,6 +806,15 @@ const T = {
     mx_p1:'Το πρώτο μας όργανο: ένα αποκεντρωμένο κοινωνικό δίκτυο χωρίς κεντρικό διακομιστή, χωρίς λογαριασμούς, χωρίς παρακολούθηση. Μετα-κβαντική κρυπτογραφία, δρομολόγηση Tor, αυτο-φιλοξενούμενη ταυτότητα. Δεν υπάρχει κτίριο για έφοδο, ούτε διακόπτης για κλείσιμο.',
     mx_p2:'Το δίκτυο είναι νέο. Μεγαλώνει κόμβο-κόμβο — και κάθε κόμβος είναι το σπίτι ενός πολίτη, όχι ο πύργος μιας εταιρείας. Αν ξέρεις να χειρίζεσαι έναν υπολογιστή, μπορείς να κρατήσεις ένα κομμάτι του δικτύου.',
     mx_cta:'Τρέξε έναν κόμβο',
+    mx_cta2:'Κατέβασε την εφαρμογή',
+    mx_p3:'Μέσα του υπάρχει ό,τι θα έπρεπε να είναι ένα κοινωνικό δίκτυο: ροή, stories, φωτογραφίες, βίντεο, μουσική, φόρουμ, κρυπτογραφημένα μηνύματα. Χτισμένο πάνω σε ανοιχτά πρωτόκολλα — Nostr, PeerTube, Mastodon, Funkwhale — ώστε καμία εταιρεία, ούτε εμείς, να μην μπορεί να κατέχει τη συζήτηση.',
+    mx_p4:'Η ταυτότητα είναι ένα ζεύγος κρυπτογραφικών κλειδιών υπογεγραμμένο με ML-DSA-65, το μετα-κβαντικό πρότυπο (NIST FIPS-204): ό,τι δημοσιεύεις σήμερα δεν μπορεί να πλαστογραφηθεί αύριο. Σε λογοκριμένα δίκτυα η κίνηση περνά πρώτα από το Tor. Και όλα είναι ανοιχτού κώδικα, με άδεια MIT — ελέγξτε μας, μη μας πιστεύετε στον λόγο.',
+    mx_f1_t:'Desktop', mx_f1_p:'Η πλήρης εμπειρία για Windows, macOS και Linux: ροή, stories, μουσική, φόρουμ, κρυπτογραφημένα μηνύματα. Μία εφαρμογή, κανένας λογαριασμός — τα κλειδιά σου δεν φεύγουν ποτέ από το μηχάνημά σου.',
+    mx_f2_t:'Mobile', mx_f2_p:'Android APK και εφαρμογή iOS με απευθείας εγκατάσταση — χωρίς App Store, χωρίς θυρωρούς. Κατεβάζεις, τη συνδέεις σε έναν κόμβο που εμπιστεύεσαι, τέλος.',
+    mx_f3_t:'Κόμβος', mx_f3_p:'Η αυτο-φιλοξενούμενη καρδιά: αναμεταδότης, αποθήκη πολυμέσων και ροή βίντεο σε έναν διακομιστή. Ένας συνηθισμένος οικιακός υπολογιστής αρκεί για να γίνει ένας πολίτης υποδομή.',
+    mx_f4_t:'Ανιχνευτής ΤΝ', mx_f4_p:'Ένας ανοιχτός ανιχνευτής βίντεο παραγμένων από ΤΝ, εκπαιδευμένος συλλογικά μέσα από το ίδιο το δίκτυο. Ένα δίκτυο χτισμένο για την αλήθεια πρέπει να ξέρει να αναγνωρίζει το ψεύτικο.',
+    mx_stat:'Πού βρισκόμαστε, ειλικρινά: developer preview. Ο πρώτος δημόσιος κόμβος είναι online· το λογισμικό είναι αρκετά σταθερό για αυτο-φιλοξενία και για να χτίσεις πάνω του, όχι ακόμη για χρήσεις υψηλού κινδύνου. Το να λες τι δουλεύει και τι όχι — κι αυτό είναι τιμή.',
+    mx_code:'Όλος ο κώδικας είναι δημόσιος — άδεια MIT',
     hero_kicker:"Το κίνημα",
     hero_sub:"Η ικανότητα είναι η προϋπόθεση της ιδιότητας του πολίτη. Δεν είσαι ελεύθερος αν κάθε βασικό εργαλείο της ζωής σου — ταυτότητα, φωνή, χρήμα, γνώση — ανήκει σε κάποιον άλλον.",
     hero_def:"— η τιμή. Στην αλβανική παράδοση, το μόνο αγαθό που δεν χαρίζεται: κατακτιέται και υπερασπίζεται.",
@@ -767,8 +902,22 @@ const T = {
     mx_p1:'Ons eerste instrument: een gedecentraliseerd sociaal netwerk zonder centrale server, zonder accounts, zonder toezicht. Post-kwantumcryptografie, Tor-routing, zelfgehoste identiteit. Er is geen gebouw om binnen te vallen, geen schakelaar om om te zetten.',
     mx_p2:'Het netwerk is jong. Het groeit knooppunt voor knooppunt — en elk knooppunt is het huis van een burger, niet de toren van een bedrijf. Kun je een computer bedienen, dan kun je een stuk van het netwerk dragen.',
     mx_cta:'Draai een node',
-    elea_t:'Elea Vending',
-    elea_p:'De fysieke arm: onafhankelijke verkoopautomaten die de rekeningen betalen en tegelijk dienen als relaispunten van het netwerk. Elke machine is een klein stuk infrastructuur op straat — koffie boven, soevereiniteit onder.',
+    mx_cta2:'Download de app',
+    mx_p3:"Binnenin zit alles wat een sociaal netwerk hoort te zijn: feed, stories, foto's, video, muziek, forums, versleutelde berichten. Gebouwd op open protocollen — Nostr, PeerTube, Mastodon, Funkwhale — zodat geen enkel bedrijf, ook wij niet, het gesprek kan bezitten.",
+    mx_p4:'De identiteit is een cryptografisch sleutelpaar, ondertekend met ML-DSA-65, de post-kwantumstandaard (NIST FIPS-204): wat je vandaag publiceert kan morgen niet worden vervalst. Op gecensureerde netwerken loopt het verkeer eerst via Tor. En alles is open source, MIT-licentie — controleer ons, geloof ons niet op ons woord.',
+    mx_f1_t:'Desktop', mx_f1_p:'De volledige ervaring voor Windows, macOS en Linux: feed, stories, muziek, forums, versleutelde berichten. Eén app, geen account — je sleutels verlaten nooit je machine.',
+    mx_f2_t:'Mobiel', mx_f2_p:'Android-APK en iOS-app via directe installatie — geen App Store, geen poortwachter. Downloaden, richten op een node die je vertrouwt, klaar.',
+    mx_f3_t:'Node', mx_f3_p:'Het zelfgehoste hart: relais, mediaopslag en videostreaming in één server. Een gewone thuiscomputer volstaat om van een burger infrastructuur te maken.',
+    mx_f4_t:'AI-detector', mx_f4_p:'Een open detector voor AI-gegenereerde video, collectief getraind via het netwerk zelf. Een netwerk gebouwd voor waarheid moet een vervalsing kunnen herkennen.',
+    mx_stat:'Waar we staan, eerlijk: developer preview. De eerste publieke node is online; de software is stabiel genoeg om zelf te hosten en op voort te bouwen, nog niet bedoeld voor gebruik met hoog risico. Zeggen wat werkt en wat niet — ook dat is eer.',
+    mx_code:'Alle code is openbaar — MIT-licentie',
+    el_eyebrow:'De grond',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'De fysieke arm van H8-Group: onafhankelijke verkoopautomaten die de rekeningen betalen en de filosofie op straat bewijzen. Geen investeerders, geen franchise — machines tweedehands gekocht, met de hand herbouwd en geplaatst waar mensen echt werken.',
+    el_f1_t:'Tweede leven', el_f1_p:'We kopen geen nieuwe machines — we wekken oude weer tot leven. Plaatwerk, wrapfolie, 3D-geprinte onderdelen, een tablet als nieuw gezicht: een machine op weg naar de schroothoop keert terug als moderne unit voor een fractie van de kosten, gekleed in de kleuren van de plek die haar huisvest.',
+    el_f2_t:'Een eerlijke kassa', el_f2_p:'Een AI-laag telt elke munt, volgt elke partij van het laden tot de vervaldatum en herschikt de schappen naar echte vraag. Bijna nul verspilling, bijna nul telfouten — vertrouwen dat je kunt controleren.',
+    el_f3_t:'One Shot', el_f3_p:'Onze eigen koffie: een dichte espressomelange met lage zuurgraad — Brazilië voor de body, India voor de crema, Ethiopië voor het aroma. Vandaag gebrand in Italië; Albanese branderijen naarmate we groeien. One shot: één slok, serieus genomen.',
+    elea_p2:'En elke machine leidt een dubbelleven. Boven schenkt ze koffie en betaalt ze de rekeningen die de beweging onafhankelijk houden; onder kan ze een relais van het M4TR1X-netwerk dragen. Soevereiniteit, één straathoek tegelijk.',
     nw_eyebrow:'Nieuws',
     nw_title:'Waarom <em>nu</em>',
     nw_p1:'Jarenlang bouwden we in stilte. We treden nu naar buiten omdat Albanië een zeldzaam moment beleeft: al meer dan een maand vullen burgers de pleinen met eisen om transparantie en een staat die verantwoording aflegt aan zijn volk. Nu zwijgen zou alles verraden wat nderja betekent.',
@@ -838,8 +987,22 @@ const T = {
     mx_p1:'Nuestro primer instrumento: una red social descentralizada sin servidor central, sin cuentas, sin vigilancia. Criptografía poscuántica, enrutamiento Tor, identidad autoalojada. No hay edificio que registrar ni interruptor que apagar.',
     mx_p2:'La red es joven. Crece nodo a nodo — y cada nodo es la casa de un ciudadano, no la torre de una empresa. Si sabes usar un ordenador, puedes sostener un pedazo de la red.',
     mx_cta:'Activa un nodo',
-    elea_t:'Elea Vending',
-    elea_p:'El brazo físico: máquinas expendedoras independientes que pagan las facturas y sirven a la vez como puntos de relé de la red. Cada máquina es un pequeño pedazo de infraestructura en la calle — café arriba, soberanía abajo.',
+    mx_cta2:'Descarga la app',
+    mx_p3:'Dentro está todo lo que una red social debería ser: feed, historias, fotos, vídeo, música, foros, mensajes cifrados. Construida sobre protocolos abiertos — Nostr, PeerTube, Mastodon, Funkwhale — para que ninguna empresa, ni siquiera nosotros, pueda poseer la conversación.',
+    mx_p4:'La identidad es un par de claves criptográficas firmado con ML-DSA-65, el estándar poscuántico (NIST FIPS-204): lo que publicas hoy no podrá falsificarse mañana. En redes censuradas el tráfico pasa primero por Tor. Y todo es código abierto, licencia MIT — verifícanos, no nos creas por nuestra palabra.',
+    mx_f1_t:'Escritorio', mx_f1_p:'La experiencia completa para Windows, macOS y Linux: feed, historias, música, foros, mensajes cifrados. Una app, ninguna cuenta — tus claves nunca salen de tu máquina.',
+    mx_f2_t:'Móvil', mx_f2_p:'APK de Android y app de iOS con instalación directa — sin App Store, sin porteros. Descargas, la apuntas a un nodo de confianza, listo.',
+    mx_f3_t:'Nodo', mx_f3_p:'El corazón autoalojado: relé, almacenamiento de medios y streaming de vídeo en un solo servidor. Un ordenador doméstico corriente basta para convertir a un ciudadano en infraestructura.',
+    mx_f4_t:'Detector de IA', mx_f4_p:'Un detector abierto de vídeo generado por IA, entrenado colectivamente a través de la propia red. Una red construida para la verdad debe saber reconocer una falsificación.',
+    mx_stat:'Dónde estamos, honestamente: developer preview. El primer nodo público está en línea; el software es lo bastante estable para autoalojarlo y construir encima, aún no pensado para usos de alto riesgo. Decir qué funciona y qué no — también eso es honor.',
+    mx_code:'Todo el código es público — licencia MIT',
+    el_eyebrow:'El terreno',
+    el_title:'Elea <em>Vending</em>',
+    elea_p1:'El brazo físico de H8-Group: máquinas expendedoras independientes que pagan las facturas y prueban la filosofía en la calle. Sin inversores, sin franquicia — máquinas compradas de segunda mano, reconstruidas a mano y colocadas donde la gente realmente trabaja.',
+    el_f1_t:'Segunda vida', el_f1_p:'No compramos máquinas nuevas — resucitamos las viejas. Chapa, vinilo, piezas impresas en 3D, una tableta como nuevo rostro: una máquina destinada al desguace vuelve como unidad moderna por una fracción del coste, vestida con los colores del lugar que la acoge.',
+    el_f2_t:'Una caja honesta', el_f2_p:'Una capa de IA cuenta cada moneda, sigue cada lote desde la carga hasta la fecha de caducidad y reordena los estantes según la demanda real. Casi cero desperdicio, casi cero errores de conteo — confianza que se puede auditar.',
+    el_f3_t:'One Shot', el_f3_p:'Nuestro propio café: una mezcla de espresso densa y de baja acidez — Brasil para el cuerpo, India para la crema, Etiopía para el aroma. Hoy tostado en Italia; tostadores albaneses a medida que crecemos. One shot: un solo sorbo, tomado en serio.',
+    elea_p2:'Y cada máquina lleva una doble vida. Arriba sirve café y paga las facturas que mantienen el movimiento independiente; abajo puede alojar un relé de la red M4TR1X. Soberanía, una esquina a la vez.',
     nw_eyebrow:'Noticias',
     nw_title:'Por qué <em>ahora</em>',
     nw_p1:'Durante años construimos en silencio. Salimos a la luz ahora porque Albania vive un momento raro: desde hace más de un mes, los ciudadanos llenan las plazas exigiendo transparencia y un Estado que responda a su pueblo. Callar ahora traicionaría todo lo que nderja significa.',
