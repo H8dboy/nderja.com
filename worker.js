@@ -21,7 +21,7 @@ async function api(req, env, url) {
 
   if (url.pathname === '/api/state' && req.method === 'GET') {
     const figures = (await db.prepare('SELECT id,name,photo FROM figures ORDER BY id').all()).results;
-    const pins = (await db.prepare('SELECT id,lat,lng,city,figure_id FROM pins ORDER BY id DESC LIMIT 5000').all()).results;
+    const pins = (await db.prepare('SELECT id,lat,lng,city,figure_id,vote FROM pins ORDER BY id DESC LIMIT 5000').all()).results;
     return ok({ figures, pins });
   }
 
@@ -31,12 +31,14 @@ async function api(req, env, url) {
     const lat = Number(b.lat), lng = Number(b.lng);
     const city = clean(b.city, 40);
     const fid = Number(b.figure_id);
+    const vote = Number(b.vote);
     if (!isFinite(lat) || !isFinite(lng) || lat < 38 || lat > 44.5 || lng < 18 || lng > 23.5) return bad('out of bounds');
     if (!city) return bad('city required');
+    if (vote !== 1 && vote !== -1) return bad('vote must be 1 or -1');
     const fig = await db.prepare('SELECT id FROM figures WHERE id=?').bind(fid).first();
     if (!fig) return bad('unknown figure');
-    const r = await db.prepare('INSERT INTO pins(lat,lng,city,figure_id) VALUES(?,?,?,?)').bind(lat, lng, city, fid).run();
-    return ok({ id: r.meta.last_row_id, lat, lng, city, figure_id: fid });
+    const r = await db.prepare('INSERT INTO pins(lat,lng,city,figure_id,vote) VALUES(?,?,?,?,?)').bind(lat, lng, city, fid, vote).run();
+    return ok({ id: r.meta.last_row_id, lat, lng, city, figure_id: fid, vote });
   }
 
   if (url.pathname === '/api/figures' && req.method === 'POST') {

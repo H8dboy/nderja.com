@@ -9,6 +9,7 @@ CREATE TABLE IF NOT EXISTS pins(
   lng REAL NOT NULL,
   city TEXT NOT NULL,
   figure_id INTEGER NOT NULL,
+  vote INTEGER NOT NULL DEFAULT 1,
   created_at TEXT DEFAULT (datetime('now'))
 );
 INSERT INTO figures(name,photo) SELECT 'Edi Rama','img/rama.jpg' WHERE NOT EXISTS(SELECT 1 FROM figures WHERE name='Edi Rama');

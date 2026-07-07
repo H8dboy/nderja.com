@@ -83,7 +83,12 @@
   .fig img,.fig .fava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
   .fig .fava{display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;font-size:1.1rem}
   .fig .fname{font-size:.9rem;color:var(--text)}
-  .fig .fcount{font-size:.75rem}
+  .fig .fth{display:flex;gap:.4rem;margin-top:.3rem}
+  .fig button.th{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--sans);
+    font-size:.8rem;padding:.15rem .55rem;cursor:pointer;transition:.25s;border-radius:3px}
+  .fig button.th:hover{border-color:var(--green-dim);color:var(--text)}
+  .fig button.th.sel-up{border-color:#2EE87A;color:#2EE87A}
+  .fig button.th.sel-dn{border-color:#FF5C5C;color:#FF5C5C}
   .mapform{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;align-items:stretch}
   .mapform input{background:var(--panel);border:1px solid var(--line);color:var(--text);font-family:var(--sans);padding:.6rem .9rem;font-size:.9rem;min-width:180px}
   .mapform input:focus{outline:none;border-color:var(--green)}
@@ -513,6 +518,7 @@
         <button class="btn" id="mp-addfig" data-i="mp_addfig">Add</button>
       </div>
       <div id="map"></div>
+      <p class="mapnote" data-i="mp_leg">Green = loved · Red = hated.</p>
       <p class="mapnote" id="mp-status"></p>
     </div>
   </section>
@@ -559,13 +565,14 @@ const T = {
     py_t:'Pyramid',
     mp_t:'Map',
     mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
-    mp_note:'1. Choose a figure · 2. Write your city · 3. Click your spot on the map.',
+    mp_note:'1. Thumb a figure up or down · 2. Write your city · 3. Click your spot on the map.',
     mp_who:'Who do you want?',
     mp_city:'Your city',
     mp_newfig:'Another name…',
     mp_addfig:'Add',
     mp_offline:'The shared map is not active yet — pins cannot be saved right now.',
-    mp_pick:'First choose who you stand with.',
+    mp_pick:'First give a figure a thumb up or down.',
+    mp_leg:'Green = loved · Red = hated.',
     vi_p1:'A state transparent by default, where power answers to citizens and decisions are made in the open. Institutions that serve, not rule. Infrastructure — digital and physical — owned by the people who use it. Honor as the measure of public life: what you refuse to sell, what you refuse to silence.',
     vi_p2:'This page is deliberately unfinished. As the movement grows we will add positions, facts and commitments here — where anyone can check them.',
     so_t:'Follow the signal',
@@ -654,13 +661,14 @@ const T = {
     py_t:'Piramida',
     mp_t:'Harta',
     mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
-    mp_note:'1. Zgjidh një figurë · 2. Shkruaj qytetin tënd · 3. Kliko vendin tënd në hartë.',
+    mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Shkruaj qytetin tënd · 3. Kliko vendin tënd në hartë.',
     mp_who:'Kë do ti?',
     mp_city:'Qyteti yt',
     mp_newfig:'Një emër tjetër…',
     mp_addfig:'Shto',
     mp_offline:'Harta e përbashkët nuk është ende aktive — gjilpërat nuk mund të ruhen tani.',
-    mp_pick:'Zgjidh më parë me kë qëndron.',
+    mp_pick:'Jepi më parë një figure pëlqim ose mospëlqim.',
+    mp_leg:'Jeshile = i dashur · E kuqe = i urryer.',
     vi_p1:'Një shtet transparent si rregull, ku pushteti u përgjigjet qytetarëve dhe vendimet merren në dritë të diellit. Institucione që shërbejnë, jo sundojnë. Infrastruktura — dixhitale dhe fizike — në pronësi të atyre që i përdorin. Nderi si masë e jetës publike: ajo që refuzon ta shesësh, ajo që refuzon ta heshtësh.',
     vi_p2:'Kjo faqe është qëllimisht e papërfunduar. Teksa lëvizja rritet, këtu do të shtojmë qëndrime, fakte dhe zotime — aty ku kushdo mund t\'i verifikojë.',
     so_t:'Ndiq sinjalin',
@@ -749,13 +757,14 @@ const T = {
     py_t:'Piramide',
     mp_t:'Mappa',
     mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
-    mp_note:'1. Scegli una figura · 2. Scrivi la tua città · 3. Clicca il tuo punto sulla mappa.',
+    mp_note:'1. Metti pollice su o giù a una figura · 2. Scrivi la tua città · 3. Clicca il tuo punto sulla mappa.',
     mp_who:'Chi vuoi?',
     mp_city:'La tua città',
     mp_newfig:'Un altro nome…',
     mp_addfig:'Aggiungi',
     mp_offline:'La mappa condivisa non è ancora attiva — per ora i pin non vengono salvati.',
-    mp_pick:'Prima scegli con chi stai.',
+    mp_pick:'Prima metti un pollice a una figura.',
+    mp_leg:'Verde = amato · Rosso = odiato.',
     vi_p1:"Uno Stato trasparente per impostazione, dove il potere risponde ai cittadini e le decisioni si prendono alla luce del sole. Istituzioni che servono, non comandano. Infrastrutture — digitali e fisiche — di proprietà di chi le usa. L'onore come misura della vita pubblica: ciò che rifiuti di vendere, ciò che rifiuti di tacere.",
     vi_p2:'Questa pagina è volutamente incompiuta. Man mano che il movimento cresce aggiungeremo qui posizioni, fatti e impegni — dove chiunque può verificarli.',
     so_t:'Segui il segnale',
@@ -844,13 +853,14 @@ const T = {
     py_t:'Pyramide',
     mp_t:'Carte',
     mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
-    mp_note:'1. Choisis une figure · 2. Écris ta ville · 3. Clique ton endroit sur la carte.',
+    mp_note:'1. Pouce haut ou bas pour une figure · 2. Écris ta ville · 3. Clique ton endroit sur la carte.',
     mp_who:'Qui veux-tu ?',
     mp_city:'Ta ville',
     mp_newfig:'Un autre nom…',
     mp_addfig:'Ajouter',
     mp_offline:'La carte partagée n’est pas encore active — les épingles ne peuvent pas être enregistrées pour l’instant.',
-    mp_pick:'Choisis d’abord avec qui tu te tiens.',
+    mp_pick:'Donne d’abord un pouce à une figure.',
+    mp_leg:'Vert = aimé · Rouge = détesté.',
     vi_p1:"Un État transparent par défaut, où le pouvoir répond aux citoyens et où les décisions se prennent au grand jour. Des institutions qui servent, pas qui règnent. Des infrastructures — numériques et physiques — appartenant à ceux qui les utilisent. L'honneur comme mesure de la vie publique : ce que tu refuses de vendre, ce que tu refuses de taire.",
     vi_p2:'Cette page est volontairement inachevée. À mesure que le mouvement grandit, nous y ajouterons des positions, des faits et des engagements — là où chacun peut les vérifier.',
     so_t:'Suis le signal',
@@ -939,13 +949,14 @@ const T = {
     py_t:'Pyramide',
     mp_t:'Karte',
     mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
-    mp_note:'1. Wähle eine Figur · 2. Schreib deine Stadt · 3. Klicke deinen Ort auf der Karte.',
+    mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Schreib deine Stadt · 3. Klicke deinen Ort auf der Karte.',
     mp_who:'Wen willst du?',
     mp_city:'Deine Stadt',
     mp_newfig:'Ein anderer Name…',
     mp_addfig:'Hinzufügen',
     mp_offline:'Die gemeinsame Karte ist noch nicht aktiv — Pins können gerade nicht gespeichert werden.',
-    mp_pick:'Wähle zuerst, zu wem du stehst.',
+    mp_pick:'Gib zuerst einer Figur einen Daumen.',
+    mp_leg:'Grün = geliebt · Rot = gehasst.',
     vi_p1:'Ein Staat, transparent von Grund auf, in dem die Macht den Bürgern antwortet und Entscheidungen im Offenen fallen. Institutionen, die dienen, nicht herrschen. Infrastruktur — digital und physisch — im Besitz derer, die sie nutzen. Ehre als Maß des öffentlichen Lebens: was du dich weigerst zu verkaufen, was du dich weigerst zu verschweigen.',
     vi_p2:'Diese Seite ist bewusst unvollendet. Während die Bewegung wächst, fügen wir hier Positionen, Fakten und Verpflichtungen hinzu — dort, wo jeder sie prüfen kann.',
     so_t:'Folge dem Signal',
@@ -1034,13 +1045,14 @@ const T = {
     py_t:'Pyramiden',
     mp_t:'Kartan',
     mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
-    mp_note:'1. Välj en figur · 2. Skriv din stad · 3. Klicka på din plats på kartan.',
+    mp_note:'1. Tumme upp eller ner för en figur · 2. Skriv din stad · 3. Klicka på din plats på kartan.',
     mp_who:'Vem vill du ha?',
     mp_city:'Din stad',
     mp_newfig:'Ett annat namn…',
     mp_addfig:'Lägg till',
     mp_offline:'Den delade kartan är inte aktiv ännu — nålar kan inte sparas just nu.',
-    mp_pick:'Välj först vem du står bakom.',
+    mp_pick:'Ge först en figur en tumme.',
+    mp_leg:'Grönt = älskad · Rött = hatad.',
     vi_p1:'En stat som är transparent som standard, där makten svarar inför medborgarna och besluten fattas i det öppna. Institutioner som tjänar, inte härskar. Infrastruktur — digital och fysisk — ägd av dem som använder den. Heder som måttet på det offentliga livet: det du vägrar sälja, det du vägrar tysta.',
     vi_p2:'Den här sidan är medvetet ofärdig. När rörelsen växer lägger vi till ståndpunkter, fakta och åtaganden här — där vem som helst kan granska dem.',
     so_t:'Följ signalen',
@@ -1129,13 +1141,14 @@ const T = {
     py_t:'Πυραμίδα',
     mp_t:'Χάρτης',
     mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
-    mp_note:'1. Διάλεξε μια φιγούρα · 2. Γράψε την πόλη σου · 3. Κάνε κλικ στο σημείο σου στον χάρτη.',
+    mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Γράψε την πόλη σου · 3. Κάνε κλικ στο σημείο σου στον χάρτη.',
     mp_who:'Ποιον θέλεις;',
     mp_city:'Η πόλη σου',
     mp_newfig:'Άλλο όνομα…',
     mp_addfig:'Πρόσθεσε',
     mp_offline:'Ο κοινός χάρτης δεν είναι ακόμη ενεργός — οι πινέζες δεν αποθηκεύονται προς το παρόν.',
-    mp_pick:'Διάλεξε πρώτα με ποιον στέκεσαι.',
+    mp_pick:'Δώσε πρώτα αντίχειρα σε μια φιγούρα.',
+    mp_leg:'Πράσινο = αγαπητός · Κόκκινο = μισητός.',
     vi_p1:'Ένα κράτος διαφανές εξ ορισμού, όπου η εξουσία λογοδοτεί στους πολίτες και οι αποφάσεις παίρνονται στο φως. Θεσμοί που υπηρετούν, δεν κυβερνούν. Υποδομές — ψηφιακές και φυσικές — ιδιοκτησία αυτών που τις χρησιμοποιούν. Η τιμή ως μέτρο της δημόσιας ζωής: αυτό που αρνείσαι να πουλήσεις, αυτό που αρνείσαι να αποσιωπήσεις.',
     vi_p2:'Αυτή η σελίδα είναι σκόπιμα ημιτελής. Όσο μεγαλώνει το κίνημα, θα προσθέτουμε εδώ θέσεις, γεγονότα και δεσμεύσεις — εκεί όπου καθένας μπορεί να τα ελέγξει.',
     so_t:'Ακολούθα το σήμα',
@@ -1284,13 +1297,14 @@ const T = {
     py_t:'Piramide',
     mp_t:'Kaart',
     mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
-    mp_note:'1. Kies een figuur · 2. Schrijf je stad · 3. Klik op jouw plek op de kaart.',
+    mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Schrijf je stad · 3. Klik op jouw plek op de kaart.',
     mp_who:'Wie wil je?',
     mp_city:'Jouw stad',
     mp_newfig:'Een andere naam…',
     mp_addfig:'Toevoegen',
     mp_offline:'De gedeelde kaart is nog niet actief — spelden kunnen nu niet worden opgeslagen.',
-    mp_pick:'Kies eerst achter wie je staat.',
+    mp_pick:'Geef eerst een figuur een duim.',
+    mp_leg:'Groen = geliefd · Rood = gehaat.',
     vi_p1:'Een staat die standaard transparant is, waar de macht verantwoording aflegt aan burgers en beslissingen in de openheid worden genomen. Instellingen die dienen, niet heersen. Infrastructuur — digitaal en fysiek — eigendom van wie haar gebruikt. Eer als maat van het publieke leven: wat je weigert te verkopen, wat je weigert te verzwijgen.',
     vi_p2:'Deze pagina is bewust onaf. Naarmate de beweging groeit voegen we hier standpunten, feiten en verbintenissen toe — waar iedereen ze kan controleren.',
     so_t:'Volg het signaal',
@@ -1391,13 +1405,14 @@ const T = {
     py_t:'Pirámide',
     mp_t:'Mapa',
     mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
-    mp_note:'1. Elige una figura · 2. Escribe tu ciudad · 3. Haz clic en tu lugar del mapa.',
+    mp_note:'1. Pulgar arriba o abajo a una figura · 2. Escribe tu ciudad · 3. Haz clic en tu lugar del mapa.',
     mp_who:'¿A quién quieres?',
     mp_city:'Tu ciudad',
     mp_newfig:'Otro nombre…',
     mp_addfig:'Añadir',
     mp_offline:'El mapa compartido aún no está activo — por ahora los pines no se guardan.',
-    mp_pick:'Primero elige con quién estás.',
+    mp_pick:'Primero dale un pulgar a una figura.',
+    mp_leg:'Verde = amado · Rojo = odiado.',
     vi_p1:'Un Estado transparente por defecto, donde el poder responde a los ciudadanos y las decisiones se toman a la luz del día. Instituciones que sirven, no gobiernan. Infraestructuras — digitales y físicas — propiedad de quienes las usan. El honor como medida de la vida pública: lo que te niegas a vender, lo que te niegas a callar.',
     vi_p2:'Esta página está deliberadamente inacabada. A medida que el movimiento crezca añadiremos aquí posiciones, hechos y compromisos — donde cualquiera pueda verificarlos.',
     so_t:'Sigue la señal',
@@ -1466,13 +1481,30 @@ document.querySelectorAll('#fr-sub button').forEach(b=>{
 });
 
 /* ---------- map (Harta) ---------- */
-const FIG_COLORS=['#FF5C5C','#5CA8FF','#FFD75C','#C05CFF','#FF9A5C','#2EE87A','#5CFFE8','#FF5CB8'];
-const ETHNIC_ALBANIA=[[38.95,20.73],[39.45,20.60],[40.05,20.75],[40.90,20.95],[41.10,20.85],[41.45,21.10],[42.00,21.50],[42.14,21.72],[42.47,21.77],[42.98,21.40],[43.10,20.80],[42.85,20.20],[42.62,19.90],[42.40,19.35],[42.10,19.08],[41.92,19.20],[41.81,19.57],[41.31,19.42],[40.60,19.30],[39.87,19.99],[39.65,20.05],[39.50,20.22]];
-let mapObj=null, mapLayer=null, selFig=null, MFIGS=[], MPINS=[], apiOK=false;
+const UP_C='#2EE87A', DN_C='#FF5C5C';
+const ETHNIC_ALBANIA=[
+  [38.96,20.75],[39.20,20.62],[39.47,20.51],[39.60,20.31],[39.80,20.55],[40.05,20.75],
+  [40.35,20.85],[40.65,20.85],[40.90,20.98],[41.00,21.00],[41.12,20.88],[41.35,21.00],
+  [41.51,20.96],[41.62,21.20],[41.80,21.25],[42.00,21.45],[42.14,21.72],[42.31,21.65],
+  [42.46,21.77],[42.83,21.58],[42.95,21.30],[43.05,21.00],[43.10,20.80],[42.95,20.65],
+  [42.84,20.17],[42.65,20.10],[42.60,19.94],[42.55,19.75],[42.37,19.33],[42.25,19.20],
+  [42.08,19.10],[41.92,19.20],[41.85,19.36],[41.81,19.59],[41.59,19.45],[41.31,19.44],
+  [40.75,19.40],[40.47,19.48],[40.42,19.28],[40.10,19.74],[39.88,20.01],[39.77,20.00],
+  [39.66,20.18],[39.50,20.22],[39.28,20.40]];
+let mapObj=null, mapLayer=null, mapPoly=null, selFig=null, selVote=0, MFIGS=[], MPINS=[], apiOK=false;
 const tr=k=>(T[LANG]&&T[LANG][k])||T.en[k]||k;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function mpStatus(msg){ document.getElementById('mp-status').textContent=msg||''; }
-function figColor(id){ const i=MFIGS.findIndex(x=>x.id===id); return FIG_COLORS[(i<0?0:i)%FIG_COLORS.length]; }
+function updateOverlay(){
+  if(!mapPoly) return;
+  let color=UP_C, op=.05;
+  if(selFig){
+    const ps=MPINS.filter(p=>p.figure_id===selFig);
+    const up=ps.filter(p=>p.vote>0).length, dn=ps.length-up;
+    if(ps.length){ const net=(up-dn)/ps.length; color=net<0?DN_C:UP_C; op=.07+.20*Math.abs(net); }
+  }
+  mapPoly.setStyle({color:color,fillColor:color,fillOpacity:op});
+}
 async function initMap(){
   if(mapObj){ setTimeout(()=>mapObj.invalidateSize(),60); return; }
   if(!window.L){
@@ -1485,7 +1517,7 @@ async function initMap(){
   mapObj=L.map('map').setView([41.2,20.4],7);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
     {attribution:'&copy; OpenStreetMap contributors &copy; CARTO',minZoom:6,maxZoom:13}).addTo(mapObj);
-  L.polygon(ETHNIC_ALBANIA,{color:'#2EE87A',weight:1.5,fillColor:'#2EE87A',fillOpacity:.05}).addTo(mapObj);
+  mapPoly=L.polygon(ETHNIC_ALBANIA,{color:UP_C,weight:1.5,fillColor:UP_C,fillOpacity:.05}).addTo(mapObj);
   mapLayer=L.layerGroup().addTo(mapObj);
   mapObj.on('click',e=>dropPin(e.latlng));
   await loadMapState();
@@ -1506,34 +1538,44 @@ async function loadMapState(){
 function renderFigs(){
   const box=document.getElementById('figs'); box.innerHTML='';
   MFIGS.forEach(f=>{
-    const n=MPINS.filter(p=>p.figure_id===f.id).length;
+    const up=MPINS.filter(p=>p.figure_id===f.id&&p.vote>0).length;
+    const dn=MPINS.filter(p=>p.figure_id===f.id&&p.vote<0).length;
     const d=document.createElement('div');
     d.className='fig'+(selFig===f.id?' sel':'');
     d.innerHTML=(f.photo?'<img src="'+esc(f.photo)+'" alt="">':'<span class="fava">'+esc((f.name.trim()[0]||'?').toUpperCase())+'</span>')
-      +'<span><span class="fname">'+esc(f.name)+'</span><br><span class="fcount" style="color:'+figColor(f.id)+'">&#9679; '+n+'</span></span>';
-    d.addEventListener('click',()=>{ selFig=f.id; renderFigs(); });
+      +'<span><span class="fname">'+esc(f.name)+'</span><span class="fth">'
+      +'<button class="th'+(selFig===f.id&&selVote>0?' sel-up':'')+'" data-v="1">&#128077; '+up+'</button>'
+      +'<button class="th'+(selFig===f.id&&selVote<0?' sel-dn':'')+'" data-v="-1">&#128078; '+dn+'</button>'
+      +'</span></span>';
+    d.querySelectorAll('.th').forEach(b=>b.addEventListener('click',ev=>{
+      ev.stopPropagation();
+      selFig=f.id; selVote=Number(b.dataset.v);
+      renderFigs(); renderPins(); mpStatus('');
+    }));
     box.appendChild(d);
   });
 }
 function renderPins(){
   if(!mapLayer) return;
   mapLayer.clearLayers();
-  MPINS.forEach(p=>{
+  MPINS.filter(p=>!selFig||p.figure_id===selFig).forEach(p=>{
     const f=MFIGS.find(x=>x.id===p.figure_id);
-    L.circleMarker([p.lat,p.lng],{radius:7,color:figColor(p.figure_id),weight:1.5,fillColor:figColor(p.figure_id),fillOpacity:.65})
-      .bindPopup('<b>'+esc(p.city)+'</b>'+(f?'<br>'+esc(f.name):''))
+    const c=p.vote<0?DN_C:UP_C;
+    L.circleMarker([p.lat,p.lng],{radius:7,color:c,weight:1.5,fillColor:c,fillOpacity:.65})
+      .bindPopup('<b>'+esc(p.city)+'</b>'+(f?'<br>'+(p.vote<0?'&#128078;':'&#128077;')+' '+esc(f.name):''))
       .addTo(mapLayer);
   });
+  updateOverlay();
 }
 async function dropPin(ll){
   if(!apiOK){ mpStatus(tr('mp_offline')); return; }
-  if(!selFig){ mpStatus(tr('mp_pick')); return; }
+  if(!selFig||!selVote){ mpStatus(tr('mp_pick')); return; }
   const cityEl=document.getElementById('mp-city');
   const city=cityEl.value.trim();
   if(!city){ mpStatus(tr('mp_city')+'?'); cityEl.focus(); return; }
   try{
     const r=await fetch('/api/pins',{method:'POST',headers:{'content-type':'application/json'},
-      body:JSON.stringify({lat:ll.lat,lng:ll.lng,city:city,figure_id:selFig})});
+      body:JSON.stringify({lat:ll.lat,lng:ll.lng,city:city,figure_id:selFig,vote:selVote})});
     if(!r.ok) throw 0;
     const p=await r.json();
     MPINS.push(p); renderFigs(); renderPins(); mpStatus('');
@@ -1549,7 +1591,7 @@ document.getElementById('mp-addfig').addEventListener('click',async()=>{
     if(!r.ok) throw 0;
     const f=await r.json();
     if(!MFIGS.find(x=>x.id===f.id)) MFIGS.push(f);
-    selFig=f.id; inp.value=''; renderFigs();
+    selFig=f.id; selVote=0; inp.value=''; renderFigs(); renderPins();
   }catch(e){ mpStatus(tr('mp_offline')); }
 });
 
