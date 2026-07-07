@@ -93,6 +93,14 @@
   .mapform input{background:var(--panel);border:1px solid var(--line);color:var(--text);font-family:var(--sans);padding:.6rem .9rem;font-size:.9rem;min-width:180px}
   .mapform input:focus{outline:none;border-color:var(--green)}
   .mapform .btn{background:none;cursor:pointer;font-family:var(--sans)}
+  .searchwrap{position:relative;flex:1;min-width:210px;display:flex}
+  .searchwrap input{width:100%}
+  .sugg{position:absolute;top:100%;left:0;right:0;z-index:900;background:var(--panel);border:1px solid var(--line);
+    max-height:290px;overflow-y:auto;display:none}
+  .sugg.open{display:block}
+  .sugg .sp{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:var(--green);padding:.55rem .8rem .15rem}
+  .sugg .si{padding:.42rem .8rem;font-size:.9rem;color:var(--text);cursor:pointer}
+  .sugg .si:hover{background:var(--line)}
   .mapnote{font-size:.8rem;color:var(--muted);margin-top:.8rem;max-width:680px}
 
   /* ---------- hero ---------- */
@@ -513,7 +521,10 @@
       <div class="mapwho" data-i="mp_who">Who do you want?</div>
       <div class="figs" id="figs"></div>
       <div class="mapform">
-        <input id="mp-city" maxlength="40" placeholder="Your city" data-i-ph="mp_city">
+        <span class="searchwrap">
+          <input id="mp-city" maxlength="40" placeholder="Search your city or area" data-i-ph="mp_city" autocomplete="off">
+          <div class="sugg" id="mp-sugg"></div>
+        </span>
         <input id="mp-newfig" maxlength="40" placeholder="Another name…" data-i-ph="mp_newfig">
         <button class="btn" id="mp-addfig" data-i="mp_addfig">Add</button>
       </div>
@@ -565,9 +576,9 @@ const T = {
     py_t:'Pyramid',
     mp_t:'Map',
     mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
-    mp_note:'1. Thumb a figure up or down · 2. Write your city · 3. Click your spot on the map.',
+    mp_note:'1. Thumb a figure up or down · 2. Search your city or area and pick it from the list · 3. Or click your spot on the map.',
     mp_who:'Who do you want?',
-    mp_city:'Your city',
+    mp_city:'Search your city or area',
     mp_newfig:'Another name…',
     mp_addfig:'Add',
     mp_offline:'The shared map is not active yet — pins cannot be saved right now.',
@@ -661,9 +672,9 @@ const T = {
     py_t:'Piramida',
     mp_t:'Harta',
     mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
-    mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Shkruaj qytetin tënd · 3. Kliko vendin tënd në hartë.',
+    mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Kërko qytetin a zonën tënde dhe zgjidhe nga lista · 3. Ose kliko vendin tënd në hartë.',
     mp_who:'Kë do ti?',
-    mp_city:'Qyteti yt',
+    mp_city:'Kërko qytetin a zonën tënde',
     mp_newfig:'Një emër tjetër…',
     mp_addfig:'Shto',
     mp_offline:'Harta e përbashkët nuk është ende aktive — gjilpërat nuk mund të ruhen tani.',
@@ -757,9 +768,9 @@ const T = {
     py_t:'Piramide',
     mp_t:'Mappa',
     mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
-    mp_note:'1. Metti pollice su o giù a una figura · 2. Scrivi la tua città · 3. Clicca il tuo punto sulla mappa.',
+    mp_note:'1. Metti pollice su o giù a una figura · 2. Cerca la tua città o zona e scegli dalla lista · 3. Oppure clicca il tuo punto sulla mappa.',
     mp_who:'Chi vuoi?',
-    mp_city:'La tua città',
+    mp_city:'Cerca la tua città o zona',
     mp_newfig:'Un altro nome…',
     mp_addfig:'Aggiungi',
     mp_offline:'La mappa condivisa non è ancora attiva — per ora i pin non vengono salvati.',
@@ -853,9 +864,9 @@ const T = {
     py_t:'Pyramide',
     mp_t:'Carte',
     mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
-    mp_note:'1. Pouce haut ou bas pour une figure · 2. Écris ta ville · 3. Clique ton endroit sur la carte.',
+    mp_note:'1. Pouce haut ou bas pour une figure · 2. Cherche ta ville ou ta zone et choisis dans la liste · 3. Ou clique ton endroit sur la carte.',
     mp_who:'Qui veux-tu ?',
-    mp_city:'Ta ville',
+    mp_city:'Cherche ta ville ou ta zone',
     mp_newfig:'Un autre nom…',
     mp_addfig:'Ajouter',
     mp_offline:'La carte partagée n’est pas encore active — les épingles ne peuvent pas être enregistrées pour l’instant.',
@@ -949,9 +960,9 @@ const T = {
     py_t:'Pyramide',
     mp_t:'Karte',
     mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
-    mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Schreib deine Stadt · 3. Klicke deinen Ort auf der Karte.',
+    mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Such deine Stadt oder Gegend und wähl aus der Liste · 3. Oder klicke deinen Ort auf der Karte.',
     mp_who:'Wen willst du?',
-    mp_city:'Deine Stadt',
+    mp_city:'Such deine Stadt oder Gegend',
     mp_newfig:'Ein anderer Name…',
     mp_addfig:'Hinzufügen',
     mp_offline:'Die gemeinsame Karte ist noch nicht aktiv — Pins können gerade nicht gespeichert werden.',
@@ -1045,9 +1056,9 @@ const T = {
     py_t:'Pyramiden',
     mp_t:'Kartan',
     mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
-    mp_note:'1. Tumme upp eller ner för en figur · 2. Skriv din stad · 3. Klicka på din plats på kartan.',
+    mp_note:'1. Tumme upp eller ner för en figur · 2. Sök din stad eller ditt område och välj från listan · 3. Eller klicka på din plats på kartan.',
     mp_who:'Vem vill du ha?',
-    mp_city:'Din stad',
+    mp_city:'Sök din stad eller ditt område',
     mp_newfig:'Ett annat namn…',
     mp_addfig:'Lägg till',
     mp_offline:'Den delade kartan är inte aktiv ännu — nålar kan inte sparas just nu.',
@@ -1141,9 +1152,9 @@ const T = {
     py_t:'Πυραμίδα',
     mp_t:'Χάρτης',
     mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
-    mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Γράψε την πόλη σου · 3. Κάνε κλικ στο σημείο σου στον χάρτη.',
+    mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Αναζήτησε την πόλη σου και διάλεξε από τη λίστα · 3. Ή κάνε κλικ στο σημείο σου στον χάρτη.',
     mp_who:'Ποιον θέλεις;',
-    mp_city:'Η πόλη σου',
+    mp_city:'Αναζήτησε την πόλη ή την περιοχή σου',
     mp_newfig:'Άλλο όνομα…',
     mp_addfig:'Πρόσθεσε',
     mp_offline:'Ο κοινός χάρτης δεν είναι ακόμη ενεργός — οι πινέζες δεν αποθηκεύονται προς το παρόν.',
@@ -1297,9 +1308,9 @@ const T = {
     py_t:'Piramide',
     mp_t:'Kaart',
     mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
-    mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Schrijf je stad · 3. Klik op jouw plek op de kaart.',
+    mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Zoek je stad of streek en kies uit de lijst · 3. Of klik op jouw plek op de kaart.',
     mp_who:'Wie wil je?',
-    mp_city:'Jouw stad',
+    mp_city:'Zoek je stad of streek',
     mp_newfig:'Een andere naam…',
     mp_addfig:'Toevoegen',
     mp_offline:'De gedeelde kaart is nog niet actief — spelden kunnen nu niet worden opgeslagen.',
@@ -1405,9 +1416,9 @@ const T = {
     py_t:'Pirámide',
     mp_t:'Mapa',
     mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
-    mp_note:'1. Pulgar arriba o abajo a una figura · 2. Escribe tu ciudad · 3. Haz clic en tu lugar del mapa.',
+    mp_note:'1. Pulgar arriba o abajo a una figura · 2. Busca tu ciudad o zona y elígela de la lista · 3. O haz clic en tu lugar del mapa.',
     mp_who:'¿A quién quieres?',
-    mp_city:'Tu ciudad',
+    mp_city:'Busca tu ciudad o zona',
     mp_newfig:'Otro nombre…',
     mp_addfig:'Añadir',
     mp_offline:'El mapa compartido aún no está activo — por ahora los pines no se guardan.',
@@ -1567,11 +1578,11 @@ function renderPins(){
   });
   updateOverlay();
 }
-async function dropPin(ll){
+async function dropPin(ll,cityName){
   if(!apiOK){ mpStatus(tr('mp_offline')); return; }
   if(!selFig||!selVote){ mpStatus(tr('mp_pick')); return; }
   const cityEl=document.getElementById('mp-city');
-  const city=cityEl.value.trim();
+  const city=(cityName||cityEl.value).trim().slice(0,40);
   if(!city){ mpStatus(tr('mp_city')+'?'); cityEl.focus(); return; }
   try{
     const r=await fetch('/api/pins',{method:'POST',headers:{'content-type':'application/json'},
@@ -1593,6 +1604,77 @@ document.getElementById('mp-addfig').addEventListener('click',async()=>{
     if(!MFIGS.find(x=>x.id===f.id)) MFIGS.push(f);
     selFig=f.id; selVote=0; inp.value=''; renderFigs(); renderPins();
   }catch(e){ mpStatus(tr('mp_offline')); }
+});
+
+/* city search: places of ethnic Albania grouped by province [name, province, lat, lng] */
+const PLACES=[
+/* Shqipëri — qarqet */
+['Tiranë','Tiranë',41.328,19.818],['Kamëz','Tiranë',41.382,19.760],['Vorë','Tiranë',41.390,19.655],['Kavajë','Tiranë',41.185,19.557],['Rrogozhinë','Tiranë',41.076,19.665],
+['Durrës','Durrës',41.323,19.456],['Shijak','Durrës',41.345,19.567],['Krujë','Durrës',41.509,19.793],['Fushë-Krujë','Durrës',41.478,19.718],
+['Shkodër','Shkodër',42.068,19.512],['Koplik','Shkodër',42.213,19.436],['Pukë','Shkodër',42.044,19.899],['Vau i Dejës','Shkodër',42.010,19.624],['Fushë-Arrëz','Shkodër',42.062,20.017],
+['Kukës','Kukës',42.077,20.422],['Krumë','Kukës',42.196,20.414],['Bajram Curri','Kukës',42.357,20.076],['Tropojë','Kukës',42.393,20.157],
+['Lezhë','Lezhë',41.784,19.643],['Laç','Lezhë',41.635,19.713],['Rrëshen','Lezhë',41.767,19.876],['Mamurras','Lezhë',41.577,19.692],
+['Peshkopi','Dibër',41.685,20.428],['Burrel','Dibër',41.610,20.009],['Bulqizë','Dibër',41.491,20.222],['Klos','Dibër',41.507,20.086],
+['Elbasan','Elbasan',41.113,20.082],['Cërrik','Elbasan',41.032,19.976],['Peqin','Elbasan',41.045,19.751],['Gramsh','Elbasan',40.869,20.184],['Librazhd','Elbasan',41.179,20.315],['Prrenjas','Elbasan',41.073,20.549],
+['Fier','Fier',40.724,19.556],['Lushnjë','Fier',40.941,19.705],['Patos','Fier',40.685,19.619],['Divjakë','Fier',40.996,19.529],['Ballsh','Fier',40.598,19.735],['Roskovec','Fier',40.737,19.702],
+['Berat','Berat',40.705,19.952],['Kuçovë','Berat',40.800,19.917],['Poliçan','Berat',40.612,20.097],['Çorovodë','Berat',40.504,20.227],
+['Korçë','Korçë',40.614,20.777],['Pogradec','Korçë',40.902,20.652],['Bilisht','Korçë',40.627,20.990],['Maliq','Korçë',40.706,20.700],['Ersekë','Korçë',40.338,20.679],['Leskovik','Korçë',40.151,20.597],
+['Vlorë','Vlorë',40.466,19.489],['Sarandë','Vlorë',39.875,20.005],['Himarë','Vlorë',40.101,19.744],['Delvinë','Vlorë',39.951,20.096],['Orikum','Vlorë',40.325,19.471],['Selenicë','Vlorë',40.530,19.635],['Konispol','Vlorë',39.658,20.180],['Ksamil','Vlorë',39.767,19.998],
+['Gjirokastër','Gjirokastër',40.076,20.139],['Tepelenë','Gjirokastër',40.296,20.019],['Përmet','Gjirokastër',40.234,20.351],['Libohovë','Gjirokastër',40.031,20.263],['Memaliaj','Gjirokastër',40.351,19.980],
+/* Kosovë — rajonet */
+['Prishtinë','Prishtinë',42.663,21.165],['Podujevë','Prishtinë',42.910,21.193],['Fushë Kosovë','Prishtinë',42.630,21.097],['Obiliq','Prishtinë',42.687,21.070],['Lipjan','Prishtinë',42.524,21.126],['Drenas','Prishtinë',42.618,20.894],['Graçanicë','Prishtinë',42.600,21.193],
+['Mitrovicë','Mitrovicë',42.891,20.866],['Vushtrri','Mitrovicë',42.823,20.968],['Skenderaj','Mitrovicë',42.746,20.789],['Leposaviq','Mitrovicë',43.104,20.802],['Zubin Potok','Mitrovicë',42.914,20.689],['Zveçan','Mitrovicë',42.907,20.843],
+['Pejë','Pejë',42.660,20.288],['Istog','Pejë',42.781,20.489],['Klinë','Pejë',42.622,20.578],['Deçan','Pejë',42.540,20.288],['Junik','Pejë',42.476,20.278],
+['Gjakovë','Gjakovë',42.380,20.431],['Rahovec','Gjakovë',42.399,20.654],['Malishevë','Gjakovë',42.482,20.746],
+['Prizren','Prizren',42.213,20.742],['Suharekë','Prizren',42.359,20.825],['Dragash','Prizren',42.062,20.653],['Mamushë','Prizren',42.318,20.722],
+['Ferizaj','Ferizaj',42.370,21.155],['Kaçanik','Ferizaj',42.232,21.259],['Shtime','Ferizaj',42.433,21.040],['Hani i Elezit','Ferizaj',42.153,21.298],['Shtërpcë','Ferizaj',42.240,21.027],
+['Gjilan','Gjilan',42.463,21.469],['Kamenicë','Gjilan',42.578,21.575],['Viti','Gjilan',42.321,21.358],['Novobërdë','Gjilan',42.616,21.436],
+/* Maqedoni — viset shqiptare */
+['Tetovë','Pollog',42.010,20.972],['Gostivar','Pollog',41.797,20.908],['Bogovinë','Pollog',41.924,20.913],['Brvenicë','Pollog',41.968,20.980],['Vrapçishtë','Pollog',41.834,20.884],['Zhelinë','Pollog',41.980,21.062],['Tearcë','Pollog',42.078,21.052],
+['Shkup','Shkup',42.005,21.409],['Saraj','Shkup',42.003,21.322],['Haraçinë','Shkup',42.063,21.552],['Studeniçan','Shkup',41.916,21.348],
+['Kumanovë','Kumanovë',42.136,21.718],['Likovë','Kumanovë',42.220,21.633],
+['Strugë','Strugë–Kërçovë',41.178,20.678],['Kërçovë','Strugë–Kërçovë',41.513,20.959],['Dibër e Madhe','Strugë–Kërçovë',41.525,20.527],['Resnjë','Strugë–Kërçovë',41.089,21.012],
+/* Mali i Zi */
+['Ulqin','Mali i Zi',41.929,19.205],['Tuz','Mali i Zi',42.365,19.331],['Plavë','Mali i Zi',42.597,19.945],['Guci','Mali i Zi',42.554,19.831],['Rozhajë','Mali i Zi',42.839,20.167],['Tivar','Mali i Zi',42.093,19.100],
+/* Lugina e Preshevës */
+['Preshevë','Lugina e Preshevës',42.309,21.650],['Bujanoc','Lugina e Preshevës',42.459,21.767],['Medvegjë','Lugina e Preshevës',42.844,21.584],
+/* Çamëri */
+['Filat','Çamëri',39.603,20.313],['Gumenicë','Çamëri',39.504,20.266],['Paramithi','Çamëri',39.473,20.512],['Margëlliç','Çamëri',39.365,20.417],['Parga','Çamëri',39.285,20.400],['Prevezë','Çamëri',38.959,20.752],['Konicë','Çamëri',40.048,20.748],['Janinë','Çamëri',39.665,20.851]
+];
+const normTxt=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+const cityInput=document.getElementById('mp-city');
+const suggBox=document.getElementById('mp-sugg');
+let suggHits=[];
+function renderSugg(q){
+  suggBox.innerHTML=''; suggHits=[];
+  if(!q){ suggBox.classList.remove('open'); return; }
+  const nq=normTxt(q);
+  const hits=PLACES.filter(p=>normTxt(p[0]).includes(nq)||normTxt(p[1]).includes(nq)).slice(0,14);
+  if(!hits.length){ suggBox.classList.remove('open'); return; }
+  let lastP=null;
+  hits.forEach(p=>{
+    if(p[1]!==lastP){
+      lastP=p[1];
+      const h=document.createElement('div'); h.className='sp'; h.textContent=p[1]; suggBox.appendChild(h);
+    }
+    const d=document.createElement('div'); d.className='si'; d.textContent=p[0];
+    d.addEventListener('mousedown',ev=>{ ev.preventDefault(); pickPlace(p); });
+    suggBox.appendChild(d); suggHits.push(p);
+  });
+  suggBox.classList.add('open');
+}
+function pickPlace(p){
+  cityInput.value=p[0]; suggBox.classList.remove('open');
+  if(mapObj) mapObj.setView([p[2],p[3]],10);
+  const jl=p[2]+(Math.random()-.5)*.016, jg=p[3]+(Math.random()-.5)*.016;
+  dropPin({lat:jl,lng:jg}, p[0]+' ('+p[1]+')');
+}
+cityInput.addEventListener('input',()=>renderSugg(cityInput.value.trim()));
+cityInput.addEventListener('focus',()=>renderSugg(cityInput.value.trim()));
+cityInput.addEventListener('blur',()=>setTimeout(()=>suggBox.classList.remove('open'),150));
+cityInput.addEventListener('keydown',e=>{
+  if(e.key==='Enter'&&suggHits.length){ e.preventDefault(); pickPlace(suggHits[0]); }
+  if(e.key==='Escape') suggBox.classList.remove('open');
 });
 
 /* floating join button: show label for a few seconds on load */
