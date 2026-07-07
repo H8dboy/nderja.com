@@ -80,6 +80,7 @@
   .pillar{background:var(--panel);padding:2.2rem 1.8rem}
   .pillar h3{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--green);font-weight:500;margin-bottom:.8rem}
   .pillar p{font-size:.95rem;margin:0}
+  .pillar .btn{font-size:.72rem;letter-spacing:.15em;padding:.55rem .9rem;margin:.9rem .5rem 0 0}
 
   blockquote{border-left:2px solid var(--green);padding:.4rem 0 .4rem 1.6rem;margin:3rem 0;
     font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.5;color:var(--text);max-width:680px}
@@ -279,10 +280,45 @@
       <p style="margin-top:2.5rem" data-i="mx_stat">Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.</p>
       <p data-i="mx_p2">The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.</p>
       <p style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="#download" class="btn" data-i="mx_cta2">Get the app</a>
         <a href="https://github.com/H8dboy/m4tr1x-node" class="btn" data-i="mx_cta">Run a node</a>
-        <a href="https://github.com/H8dboy/m4tr1x-electron" class="btn" data-i="mx_cta2">Get the app</a>
       </p>
       <div class="srcnote"><span data-i="mx_code">All code is public — MIT license</span>: <a href="https://github.com/H8dboy/m4tr1x-electron" target="_blank" rel="noopener">m4tr1x-electron</a> · <a href="https://github.com/H8dboy/m4tr1x-android" target="_blank" rel="noopener">m4tr1x-android</a> · <a href="https://github.com/H8dboy/m4tr1x-node" target="_blank" rel="noopener">m4tr1x-node</a> · <a href="https://github.com/H8dboy/m4tr1x-ai-detector" target="_blank" rel="noopener">m4tr1x-ai-detector</a></div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section id="download">
+    <div class="frame">
+      <div class="eyebrow" data-i="dl_eyebrow">Download</div>
+      <h2 data-i-html="dl_title">Get <em>M4TR1X</em></h2>
+      <p data-i="dl_p1">No store, no account, no middleman. These buttons always point to the latest official build — download, install, connect to a node you trust.</p>
+      <p id="dl-ver" style="font-size:.85rem;letter-spacing:.1em;color:var(--muted)"></p>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3>Windows</h3>
+          <a class="btn" id="dl-win" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X.Setup.2.4.0.exe">.exe installer</a>
+        </div>
+        <div class="pillar reveal">
+          <h3>macOS</h3>
+          <a class="btn" id="dl-mac-arm" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0-arm64.dmg">Apple Silicon .dmg</a>
+          <a class="btn" id="dl-mac" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0.dmg">Intel .dmg</a>
+        </div>
+        <div class="pillar reveal">
+          <h3>Linux</h3>
+          <a class="btn" id="dl-linux" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0.AppImage">.AppImage</a>
+          <a class="btn" id="dl-deb" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/m4tr1x_2.4.0_amd64.deb">.deb</a>
+        </div>
+        <div class="pillar reveal">
+          <h3>Android</h3>
+          <a class="btn" id="dl-apk" href="https://github.com/H8dboy/m4tr1x-android/releases/latest/download/M4TR1X.apk">.apk</a>
+        </div>
+        <div class="pillar reveal">
+          <h3>iOS</h3>
+          <p data-i="dl_ios">The iOS app exists, but Apple does not allow direct installation without its signature. We are working on a distribution path — meanwhile, on iPhone you can use the web interface of a node.</p>
+        </div>
+      </div>
+      <div class="srcnote"><span data-i="dl_verify">Checksums &amp; release notes</span>: <a href="https://github.com/H8dboy/m4tr1x-electron/releases/latest" target="_blank" rel="noopener">desktop</a> · <a href="https://github.com/H8dboy/m4tr1x-android/releases/latest" target="_blank" rel="noopener">android</a></div>
     </div>
   </section>
 
@@ -377,6 +413,11 @@ const T = {
     mx_f4_t:'AI Detector', mx_f4_p:'An open detector for AI-generated video, trained collectively through the network itself. A network built for truth must be able to recognize a fake.',
     mx_stat:"Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.",
     mx_code:'All code is public — MIT license',
+    dl_eyebrow:'Download',
+    dl_title:'Get <em>M4TR1X</em>',
+    dl_p1:'No store, no account, no middleman. These buttons always point to the latest official build — download, install, connect to a node you trust.',
+    dl_ios:'The iOS app exists, but Apple does not allow direct installation without its signature. We are working on a distribution path — meanwhile, on iPhone you can use the web interface of a node.',
+    dl_verify:'Checksums & release notes',
     hero_kicker:"The movement",
     hero_sub:"Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.",
     hero_def:"— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.",
@@ -450,6 +491,11 @@ const T = {
     mx_f4_t:'Detektori i IA-së', mx_f4_p:'Një detektor i hapur për video të krijuara nga IA, i stërvitur kolektivisht përmes vetë rrjetit. Një rrjet i ndërtuar për të vërtetën duhet të dijë të njohë një falsifikim.',
     mx_stat:'Ku jemi, me ndershmëri: developer preview. Nyja e parë publike është online; softueri është mjaft i qëndrueshëm për ta vetë-strehuar dhe për të ndërtuar mbi të, ende jo për përdorime me rrezik të lartë. Të thuash çfarë punon e çfarë jo — edhe kjo është nder.',
     mx_code:'I gjithë kodi është publik — licencë MIT',
+    dl_eyebrow:'Shkarko',
+    dl_title:'Merr <em>M4TR1X</em>',
+    dl_p1:'Pa store, pa llogari, pa ndërmjetës. Këta butona çojnë gjithmonë te build-i i fundit zyrtar — shkarko, instalo, lidhu me një nyjë që i beson.',
+    dl_ios:'Aplikacioni për iOS ekziston, por Apple nuk lejon instalim të drejtpërdrejtë pa firmën e vet. Po punojmë për një rrugë shpërndarjeje — ndërkohë nga iPhone mund të përdorësh ndërfaqen web të një nyje.',
+    dl_verify:'Checksum-et dhe shënimet e versionit',
     hero_kicker:"Lëvizja",
     hero_sub:"Aftësia është parakushti i qytetarisë. Nuk je i lirë nëse çdo mjet thelbësor i jetës tënde — identiteti, zëri, paraja, dija — i përket dikujt tjetër.",
     hero_def:"— nderi. Në traditën shqiptare, e vetmja pasuri që nuk dhurohet: fitohet dhe mbrohet.",
@@ -523,6 +569,11 @@ const T = {
     mx_f4_t:'AI Detector', mx_f4_p:"Un rilevatore aperto di video generati dall'IA, addestrato collettivamente attraverso la rete stessa. Una rete costruita per la verità deve saper riconoscere un falso.",
     mx_stat:'Dove siamo, onestamente: developer preview. Il primo nodo pubblico è online; il software è abbastanza stabile da essere self-hostato e da costruirci sopra, non ancora pensato per usi ad alto rischio. Dire cosa funziona e cosa no — anche questo è onore.',
     mx_code:'Tutto il codice è pubblico — licenza MIT',
+    dl_eyebrow:'Download',
+    dl_title:'Scarica <em>M4TR1X</em>',
+    dl_p1:"Niente store, niente account, niente intermediari. Questi pulsanti puntano sempre all'ultima build ufficiale — scarichi, installi, ti colleghi a un nodo di cui ti fidi.",
+    dl_ios:"L'app iOS esiste, ma Apple non permette l'installazione diretta senza la sua firma. Stiamo lavorando a una via di distribuzione — nel frattempo da iPhone puoi usare l'interfaccia web di un nodo.",
+    dl_verify:'Checksum e note di rilascio',
     hero_kicker:"Il movimento",
     hero_sub:"La capacità è il prerequisito della cittadinanza. Non sei libero se ogni strumento essenziale della tua vita — identità, voce, denaro, conoscenza — appartiene a qualcun altro.",
     hero_def:"— onore. Nella tradizione albanese, l'unico bene che non si concede: si conquista e si difende.",
@@ -596,6 +647,11 @@ const T = {
     mx_f4_t:'Détecteur IA', mx_f4_p:'Un détecteur ouvert de vidéos générées par IA, entraîné collectivement à travers le réseau lui-même. Un réseau construit pour la vérité doit savoir reconnaître un faux.',
     mx_stat:"Où nous en sommes, honnêtement : developer preview. Le premier nœud public est en ligne ; le logiciel est assez stable pour être auto-hébergé et servir de base, pas encore pensé pour des usages à haut risque. Dire ce qui marche et ce qui ne marche pas — c'est aussi cela, l'honneur.",
     mx_code:'Tout le code est public — licence MIT',
+    dl_eyebrow:'Télécharger',
+    dl_title:'Obtenir <em>M4TR1X</em>',
+    dl_p1:"Pas de store, pas de compte, pas d'intermédiaire. Ces boutons pointent toujours vers la dernière version officielle — télécharge, installe, connecte-toi à un nœud de confiance.",
+    dl_ios:"L'application iOS existe, mais Apple n'autorise pas l'installation directe sans sa signature. Nous travaillons sur une voie de distribution — en attendant, sur iPhone tu peux utiliser l'interface web d'un nœud.",
+    dl_verify:'Checksums et notes de version',
     hero_kicker:"Le mouvement",
     hero_sub:"La capacité est le prérequis de la citoyenneté. Tu n'es pas libre si chaque outil essentiel de ta vie — identité, voix, argent, savoir — appartient à quelqu'un d'autre.",
     hero_def:"— l'honneur. Dans la tradition albanaise, le seul bien qui ne s'accorde pas : il se conquiert et se défend.",
@@ -669,6 +725,11 @@ const T = {
     mx_f4_t:'KI-Detektor', mx_f4_p:'Ein offener Detektor für KI-generierte Videos, kollektiv trainiert über das Netzwerk selbst. Ein Netzwerk, das für die Wahrheit gebaut ist, muss eine Fälschung erkennen können.',
     mx_stat:'Wo wir stehen, ehrlich: Developer Preview. Der erste öffentliche Knoten ist online; die Software ist stabil genug zum Selbsthosten und Weiterbauen, noch nicht für Hochrisiko-Anwendungen gedacht. Zu sagen, was funktioniert und was nicht — auch das ist Ehre.',
     mx_code:'Der gesamte Code ist öffentlich — MIT-Lizenz',
+    dl_eyebrow:'Download',
+    dl_title:'Hol dir <em>M4TR1X</em>',
+    dl_p1:'Kein Store, kein Konto, kein Mittelsmann. Diese Buttons zeigen immer auf den neuesten offiziellen Build — herunterladen, installieren, mit einem vertrauten Knoten verbinden.',
+    dl_ios:'Die iOS-App existiert, aber Apple erlaubt keine direkte Installation ohne seine Signatur. Wir arbeiten an einem Verteilungsweg — bis dahin kannst du auf dem iPhone die Web-Oberfläche eines Knotens nutzen.',
+    dl_verify:'Checksummen & Release Notes',
     hero_kicker:"Die Bewegung",
     hero_sub:"Fähigkeit ist die Voraussetzung der Bürgerschaft. Du bist nicht frei, wenn jedes wesentliche Werkzeug deines Lebens — Identität, Stimme, Geld, Wissen — jemand anderem gehört.",
     hero_def:"— die Ehre. In der albanischen Tradition das einzige Gut, das nicht verliehen wird: Man erwirbt und verteidigt es.",
@@ -742,6 +803,11 @@ const T = {
     mx_f4_t:'AI-detektor', mx_f4_p:'En öppen detektor för AI-genererad video, kollektivt tränad genom nätverket självt. Ett nätverk byggt för sanning måste kunna känna igen en förfalskning.',
     mx_stat:'Var vi står, ärligt: developer preview. Den första publika noden är online; mjukvaran är stabil nog att självhosta och bygga vidare på, ännu inte tänkt för högriskanvändning. Att säga vad som fungerar och vad som inte gör det — också det är heder.',
     mx_code:'All kod är offentlig — MIT-licens',
+    dl_eyebrow:'Ladda ner',
+    dl_title:'Hämta <em>M4TR1X</em>',
+    dl_p1:'Ingen butik, inget konto, ingen mellanhand. Knapparna pekar alltid på den senaste officiella versionen — ladda ner, installera, anslut till en nod du litar på.',
+    dl_ios:'iOS-appen finns, men Apple tillåter ingen direktinstallation utan sin signatur. Vi arbetar på en distributionsväg — tills vidare kan du på iPhone använda en nods webbgränssnitt.',
+    dl_verify:'Kontrollsummor & versionsinfo',
     hero_kicker:"Rörelsen",
     hero_sub:"Förmåga är medborgarskapets förutsättning. Du är inte fri om varje väsentligt verktyg i ditt liv — identitet, röst, pengar, kunskap — tillhör någon annan.",
     hero_def:"— hedern. I den albanska traditionen den enda egendom som inte skänks: den förtjänas och försvaras.",
@@ -815,6 +881,11 @@ const T = {
     mx_f4_t:'Ανιχνευτής ΤΝ', mx_f4_p:'Ένας ανοιχτός ανιχνευτής βίντεο παραγμένων από ΤΝ, εκπαιδευμένος συλλογικά μέσα από το ίδιο το δίκτυο. Ένα δίκτυο χτισμένο για την αλήθεια πρέπει να ξέρει να αναγνωρίζει το ψεύτικο.',
     mx_stat:'Πού βρισκόμαστε, ειλικρινά: developer preview. Ο πρώτος δημόσιος κόμβος είναι online· το λογισμικό είναι αρκετά σταθερό για αυτο-φιλοξενία και για να χτίσεις πάνω του, όχι ακόμη για χρήσεις υψηλού κινδύνου. Το να λες τι δουλεύει και τι όχι — κι αυτό είναι τιμή.',
     mx_code:'Όλος ο κώδικας είναι δημόσιος — άδεια MIT',
+    dl_eyebrow:'Λήψη',
+    dl_title:'Πάρε το <em>M4TR1X</em>',
+    dl_p1:'Χωρίς store, χωρίς λογαριασμό, χωρίς μεσάζοντες. Αυτά τα κουμπιά δείχνουν πάντα στην τελευταία επίσημη έκδοση — κατέβασε, εγκατάστησε, συνδέσου σε έναν κόμβο που εμπιστεύεσαι.',
+    dl_ios:'Η εφαρμογή iOS υπάρχει, αλλά η Apple δεν επιτρέπει απευθείας εγκατάσταση χωρίς την υπογραφή της. Δουλεύουμε σε μια οδό διανομής — προς το παρόν, από iPhone μπορείς να χρησιμοποιείς τη web διεπαφή ενός κόμβου.',
+    dl_verify:'Checksums & σημειώσεις έκδοσης',
     hero_kicker:"Το κίνημα",
     hero_sub:"Η ικανότητα είναι η προϋπόθεση της ιδιότητας του πολίτη. Δεν είσαι ελεύθερος αν κάθε βασικό εργαλείο της ζωής σου — ταυτότητα, φωνή, χρήμα, γνώση — ανήκει σε κάποιον άλλον.",
     hero_def:"— η τιμή. Στην αλβανική παράδοση, το μόνο αγαθό που δεν χαρίζεται: κατακτιέται και υπερασπίζεται.",
@@ -911,6 +982,11 @@ const T = {
     mx_f4_t:'AI-detector', mx_f4_p:'Een open detector voor AI-gegenereerde video, collectief getraind via het netwerk zelf. Een netwerk gebouwd voor waarheid moet een vervalsing kunnen herkennen.',
     mx_stat:'Waar we staan, eerlijk: developer preview. De eerste publieke node is online; de software is stabiel genoeg om zelf te hosten en op voort te bouwen, nog niet bedoeld voor gebruik met hoog risico. Zeggen wat werkt en wat niet — ook dat is eer.',
     mx_code:'Alle code is openbaar — MIT-licentie',
+    dl_eyebrow:'Download',
+    dl_title:'Haal <em>M4TR1X</em>',
+    dl_p1:'Geen store, geen account, geen tussenpersoon. Deze knoppen wijzen altijd naar de nieuwste officiële build — downloaden, installeren, verbinden met een node die je vertrouwt.',
+    dl_ios:'De iOS-app bestaat, maar Apple staat geen directe installatie toe zonder zijn handtekening. We werken aan een distributieroute — intussen kun je op iPhone de webinterface van een node gebruiken.',
+    dl_verify:'Checksums & release notes',
     el_eyebrow:'De grond',
     el_title:'Elea <em>Vending</em>',
     elea_p1:'De fysieke arm van H8-Group: onafhankelijke verkoopautomaten die de rekeningen betalen en de filosofie op straat bewijzen. Geen investeerders, geen franchise — machines tweedehands gekocht, met de hand herbouwd en geplaatst waar mensen echt werken.',
@@ -996,6 +1072,11 @@ const T = {
     mx_f4_t:'Detector de IA', mx_f4_p:'Un detector abierto de vídeo generado por IA, entrenado colectivamente a través de la propia red. Una red construida para la verdad debe saber reconocer una falsificación.',
     mx_stat:'Dónde estamos, honestamente: developer preview. El primer nodo público está en línea; el software es lo bastante estable para autoalojarlo y construir encima, aún no pensado para usos de alto riesgo. Decir qué funciona y qué no — también eso es honor.',
     mx_code:'Todo el código es público — licencia MIT',
+    dl_eyebrow:'Descargas',
+    dl_title:'Consigue <em>M4TR1X</em>',
+    dl_p1:'Sin tienda, sin cuenta, sin intermediarios. Estos botones apuntan siempre a la última versión oficial — descarga, instala, conéctate a un nodo de confianza.',
+    dl_ios:'La app de iOS existe, pero Apple no permite la instalación directa sin su firma. Trabajamos en una vía de distribución — mientras tanto, en iPhone puedes usar la interfaz web de un nodo.',
+    dl_verify:'Checksums y notas de versión',
     el_eyebrow:'El terreno',
     el_title:'Elea <em>Vending</em>',
     elea_p1:'El brazo físico de H8-Group: máquinas expendedoras independientes que pagan las facturas y prueban la filosofía en la calle. Sin inversores, sin franquicia — máquinas compradas de segunda mano, reconstruidas a mano y colocadas donde la gente realmente trabaja.',
@@ -1047,6 +1128,24 @@ function showPanel(name){
 document.querySelectorAll('.menu button').forEach(b=>{
   b.addEventListener('click',()=>showPanel(b.dataset.panel));
 });
+
+/* download links — resolve latest release assets (static hrefs are the fallback) */
+(async function(){
+  const pick=(rel,re)=>rel&&rel.assets&&rel.assets.find(a=>re.test(a.name));
+  const set=(id,a)=>{ if(!a) return; const el=document.getElementById(id); if(el) el.href=a.browser_download_url; };
+  try{
+    const gh=u=>fetch('https://api.github.com/repos/H8dboy/'+u+'/releases/latest').then(r=>r.ok?r.json():null);
+    const [des,and]=await Promise.all([gh('m4tr1x-electron'),gh('m4tr1x-android')]);
+    set('dl-win',    pick(des,/^M4TR1X\.Setup\.[\d.]+\.exe$/));
+    set('dl-mac-arm',pick(des,/^M4TR1X-[\d.]+-arm64\.dmg$/));
+    set('dl-mac',    pick(des,/^M4TR1X-[\d.]+\.dmg$/));
+    set('dl-linux',  pick(des,/\.AppImage$/));
+    set('dl-deb',    pick(des,/\.deb$/));
+    set('dl-apk',    pick(and,/\.apk$/));
+    const v=[]; if(des&&des.tag_name) v.push('Desktop '+des.tag_name); if(and&&and.tag_name) v.push('Android '+and.tag_name);
+    if(v.length) document.getElementById('dl-ver').textContent=v.join(' · ');
+  }catch(e){/* fallback hrefs stay */}
+})();
 
 /* scroll reveal */
 const io = new IntersectionObserver(entries=>{
