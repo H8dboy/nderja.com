@@ -1531,7 +1531,7 @@ async function initMap(){
   mapPoly=L.polygon(ETHNIC_ALBANIA,{color:UP_C,weight:1.5,fillColor:UP_C,fillOpacity:.05}).addTo(mapObj);
   mapObj.fitBounds(mapPoly.getBounds(),{padding:[8,8]});
   mapLayer=L.layerGroup().addTo(mapObj);
-  mapObj.on('click',e=>dropPin(e.latlng));
+  mapObj.on('click',e=>{ const p=nearestPlace(e.latlng); dropPin(e.latlng, p?p[1]:''); });
   await loadMapState();
 }
 async function loadMapState(){
@@ -1631,16 +1631,18 @@ const PLACES=[
 ['Ferizaj','Ferizaj',42.370,21.155],['Kaçanik','Ferizaj',42.232,21.259],['Shtime','Ferizaj',42.433,21.040],['Hani i Elezit','Ferizaj',42.153,21.298],['Shtërpcë','Ferizaj',42.240,21.027],
 ['Gjilan','Gjilan',42.463,21.469],['Kamenicë','Gjilan',42.578,21.575],['Viti','Gjilan',42.321,21.358],['Novobërdë','Gjilan',42.616,21.436],
 /* Maqedoni — viset shqiptare */
-['Tetovë','Pollog',42.010,20.972],['Gostivar','Pollog',41.797,20.908],['Bogovinë','Pollog',41.924,20.913],['Brvenicë','Pollog',41.968,20.980],['Vrapçishtë','Pollog',41.834,20.884],['Zhelinë','Pollog',41.980,21.062],['Tearcë','Pollog',42.078,21.052],
-['Shkup','Shkup',42.005,21.409],['Saraj','Shkup',42.003,21.322],['Haraçinë','Shkup',42.063,21.552],['Studeniçan','Shkup',41.916,21.348],
-['Kumanovë','Kumanovë',42.136,21.718],['Likovë','Kumanovë',42.220,21.633],
-['Strugë','Strugë–Kërçovë',41.178,20.678],['Kërçovë','Strugë–Kërçovë',41.513,20.959],['Dibër e Madhe','Strugë–Kërçovë',41.525,20.527],['Resnjë','Strugë–Kërçovë',41.089,21.012],
+['Tetovë','Ilirida',42.010,20.972],['Gostivar','Ilirida',41.797,20.908],['Bogovinë','Ilirida',41.924,20.913],['Brvenicë','Ilirida',41.968,20.980],['Vrapçishtë','Ilirida',41.834,20.884],['Zhelinë','Ilirida',41.980,21.062],['Tearcë','Ilirida',42.078,21.052],
+['Shkup','Ilirida',42.005,21.409],['Saraj','Ilirida',42.003,21.322],['Haraçinë','Ilirida',42.063,21.552],['Studeniçan','Ilirida',41.916,21.348],
+['Kumanovë','Ilirida',42.136,21.718],['Likovë','Ilirida',42.220,21.633],
+['Strugë','Ilirida',41.178,20.678],['Kërçovë','Ilirida',41.513,20.959],['Dibër e Madhe','Ilirida',41.525,20.527],['Resnjë','Ilirida',41.089,21.012],
 /* Mali i Zi */
 ['Ulqin','Mali i Zi',41.929,19.205],['Tuz','Mali i Zi',42.365,19.331],['Plavë','Mali i Zi',42.597,19.945],['Guci','Mali i Zi',42.554,19.831],['Rozhajë','Mali i Zi',42.839,20.167],['Tivar','Mali i Zi',42.093,19.100],
 /* Lugina e Preshevës */
-['Preshevë','Lugina e Preshevës',42.309,21.650],['Bujanoc','Lugina e Preshevës',42.459,21.767],['Medvegjë','Lugina e Preshevës',42.844,21.584],
+['Preshevë','Lugina',42.309,21.650],['Bujanoc','Lugina',42.459,21.767],['Medvegjë','Lugina',42.844,21.584],
 /* Çamëri */
-['Filat','Çamëri',39.603,20.313],['Gumenicë','Çamëri',39.504,20.266],['Paramithi','Çamëri',39.473,20.512],['Margëlliç','Çamëri',39.365,20.417],['Parga','Çamëri',39.285,20.400],['Prevezë','Çamëri',38.959,20.752],['Konicë','Çamëri',40.048,20.748],['Janinë','Çamëri',39.665,20.851]
+['Filat','Çamëria',39.603,20.313],['Gumenicë','Çamëria',39.504,20.266],['Paramithi','Çamëria',39.473,20.512],['Margëlliç','Çamëria',39.365,20.417],['Parga','Çamëria',39.285,20.400],['Prevezë','Çamëria',38.959,20.752],['Konicë','Çamëria',40.048,20.748],['Janinë','Çamëria',39.665,20.851],
+/* Korfuz */
+['Korfuz','Korfuz',39.624,19.921]
 ];
 const normTxt=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
 const cityInput=document.getElementById('mp-city');
@@ -1664,11 +1666,26 @@ function renderSugg(q){
   });
   suggBox.classList.add('open');
 }
+/* the vote is recorded at province level: pin sits by the province capital */
+const PROV_CAP={'Dibër':'Peshkopi','Ilirida':'Tetovë','Mali i Zi':'Ulqin','Lugina':'Preshevë','Çamëria':'Gumenicë'};
+function provCapital(prov){
+  const capName=PROV_CAP[prov]||prov;
+  return PLACES.find(x=>x[0]===capName)||PLACES.find(x=>x[1]===prov);
+}
+function nearestPlace(ll){
+  let best=null,bd=Infinity;
+  PLACES.forEach(p=>{
+    const dy=p[2]-ll.lat, dx=p[3]-ll.lng, d=dy*dy+dx*dx;
+    if(d<bd){ bd=d; best=p; }
+  });
+  return best;
+}
 function pickPlace(p){
   cityInput.value=p[0]; suggBox.classList.remove('open');
-  if(mapObj) mapObj.setView([p[2],p[3]],10);
-  const jl=p[2]+(Math.random()-.5)*.016, jg=p[3]+(Math.random()-.5)*.016;
-  dropPin({lat:jl,lng:jg}, p[0]+' ('+p[1]+')');
+  const cap=provCapital(p[1])||p;
+  if(mapObj) mapObj.setView([cap[2],cap[3]],9);
+  const jl=cap[2]+(Math.random()-.5)*.06, jg=cap[3]+(Math.random()-.5)*.06;
+  dropPin({lat:jl,lng:jg}, p[1]);
 }
 cityInput.addEventListener('input',()=>renderSugg(cityInput.value.trim()));
 cityInput.addEventListener('focus',()=>renderSugg(cityInput.value.trim()));
