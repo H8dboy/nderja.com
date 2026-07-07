@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NDERJA — Realismo Etico Sovrano</title>
+<meta name="description" content="Nderja — the movement. Sovereign Ethical Realism: capability is the prerequisite of citizenship.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070B08;
+    --panel:#0D1510;
+    --line:#1C2B20;
+    --green:#2EE87A;
+    --green-dim:#1A5C38;
+    --text:#E8EFE9;
+    --muted:#7E8F84;
+    --serif:'Cormorant Garamond',serif;
+    --sans:'Space Grotesk',sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.7;font-size:17px}
+  ::selection{background:var(--green);color:var(--bg)}
+
+  /* ---------- header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(7,11,8,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .hrow{display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw}
+  .logo{font-weight:700;letter-spacing:.35em;font-size:.95rem;color:var(--text);text-decoration:none}
+  .logo span{color:var(--green)}
+  .langs{display:flex;gap:.4rem}
+  .langs button{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--sans);
+    font-size:.72rem;letter-spacing:.15em;padding:.35rem .7rem;cursor:pointer;transition:.25s}
+  .langs button:hover{border-color:var(--green-dim);color:var(--text)}
+  .langs button.active{border-color:var(--green);color:var(--green)}
+  .langs button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+  /* ---------- menu ---------- */
+  .menu{display:flex;gap:.2rem;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--line);padding:0 5vw}
+  .menu button{background:none;border:none;color:var(--muted);font-family:var(--sans);font-size:.78rem;
+    letter-spacing:.18em;text-transform:uppercase;padding:.75rem 1.1rem;cursor:pointer;transition:.25s;border-bottom:2px solid transparent}
+  .menu button:hover{color:var(--text)}
+  .menu button.active{color:var(--green);border-bottom-color:var(--green)}
+  .menu button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .panel{display:none}
+  .panel.active{display:block}
+  .card2{background:var(--panel);border:1px solid var(--line);padding:2.4rem 2rem;margin-top:2rem}
+  .card2 h3{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--green);font-weight:500;margin-bottom:.8rem}
+  .btn{display:inline-block;border:1px solid var(--green);color:var(--green);text-decoration:none;padding:.8rem 1.6rem;
+    font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
+  .btn:hover{background:var(--green);color:var(--bg)}
+  .srcnote{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1.2rem;margin-top:2.5rem;max-width:680px}
+  .srcnote a{color:var(--green);text-decoration:none}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;padding:0 5vw;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(ellipse 60% 40% at 70% 20%, rgba(46,232,122,.06), transparent 70%);pointer-events:none}
+  .kicker{font-size:.75rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-bottom:1.4rem}
+  .hero h1{font-size:clamp(3.4rem,11vw,9rem);font-weight:700;letter-spacing:.08em;line-height:1;color:var(--text)}
+  .hero h1 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--green);letter-spacing:0}
+  .hero .sub{max-width:560px;margin-top:2rem;color:var(--muted);font-size:1.05rem}
+  .hero .word{margin-top:3.2rem;display:flex;align-items:baseline;gap:1.2rem;flex-wrap:wrap}
+  .hero .word .term{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--text)}
+  .hero .word .def{font-size:.85rem;color:var(--muted);letter-spacing:.05em}
+  .scroll-hint{position:absolute;bottom:2rem;left:5vw;font-size:.7rem;letter-spacing:.3em;color:var(--muted);text-transform:uppercase}
+
+  /* ---------- sections ---------- */
+  section{padding:8.5rem 5vw 7rem;border-top:1px solid var(--line);position:relative}
+  .frame{max-width:1080px;margin:0 auto}
+  .eyebrow{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-bottom:1rem}
+  h2{font-size:clamp(1.9rem,4vw,3rem);font-weight:500;letter-spacing:.02em;line-height:1.15;margin-bottom:2.2rem}
+  h2 em{font-family:var(--serif);font-style:italic;color:var(--green);font-weight:500}
+  p{max-width:680px;color:var(--muted);margin-bottom:1.2rem}
+  p strong{color:var(--text);font-weight:500}
+
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:var(--line);margin-top:3rem;border:1px solid var(--line)}
+  .pillar{background:var(--panel);padding:2.2rem 1.8rem}
+  .pillar h3{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--green);font-weight:500;margin-bottom:.8rem}
+  .pillar p{font-size:.95rem;margin:0}
+
+  blockquote{border-left:2px solid var(--green);padding:.4rem 0 .4rem 1.6rem;margin:3rem 0;
+    font-family:var(--serif);font-style:italic;font-size:1.45rem;line-height:1.5;color:var(--text);max-width:680px}
+
+  /* timeline */
+  .timeline{margin-top:3rem;border-left:1px solid var(--line);padding-left:2rem;max-width:680px}
+  .step{position:relative;padding-bottom:2.6rem}
+  .step:last-child{padding-bottom:0}
+  .step::before{content:"";position:absolute;left:calc(-2rem - 5px);top:.5rem;width:9px;height:9px;background:var(--bg);
+    border:1.5px solid var(--green);border-radius:50%}
+  .step .when{font-size:.72rem;letter-spacing:.3em;color:var(--green);text-transform:uppercase}
+  .step h3{font-weight:500;font-size:1.15rem;margin:.4rem 0 .5rem;color:var(--text)}
+  .step p{font-size:.95rem;margin:0}
+
+  /* stance */
+  .stance{background:var(--panel);border:1px solid var(--line);padding:3rem clamp(1.5rem,4vw,3.5rem);max-width:820px;margin:3rem auto 0}
+  .stance .seal{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-bottom:1.4rem}
+  .stance p{max-width:none}
+  .stance .oath{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.5;color:var(--text);margin-bottom:1.4rem}
+
+  footer{border-top:1px solid var(--line);padding:3rem 5vw;display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+  footer .fbrand{font-weight:700;letter-spacing:.35em;font-size:.85rem}
+  footer .fbrand span{color:var(--green)}
+  footer .fnote{font-size:.8rem;color:var(--muted);max-width:480px}
+
+  @media (prefers-reduced-motion:no-preference){
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.in{opacity:1;transform:none}
+  }
+  @media (max-width:600px){
+    section{padding:4.5rem 6vw}
+    .hero{padding:0 6vw}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <a class="logo" href="#top" onclick="showPanel('home');return false">NDER<span>JA</span></a>
+    <nav class="langs" aria-label="Language">
+      <button data-lang="en" class="active">EN</button>
+      <button data-lang="sq">SQ</button>
+      <button data-lang="it">IT</button>
+      <button data-lang="fr">FR</button>
+      <button data-lang="de">DE</button>
+      <button data-lang="sv">SV</button>
+      <button data-lang="el">EL</button>
+      <button data-lang="nl">NL</button>
+      <button data-lang="es">ES</button>
+    </nav>
+  </div>
+  <nav class="menu" aria-label="Sections">
+    <button data-panel="home" class="active" data-i="nav_home">Home</button>
+    <button data-panel="philosophy" data-i="nav_ph">Philosophy</button>
+    <button data-panel="h8" data-i="nav_h8">H8-Group</button>
+    <button data-panel="news" data-i="nav_news">News</button>
+  </nav>
+</header>
+
+<main id="top">
+
+<div class="panel active" id="panel-home">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="kicker" data-i="hero_kicker">The movement</div>
+    <h1>NDER<em>ja</em></h1>
+    <p class="sub" data-i="hero_sub">Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.</p>
+    <div class="word">
+      <span class="term">nder</span>
+      <span class="def" data-i="hero_def">— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.</span>
+    </div>
+    <div class="scroll-hint" data-i="hero_scroll">Scroll</div>
+  </div>
+
+  <!-- STANCE -->
+  <section id="stance">
+    <div class="frame">
+      <div class="eyebrow" data-i="st_eyebrow">Our position</div>
+      <h2 data-i-html="st_title">A <em>vow</em>, not a strategy</h2>
+      <div class="stance reveal">
+        <div class="seal" data-i="st_seal">Besa</div>
+        <p class="oath" data-i="st_oath">We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.</p>
+        <p data-i="st_p1">Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.</p>
+        <p data-i="st_p2">The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="panel" id="panel-philosophy">
+  <!-- PHILOSOPHY -->
+  <section id="philosophy">
+    <div class="frame">
+      <div class="eyebrow" data-i="ph_eyebrow">Philosophy</div>
+      <h2 data-i-html="ph_title">Sovereign <em>Ethical</em> Realism</h2>
+      <p data-i="ph_p1">Nderja was born from one conviction: freedom is not declared, it is built. Whoever depends on infrastructure owned by others — infrastructure that can be switched off, censored, or monetized against them — is a tenant, not a citizen.</p>
+      <p data-i="ph_p2">Our framework holds three ideas together. None of them works alone.</p>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3 data-i="pil1_t">Realism</h3>
+          <p data-i="pil1_p">See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="pil2_t">Ethics</h3>
+          <p data-i="pil2_p">Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?</p>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="pil3_t">Sovereignty</h3>
+          <p data-i="pil3_p">Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.</p>
+        </div>
+      </div>
+      <blockquote data-i="ph_quote">Others sell you a room inside their house. We build houses, hand over the keys, and pave the road out — and none of the three belongs to them.</blockquote>
+    </div>
+  </section>
+
+  <!-- ORIGIN -->
+  <section id="origin">
+    <div class="frame">
+      <div class="eyebrow" data-i="or_eyebrow">Origin</div>
+      <h2 data-i-html="or_title">From the <em>digital</em> to the <em>physical</em></h2>
+      <p data-i="or_p1">Nderja did not begin as a manifesto. It began as work — years of building, alone, with no one watching.</p>
+      <div class="timeline">
+        <div class="step reveal">
+          <div class="when" data-i="s1_w">The beginning</div>
+          <h3 data-i="s1_t">Documentation as resistance</h3>
+          <p data-i="s1_p">The project was born from activist documentation — the belief that recording the truth, and keeping it beyond anyone's reach, is itself a political act.</p>
+        </div>
+        <div class="step reveal">
+          <div class="when" data-i="s2_w">The build</div>
+          <h3 data-i="s2_t">Sovereign infrastructure</h3>
+          <p data-i="s2_p">Year after year the idea became architecture: decentralized networks, post-quantum cryptography, self-hosted identity. Not an app — an infrastructure that exists regardless of who runs it, because there is no center to seize.</p>
+        </div>
+        <div class="step reveal">
+          <div class="when" data-i="s3_w">The ground</div>
+          <h3 data-i="s3_t">From screens to streets</h3>
+          <p data-i="s3_p">Philosophy that stays digital is a hobby. The movement stepped into the physical world — real machines, real places, real people — proving that sovereignty is built with hands, not only with keyboards.</p>
+        </div>
+        <div class="step reveal">
+          <div class="when" data-i="s4_w">Now</div>
+          <h3 data-i="s4_t">The Albanian moment</h3>
+          <p data-i="s4_p">And then history knocked. A generation of Albanians rose in the streets to demand what nderja has always claimed: a state that belongs to its people, not to its rulers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MOMENT -->
+  <section id="moment">
+    <div class="frame">
+      <div class="eyebrow" data-i="mo_eyebrow">The moment</div>
+      <h2 data-i-html="mo_title">Shqipëria <em>e Re</em></h2>
+      <p data-i="mo_p1">For weeks, citizens have filled the squares of Albania demanding transparency, accountability and the end of a system where the future of the country is decided without its people. We stand with them — not above them, not behind them.</p>
+      <p data-i="mo_p2">This is not our revolution to own. It belongs to those in the squares. What we offer is what we know how to build: tools that no power can switch off, words in three languages, and the patience of people who think in decades.</p>
+      <p data-i="mo_p3">A new Albania — sovereign, honest, belonging to all — is not a slogan. It is the exact political form of what nderja has always meant: honor as public infrastructure.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="panel" id="panel-h8">
+  <!-- H8-GROUP intro -->
+  <section id="h8intro" style="border-top:none">
+    <div class="frame">
+      <div class="eyebrow" data-i="h8_eyebrow">The engine</div>
+      <h2 data-i-html="h8_title">H8-<em>Group</em></h2>
+      <p data-i="h8_p1">Philosophy without means is a wish. H8-Group is the independent economic engine that funds the movement — no party money, no foreign grants. Two projects, one logic: sovereignty you can touch.</p>
+    </div>
+  </section>
+
+  <!-- M4TR1X -->
+  <section id="m4tr1x">
+    <div class="frame">
+      <div class="eyebrow" data-i="mx_eyebrow">The tool</div>
+      <h2 data-i-html="mx_title">M4TR<em>1X</em></h2>
+      <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
+      <p data-i="mx_p2">The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.</p>
+      <p style="margin-top:2rem">
+        <a href="https://github.com/H8dboy/m4tr1x-electron" class="btn" data-i="mx_cta">Run a node</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ELEA -->
+  <section id="elea">
+    <div class="frame">
+      <div class="card2 reveal" style="margin-top:0">
+        <h3 data-i="elea_t">Elea Vending</h3>
+        <p data-i="elea_p">The physical arm: independent vending machines that pay the bills and double as network relay points. Every machine is a small piece of infrastructure on the street — coffee above, sovereignty below.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="panel" id="panel-news">
+  <!-- NEWS -->
+  <section id="news" style="border-top:none">
+    <div class="frame">
+      <div class="eyebrow" data-i="nw_eyebrow">News</div>
+      <h2 data-i-html="nw_title">Why <em>now</em></h2>
+      <p data-i="nw_p1">For years we built in silence. We come into the open now because Albania is living a rare moment: for over a month, citizens have filled the squares demanding transparency and a state that answers to its people. Staying silent while this happens would betray everything nderja means.</p>
+      <p data-i="nw_p2">Our position on the movement is simple: we support the demand, not any party. Transparency, accountability, institutions that serve citizens — these are not partisan goals. They are the minimum conditions of an honest state.</p>
+      <p data-i="nw_p3">At the center of the current storm is "The Albanian Files", an 800-page volume with a foreword by Prime Minister Edi Rama, presenting 523 projects by international architecture firms. Protesters have submitted it to the SPAK prosecution as what they consider evidence: they allege avoided public consultation, laws changed to fit pre-existing projects, and a conflict of interest — since the Prime Minister chairs the very council that approves them. Investigative journalists have documented how architects were personally invited by Rama, and critics note some projects in protected areas were planned before the law was changed.</p>
+      <p data-i="nw_p4">To be clear: these are allegations and testimonies reported by journalists and activists, not court verdicts. No investigation has been announced. We report them because citizens have the right to know what is being claimed, verified and contested — and to demand answers.</p>
+      <div class="srcnote"><span data-i="nw_src">Sources</span>: <a href="https://www.reporter.al/2026/07/06/the-albanian-files-anatomia-e-rilindjes-arkitekturore-te-edi-rames/" target="_blank" rel="noopener">Reporter.al / BIRN</a> · <a href="https://www.balkanweb.com/en/protestuesit-dorezuan-sot-ne-spak-the-albanian-files-rama-libri-i-mallkuar-i-pari-qe-trajtohet-si-prove-krimi/" target="_blank" rel="noopener">BalkanWeb</a></div>
+    </div>
+  </section>
+</div>
+
+
+</main>
+
+<footer>
+  <div class="fbrand">NDER<span>JA</span></div>
+  <div class="fnote" data-i="ft_note">An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com</div>
+</footer>
+
+<script>
+const T = {
+  en: {
+    nav_home:'Home',
+    nav_ph:'Philosophy',
+    nav_h8:'H8-Group',
+    nav_news:'News',
+    nav_comm:'Community',
+    h8_eyebrow:'The engine',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Philosophy without means is a wish. H8-Group is the independent economic engine that funds the movement — no party money, no foreign grants. Two projects, one logic: sovereignty you can touch.',
+    elea_t:'Elea Vending',
+    elea_p:'The physical arm: independent vending machines that pay the bills and double as network relay points. Every machine is a small piece of infrastructure on the street — coffee above, sovereignty below.',
+    nw_eyebrow:'News',
+    nw_title:'Why <em>now</em>',
+    nw_p1:'For years we built in silence. We come into the open now because Albania is living a rare moment: for over a month, citizens have filled the squares demanding transparency and a state that answers to its people. Staying silent while this happens would betray everything nderja means.',
+    nw_p2:'Our position on the movement is simple: we support the demand, not any party. Transparency, accountability, institutions that serve citizens — these are not partisan goals. They are the minimum conditions of an honest state.',
+    nw_p3:'At the center of the current storm is “The Albanian Files”, an 800-page volume with a foreword by Prime Minister Edi Rama, presenting 523 projects by international architecture firms. Protesters have submitted it to the SPAK prosecution as what they consider evidence: they allege avoided public consultation, laws changed to fit pre-existing projects, and a conflict of interest — since the Prime Minister chairs the very council that approves them. Investigative journalists have documented how architects were personally invited by Rama, and critics note some projects in protected areas were planned before the law was changed.',
+    nw_p4:'To be clear: these are allegations and testimonies reported by journalists and activists, not court verdicts. No investigation has been announced. We report them because citizens have the right to know what is being claimed, verified and contested — and to demand answers.',
+    nw_src:'Sources',
+    cm_eyebrow:'Community',
+    cm_title:'Build it <em>with us</em>',
+    cm_p1:'We are few, by choice and for now. The network grows one person at a time: run a node, translate, verify facts, carry the idea into your city. No membership, no fees, no permission — contribution is the only rank.',
+    cm_p2:'Every node placed, every language added, every honest correction makes the network harder to silence. That is how infrastructure — and honor — are built.',
+    cm_cta:'Join on GitHub',
+    mx_eyebrow:'The tool', mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.',
+    mx_p2:"The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.",
+    mx_cta:'Run a node',
+    hero_kicker:"The movement",
+    hero_sub:"Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.",
+    hero_def:"— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.",
+    hero_scroll:"Scroll",
+    ph_eyebrow:"Philosophy",
+    ph_title:'Sovereign <em>Ethical</em> Realism',
+    ph_p1:"Nderja was born from one conviction: freedom is not declared, it is built. Whoever depends on infrastructure owned by others — infrastructure that can be switched off, censored, or monetized against them — is a tenant, not a citizen.",
+    ph_p2:"Our framework holds three ideas together. None of them works alone.",
+    pil1_t:"Realism", pil1_p:"See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.",
+    pil2_t:"Ethics", pil2_p:"Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?",
+    pil3_t:"Sovereignty", pil3_p:"Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.",
+    ph_quote:"Others sell you a room inside their house. We build houses, hand over the keys, and pave the road out — and none of the three belongs to them.",
+    or_eyebrow:"Origin", or_title:'From the <em>digital</em> to the <em>physical</em>',
+    or_p1:"Nderja did not begin as a manifesto. It began as work — years of building, alone, with no one watching.",
+    s1_w:"The beginning", s1_t:"Documentation as resistance",
+    s1_p:"The project was born from activist documentation — the belief that recording the truth, and keeping it beyond anyone's reach, is itself a political act.",
+    s2_w:"The build", s2_t:"Sovereign infrastructure",
+    s2_p:"Year after year the idea became architecture: decentralized networks, post-quantum cryptography, self-hosted identity. Not an app — an infrastructure that exists regardless of who runs it, because there is no center to seize.",
+    s3_w:"The ground", s3_t:"From screens to streets",
+    s3_p:"Philosophy that stays digital is a hobby. The movement stepped into the physical world — real machines, real places, real people — proving that sovereignty is built with hands, not only with keyboards.",
+    s4_w:"Now", s4_t:"The Albanian moment",
+    s4_p:"And then history knocked. A generation of Albanians rose in the streets to demand what nderja has always claimed: a state that belongs to its people, not to its rulers.",
+    mo_eyebrow:"The moment", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"For weeks, citizens have filled the squares of Albania demanding transparency, accountability and the end of a system where the future of the country is decided without its people. We stand with them — not above them, not behind them.",
+    mo_p2:"This is not our revolution to own. It belongs to those in the squares. What we offer is what we know how to build: tools that no power can switch off, words in three languages, and the patience of people who think in decades.",
+    mo_p3:"A new Albania — sovereign, honest, belonging to all — is not a slogan. It is the exact political form of what nderja has always meant: honor as public infrastructure.",
+    st_eyebrow:"Our position", st_title:'A <em>vow</em>, not a strategy', st_seal:"Besa",
+    st_oath:"We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.",
+    st_p1:"Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.",
+    st_p2:"The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.",
+    ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
+  },
+  sq: {
+    nav_home:'Kreu',
+    nav_ph:'Filozofia',
+    nav_h8:'H8-Group',
+    nav_news:'Lajme',
+    nav_comm:'Komuniteti',
+    h8_eyebrow:'Motori',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Filozofia pa mjete është dëshirë. H8-Group është motori i pavarur ekonomik që financon lëvizjen — pa para partish, pa grante të huaja. Dy projekte, një logjikë: sovranitet që mund ta prekësh.',
+    elea_t:'Elea Vending',
+    elea_p:'Krahu fizik: makina shitjeje të pavarura që paguajnë faturat dhe shërbejnë edhe si pika rele të rrjetit. Çdo makinë është një copë e vogël infrastrukture në rrugë — kafe sipër, sovranitet poshtë.',
+    nw_eyebrow:'Lajme',
+    nw_title:'Pse <em>tani</em>',
+    nw_p1:'Për vite ndërtuam në heshtje. Dalim hapur tani sepse Shqipëria po jeton një moment të rrallë: prej më shumë se një muaji, qytetarët kanë mbushur sheshet duke kërkuar transparencë dhe një shtet që i përgjigjet popullit të vet. Të heshtnim tani do të tradhtonte gjithçka që nderja do të thotë.',
+    nw_p2:'Qëndrimi ynë ndaj lëvizjes është i thjeshtë: mbështesim kërkesën, jo ndonjë parti. Transparenca, llogaridhënia, institucione në shërbim të qytetarëve — këto nuk janë synime partiake. Janë kushtet minimale të një shteti të ndershëm.',
+    nw_p3:'Në qendër të stuhisë aktuale është “The Albanian Files”, një vëllim 800-faqësh me parathënie nga kryeministri Edi Rama, që paraqet 523 projekte të studiove ndërkombëtare të arkitekturës. Protestuesit e kanë dorëzuar në SPAK si atë që e konsiderojnë provë: pretendojnë shmangie të konsultimit publik, ligje të ndryshuara sipas projekteve paraekzistuese dhe konflikt interesi — pasi kryeministri drejton pikërisht këshillin që i miraton. Gazetarë investigativë kanë dokumentuar se si arkitektët ftoheshin personalisht nga Rama, dhe kritikët vërejnë se disa projekte në zona të mbrojtura ishin planifikuar para ndryshimit të ligjit.',
+    nw_p4:'Të jemi të qartë: këto janë akuza dhe dëshmi të raportuara nga gazetarë dhe aktivistë, jo vendime gjykate. Asnjë hetim nuk është shpallur. I raportojmë sepse qytetarët kanë të drejtë të dinë çfarë pretendohet, verifikohet dhe kontestohet — dhe të kërkojnë përgjigje.',
+    nw_src:'Burimet',
+    cm_eyebrow:'Komuniteti',
+    cm_title:'Ndërtoje <em>me ne</em>',
+    cm_p1:'Jemi pak, me zgjedhje dhe për tani. Rrjeti rritet njeri pas njeriu: ngri një nyjë, përkthe, verifiko faktet, çoje idenë në qytetin tënd. Pa anëtarësi, pa tarifa, pa leje — kontributi është i vetmi gradë.',
+    cm_p2:"Çdo nyjë e vendosur, çdo gjuhë e shtuar, çdo korrigjim i ndershëm e bën rrjetin më të vështirë për t'u heshtur. Kështu ndërtohet infrastruktura — dhe nderi.",
+    cm_cta:'Bashkohu në GitHub',
+    mx_eyebrow:'Mjeti', mx_title:'M4TR<em>1X</em>',
+    mx_p1:"Instrumenti ynë i parë: një rrjet social i decentralizuar pa server qendror, pa llogari, pa mbikëqyrje. Kriptografi post-kuantike, rrugëtim Tor, identitet i vetë-strehuar. Nuk ka ndërtesë për t'u bastisur, as çelës për t'u fikur.",
+    mx_p2:'Rrjeti është i ri. Rritet nyjë pas nyje — dhe çdo nyjë është shtëpia e një qytetari, jo kulla e një kompanie. Nëse di të përdorësh një kompjuter, mund të mbash një copë të rrjetit.',
+    mx_cta:'Ngri një nyjë',
+    hero_kicker:"Lëvizja",
+    hero_sub:"Aftësia është parakushti i qytetarisë. Nuk je i lirë nëse çdo mjet thelbësor i jetës tënde — identiteti, zëri, paraja, dija — i përket dikujt tjetër.",
+    hero_def:"— nderi. Në traditën shqiptare, e vetmja pasuri që nuk dhurohet: fitohet dhe mbrohet.",
+    hero_scroll:"Zbrit",
+    ph_eyebrow:"Filozofia",
+    ph_title:'Realizëm Etik <em>Sovran</em>',
+    ph_p1:"Nderja lindi nga një bindje: liria nuk shpallet, ndërtohet. Kush varet nga infrastruktura në pronësi të të tjerëve — që mund të fiket, censurohet ose monetizohet kundër tij — është qiraxhi, jo qytetar.",
+    ph_p2:"Korniza jonë mban bashkë tri ide. Asnjëra nuk funksionon e vetme.",
+    pil1_t:"Realizëm", pil1_p:"Shihe botën ashtu siç është — raportet e forcës, interesat, makinerinë — pa iluzione dhe pa cinizëm. Iluzioni është forma e parë e varësisë.",
+    pil2_t:"Etikë", pil2_p:"Ndërto mbi parime, jo vetëm për fitim. Nderi është përgjigjja e lashtë shqiptare ndaj një pyetjeje moderne: çfarë refuzon të shesësh?",
+    pil3_t:"Sovranitet", pil3_p:"Zotëro mjetet e tua, mos i merr me qira. Fillimisht fito aftësi të vërteta — teknike, ekonomike, kulturore — pastaj ushtro qytetarinë e plotë. Në këtë radhë.",
+    ph_quote:"Të tjerët të shesin një dhomë brenda shtëpisë së tyre. Ne ndërtojmë shtëpi, dorëzojmë çelësat dhe hapim rrugën për të dalë — dhe asnjëra nga të treja nuk u përket atyre.",
+    or_eyebrow:"Origjina", or_title:'Nga <em>dixhitalja</em> te <em>fizikja</em>',
+    or_p1:"Nderja nuk nisi si manifest. Nisi si punë — vite ndërtimi, vetëm, pa asnjë spektator.",
+    s1_w:"Fillimi", s1_t:"Dokumentimi si rezistencë",
+    s1_p:"Projekti lindi nga dokumentimi aktivist — bindja se regjistrimi i së vërtetës, dhe ruajtja e saj përtej dorës së kujtdo, është në vetvete akt politik.",
+    s2_w:"Ndërtimi", s2_t:"Infrastrukturë sovrane",
+    s2_p:"Vit pas viti ideja u bë arkitekturë: rrjete të decentralizuara, kriptografi post-kuantike, identitet i vetë-strehuar. Jo një aplikacion — një infrastrukturë që ekziston pavarësisht kush e drejton, sepse nuk ka qendër për t'u sekuestruar.",
+    s3_w:"Terreni", s3_t:"Nga ekranet në rrugë",
+    s3_p:"Filozofia që mbetet dixhitale është hobi. Lëvizja hyri në botën fizike — makina të vërteta, vende të vërteta, njerëz të vërtetë — duke provuar se sovraniteti ndërtohet me duar, jo vetëm me tastierë.",
+    s4_w:"Tani", s4_t:"Momenti shqiptar",
+    s4_p:"Dhe pastaj trokiti historia. Një brez shqiptarësh u ngrit në rrugë për të kërkuar atë që nderja e ka pohuar gjithmonë: një shtet që u përket qytetarëve, jo sunduesve.",
+    mo_eyebrow:"Momenti", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"Prej javësh, qytetarët kanë mbushur sheshet e Shqipërisë duke kërkuar transparencë, llogaridhënie dhe fundin e një sistemi ku e ardhmja e vendit vendoset pa popullin e tij. Ne qëndrojmë me ta — jo mbi ta, jo pas tyre.",
+    mo_p2:"Kjo nuk është revolucioni ynë për ta zotëruar. U përket atyre në sheshe. Ajo që ofrojmë është ajo që dimë të ndërtojmë: mjete që asnjë pushtet s'i fik dot, fjalë në tri gjuhë, dhe durimi i njerëzve që mendojnë në dekada.",
+    mo_p3:"Një Shqipëri e re — sovrane, e ndershme, e të gjithëve — nuk është slogan. Është forma e saktë politike e asaj që nderja ka nënkuptuar gjithmonë: nderi si infrastrukturë publike.",
+    st_eyebrow:"Qëndrimi ynë", st_title:'Një <em>besë</em>, jo një strategji', st_seal:"Besa",
+    st_oath:"Nuk do ta vendosim shtëpinë tonë operative në Shqipëri për sa kohë sistemi aktual qëndron në këmbë. Nuk do të kërkojmë lejet e tij, favoret e tij, as bekimet e tij.",
+    st_p1:"Jo nga distanca — nga respekti. Të hyje tani do të thoshte të negocioje me po atë makineri që populli po e konteston. Refuzojmë ta ndërtojmë të renë brenda së vjetrës.",
+    st_p2:"Ditën që sistemi bie — ditën që institucionet u përgjigjen qytetarëve dhe jo e kundërta — ne kthehemi në shtëpi, me gjithçka që kemi ndërtuar. Kjo është besa jonë: fjalë e dhënë publikisht, e mbajtur absolutisht.",
+    ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
+  },
+  it: {
+    nav_home:'Home',
+    nav_ph:'Filosofia',
+    nav_h8:'H8-Group',
+    nav_news:'News',
+    nav_comm:'Community',
+    h8_eyebrow:'Il motore',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Una filosofia senza mezzi è un desiderio. H8-Group è il motore economico indipendente che finanzia il movimento — niente soldi di partito, niente fondi esteri. Due progetti, una logica: sovranità che puoi toccare.',
+    elea_t:'Elea Vending',
+    elea_p:'Il braccio fisico: distributori automatici indipendenti che pagano le bollette e fungono da punti relay della rete. Ogni macchina è un piccolo pezzo di infrastruttura in strada — caffè sopra, sovranità sotto.',
+    nw_eyebrow:'News',
+    nw_title:'Perché <em>ora</em>',
+    nw_p1:"Per anni abbiamo costruito in silenzio. Usciamo allo scoperto ora perché l'Albania vive un momento raro: da oltre un mese i cittadini riempiono le piazze chiedendo trasparenza e uno Stato che risponda al suo popolo. Tacere adesso tradirebbe tutto ciò che nderja significa.",
+    nw_p2:'La nostra posizione sul movimento è semplice: sosteniamo la richiesta, non un partito. Trasparenza, responsabilità, istituzioni al servizio dei cittadini — non sono obiettivi di parte. Sono le condizioni minime di uno Stato onesto.',
+    nw_p3:"Al centro della tempesta attuale c'è “The Albanian Files”, un volume di 800 pagine con prefazione del premier Edi Rama, che presenta 523 progetti di studi di architettura internazionali. I manifestanti lo hanno consegnato alla procura SPAK come ciò che considerano una prova: denunciano consultazioni pubbliche evitate, leggi modificate su misura per progetti preesistenti e un conflitto d'interessi — poiché il premier presiede proprio il consiglio che li approva. Giornalisti investigativi hanno documentato come gli architetti fossero invitati personalmente da Rama, e i critici notano che alcuni progetti in aree protette erano pianificati prima della modifica della legge.",
+    nw_p4:'Per chiarezza: si tratta di accuse e testimonianze riportate da giornalisti e attivisti, non di verdetti. Nessuna indagine è stata annunciata. Le riportiamo perché i cittadini hanno il diritto di sapere cosa viene sostenuto, verificato e contestato — e di pretendere risposte.',
+    nw_src:'Fonti',
+    cm_eyebrow:'Community',
+    cm_title:'Costruiscila <em>con noi</em>',
+    cm_p1:"Siamo pochi, per scelta e per ora. La rete cresce una persona alla volta: attiva un nodo, traduci, verifica i fatti, porta l'idea nella tua città. Nessuna iscrizione, nessuna quota, nessun permesso — il contributo è l'unico grado.",
+    cm_p2:"Ogni nodo piazzato, ogni lingua aggiunta, ogni correzione onesta rende la rete più difficile da zittire. Così si costruiscono le infrastrutture — e l'onore.",
+    cm_cta:'Unisciti su GitHub',
+    mx_eyebrow:'Lo strumento', mx_title:'M4TR<em>1X</em>',
+    mx_p1:"Il nostro primo strumento: un social network decentralizzato senza server centrale, senza account, senza sorveglianza. Crittografia post-quantum, routing Tor, identità self-hosted. Non c'è un palazzo da perquisire, né un interruttore da spegnere.",
+    mx_p2:"La rete è giovane. Cresce un nodo alla volta — e ogni nodo è la casa di un cittadino, non la torre di un'azienda. Se sai usare un computer, puoi custodire un pezzo della rete.",
+    mx_cta:'Attiva un nodo',
+    hero_kicker:"Il movimento",
+    hero_sub:"La capacità è il prerequisito della cittadinanza. Non sei libero se ogni strumento essenziale della tua vita — identità, voce, denaro, conoscenza — appartiene a qualcun altro.",
+    hero_def:"— onore. Nella tradizione albanese, l'unico bene che non si concede: si conquista e si difende.",
+    hero_scroll:"Scorri",
+    ph_eyebrow:"Filosofia",
+    ph_title:'Realismo Etico <em>Sovrano</em>',
+    ph_p1:"Nderja nasce da una convinzione: la libertà non si dichiara, si costruisce. Chi dipende da infrastrutture di proprietà altrui — che possono essere spente, censurate o monetizzate contro di lui — è un inquilino, non un cittadino.",
+    ph_p2:"Il nostro quadro tiene insieme tre idee. Nessuna funziona da sola.",
+    pil1_t:"Realismo", pil1_p:"Vedere il mondo com'è — i rapporti di forza, gli interessi, la macchina — senza illusioni e senza cinismo. L'illusione è la prima forma di dipendenza.",
+    pil2_t:"Etica", pil2_p:"Costruire con principi, non solo per profitto. L'onore — nder — è l'antica risposta albanese a una domanda moderna: cosa ti rifiuti di vendere?",
+    pil3_t:"Sovranità", pil3_p:"Possedere i propri strumenti, non affittarli. Prima si acquisiscono capacità reali — tecniche, economiche, culturali — poi si esercita la cittadinanza piena. In quest'ordine.",
+    ph_quote:"Gli altri ti vendono una stanza dentro casa loro. Noi costruiamo case, consegniamo le chiavi e apriamo la strada per uscire — e nessuna delle tre appartiene a loro.",
+    or_eyebrow:"Origine", or_title:'Dal <em>digitale</em> al <em>fisico</em>',
+    or_p1:"Nderja non è nata come manifesto. È nata come lavoro — anni di costruzione, da soli, senza nessuno a guardare.",
+    s1_w:"L'inizio", s1_t:"La documentazione come resistenza",
+    s1_p:"Il progetto nasce dalla documentazione attivista — la convinzione che registrare la verità, e custodirla fuori dalla portata di chiunque, sia già un atto politico.",
+    s2_w:"La costruzione", s2_t:"Infrastruttura sovrana",
+    s2_p:"Anno dopo anno l'idea è diventata architettura: reti decentralizzate, crittografia post-quantum, identità self-hosted. Non un'app — un'infrastruttura che esiste a prescindere da chi la gestisce, perché non c'è un centro da sequestrare.",
+    s3_w:"Il terreno", s3_t:"Dagli schermi alle strade",
+    s3_p:"Una filosofia che resta digitale è un hobby. Il movimento è entrato nel mondo fisico — macchine vere, luoghi veri, persone vere — dimostrando che la sovranità si costruisce con le mani, non solo con le tastiere.",
+    s4_w:"Ora", s4_t:"Il momento albanese",
+    s4_p:"E poi la storia ha bussato. Una generazione di albanesi si è alzata nelle piazze per chiedere ciò che nderja ha sempre affermato: uno Stato che appartenga al suo popolo, non a chi lo governa.",
+    mo_eyebrow:"Il momento", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"Da settimane i cittadini riempiono le piazze d'Albania chiedendo trasparenza, responsabilità e la fine di un sistema in cui il futuro del Paese si decide senza il suo popolo. Noi stiamo con loro — non sopra di loro, non dietro di loro.",
+    mo_p2:"Questa rivoluzione non è nostra da possedere. Appartiene a chi è nelle piazze. Ciò che offriamo è ciò che sappiamo costruire: strumenti che nessun potere può spegnere, parole in tre lingue, e la pazienza di chi ragiona in decenni.",
+    mo_p3:"Un'Albania nuova — sovrana, onesta, di tutti — non è uno slogan. È l'esatta forma politica di ciò che nderja ha sempre significato: l'onore come infrastruttura pubblica.",
+    st_eyebrow:"La nostra posizione", st_title:'Un <em>giuramento</em>, non una strategia', st_seal:"Besa",
+    st_oath:"Non stabiliremo la nostra sede operativa in Albania finché l'attuale sistema resterà in piedi. Non chiederemo i suoi permessi, i suoi favori, le sue benedizioni.",
+    st_p1:"Non per distanza — per rispetto. Entrare ora significherebbe negoziare con la stessa macchina che il popolo sta contestando. Ci rifiutiamo di costruire il nuovo dentro il vecchio.",
+    st_p2:"Il giorno in cui il sistema cadrà — il giorno in cui le istituzioni risponderanno ai cittadini e non il contrario — torneremo a casa, portando con noi tutto ciò che abbiamo costruito. Questa è la nostra besa: una parola data pubblicamente, mantenuta assolutamente.",
+    ft_note:"Un movimento indipendente. Nessuna affiliazione partitica, nessun finanziamento estero, nessun permesso chiesto. © 2026 nderja.com"
+  },
+  fr: {
+    nav_home:'Accueil',
+    nav_ph:'Philosophie',
+    nav_h8:'H8-Group',
+    nav_news:'Actualités',
+    nav_comm:'Communauté',
+    h8_eyebrow:'Le moteur',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:"Une philosophie sans moyens est un vœu. H8-Group est le moteur économique indépendant qui finance le mouvement — pas d'argent de parti, pas de fonds étrangers. Deux projets, une logique : une souveraineté que l'on peut toucher.",
+    elea_t:'Elea Vending',
+    elea_p:"Le bras physique : des distributeurs automatiques indépendants qui paient les factures et servent de points relais du réseau. Chaque machine est un petit morceau d'infrastructure dans la rue — le café au-dessus, la souveraineté en dessous.",
+    nw_eyebrow:'Actualités',
+    nw_title:'Pourquoi <em>maintenant</em>',
+    nw_p1:"Pendant des années, nous avons construit en silence. Nous sortons de l'ombre maintenant parce que l'Albanie vit un moment rare : depuis plus d'un mois, les citoyens remplissent les places pour exiger la transparence et un État qui réponde à son peuple. Se taire maintenant trahirait tout ce que nderja signifie.",
+    nw_p2:"Notre position sur le mouvement est simple : nous soutenons la demande, pas un parti. Transparence, responsabilité, institutions au service des citoyens — ce ne sont pas des objectifs partisans. Ce sont les conditions minimales d'un État honnête.",
+    nw_p3:"Au centre de la tempête actuelle se trouve “The Albanian Files”, un volume de 800 pages préfacé par le Premier ministre Edi Rama, présentant 523 projets de cabinets d'architecture internationaux. Les manifestants l'ont remis au parquet SPAK comme ce qu'ils considèrent une preuve : ils dénoncent des consultations publiques évitées, des lois modifiées sur mesure pour des projets préexistants et un conflit d'intérêts — le Premier ministre présidant le conseil même qui les approuve. Des journalistes d'investigation ont documenté comment les architectes étaient invités personnellement par Rama, et les critiques notent que certains projets en zones protégées étaient planifiés avant le changement de loi.",
+    nw_p4:"Soyons clairs : il s'agit d'allégations et de témoignages rapportés par des journalistes et des militants, pas de verdicts. Aucune enquête n'a été annoncée. Nous les rapportons parce que les citoyens ont le droit de savoir ce qui est affirmé, vérifié et contesté — et d'exiger des réponses.",
+    nw_src:'Sources',
+    cm_eyebrow:'Communauté',
+    cm_title:'Construisez-le <em>avec nous</em>',
+    cm_p1:"Nous sommes peu nombreux, par choix et pour l'instant. Le réseau grandit une personne à la fois : lancez un nœud, traduisez, vérifiez les faits, portez l'idée dans votre ville. Pas d'adhésion, pas de cotisation, pas de permission — la contribution est le seul grade.",
+    cm_p2:"Chaque nœud placé, chaque langue ajoutée, chaque correction honnête rend le réseau plus difficile à faire taire. C'est ainsi que se construisent les infrastructures — et l'honneur.",
+    cm_cta:'Rejoindre sur GitHub',
+    mx_eyebrow:"L'outil", mx_title:'M4TR<em>1X</em>',
+    mx_p1:"Notre premier instrument : un réseau social décentralisé sans serveur central, sans comptes, sans surveillance. Cryptographie post-quantique, routage Tor, identité auto-hébergée. Il n'y a pas d'immeuble à perquisitionner, pas d'interrupteur à couper.",
+    mx_p2:"Le réseau est jeune. Il grandit nœud après nœud — et chaque nœud est la maison d'un citoyen, pas la tour d'une entreprise. Si tu sais utiliser un ordinateur, tu peux tenir un morceau du réseau.",
+    mx_cta:'Lancer un nœud',
+    hero_kicker:"Le mouvement",
+    hero_sub:"La capacité est le prérequis de la citoyenneté. Tu n'es pas libre si chaque outil essentiel de ta vie — identité, voix, argent, savoir — appartient à quelqu'un d'autre.",
+    hero_def:"— l'honneur. Dans la tradition albanaise, le seul bien qui ne s'accorde pas : il se conquiert et se défend.",
+    hero_scroll:"Défiler",
+    ph_eyebrow:"Philosophie",
+    ph_title:'Réalisme Éthique <em>Souverain</em>',
+    ph_p1:"Nderja est née d'une conviction : la liberté ne se déclare pas, elle se construit. Celui qui dépend d'infrastructures appartenant à d'autres — qui peuvent être éteintes, censurées ou monétisées contre lui — est un locataire, pas un citoyen.",
+    ph_p2:"Notre cadre tient trois idées ensemble. Aucune ne fonctionne seule.",
+    pil1_t:"Réalisme", pil1_p:"Voir le monde tel qu'il est — ses rapports de force, ses intérêts, sa machinerie — sans illusions et sans cynisme. L'illusion est la première forme de dépendance.",
+    pil2_t:"Éthique", pil2_p:"Construire sur des principes, pas seulement pour le profit. L'honneur — nder — est l'antique réponse albanaise à une question moderne : que refuses-tu de vendre ?",
+    pil3_t:"Souveraineté", pil3_p:"Posséder ses outils, ne pas les louer. D'abord acquérir des capacités réelles — techniques, économiques, culturelles — puis exercer une citoyenneté pleine. Dans cet ordre.",
+    ph_quote:"Les autres te vendent une chambre dans leur maison. Nous construisons des maisons, remettons les clés et ouvrons la route pour sortir — et aucune des trois ne leur appartient.",
+    or_eyebrow:"Origine", or_title:'Du <em>numérique</em> au <em>physique</em>',
+    or_p1:"Nderja n'est pas née comme un manifeste. Elle est née comme un travail — des années de construction, seul, sans personne pour regarder.",
+    s1_w:"Le début", s1_t:"La documentation comme résistance",
+    s1_p:"Le projet est né de la documentation militante — la conviction qu'enregistrer la vérité, et la garder hors de portée de quiconque, est déjà un acte politique.",
+    s2_w:"La construction", s2_t:"Infrastructure souveraine",
+    s2_p:"Année après année, l'idée est devenue architecture : réseaux décentralisés, cryptographie post-quantique, identité auto-hébergée. Pas une application — une infrastructure qui existe indépendamment de qui la gère, car il n'y a pas de centre à saisir.",
+    s3_w:"Le terrain", s3_t:"Des écrans aux rues",
+    s3_p:"Une philosophie qui reste numérique est un passe-temps. Le mouvement est entré dans le monde physique — de vraies machines, de vrais lieux, de vraies personnes — prouvant que la souveraineté se construit avec les mains, pas seulement avec les claviers.",
+    s4_w:"Maintenant", s4_t:"Le moment albanais",
+    s4_p:"Et puis l'histoire a frappé à la porte. Une génération d'Albanais s'est levée dans les rues pour exiger ce que nderja a toujours affirmé : un État qui appartient à son peuple, pas à ses dirigeants.",
+    mo_eyebrow:"Le moment", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"Depuis des semaines, les citoyens remplissent les places d'Albanie pour exiger transparence, responsabilité et la fin d'un système où l'avenir du pays se décide sans son peuple. Nous sommes avec eux — ni au-dessus, ni derrière.",
+    mo_p2:"Cette révolution ne nous appartient pas. Elle appartient à ceux qui sont sur les places. Ce que nous offrons, c'est ce que nous savons construire : des outils qu'aucun pouvoir ne peut éteindre, des mots en plusieurs langues, et la patience de ceux qui pensent en décennies.",
+    mo_p3:"Une Albanie nouvelle — souveraine, honnête, appartenant à tous — n'est pas un slogan. C'est la forme politique exacte de ce que nderja a toujours signifié : l'honneur comme infrastructure publique.",
+    st_eyebrow:"Notre position", st_title:'Un <em>serment</em>, pas une stratégie', st_seal:"Besa",
+    st_oath:"Nous n'établirons pas notre siège opérationnel en Albanie tant que le système actuel restera debout. Nous ne demanderons ni ses permis, ni ses faveurs, ni ses bénédictions.",
+    st_p1:"Non par distance — par respect. Entrer maintenant signifierait négocier avec la machinerie même que le peuple conteste. Nous refusons de construire le neuf dans le vieux.",
+    st_p2:"Le jour où le système tombera — le jour où les institutions répondront aux citoyens et non l'inverse — nous rentrerons à la maison, avec tout ce que nous avons construit. C'est notre besa : une parole donnée publiquement, tenue absolument.",
+    ft_note:"Un mouvement indépendant. Aucune affiliation partisane, aucun financement étranger, aucune permission demandée. © 2026 nderja.com"
+  },
+  de: {
+    nav_home:'Start',
+    nav_ph:'Philosophie',
+    nav_h8:'H8-Group',
+    nav_news:'News',
+    nav_comm:'Community',
+    h8_eyebrow:'Der Motor',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Eine Philosophie ohne Mittel ist ein Wunsch. H8-Group ist der unabhängige wirtschaftliche Motor, der die Bewegung finanziert — kein Parteigeld, keine ausländischen Zuschüsse. Zwei Projekte, eine Logik: Souveränität zum Anfassen.',
+    elea_t:'Elea Vending',
+    elea_p:'Der physische Arm: unabhängige Verkaufsautomaten, die die Rechnungen bezahlen und zugleich als Relaispunkte des Netzwerks dienen. Jede Maschine ist ein kleines Stück Infrastruktur auf der Straße — oben Kaffee, unten Souveränität.',
+    nw_eyebrow:'News',
+    nw_title:'Warum <em>jetzt</em>',
+    nw_p1:'Jahrelang haben wir im Stillen gebaut. Wir treten jetzt an die Öffentlichkeit, weil Albanien einen seltenen Moment erlebt: Seit über einem Monat füllen Bürger die Plätze und fordern Transparenz und einen Staat, der seinem Volk antwortet. Jetzt zu schweigen würde alles verraten, was nderja bedeutet.',
+    nw_p2:'Unsere Position zur Bewegung ist einfach: Wir unterstützen die Forderung, keine Partei. Transparenz, Rechenschaft, Institutionen im Dienst der Bürger — das sind keine parteiischen Ziele. Es sind die Mindestbedingungen eines ehrlichen Staates.',
+    nw_p3:'Im Zentrum des aktuellen Sturms steht “The Albanian Files”, ein 800-seitiger Band mit einem Vorwort von Premierminister Edi Rama, der 523 Projekte internationaler Architekturbüros präsentiert. Demonstranten haben ihn der SPAK-Staatsanwaltschaft übergeben — als das, was sie für Beweismaterial halten: Sie behaupten vermiedene öffentliche Konsultationen, maßgeschneiderte Gesetzesänderungen für bereits existierende Projekte und einen Interessenkonflikt, da der Premierminister genau jenen Rat leitet, der sie genehmigt. Investigativjournalisten haben dokumentiert, wie Architekten persönlich von Rama eingeladen wurden, und Kritiker merken an, dass einige Projekte in Schutzgebieten vor der Gesetzesänderung geplant waren.',
+    nw_p4:'Zur Klarheit: Dies sind Anschuldigungen und Zeugnisse, die von Journalisten und Aktivisten berichtet werden, keine Gerichtsurteile. Keine Ermittlung wurde angekündigt. Wir berichten darüber, weil Bürger das Recht haben zu wissen, was behauptet, geprüft und bestritten wird — und Antworten zu verlangen.',
+    nw_src:'Quellen',
+    cm_eyebrow:'Community',
+    cm_title:'Baut es <em>mit uns</em>',
+    cm_p1:'Wir sind wenige, aus Überzeugung und vorerst. Das Netzwerk wächst Person für Person: Betreibe einen Knoten, übersetze, prüfe Fakten, trage die Idee in deine Stadt. Keine Mitgliedschaft, keine Gebühren, keine Erlaubnis — der Beitrag ist der einzige Rang.',
+    cm_p2:'Jeder platzierte Knoten, jede hinzugefügte Sprache, jede ehrliche Korrektur macht das Netzwerk schwerer zum Schweigen zu bringen. So baut man Infrastruktur — und Ehre.',
+    cm_cta:'Auf GitHub mitmachen',
+    mx_eyebrow:'Das Werkzeug', mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Unser erstes Instrument: ein dezentrales soziales Netzwerk ohne zentralen Server, ohne Konten, ohne Überwachung. Post-Quanten-Kryptographie, Tor-Routing, selbstgehostete Identität. Es gibt kein Gebäude zu durchsuchen, keinen Schalter umzulegen.',
+    mx_p2:'Das Netzwerk ist jung. Es wächst Knoten für Knoten — und jeder Knoten ist das Haus eines Bürgers, nicht der Turm eines Unternehmens. Wer einen Computer bedienen kann, kann ein Stück des Netzwerks halten.',
+    mx_cta:'Einen Knoten betreiben',
+    hero_kicker:"Die Bewegung",
+    hero_sub:"Fähigkeit ist die Voraussetzung der Bürgerschaft. Du bist nicht frei, wenn jedes wesentliche Werkzeug deines Lebens — Identität, Stimme, Geld, Wissen — jemand anderem gehört.",
+    hero_def:"— die Ehre. In der albanischen Tradition das einzige Gut, das nicht verliehen wird: Man erwirbt und verteidigt es.",
+    hero_scroll:"Scrollen",
+    ph_eyebrow:"Philosophie",
+    ph_title:'Souveräner Ethischer <em>Realismus</em>',
+    ph_p1:"Nderja entstand aus einer Überzeugung: Freiheit wird nicht erklärt, sie wird gebaut. Wer von Infrastruktur abhängt, die anderen gehört — die abgeschaltet, zensiert oder gegen ihn monetarisiert werden kann — ist Mieter, nicht Bürger.",
+    ph_p2:"Unser Rahmen hält drei Ideen zusammen. Keine funktioniert allein.",
+    pil1_t:"Realismus", pil1_p:"Die Welt sehen, wie sie ist — ihre Machtverhältnisse, ihre Interessen, ihre Maschinerie — ohne Illusionen und ohne Zynismus. Die Illusion ist die erste Form der Abhängigkeit.",
+    pil2_t:"Ethik", pil2_p:"Auf Prinzipien bauen, nicht nur für Profit. Die Ehre — nder — ist die alte albanische Antwort auf eine moderne Frage: Was weigerst du dich zu verkaufen?",
+    pil3_t:"Souveränität", pil3_p:"Die eigenen Werkzeuge besitzen, nicht mieten. Zuerst echte Fähigkeiten erwerben — technisch, wirtschaftlich, kulturell — dann volle Bürgerschaft ausüben. In dieser Reihenfolge.",
+    ph_quote:"Andere verkaufen dir ein Zimmer in ihrem Haus. Wir bauen Häuser, übergeben die Schlüssel und ebnen den Weg hinaus — und nichts davon gehört ihnen.",
+    or_eyebrow:"Ursprung", or_title:'Vom <em>Digitalen</em> zum <em>Physischen</em>',
+    or_p1:"Nderja begann nicht als Manifest. Sie begann als Arbeit — Jahre des Bauens, allein, ohne Zuschauer.",
+    s1_w:"Der Anfang", s1_t:"Dokumentation als Widerstand",
+    s1_p:"Das Projekt entstand aus aktivistischer Dokumentation — der Überzeugung, dass das Festhalten der Wahrheit, außerhalb der Reichweite jeder Macht, selbst ein politischer Akt ist.",
+    s2_w:"Der Aufbau", s2_t:"Souveräne Infrastruktur",
+    s2_p:"Jahr für Jahr wurde die Idee zur Architektur: dezentrale Netzwerke, Post-Quanten-Kryptographie, selbstgehostete Identität. Keine App — eine Infrastruktur, die unabhängig davon existiert, wer sie betreibt, weil es kein Zentrum gibt, das man beschlagnahmen könnte.",
+    s3_w:"Der Boden", s3_t:"Von Bildschirmen auf die Straßen",
+    s3_p:"Eine Philosophie, die digital bleibt, ist ein Hobby. Die Bewegung trat in die physische Welt — echte Maschinen, echte Orte, echte Menschen — und bewies, dass Souveränität mit Händen gebaut wird, nicht nur mit Tastaturen.",
+    s4_w:"Jetzt", s4_t:"Der albanische Moment",
+    s4_p:"Und dann klopfte die Geschichte an. Eine Generation von Albanern erhob sich auf den Straßen, um zu fordern, was nderja immer behauptet hat: einen Staat, der seinem Volk gehört, nicht seinen Herrschern.",
+    mo_eyebrow:"Der Moment", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"Seit Wochen füllen Bürger die Plätze Albaniens und fordern Transparenz, Rechenschaft und das Ende eines Systems, in dem über die Zukunft des Landes ohne sein Volk entschieden wird. Wir stehen bei ihnen — nicht über ihnen, nicht hinter ihnen.",
+    mo_p2:"Diese Revolution gehört nicht uns. Sie gehört denen auf den Plätzen. Was wir anbieten, ist das, was wir zu bauen wissen: Werkzeuge, die keine Macht abschalten kann, Worte in mehreren Sprachen und die Geduld von Menschen, die in Jahrzehnten denken.",
+    mo_p3:"Ein neues Albanien — souverän, ehrlich, allen gehörend — ist kein Slogan. Es ist die exakte politische Form dessen, was nderja immer bedeutet hat: Ehre als öffentliche Infrastruktur.",
+    st_eyebrow:"Unsere Position", st_title:'Ein <em>Schwur</em>, keine Strategie', st_seal:"Besa",
+    st_oath:"Wir werden unseren operativen Sitz nicht in Albanien errichten, solange das gegenwärtige System steht. Wir werden weder seine Genehmigungen noch seine Gefälligkeiten noch seinen Segen erbitten.",
+    st_p1:"Nicht aus Distanz — aus Respekt. Jetzt einzutreten hieße, mit genau der Maschinerie zu verhandeln, die das Volk anficht. Wir weigern uns, das Neue im Alten zu bauen.",
+    st_p2:"An dem Tag, an dem das System fällt — an dem Tag, an dem die Institutionen den Bürgern antworten und nicht umgekehrt — kehren wir heim, mit allem, was wir gebaut haben. Das ist unsere Besa: ein öffentlich gegebenes Wort, absolut gehalten.",
+    ft_note:"Eine unabhängige Bewegung. Keine Parteizugehörigkeit, keine ausländische Finanzierung, keine erbetene Erlaubnis. © 2026 nderja.com"
+  },
+  sv: {
+    nav_home:'Hem',
+    nav_ph:'Filosofi',
+    nav_h8:'H8-Group',
+    nav_news:'Nyheter',
+    nav_comm:'Gemenskap',
+    h8_eyebrow:'Motorn',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'En filosofi utan medel är en önskan. H8-Group är den oberoende ekonomiska motor som finansierar rörelsen — inga partipengar, inga utländska bidrag. Två projekt, en logik: suveränitet du kan röra vid.',
+    elea_t:'Elea Vending',
+    elea_p:'Den fysiska armen: oberoende varuautomater som betalar räkningarna och samtidigt fungerar som reläpunkter i nätverket. Varje maskin är en liten bit infrastruktur på gatan — kaffe ovanpå, suveränitet under.',
+    nw_eyebrow:'Nyheter',
+    nw_title:'Varför <em>nu</em>',
+    nw_p1:'I åratal byggde vi i tysthet. Vi träder fram nu eftersom Albanien lever ett sällsynt ögonblick: i över en månad har medborgare fyllt torgen och krävt transparens och en stat som svarar inför sitt folk. Att tiga nu vore att förråda allt vad nderja betyder.',
+    nw_p2:'Vår hållning till rörelsen är enkel: vi stödjer kravet, inte något parti. Transparens, ansvarsskyldighet, institutioner i medborgarnas tjänst — det är inga partipolitiska mål. Det är minimivillkoren för en ärlig stat.',
+    nw_p3:'I centrum av den nuvarande stormen står “The Albanian Files”, en 800-sidig volym med förord av premiärminister Edi Rama, som presenterar 523 projekt av internationella arkitektkontor. Demonstranter har lämnat in den till åklagarmyndigheten SPAK som vad de anser vara bevis: de hävdar undvikna offentliga samråd, lagar ändrade för att passa redan existerande projekt och en intressekonflikt — eftersom premiärministern leder just det råd som godkänner dem. Grävande journalister har dokumenterat hur arkitekter bjöds in personligen av Rama, och kritiker noterar att vissa projekt i skyddade områden planerades före lagändringen.',
+    nw_p4:'För tydlighetens skull: detta är anklagelser och vittnesmål rapporterade av journalister och aktivister, inte domstolsbeslut. Ingen utredning har tillkännagivits. Vi rapporterar dem för att medborgare har rätt att veta vad som påstås, granskas och bestrids — och att kräva svar.',
+    nw_src:'Källor',
+    cm_eyebrow:'Gemenskap',
+    cm_title:'Bygg det <em>med oss</em>',
+    cm_p1:'Vi är få, av eget val och för tillfället. Nätverket växer en person i taget: kör en nod, översätt, granska fakta, bär idén till din stad. Inget medlemskap, inga avgifter, inget tillstånd — bidraget är den enda graden.',
+    cm_p2:'Varje placerad nod, varje tillagt språk, varje ärlig rättelse gör nätverket svårare att tysta. Så byggs infrastruktur — och heder.',
+    cm_cta:'Gå med på GitHub',
+    mx_eyebrow:'Verktyget', mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Vårt första instrument: ett decentraliserat socialt nätverk utan central server, utan konton, utan övervakning. Postkvantkryptografi, Tor-routing, självhostad identitet. Det finns ingen byggnad att razzia, ingen strömbrytare att slå av.',
+    mx_p2:'Nätverket är ungt. Det växer nod för nod — och varje nod är en medborgares hus, inte ett företags torn. Kan du använda en dator kan du hålla en bit av nätverket.',
+    mx_cta:'Kör en nod',
+    hero_kicker:"Rörelsen",
+    hero_sub:"Förmåga är medborgarskapets förutsättning. Du är inte fri om varje väsentligt verktyg i ditt liv — identitet, röst, pengar, kunskap — tillhör någon annan.",
+    hero_def:"— hedern. I den albanska traditionen den enda egendom som inte skänks: den förtjänas och försvaras.",
+    hero_scroll:"Skrolla",
+    ph_eyebrow:"Filosofi",
+    ph_title:'Suverän Etisk <em>Realism</em>',
+    ph_p1:"Nderja föddes ur en övertygelse: frihet deklareras inte, den byggs. Den som är beroende av infrastruktur som ägs av andra — som kan stängas av, censureras eller monetariseras mot honom — är hyresgäst, inte medborgare.",
+    ph_p2:"Vårt ramverk håller samman tre idéer. Ingen fungerar ensam.",
+    pil1_t:"Realism", pil1_p:"Se världen som den är — dess maktförhållanden, dess intressen, dess maskineri — utan illusioner och utan cynism. Illusionen är beroendets första form.",
+    pil2_t:"Etik", pil2_p:"Bygga på principer, inte bara för vinst. Hedern — nder — är det uråldriga albanska svaret på en modern fråga: vad vägrar du sälja?",
+    pil3_t:"Suveränitet", pil3_p:"Äga sina verktyg, inte hyra dem. Först förvärva verklig förmåga — teknisk, ekonomisk, kulturell — sedan utöva fullt medborgarskap. I den ordningen.",
+    ph_quote:"Andra säljer dig ett rum i deras hus. Vi bygger hus, lämnar över nycklarna och banar vägen ut — och inget av de tre tillhör dem.",
+    or_eyebrow:"Ursprung", or_title:'Från det <em>digitala</em> till det <em>fysiska</em>',
+    or_p1:"Nderja började inte som ett manifest. Den började som arbete — år av byggande, ensam, utan någon som såg på.",
+    s1_w:"Början", s1_t:"Dokumentation som motstånd",
+    s1_p:"Projektet föddes ur aktivistisk dokumentation — övertygelsen att nedteckna sanningen, och hålla den utom räckhåll för alla, i sig är en politisk handling.",
+    s2_w:"Bygget", s2_t:"Suverän infrastruktur",
+    s2_p:"År efter år blev idén arkitektur: decentraliserade nätverk, postkvantkryptografi, självhostad identitet. Inte en app — en infrastruktur som existerar oavsett vem som driver den, eftersom det inte finns något centrum att beslagta.",
+    s3_w:"Marken", s3_t:"Från skärmar till gator",
+    s3_p:"En filosofi som förblir digital är en hobby. Rörelsen klev in i den fysiska världen — riktiga maskiner, riktiga platser, riktiga människor — och bevisade att suveränitet byggs med händer, inte bara med tangentbord.",
+    s4_w:"Nu", s4_t:"Det albanska ögonblicket",
+    s4_p:"Och så knackade historien på. En generation albaner reste sig på gatorna för att kräva vad nderja alltid har hävdat: en stat som tillhör sitt folk, inte sina härskare.",
+    mo_eyebrow:"Ögonblicket", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"I veckor har medborgare fyllt Albaniens torg och krävt transparens, ansvarsskyldighet och slutet på ett system där landets framtid avgörs utan dess folk. Vi står med dem — inte över dem, inte bakom dem.",
+    mo_p2:"Denna revolution är inte vår att äga. Den tillhör dem på torgen. Vad vi erbjuder är det vi kan bygga: verktyg som ingen makt kan stänga av, ord på flera språk, och tålamodet hos människor som tänker i decennier.",
+    mo_p3:"Ett nytt Albanien — suveränt, ärligt, allas — är inte en slogan. Det är den exakta politiska formen av vad nderja alltid har betytt: heder som offentlig infrastruktur.",
+    st_eyebrow:"Vår position", st_title:'En <em>ed</em>, inte en strategi', st_seal:"Besa",
+    st_oath:"Vi kommer inte att etablera vårt operativa hem i Albanien så länge det nuvarande systemet står. Vi kommer inte att söka dess tillstånd, dess tjänster eller dess välsignelser.",
+    st_p1:"Inte av distans — av respekt. Att gå in nu vore att förhandla med just det maskineri som folket bestrider. Vi vägrar bygga det nya inuti det gamla.",
+    st_p2:"Den dag systemet faller — den dag institutionerna svarar inför medborgarna och inte tvärtom — kommer vi hem, med allt vi har byggt. Detta är vår besa: ett offentligt givet ord, absolut hållet.",
+    ft_note:"En oberoende rörelse. Ingen partitillhörighet, ingen utländsk finansiering, inget tillstånd begärt. © 2026 nderja.com"
+  },
+  el: {
+    nav_home:'Αρχική',
+    nav_ph:'Φιλοσοφία',
+    nav_h8:'H8-Group',
+    nav_news:'Νέα',
+    nav_comm:'Κοινότητα',
+    h8_eyebrow:'Η μηχανή',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Φιλοσοφία χωρίς μέσα είναι ευχή. Η H8-Group είναι η ανεξάρτητη οικονομική μηχανή που χρηματοδοτεί το κίνημα — χωρίς κομματικά χρήματα, χωρίς ξένες επιχορηγήσεις. Δύο έργα, μία λογική: κυριαρχία που μπορείς να αγγίξεις.',
+    elea_t:'Elea Vending',
+    elea_p:'Ο φυσικός βραχίονας: ανεξάρτητοι αυτόματοι πωλητές που πληρώνουν τους λογαριασμούς και λειτουργούν και ως σημεία αναμετάδοσης του δικτύου. Κάθε μηχανή είναι ένα μικρό κομμάτι υποδομής στον δρόμο — καφές από πάνω, κυριαρχία από κάτω.',
+    nw_eyebrow:'Νέα',
+    nw_title:'Γιατί <em>τώρα</em>',
+    nw_p1:'Για χρόνια χτίζαμε στη σιωπή. Βγαίνουμε στο φως τώρα γιατί η Αλβανία ζει μια σπάνια στιγμή: για πάνω από έναν μήνα, πολίτες γεμίζουν τις πλατείες απαιτώντας διαφάνεια και ένα κράτος που λογοδοτεί στον λαό του. Το να σιωπήσουμε τώρα θα πρόδιδε ό,τι σημαίνει η nderja.',
+    nw_p2:'Η θέση μας για το κίνημα είναι απλή: στηρίζουμε το αίτημα, όχι κάποιο κόμμα. Διαφάνεια, λογοδοσία, θεσμοί στην υπηρεσία των πολιτών — δεν είναι κομματικοί στόχοι. Είναι οι ελάχιστες προϋποθέσεις ενός έντιμου κράτους.',
+    nw_p3:'Στο κέντρο της σημερινής καταιγίδας βρίσκεται το “The Albanian Files”, ένας τόμος 800 σελίδων με πρόλογο του πρωθυπουργού Έντι Ράμα, που παρουσιάζει 523 έργα διεθνών αρχιτεκτονικών γραφείων. Διαδηλωτές τον κατέθεσαν στην εισαγγελία SPAK ως αυτό που θεωρούν αποδεικτικό στοιχείο: καταγγέλλουν αποφυγή δημόσιας διαβούλευσης, νόμους που άλλαξαν στα μέτρα προϋπαρχόντων έργων και σύγκρουση συμφερόντων — αφού ο πρωθυπουργός προεδρεύει στο ίδιο το συμβούλιο που τα εγκρίνει. Ερευνητές δημοσιογράφοι έχουν τεκμηριώσει πώς οι αρχιτέκτονες προσκαλούνταν προσωπικά από τον Ράμα, και οι επικριτές σημειώνουν ότι ορισμένα έργα σε προστατευόμενες περιοχές είχαν σχεδιαστεί πριν από την αλλαγή του νόμου.',
+    nw_p4:'Για να είμαστε σαφείς: πρόκειται για καταγγελίες και μαρτυρίες που αναφέρονται από δημοσιογράφους και ακτιβιστές, όχι για δικαστικές αποφάσεις. Καμία έρευνα δεν έχει ανακοινωθεί. Τις αναφέρουμε γιατί οι πολίτες έχουν δικαίωμα να γνωρίζουν τι ισχυρίζονται, τι επαληθεύεται και τι αμφισβητείται — και να απαιτούν απαντήσεις.',
+    nw_src:'Πηγές',
+    cm_eyebrow:'Κοινότητα',
+    cm_title:'Χτίσε το <em>μαζί μας</em>',
+    cm_p1:'Είμαστε λίγοι, από επιλογή και προς το παρόν. Το δίκτυο μεγαλώνει άνθρωπο-άνθρωπο: τρέξε έναν κόμβο, μετάφρασε, επαλήθευσε γεγονότα, φέρε την ιδέα στην πόλη σου. Χωρίς μέλη, χωρίς συνδρομές, χωρίς άδεια — η συνεισφορά είναι ο μόνος βαθμός.',
+    cm_p2:'Κάθε κόμβος που τοποθετείται, κάθε γλώσσα που προστίθεται, κάθε έντιμη διόρθωση κάνει το δίκτυο πιο δύσκολο να φιμωθεί. Έτσι χτίζονται οι υποδομές — και η τιμή.',
+    cm_cta:'Έλα στο GitHub',
+    mx_eyebrow:'Το εργαλείο', mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Το πρώτο μας όργανο: ένα αποκεντρωμένο κοινωνικό δίκτυο χωρίς κεντρικό διακομιστή, χωρίς λογαριασμούς, χωρίς παρακολούθηση. Μετα-κβαντική κρυπτογραφία, δρομολόγηση Tor, αυτο-φιλοξενούμενη ταυτότητα. Δεν υπάρχει κτίριο για έφοδο, ούτε διακόπτης για κλείσιμο.',
+    mx_p2:'Το δίκτυο είναι νέο. Μεγαλώνει κόμβο-κόμβο — και κάθε κόμβος είναι το σπίτι ενός πολίτη, όχι ο πύργος μιας εταιρείας. Αν ξέρεις να χειρίζεσαι έναν υπολογιστή, μπορείς να κρατήσεις ένα κομμάτι του δικτύου.',
+    mx_cta:'Τρέξε έναν κόμβο',
+    hero_kicker:"Το κίνημα",
+    hero_sub:"Η ικανότητα είναι η προϋπόθεση της ιδιότητας του πολίτη. Δεν είσαι ελεύθερος αν κάθε βασικό εργαλείο της ζωής σου — ταυτότητα, φωνή, χρήμα, γνώση — ανήκει σε κάποιον άλλον.",
+    hero_def:"— η τιμή. Στην αλβανική παράδοση, το μόνο αγαθό που δεν χαρίζεται: κατακτιέται και υπερασπίζεται.",
+    hero_scroll:"Κύλιση",
+    ph_eyebrow:"Φιλοσοφία",
+    ph_title:'Κυρίαρχος Ηθικός <em>Ρεαλισμός</em>',
+    ph_p1:"Η Nderja γεννήθηκε από μια πεποίθηση: η ελευθερία δεν διακηρύσσεται, χτίζεται. Όποιος εξαρτάται από υποδομές που ανήκουν σε άλλους — που μπορούν να σβήσουν, να λογοκριθούν ή να κερδοσκοπήσουν εναντίον του — είναι ενοικιαστής, όχι πολίτης.",
+    ph_p2:"Το πλαίσιό μας συγκρατεί τρεις ιδέες. Καμία δεν λειτουργεί μόνη της.",
+    pil1_t:"Ρεαλισμός", pil1_p:"Να βλέπεις τον κόσμο όπως είναι — τις σχέσεις ισχύος, τα συμφέροντα, τον μηχανισμό του — χωρίς αυταπάτες και χωρίς κυνισμό. Η αυταπάτη είναι η πρώτη μορφή εξάρτησης.",
+    pil2_t:"Ηθική", pil2_p:"Να χτίζεις με αρχές, όχι μόνο για κέρδος. Η τιμή — nder — είναι η αρχαία αλβανική απάντηση σε ένα σύγχρονο ερώτημα: τι αρνείσαι να πουλήσεις;",
+    pil3_t:"Κυριαρχία", pil3_p:"Να κατέχεις τα εργαλεία σου, όχι να τα νοικιάζεις. Πρώτα αποκτάς πραγματικές ικανότητες — τεχνικές, οικονομικές, πολιτισμικές — μετά ασκείς πλήρη ιδιότητα πολίτη. Με αυτή τη σειρά.",
+    ph_quote:"Οι άλλοι σού πουλούν ένα δωμάτιο μέσα στο σπίτι τους. Εμείς χτίζουμε σπίτια, παραδίδουμε τα κλειδιά και ανοίγουμε τον δρόμο προς τα έξω — και τίποτα από τα τρία δεν τους ανήκει.",
+    or_eyebrow:"Καταγωγή", or_title:'Από το <em>ψηφιακό</em> στο <em>φυσικό</em>',
+    or_p1:"Η Nderja δεν ξεκίνησε ως μανιφέστο. Ξεκίνησε ως δουλειά — χρόνια οικοδόμησης, μόνος, χωρίς κανέναν να βλέπει.",
+    s1_w:"Η αρχή", s1_t:"Η τεκμηρίωση ως αντίσταση",
+    s1_p:"Το εγχείρημα γεννήθηκε από την ακτιβιστική τεκμηρίωση — την πεποίθηση ότι η καταγραφή της αλήθειας, και η φύλαξή της μακριά από κάθε εξουσία, είναι ήδη πολιτική πράξη.",
+    s2_w:"Το χτίσιμο", s2_t:"Κυρίαρχη υποδομή",
+    s2_p:"Χρόνο με τον χρόνο η ιδέα έγινε αρχιτεκτονική: αποκεντρωμένα δίκτυα, μετα-κβαντική κρυπτογραφία, αυτο-φιλοξενούμενη ταυτότητα. Όχι μια εφαρμογή — μια υποδομή που υπάρχει ανεξάρτητα από το ποιος τη διαχειρίζεται, γιατί δεν υπάρχει κέντρο για κατάσχεση.",
+    s3_w:"Το έδαφος", s3_t:"Από τις οθόνες στους δρόμους",
+    s3_p:"Μια φιλοσοφία που μένει ψηφιακή είναι χόμπι. Το κίνημα μπήκε στον φυσικό κόσμο — αληθινές μηχανές, αληθινά μέρη, αληθινοί άνθρωποι — αποδεικνύοντας ότι η κυριαρχία χτίζεται με τα χέρια, όχι μόνο με πληκτρολόγια.",
+    s4_w:"Τώρα", s4_t:"Η αλβανική στιγμή",
+    s4_p:"Και τότε χτύπησε η ιστορία. Μια γενιά Αλβανών ξεσηκώθηκε στους δρόμους απαιτώντας αυτό που η nderja πάντα υποστήριζε: ένα κράτος που ανήκει στον λαό του, όχι στους κυβερνήτες του.",
+    mo_eyebrow:"Η στιγμή", mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:"Εδώ και εβδομάδες, πολίτες γεμίζουν τις πλατείες της Αλβανίας απαιτώντας διαφάνεια, λογοδοσία και το τέλος ενός συστήματος όπου το μέλλον της χώρας αποφασίζεται χωρίς τον λαό της. Στεκόμαστε μαζί τους — όχι πάνω τους, όχι πίσω τους.",
+    mo_p2:"Αυτή η επανάσταση δεν μας ανήκει. Ανήκει σε όσους είναι στις πλατείες. Αυτό που προσφέρουμε είναι ό,τι ξέρουμε να χτίζουμε: εργαλεία που καμία εξουσία δεν μπορεί να σβήσει, λόγια σε πολλές γλώσσες, και την υπομονή ανθρώπων που σκέφτονται σε δεκαετίες.",
+    mo_p3:"Μια νέα Αλβανία — κυρίαρχη, έντιμη, όλων — δεν είναι σύνθημα. Είναι η ακριβής πολιτική μορφή αυτού που πάντα σήμαινε η nderja: η τιμή ως δημόσια υποδομή.",
+    st_eyebrow:"Η θέση μας", st_title:'Ένας <em>όρκος</em>, όχι μια στρατηγική', st_seal:"Besa",
+    st_oath:"Δεν θα εγκαταστήσουμε την επιχειρησιακή μας έδρα στην Αλβανία όσο το σημερινό σύστημα παραμένει όρθιο. Δεν θα ζητήσουμε τις άδειές του, τις χάρες του, τις ευλογίες του.",
+    st_p1:"Όχι από απόσταση — από σεβασμό. Το να μπούμε τώρα θα σήμαινε διαπραγμάτευση με τον ίδιο μηχανισμό που ο λαός αμφισβητεί. Αρνούμαστε να χτίσουμε το καινούργιο μέσα στο παλιό.",
+    st_p2:"Τη μέρα που το σύστημα θα πέσει — τη μέρα που οι θεσμοί θα λογοδοτούν στους πολίτες και όχι το αντίστροφο — θα γυρίσουμε σπίτι, με όλα όσα έχουμε χτίσει. Αυτή είναι η besa μας: λόγος δοσμένος δημόσια, τηρημένος απόλυτα.",
+    ft_note:"Ένα ανεξάρτητο κίνημα. Καμία κομματική ένταξη, καμία ξένη χρηματοδότηση, καμία άδεια ζητημένη. © 2026 nderja.com"
+  },
+  nl: {
+    nav_home:'Home',
+    nav_ph:'Filosofie',
+    nav_h8:'H8-Group',
+    nav_news:'Nieuws',
+    nav_comm:'Community',
+    hero_kicker:'De beweging',
+    hero_sub:'Bekwaamheid is de voorwaarde voor burgerschap. Je bent niet vrij als elk essentieel instrument van je leven — identiteit, stem, geld, kennis — aan iemand anders toebehoort.',
+    hero_def:'— de eer. In de Albanese traditie het enige bezit dat niet geschonken wordt: het wordt verdiend en verdedigd.',
+    hero_scroll:'Scroll',
+    ph_eyebrow:'Filosofie',
+    ph_title:'Soeverein Ethisch <em>Realisme</em>',
+    ph_p1:'Nderja is geboren uit één overtuiging: vrijheid wordt niet verklaard, ze wordt gebouwd. Wie afhankelijk is van infrastructuur die aan anderen toebehoort — die uitgeschakeld, gecensureerd of tegen hem gemonetariseerd kan worden — is huurder, geen burger.',
+    ph_p2:'Ons kader houdt drie ideeën samen. Geen enkele werkt alleen.',
+    pil1_t:'Realisme',
+    pil1_p:'De wereld zien zoals ze is — haar machtsverhoudingen, haar belangen, haar machinerie — zonder illusies en zonder cynisme. De illusie is de eerste vorm van afhankelijkheid.',
+    pil2_t:'Ethiek',
+    pil2_p:'Bouwen op principes, niet alleen voor winst. De eer — nder — is het oude Albanese antwoord op een moderne vraag: wat weiger je te verkopen?',
+    pil3_t:'Soevereiniteit',
+    pil3_p:'Je eigen gereedschap bezitten, niet huren. Eerst echte bekwaamheid verwerven — technisch, economisch, cultureel — dan volledig burgerschap uitoefenen. In die volgorde.',
+    ph_quote:'Anderen verkopen je een kamer in hun huis. Wij bouwen huizen, overhandigen de sleutels en banen de weg naar buiten — en geen van de drie behoort hun toe.',
+    or_eyebrow:'Oorsprong',
+    or_title:'Van het <em>digitale</em> naar het <em>fysieke</em>',
+    or_p1:'Nderja begon niet als manifest. Het begon als werk — jaren van bouwen, alleen, zonder toeschouwers.',
+    s1_w:'Het begin',
+    s1_t:'Documentatie als verzet',
+    s1_p:'Het project is geboren uit activistische documentatie — de overtuiging dat het vastleggen van de waarheid, buiten ieders bereik, op zichzelf een politieke daad is.',
+    s2_w:'De bouw',
+    s2_t:'Soevereine infrastructuur',
+    s2_p:'Jaar na jaar werd het idee architectuur: gedecentraliseerde netwerken, post-kwantumcryptografie, zelfgehoste identiteit. Geen app — een infrastructuur die bestaat ongeacht wie haar beheert, omdat er geen centrum is om in beslag te nemen.',
+    s3_w:'De grond',
+    s3_t:'Van schermen naar straten',
+    s3_p:'Een filosofie die digitaal blijft is een hobby. De beweging stapte de fysieke wereld in — echte machines, echte plaatsen, echte mensen — en bewees dat soevereiniteit met handen wordt gebouwd, niet alleen met toetsenborden.',
+    s4_w:'Nu',
+    s4_t:'Het Albanese moment',
+    s4_p:'En toen klopte de geschiedenis aan. Een generatie Albanezen stond op in de straten om te eisen wat nderja altijd heeft beweerd: een staat die aan zijn volk toebehoort, niet aan zijn heersers.',
+    mo_eyebrow:'Het moment',
+    mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:'Al weken vullen burgers de pleinen van Albanië met eisen om transparantie, verantwoording en het einde van een systeem waarin de toekomst van het land zonder zijn volk wordt beslist. Wij staan naast hen — niet boven hen, niet achter hen.',
+    mo_p2:'Deze revolutie is niet van ons. Ze behoort toe aan wie op de pleinen staat. Wat wij bieden is wat wij kunnen bouwen: instrumenten die geen macht kan uitschakelen, woorden in meerdere talen, en het geduld van mensen die in decennia denken.',
+    mo_p3:'Een nieuw Albanië — soeverein, eerlijk, van iedereen — is geen slogan. Het is de exacte politieke vorm van wat nderja altijd heeft betekend: eer als publieke infrastructuur.',
+    st_eyebrow:'Ons standpunt',
+    st_title:'Een <em>eed</em>, geen strategie',
+    st_seal:'Besa',
+    st_oath:'Wij vestigen ons operationele thuis niet in Albanië zolang het huidige systeem overeind staat. Wij zullen zijn vergunningen, gunsten of zegeningen niet vragen.',
+    st_p1:'Niet uit afstand — uit respect. Nu binnenkomen zou betekenen onderhandelen met precies de machinerie die het volk betwist. Wij weigeren het nieuwe binnen het oude te bouwen.',
+    st_p2:'De dag dat het systeem valt — de dag dat instellingen verantwoording afleggen aan burgers en niet omgekeerd — komen wij thuis, met alles wat wij hebben gebouwd. Dit is onze besa: een publiek gegeven woord, absoluut gehouden.',
+    h8_eyebrow:'De motor',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Een filosofie zonder middelen is een wens. H8-Group is de onafhankelijke economische motor die de beweging financiert — geen partijgeld, geen buitenlandse subsidies. Twee projecten, één logica: soevereiniteit die je kunt aanraken.',
+    mx_eyebrow:'Het instrument',
+    mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Ons eerste instrument: een gedecentraliseerd sociaal netwerk zonder centrale server, zonder accounts, zonder toezicht. Post-kwantumcryptografie, Tor-routing, zelfgehoste identiteit. Er is geen gebouw om binnen te vallen, geen schakelaar om om te zetten.',
+    mx_p2:'Het netwerk is jong. Het groeit knooppunt voor knooppunt — en elk knooppunt is het huis van een burger, niet de toren van een bedrijf. Kun je een computer bedienen, dan kun je een stuk van het netwerk dragen.',
+    mx_cta:'Draai een node',
+    elea_t:'Elea Vending',
+    elea_p:'De fysieke arm: onafhankelijke verkoopautomaten die de rekeningen betalen en tegelijk dienen als relaispunten van het netwerk. Elke machine is een klein stuk infrastructuur op straat — koffie boven, soevereiniteit onder.',
+    nw_eyebrow:'Nieuws',
+    nw_title:'Waarom <em>nu</em>',
+    nw_p1:'Jarenlang bouwden we in stilte. We treden nu naar buiten omdat Albanië een zeldzaam moment beleeft: al meer dan een maand vullen burgers de pleinen met eisen om transparantie en een staat die verantwoording aflegt aan zijn volk. Nu zwijgen zou alles verraden wat nderja betekent.',
+    nw_p2:'Ons standpunt over de beweging is eenvoudig: wij steunen de eis, geen enkele partij. Transparantie, verantwoording, instellingen in dienst van burgers — dat zijn geen partijdoelen. Het zijn de minimumvoorwaarden van een eerlijke staat.',
+    nw_p3:"In het centrum van de huidige storm staat “The Albanian Files”, een boekwerk van 800 pagina's met een voorwoord van premier Edi Rama, dat 523 projecten van internationale architectenbureaus presenteert. Demonstranten hebben het bij het SPAK-parket ingediend als wat zij als bewijs beschouwen: zij stellen dat publieke consultatie werd vermeden, dat wetten op maat werden gewijzigd voor reeds bestaande projecten en dat er een belangenconflict is — aangezien de premier precies de raad voorzit die ze goedkeurt. Onderzoeksjournalisten hebben gedocumenteerd hoe architecten persoonlijk door Rama werden uitgenodigd, en critici merken op dat sommige projecten in beschermde gebieden al vóór de wetswijziging waren gepland.",
+    nw_p4:'Voor de duidelijkheid: dit zijn beschuldigingen en getuigenissen gerapporteerd door journalisten en activisten, geen rechterlijke uitspraken. Er is geen onderzoek aangekondigd. Wij melden ze omdat burgers het recht hebben te weten wat wordt beweerd, geverifieerd en betwist — en om antwoorden te eisen.',
+    nw_src:'Bronnen',
+    cm_eyebrow:'Community',
+    cm_title:'Bouw het <em>met ons</em>',
+    cm_p1:'We zijn met weinigen, uit keuze en voorlopig. Het netwerk groeit persoon voor persoon: draai een node, vertaal, verifieer feiten, breng het idee naar jouw stad. Geen lidmaatschap, geen kosten, geen toestemming — bijdrage is de enige rang.',
+    cm_p2:'Elke geplaatste node, elke toegevoegde taal, elke eerlijke correctie maakt het netwerk moeilijker het zwijgen op te leggen. Zo worden infrastructuur — en eer — gebouwd.',
+    cm_cta:'Doe mee op GitHub',
+    ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
+  },
+  es: {
+    nav_home:'Inicio',
+    nav_ph:'Filosofía',
+    nav_h8:'H8-Group',
+    nav_news:'Noticias',
+    nav_comm:'Comunidad',
+    hero_kicker:'El movimiento',
+    hero_sub:'La capacidad es el prerrequisito de la ciudadanía. No eres libre si cada herramienta esencial de tu vida — identidad, voz, dinero, conocimiento — pertenece a otro.',
+    hero_def:'— el honor. En la tradición albanesa, el único bien que no se concede: se conquista y se defiende.',
+    hero_scroll:'Desliza',
+    ph_eyebrow:'Filosofía',
+    ph_title:'Realismo Ético <em>Soberano</em>',
+    ph_p1:'Nderja nace de una convicción: la libertad no se declara, se construye. Quien depende de infraestructuras propiedad de otros — que pueden apagarse, censurarse o monetizarse en su contra — es un inquilino, no un ciudadano.',
+    ph_p2:'Nuestro marco sostiene tres ideas. Ninguna funciona sola.',
+    pil1_t:'Realismo',
+    pil1_p:'Ver el mundo como es — sus relaciones de poder, sus intereses, su maquinaria — sin ilusiones y sin cinismo. La ilusión es la primera forma de dependencia.',
+    pil2_t:'Ética',
+    pil2_p:'Construir sobre principios, no solo por lucro. El honor — nder — es la antigua respuesta albanesa a una pregunta moderna: ¿qué te niegas a vender?',
+    pil3_t:'Soberanía',
+    pil3_p:'Poseer tus herramientas, no alquilarlas. Primero adquirir capacidades reales — técnicas, económicas, culturales — luego ejercer la ciudadanía plena. En ese orden.',
+    ph_quote:'Otros te venden una habitación dentro de su casa. Nosotros construimos casas, entregamos las llaves y abrimos el camino de salida — y ninguna de las tres les pertenece.',
+    or_eyebrow:'Origen',
+    or_title:'De lo <em>digital</em> a lo <em>físico</em>',
+    or_p1:'Nderja no nació como manifiesto. Nació como trabajo — años de construcción, en solitario, sin nadie mirando.',
+    s1_w:'El inicio',
+    s1_t:'La documentación como resistencia',
+    s1_p:'El proyecto nace de la documentación activista — la convicción de que registrar la verdad, y guardarla fuera del alcance de cualquiera, es ya un acto político.',
+    s2_w:'La construcción',
+    s2_t:'Infraestructura soberana',
+    s2_p:'Año tras año la idea se hizo arquitectura: redes descentralizadas, criptografía poscuántica, identidad autoalojada. No una app — una infraestructura que existe sin importar quién la gestione, porque no hay centro que confiscar.',
+    s3_w:'El terreno',
+    s3_t:'De las pantallas a las calles',
+    s3_p:'Una filosofía que permanece digital es un pasatiempo. El movimiento entró en el mundo físico — máquinas reales, lugares reales, personas reales — demostrando que la soberanía se construye con las manos, no solo con teclados.',
+    s4_w:'Ahora',
+    s4_t:'El momento albanés',
+    s4_p:'Y entonces la historia llamó a la puerta. Una generación de albaneses se alzó en las calles para exigir lo que nderja siempre ha afirmado: un Estado que pertenezca a su pueblo, no a sus gobernantes.',
+    mo_eyebrow:'El momento',
+    mo_title:'Shqipëria <em>e Re</em>',
+    mo_p1:'Desde hace semanas, los ciudadanos llenan las plazas de Albania exigiendo transparencia, rendición de cuentas y el fin de un sistema donde el futuro del país se decide sin su pueblo. Estamos con ellos — ni por encima, ni por detrás.',
+    mo_p2:'Esta revolución no es nuestra. Pertenece a quienes están en las plazas. Lo que ofrecemos es lo que sabemos construir: herramientas que ningún poder puede apagar, palabras en varios idiomas, y la paciencia de quienes piensan en décadas.',
+    mo_p3:'Una Albania nueva — soberana, honesta, de todos — no es un eslogan. Es la forma política exacta de lo que nderja siempre ha significado: el honor como infraestructura pública.',
+    st_eyebrow:'Nuestra posición',
+    st_title:'Un <em>juramento</em>, no una estrategia',
+    st_seal:'Besa',
+    st_oath:'No estableceremos nuestra sede operativa en Albania mientras el sistema actual siga en pie. No pediremos sus permisos, sus favores ni sus bendiciones.',
+    st_p1:'No por distancia — por respeto. Entrar ahora significaría negociar con la misma maquinaria que el pueblo cuestiona. Nos negamos a construir lo nuevo dentro de lo viejo.',
+    st_p2:'El día que caiga el sistema — el día que las instituciones respondan a los ciudadanos y no al revés — volveremos a casa, con todo lo que hemos construido. Esta es nuestra besa: una palabra dada públicamente, cumplida absolutamente.',
+    h8_eyebrow:'El motor',
+    h8_title:'H8-<em>Group</em>',
+    h8_p1:'Una filosofía sin medios es un deseo. H8-Group es el motor económico independiente que financia el movimiento — sin dinero de partidos, sin fondos extranjeros. Dos proyectos, una lógica: soberanía que puedes tocar.',
+    mx_eyebrow:'La herramienta',
+    mx_title:'M4TR<em>1X</em>',
+    mx_p1:'Nuestro primer instrumento: una red social descentralizada sin servidor central, sin cuentas, sin vigilancia. Criptografía poscuántica, enrutamiento Tor, identidad autoalojada. No hay edificio que registrar ni interruptor que apagar.',
+    mx_p2:'La red es joven. Crece nodo a nodo — y cada nodo es la casa de un ciudadano, no la torre de una empresa. Si sabes usar un ordenador, puedes sostener un pedazo de la red.',
+    mx_cta:'Activa un nodo',
+    elea_t:'Elea Vending',
+    elea_p:'El brazo físico: máquinas expendedoras independientes que pagan las facturas y sirven a la vez como puntos de relé de la red. Cada máquina es un pequeño pedazo de infraestructura en la calle — café arriba, soberanía abajo.',
+    nw_eyebrow:'Noticias',
+    nw_title:'Por qué <em>ahora</em>',
+    nw_p1:'Durante años construimos en silencio. Salimos a la luz ahora porque Albania vive un momento raro: desde hace más de un mes, los ciudadanos llenan las plazas exigiendo transparencia y un Estado que responda a su pueblo. Callar ahora traicionaría todo lo que nderja significa.',
+    nw_p2:'Nuestra posición sobre el movimiento es simple: apoyamos la demanda, no a ningún partido. Transparencia, rendición de cuentas, instituciones al servicio de los ciudadanos — no son objetivos partidistas. Son las condiciones mínimas de un Estado honesto.',
+    nw_p3:'En el centro de la tormenta actual está “The Albanian Files”, un volumen de 800 páginas con prólogo del primer ministro Edi Rama, que presenta 523 proyectos de estudios de arquitectura internacionales. Los manifestantes lo han entregado a la fiscalía SPAK como lo que consideran una prueba: denuncian consultas públicas evitadas, leyes modificadas a medida de proyectos preexistentes y un conflicto de intereses — pues el primer ministro preside precisamente el consejo que los aprueba. Periodistas de investigación han documentado cómo los arquitectos eran invitados personalmente por Rama, y los críticos señalan que algunos proyectos en zonas protegidas se planificaron antes del cambio de ley.',
+    nw_p4:'Para ser claros: se trata de acusaciones y testimonios reportados por periodistas y activistas, no de veredictos judiciales. No se ha anunciado ninguna investigación. Los reportamos porque los ciudadanos tienen derecho a saber qué se afirma, se verifica y se cuestiona — y a exigir respuestas.',
+    nw_src:'Fuentes',
+    cm_eyebrow:'Comunidad',
+    cm_title:'Constrúyela <em>con nosotros</em>',
+    cm_p1:'Somos pocos, por elección y por ahora. La red crece persona a persona: activa un nodo, traduce, verifica hechos, lleva la idea a tu ciudad. Sin afiliación, sin cuotas, sin permiso — la contribución es el único rango.',
+    cm_p2:'Cada nodo colocado, cada idioma añadido, cada corrección honesta hace la red más difícil de silenciar. Así se construyen las infraestructuras — y el honor.',
+    cm_cta:'Únete en GitHub',
+    ft_note:'Un movimiento independiente. Sin afiliación partidista, sin financiación extranjera, sin permiso pedido. © 2026 nderja.com',
+  },
+};
+
+function setLang(lang){
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i]').forEach(el=>{
+    const k = el.getAttribute('data-i');
+    if(T[lang][k]!==undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i-html]').forEach(el=>{
+    const k = el.getAttribute('data-i-html');
+    if(T[lang][k]!==undefined) el.innerHTML = T[lang][k];
+  });
+  document.querySelectorAll('.langs button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.lang===lang);
+  });
+}
+document.querySelectorAll('.langs button').forEach(b=>{
+  b.addEventListener('click',()=>setLang(b.dataset.lang));
+});
+
+/* panels */
+function showPanel(name){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+name));
+  document.querySelectorAll('.menu button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
+  window.scrollTo({top:0});
+  document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
+}
+document.querySelectorAll('.menu button').forEach(b=>{
+  b.addEventListener('click',()=>showPanel(b.dataset.panel));
+});
+
+/* scroll reveal */
+const io = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
