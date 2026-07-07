@@ -28,8 +28,9 @@
   /* ---------- header ---------- */
   header{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(7,11,8,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .hrow{display:flex;justify-content:space-between;align-items:center;padding:1rem 5vw}
-  .logo{font-weight:700;letter-spacing:.35em;font-size:.95rem;color:var(--text);text-decoration:none}
+  .logo{font-weight:700;letter-spacing:.35em;font-size:.95rem;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:.7rem}
   .logo span{color:var(--green)}
+  .logo img{height:34px;width:auto;display:block}
   .langs{display:flex;gap:.4rem}
   .langs button{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--sans);
     font-size:.72rem;letter-spacing:.15em;padding:.35rem .7rem;cursor:pointer;transition:.25s}
@@ -139,7 +140,7 @@
 
 <header>
   <div class="hrow">
-    <a class="logo" href="#top" onclick="showPanel('home');return false">NDER<span>JA</span></a>
+    <a class="logo" href="#top" onclick="showPanel('home');return false"><img src="img/logo-h8.png" alt="">NDER<span>JA</span></a>
     <nav class="langs" aria-label="Language">
       <button data-lang="en" class="active">EN</button>
       <button data-lang="sq">SQ</button>
