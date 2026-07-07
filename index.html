@@ -61,6 +61,35 @@
   .post ul{max-width:680px;color:var(--muted);margin:0 0 1.2rem 1.4rem}
   .post .byline{margin-top:2rem;color:var(--text);font-family:var(--serif);font-style:italic;font-size:1.1rem}
 
+  /* ---------- flamingo submenu ---------- */
+  .submenu{display:none;justify-content:center;gap:.2rem;flex-wrap:wrap;border-top:1px solid var(--line);padding:0 5vw}
+  .submenu.show{display:flex}
+  .submenu button{background:none;border:none;color:var(--muted);font-family:var(--sans);font-size:.7rem;
+    letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1rem;cursor:pointer;transition:.25s;border-bottom:2px solid transparent}
+  .submenu button:hover{color:var(--text)}
+  .submenu button.active{color:var(--green);border-bottom-color:var(--green)}
+  .submenu button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .sub{display:none}
+  .sub.active{display:block}
+
+  /* ---------- map (Harta) ---------- */
+  #map{height:min(66vh,560px);border:1px solid var(--line);margin-top:1.6rem;background:var(--panel)}
+  .leaflet-container{background:var(--panel);font-family:var(--sans)}
+  .mapwho{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-top:2.2rem}
+  .figs{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
+  .fig{display:flex;align-items:center;gap:.8rem;background:var(--panel);border:1px solid var(--line);padding:.6rem .9rem;cursor:pointer;transition:.25s}
+  .fig:hover{border-color:var(--green-dim)}
+  .fig.sel{border-color:var(--green)}
+  .fig img,.fig .fava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
+  .fig .fava{display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;font-size:1.1rem}
+  .fig .fname{font-size:.9rem;color:var(--text)}
+  .fig .fcount{font-size:.75rem}
+  .mapform{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.2rem;align-items:stretch}
+  .mapform input{background:var(--panel);border:1px solid var(--line);color:var(--text);font-family:var(--sans);padding:.6rem .9rem;font-size:.9rem;min-width:180px}
+  .mapform input:focus{outline:none;border-color:var(--green)}
+  .mapform .btn{background:none;cursor:pointer;font-family:var(--sans)}
+  .mapnote{font-size:.8rem;color:var(--muted);margin-top:.8rem;max-width:680px}
+
   /* ---------- hero ---------- */
   .hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;padding:0 5vw;position:relative;overflow:hidden}
   .hero::after{content:"";position:absolute;inset:0;background:
@@ -158,6 +187,11 @@
     <button data-panel="philosophy" data-i="nav_ph">Philosophy</button>
     <button data-panel="h8" data-i="nav_h8">H8-Group</button>
     <button data-panel="news" data-i="nav_news">Flamingo Revolution</button>
+  </nav>
+  <nav class="submenu" id="fr-sub" aria-label="Flamingo Revolution">
+    <button data-sub="articles" data-i="ar_t">Articles</button>
+    <button data-sub="pyramid" data-i="py_t">Pyramid</button>
+    <button data-sub="map" data-i="mp_t">Map</button>
   </nav>
 </header>
 
@@ -370,6 +404,7 @@
 
 <div class="panel" id="panel-news">
   <!-- FLAMINGO REVOLUTION -->
+  <div class="sub active" id="sub-fight">
   <section id="news" style="border-top:none">
     <div class="frame">
       <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
@@ -385,9 +420,18 @@
       <p data-i="nw_p3">At the center of the current storm is "The Albanian Files", an 800-page volume with a foreword by Prime Minister Edi Rama, presenting 523 projects by international architecture firms. Protesters have submitted it to the SPAK prosecution as what they consider evidence: they allege avoided public consultation, laws changed to fit pre-existing projects, and a conflict of interest — since the Prime Minister chairs the very council that approves them. Investigative journalists have documented how architects were personally invited by Rama, and critics note some projects in protected areas were planned before the law was changed.</p>
       <p data-i="nw_p4">To be clear: these are allegations and testimonies reported by journalists and activists, not court verdicts. No investigation has been announced. We report them because citizens have the right to know what is being claimed, verified and contested — and to demand answers.</p>
       <div class="srcnote"><span data-i="nw_src">Sources</span>: <a href="https://www.reporter.al/2026/07/06/the-albanian-files-anatomia-e-rilindjes-arkitekturore-te-edi-rames/" target="_blank" rel="noopener">Reporter.al / BIRN</a> · <a href="https://www.balkanweb.com/en/protestuesit-dorezuan-sot-ne-spak-the-albanian-files-rama-libri-i-mallkuar-i-pari-qe-trajtohet-si-prove-krimi/" target="_blank" rel="noopener">BalkanWeb</a></div>
-      <div class="card2 reveal" style="margin-top:2.5rem">
-        <h3 data-i="ar_t">Articles</h3>
-        <article class="post">
+      <div class="srcnote"><span data-i="so_t">Follow the signal</span>: <a href="https://www.instagram.com/nderja.h8" target="_blank" rel="noopener">Instagram @nderja.h8</a> · <a href="https://www.tiktok.com/@nderja.h8" target="_blank" rel="noopener">TikTok @nderja.h8</a> · <a href="https://chat.whatsapp.com/CQ7UiJdxabP4go9Y1Zn8rb?mode=gi_t" target="_blank" rel="noopener">WhatsApp</a></div>
+    </div>
+  </section>
+  </div>
+
+  <!-- ARTICLES -->
+  <div class="sub" id="sub-articles">
+  <section style="border-top:none">
+    <div class="frame">
+      <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
+      <h2 data-i="ar_t">Articles</h2>
+        <article class="post" style="border-top:none;padding-top:0">
           <h4>Edi Rama eshte sikur Ben Aliu i Tunizise</h4>
           <img src="img/rama-ben-ali.jpg" alt="Edi Rama dhe Zine El Abidine Ben Ali">
           <p>Një krahasim midis sundimit të Edi Ramës në Shqipëri dhe Zine El Abidine Ben Aliut në Tunizi na jep shume ngjashmeri. Qe te dy ishin sundimtare autokrate. Zagare te Perendimit, qe Perendimi i mbajti ne pushtet pse ju duheshin per te shtypur popullatat vendase.</p>
@@ -439,10 +483,40 @@
           <p>Por tunizianet e cliruan veten e tyre gjate Pranveres Arabe. Shqiptaret, akoma!</p>
           <p class="byline">Erjon Vorfa</p>
         </article>
-      </div>
-      <div class="srcnote"><span data-i="so_t">Follow the signal</span>: <a href="https://www.instagram.com/nderja.h8" target="_blank" rel="noopener">Instagram @nderja.h8</a> · <a href="https://www.tiktok.com/@nderja.h8" target="_blank" rel="noopener">TikTok @nderja.h8</a> · <a href="https://chat.whatsapp.com/CQ7UiJdxabP4go9Y1Zn8rb?mode=gi_t" target="_blank" rel="noopener">WhatsApp</a></div>
     </div>
   </section>
+  </div>
+
+  <!-- PYRAMID -->
+  <div class="sub" id="sub-pyramid">
+  <section style="border-top:none">
+    <div class="frame">
+      <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
+      <h2 data-i="py_t">Pyramid</h2>
+    </div>
+  </section>
+  </div>
+
+  <!-- MAP -->
+  <div class="sub" id="sub-map">
+  <section style="border-top:none">
+    <div class="frame">
+      <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
+      <h2 data-i="mp_t">Map</h2>
+      <p data-i="mp_intro">The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.</p>
+      <p class="mapnote" data-i="mp_note">1. Choose a figure · 2. Write your city · 3. Click your spot on the map.</p>
+      <div class="mapwho" data-i="mp_who">Who do you want?</div>
+      <div class="figs" id="figs"></div>
+      <div class="mapform">
+        <input id="mp-city" maxlength="40" placeholder="Your city" data-i-ph="mp_city">
+        <input id="mp-newfig" maxlength="40" placeholder="Another name…" data-i-ph="mp_newfig">
+        <button class="btn" id="mp-addfig" data-i="mp_addfig">Add</button>
+      </div>
+      <div id="map"></div>
+      <p class="mapnote" id="mp-status"></p>
+    </div>
+  </section>
+  </div>
 </div>
 
 
@@ -482,6 +556,16 @@ const T = {
     fr_p0:'We are not spectators: nderja is part of the fight against the system. This page is where our vision takes shape — updated piece by piece, in the open, as the battle in the squares moves forward.',
     vi_t:'Our vision',
     ar_t:'Articles',
+    py_t:'Pyramid',
+    mp_t:'Map',
+    mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
+    mp_note:'1. Choose a figure · 2. Write your city · 3. Click your spot on the map.',
+    mp_who:'Who do you want?',
+    mp_city:'Your city',
+    mp_newfig:'Another name…',
+    mp_addfig:'Add',
+    mp_offline:'The shared map is not active yet — pins cannot be saved right now.',
+    mp_pick:'First choose who you stand with.',
     vi_p1:'A state transparent by default, where power answers to citizens and decisions are made in the open. Institutions that serve, not rule. Infrastructure — digital and physical — owned by the people who use it. Honor as the measure of public life: what you refuse to sell, what you refuse to silence.',
     vi_p2:'This page is deliberately unfinished. As the movement grows we will add positions, facts and commitments here — where anyone can check them.',
     so_t:'Follow the signal',
@@ -567,6 +651,16 @@ const T = {
     fr_p0:'Nuk jemi spektatorë: nderja është pjesë e luftës kundër sistemit. Kjo faqe është vendi ku vizioni ynë merr formë — përditësuar copë pas cope, në dritë të diellit, teksa beteja në sheshe ecën përpara.',
     vi_t:'Vizioni ynë',
     ar_t:'Artikuj',
+    py_t:'Piramida',
+    mp_t:'Harta',
+    mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
+    mp_note:'1. Zgjidh një figurë · 2. Shkruaj qytetin tënd · 3. Kliko vendin tënd në hartë.',
+    mp_who:'Kë do ti?',
+    mp_city:'Qyteti yt',
+    mp_newfig:'Një emër tjetër…',
+    mp_addfig:'Shto',
+    mp_offline:'Harta e përbashkët nuk është ende aktive — gjilpërat nuk mund të ruhen tani.',
+    mp_pick:'Zgjidh më parë me kë qëndron.',
     vi_p1:'Një shtet transparent si rregull, ku pushteti u përgjigjet qytetarëve dhe vendimet merren në dritë të diellit. Institucione që shërbejnë, jo sundojnë. Infrastruktura — dixhitale dhe fizike — në pronësi të atyre që i përdorin. Nderi si masë e jetës publike: ajo që refuzon ta shesësh, ajo që refuzon ta heshtësh.',
     vi_p2:'Kjo faqe është qëllimisht e papërfunduar. Teksa lëvizja rritet, këtu do të shtojmë qëndrime, fakte dhe zotime — aty ku kushdo mund t\'i verifikojë.',
     so_t:'Ndiq sinjalin',
@@ -652,6 +746,16 @@ const T = {
     fr_p0:'Non siamo spettatori: nderja è parte della lotta al sistema. Questa pagina è dove la nostra visione prende forma — aggiornata pezzo dopo pezzo, alla luce del sole, man mano che la battaglia nelle piazze avanza.',
     vi_t:'La nostra visione',
     ar_t:'Articoli',
+    py_t:'Piramide',
+    mp_t:'Mappa',
+    mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
+    mp_note:'1. Scegli una figura · 2. Scrivi la tua città · 3. Clicca il tuo punto sulla mappa.',
+    mp_who:'Chi vuoi?',
+    mp_city:'La tua città',
+    mp_newfig:'Un altro nome…',
+    mp_addfig:'Aggiungi',
+    mp_offline:'La mappa condivisa non è ancora attiva — per ora i pin non vengono salvati.',
+    mp_pick:'Prima scegli con chi stai.',
     vi_p1:"Uno Stato trasparente per impostazione, dove il potere risponde ai cittadini e le decisioni si prendono alla luce del sole. Istituzioni che servono, non comandano. Infrastrutture — digitali e fisiche — di proprietà di chi le usa. L'onore come misura della vita pubblica: ciò che rifiuti di vendere, ciò che rifiuti di tacere.",
     vi_p2:'Questa pagina è volutamente incompiuta. Man mano che il movimento cresce aggiungeremo qui posizioni, fatti e impegni — dove chiunque può verificarli.',
     so_t:'Segui il segnale',
@@ -737,6 +841,16 @@ const T = {
     fr_p0:"Nous ne sommes pas des spectateurs : nderja fait partie du combat contre le système. Cette page est l'endroit où notre vision prend forme — mise à jour morceau par morceau, au grand jour, à mesure que la bataille des places avance.",
     vi_t:'Notre vision',
     ar_t:'Articles',
+    py_t:'Pyramide',
+    mp_t:'Carte',
+    mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
+    mp_note:'1. Choisis une figure · 2. Écris ta ville · 3. Clique ton endroit sur la carte.',
+    mp_who:'Qui veux-tu ?',
+    mp_city:'Ta ville',
+    mp_newfig:'Un autre nom…',
+    mp_addfig:'Ajouter',
+    mp_offline:'La carte partagée n’est pas encore active — les épingles ne peuvent pas être enregistrées pour l’instant.',
+    mp_pick:'Choisis d’abord avec qui tu te tiens.',
     vi_p1:"Un État transparent par défaut, où le pouvoir répond aux citoyens et où les décisions se prennent au grand jour. Des institutions qui servent, pas qui règnent. Des infrastructures — numériques et physiques — appartenant à ceux qui les utilisent. L'honneur comme mesure de la vie publique : ce que tu refuses de vendre, ce que tu refuses de taire.",
     vi_p2:'Cette page est volontairement inachevée. À mesure que le mouvement grandit, nous y ajouterons des positions, des faits et des engagements — là où chacun peut les vérifier.',
     so_t:'Suis le signal',
@@ -822,6 +936,16 @@ const T = {
     fr_p0:'Wir sind keine Zuschauer: nderja ist Teil des Kampfes gegen das System. Auf dieser Seite nimmt unsere Vision Gestalt an — Stück für Stück aktualisiert, im Offenen, während die Schlacht auf den Plätzen voranschreitet.',
     vi_t:'Unsere Vision',
     ar_t:'Artikel',
+    py_t:'Pyramide',
+    mp_t:'Karte',
+    mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
+    mp_note:'1. Wähle eine Figur · 2. Schreib deine Stadt · 3. Klicke deinen Ort auf der Karte.',
+    mp_who:'Wen willst du?',
+    mp_city:'Deine Stadt',
+    mp_newfig:'Ein anderer Name…',
+    mp_addfig:'Hinzufügen',
+    mp_offline:'Die gemeinsame Karte ist noch nicht aktiv — Pins können gerade nicht gespeichert werden.',
+    mp_pick:'Wähle zuerst, zu wem du stehst.',
     vi_p1:'Ein Staat, transparent von Grund auf, in dem die Macht den Bürgern antwortet und Entscheidungen im Offenen fallen. Institutionen, die dienen, nicht herrschen. Infrastruktur — digital und physisch — im Besitz derer, die sie nutzen. Ehre als Maß des öffentlichen Lebens: was du dich weigerst zu verkaufen, was du dich weigerst zu verschweigen.',
     vi_p2:'Diese Seite ist bewusst unvollendet. Während die Bewegung wächst, fügen wir hier Positionen, Fakten und Verpflichtungen hinzu — dort, wo jeder sie prüfen kann.',
     so_t:'Folge dem Signal',
@@ -907,6 +1031,16 @@ const T = {
     fr_p0:'Vi är inga åskådare: nderja är en del av kampen mot systemet. På den här sidan tar vår vision form — uppdaterad bit för bit, i det öppna, medan striden på torgen går framåt.',
     vi_t:'Vår vision',
     ar_t:'Artiklar',
+    py_t:'Pyramiden',
+    mp_t:'Kartan',
+    mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
+    mp_note:'1. Välj en figur · 2. Skriv din stad · 3. Klicka på din plats på kartan.',
+    mp_who:'Vem vill du ha?',
+    mp_city:'Din stad',
+    mp_newfig:'Ett annat namn…',
+    mp_addfig:'Lägg till',
+    mp_offline:'Den delade kartan är inte aktiv ännu — nålar kan inte sparas just nu.',
+    mp_pick:'Välj först vem du står bakom.',
     vi_p1:'En stat som är transparent som standard, där makten svarar inför medborgarna och besluten fattas i det öppna. Institutioner som tjänar, inte härskar. Infrastruktur — digital och fysisk — ägd av dem som använder den. Heder som måttet på det offentliga livet: det du vägrar sälja, det du vägrar tysta.',
     vi_p2:'Den här sidan är medvetet ofärdig. När rörelsen växer lägger vi till ståndpunkter, fakta och åtaganden här — där vem som helst kan granska dem.',
     so_t:'Följ signalen',
@@ -992,6 +1126,16 @@ const T = {
     fr_p0:'Δεν είμαστε θεατές: η nderja είναι μέρος του αγώνα ενάντια στο σύστημα. Σε αυτή τη σελίδα παίρνει μορφή το όραμά μας — ενημερώνεται κομμάτι-κομμάτι, στο φως, όσο η μάχη στις πλατείες προχωρά.',
     vi_t:'Το όραμά μας',
     ar_t:'Άρθρα',
+    py_t:'Πυραμίδα',
+    mp_t:'Χάρτης',
+    mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
+    mp_note:'1. Διάλεξε μια φιγούρα · 2. Γράψε την πόλη σου · 3. Κάνε κλικ στο σημείο σου στον χάρτη.',
+    mp_who:'Ποιον θέλεις;',
+    mp_city:'Η πόλη σου',
+    mp_newfig:'Άλλο όνομα…',
+    mp_addfig:'Πρόσθεσε',
+    mp_offline:'Ο κοινός χάρτης δεν είναι ακόμη ενεργός — οι πινέζες δεν αποθηκεύονται προς το παρόν.',
+    mp_pick:'Διάλεξε πρώτα με ποιον στέκεσαι.',
     vi_p1:'Ένα κράτος διαφανές εξ ορισμού, όπου η εξουσία λογοδοτεί στους πολίτες και οι αποφάσεις παίρνονται στο φως. Θεσμοί που υπηρετούν, δεν κυβερνούν. Υποδομές — ψηφιακές και φυσικές — ιδιοκτησία αυτών που τις χρησιμοποιούν. Η τιμή ως μέτρο της δημόσιας ζωής: αυτό που αρνείσαι να πουλήσεις, αυτό που αρνείσαι να αποσιωπήσεις.',
     vi_p2:'Αυτή η σελίδα είναι σκόπιμα ημιτελής. Όσο μεγαλώνει το κίνημα, θα προσθέτουμε εδώ θέσεις, γεγονότα και δεσμεύσεις — εκεί όπου καθένας μπορεί να τα ελέγξει.',
     so_t:'Ακολούθα το σήμα',
@@ -1137,6 +1281,16 @@ const T = {
     fr_p0:'Wij zijn geen toeschouwers: nderja is deel van de strijd tegen het systeem. Op deze pagina krijgt onze visie vorm — stuk voor stuk bijgewerkt, in de openheid, terwijl de strijd op de pleinen vordert.',
     vi_t:'Onze visie',
     ar_t:'Artikelen',
+    py_t:'Piramide',
+    mp_t:'Kaart',
+    mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
+    mp_note:'1. Kies een figuur · 2. Schrijf je stad · 3. Klik op jouw plek op de kaart.',
+    mp_who:'Wie wil je?',
+    mp_city:'Jouw stad',
+    mp_newfig:'Een andere naam…',
+    mp_addfig:'Toevoegen',
+    mp_offline:'De gedeelde kaart is nog niet actief — spelden kunnen nu niet worden opgeslagen.',
+    mp_pick:'Kies eerst achter wie je staat.',
     vi_p1:'Een staat die standaard transparant is, waar de macht verantwoording aflegt aan burgers en beslissingen in de openheid worden genomen. Instellingen die dienen, niet heersen. Infrastructuur — digitaal en fysiek — eigendom van wie haar gebruikt. Eer als maat van het publieke leven: wat je weigert te verkopen, wat je weigert te verzwijgen.',
     vi_p2:'Deze pagina is bewust onaf. Naarmate de beweging groeit voegen we hier standpunten, feiten en verbintenissen toe — waar iedereen ze kan controleren.',
     so_t:'Volg het signaal',
@@ -1234,6 +1388,16 @@ const T = {
     fr_p0:'No somos espectadores: nderja es parte de la lucha contra el sistema. En esta página nuestra visión toma forma — actualizada pieza a pieza, a la luz del día, a medida que la batalla de las plazas avanza.',
     vi_t:'Nuestra visión',
     ar_t:'Artículos',
+    py_t:'Pirámide',
+    mp_t:'Mapa',
+    mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
+    mp_note:'1. Elige una figura · 2. Escribe tu ciudad · 3. Haz clic en tu lugar del mapa.',
+    mp_who:'¿A quién quieres?',
+    mp_city:'Tu ciudad',
+    mp_newfig:'Otro nombre…',
+    mp_addfig:'Añadir',
+    mp_offline:'El mapa compartido aún no está activo — por ahora los pines no se guardan.',
+    mp_pick:'Primero elige con quién estás.',
     vi_p1:'Un Estado transparente por defecto, donde el poder responde a los ciudadanos y las decisiones se toman a la luz del día. Instituciones que sirven, no gobiernan. Infraestructuras — digitales y físicas — propiedad de quienes las usan. El honor como medida de la vida pública: lo que te niegas a vender, lo que te niegas a callar.',
     vi_p2:'Esta página está deliberadamente inacabada. A medida que el movimiento crezca añadiremos aquí posiciones, hechos y compromisos — donde cualquiera pueda verificarlos.',
     so_t:'Sigue la señal',
@@ -1252,11 +1416,17 @@ const T = {
   },
 };
 
+let LANG = 'en';
 function setLang(lang){
+  LANG = lang;
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k = el.getAttribute('data-i');
     if(T[lang][k]!==undefined) el.textContent = T[lang][k];
+  });
+  document.querySelectorAll('[data-i-ph]').forEach(el=>{
+    const k = el.getAttribute('data-i-ph');
+    if(T[lang][k]!==undefined) el.placeholder = T[lang][k];
   });
   document.querySelectorAll('[data-i-html]').forEach(el=>{
     const k = el.getAttribute('data-i-html');
@@ -1274,11 +1444,113 @@ document.querySelectorAll('.langs button').forEach(b=>{
 function showPanel(name){
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+name));
   document.querySelectorAll('.menu button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
+  document.getElementById('fr-sub').classList.toggle('show', name==='news');
+  if(name==='news') showSub('fight');
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
 }
 document.querySelectorAll('.menu button').forEach(b=>{
   b.addEventListener('click',()=>showPanel(b.dataset.panel));
+});
+
+/* flamingo revolution submenu */
+function showSub(name){
+  document.querySelectorAll('#panel-news .sub').forEach(s=>s.classList.toggle('active', s.id==='sub-'+name));
+  document.querySelectorAll('#fr-sub button').forEach(b=>b.classList.toggle('active', b.dataset.sub===name));
+  window.scrollTo({top:0});
+  document.querySelectorAll('#panel-news .sub.active .reveal').forEach(el=>el.classList.add('in'));
+  if(name==='map') initMap();
+}
+document.querySelectorAll('#fr-sub button').forEach(b=>{
+  b.addEventListener('click',()=>showSub(b.dataset.sub));
+});
+
+/* ---------- map (Harta) ---------- */
+const FIG_COLORS=['#FF5C5C','#5CA8FF','#FFD75C','#C05CFF','#FF9A5C','#2EE87A','#5CFFE8','#FF5CB8'];
+const ETHNIC_ALBANIA=[[38.95,20.73],[39.45,20.60],[40.05,20.75],[40.90,20.95],[41.10,20.85],[41.45,21.10],[42.00,21.50],[42.14,21.72],[42.47,21.77],[42.98,21.40],[43.10,20.80],[42.85,20.20],[42.62,19.90],[42.40,19.35],[42.10,19.08],[41.92,19.20],[41.81,19.57],[41.31,19.42],[40.60,19.30],[39.87,19.99],[39.65,20.05],[39.50,20.22]];
+let mapObj=null, mapLayer=null, selFig=null, MFIGS=[], MPINS=[], apiOK=false;
+const tr=k=>(T[LANG]&&T[LANG][k])||T.en[k]||k;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function mpStatus(msg){ document.getElementById('mp-status').textContent=msg||''; }
+function figColor(id){ const i=MFIGS.findIndex(x=>x.id===id); return FIG_COLORS[(i<0?0:i)%FIG_COLORS.length]; }
+async function initMap(){
+  if(mapObj){ setTimeout(()=>mapObj.invalidateSize(),60); return; }
+  if(!window.L){
+    await new Promise((res,rej)=>{
+      const l=document.createElement('link'); l.rel='stylesheet'; l.href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; document.head.appendChild(l);
+      const s=document.createElement('script'); s.src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; s.onload=res; s.onerror=rej; document.head.appendChild(s);
+    }).catch(()=>{});
+    if(!window.L){ mpStatus('map library failed to load'); return; }
+  }
+  mapObj=L.map('map').setView([41.2,20.4],7);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    {attribution:'&copy; OpenStreetMap contributors &copy; CARTO',minZoom:6,maxZoom:13}).addTo(mapObj);
+  L.polygon(ETHNIC_ALBANIA,{color:'#2EE87A',weight:1.5,fillColor:'#2EE87A',fillOpacity:.05}).addTo(mapObj);
+  mapLayer=L.layerGroup().addTo(mapObj);
+  mapObj.on('click',e=>dropPin(e.latlng));
+  await loadMapState();
+}
+async function loadMapState(){
+  try{
+    const r=await fetch('/api/state');
+    if(!r.ok) throw 0;
+    const d=await r.json(); MFIGS=d.figures; MPINS=d.pins; apiOK=true; mpStatus('');
+  }catch(e){
+    apiOK=false;
+    MFIGS=[{id:1,name:'Edi Rama',photo:'img/rama.jpg'},{id:2,name:'Sali Berisha',photo:'img/berisha.jpg'}];
+    MPINS=[];
+    mpStatus(tr('mp_offline'));
+  }
+  renderFigs(); renderPins();
+}
+function renderFigs(){
+  const box=document.getElementById('figs'); box.innerHTML='';
+  MFIGS.forEach(f=>{
+    const n=MPINS.filter(p=>p.figure_id===f.id).length;
+    const d=document.createElement('div');
+    d.className='fig'+(selFig===f.id?' sel':'');
+    d.innerHTML=(f.photo?'<img src="'+esc(f.photo)+'" alt="">':'<span class="fava">'+esc((f.name.trim()[0]||'?').toUpperCase())+'</span>')
+      +'<span><span class="fname">'+esc(f.name)+'</span><br><span class="fcount" style="color:'+figColor(f.id)+'">&#9679; '+n+'</span></span>';
+    d.addEventListener('click',()=>{ selFig=f.id; renderFigs(); });
+    box.appendChild(d);
+  });
+}
+function renderPins(){
+  if(!mapLayer) return;
+  mapLayer.clearLayers();
+  MPINS.forEach(p=>{
+    const f=MFIGS.find(x=>x.id===p.figure_id);
+    L.circleMarker([p.lat,p.lng],{radius:7,color:figColor(p.figure_id),weight:1.5,fillColor:figColor(p.figure_id),fillOpacity:.65})
+      .bindPopup('<b>'+esc(p.city)+'</b>'+(f?'<br>'+esc(f.name):''))
+      .addTo(mapLayer);
+  });
+}
+async function dropPin(ll){
+  if(!apiOK){ mpStatus(tr('mp_offline')); return; }
+  if(!selFig){ mpStatus(tr('mp_pick')); return; }
+  const cityEl=document.getElementById('mp-city');
+  const city=cityEl.value.trim();
+  if(!city){ mpStatus(tr('mp_city')+'?'); cityEl.focus(); return; }
+  try{
+    const r=await fetch('/api/pins',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({lat:ll.lat,lng:ll.lng,city:city,figure_id:selFig})});
+    if(!r.ok) throw 0;
+    const p=await r.json();
+    MPINS.push(p); renderFigs(); renderPins(); mpStatus('');
+  }catch(e){ mpStatus(tr('mp_offline')); }
+}
+document.getElementById('mp-addfig').addEventListener('click',async()=>{
+  const inp=document.getElementById('mp-newfig');
+  const name=inp.value.trim();
+  if(!name) return;
+  if(!apiOK){ mpStatus(tr('mp_offline')); return; }
+  try{
+    const r=await fetch('/api/figures',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({name:name})});
+    if(!r.ok) throw 0;
+    const f=await r.json();
+    if(!MFIGS.find(x=>x.id===f.id)) MFIGS.push(f);
+    selFig=f.id; inp.value=''; renderFigs();
+  }catch(e){ mpStatus(tr('mp_offline')); }
 });
 
 /* floating join button: show label for a few seconds on load */
