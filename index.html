@@ -168,6 +168,38 @@
   .fsoc a{color:var(--muted);text-decoration:none;transition:.25s}
   .fsoc a:hover{color:var(--green)}
 
+  /* ---------- pyramid ---------- */
+  .pybox{border:3px double var(--green);color:var(--green);letter-spacing:.28em;text-transform:uppercase;font-size:.8rem;padding:.95rem 1.6rem;text-align:center;margin:3rem auto 0;max-width:560px}
+  .pyr{margin-top:1rem;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+  .tier{background:var(--panel);border:1px solid var(--line);padding:1.7rem 1.5rem 1.5rem;width:var(--tw,100%);min-width:min(360px,100%);max-width:100%;text-align:center}
+  .tier .tnum{font-size:.68rem;letter-spacing:.35em;color:var(--green);text-transform:uppercase;margin-bottom:.4rem}
+  .tier h3{font-family:var(--serif);font-style:italic;font-size:1.35rem;font-weight:500;color:var(--text);margin-bottom:.4rem}
+  .tier>p{max-width:none;font-size:.88rem;margin:0}
+  .chips{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-top:1.1rem}
+  .chip{background:none;border:1px solid var(--green-dim);color:var(--text);font-family:var(--sans);font-weight:300;font-size:.78rem;letter-spacing:.08em;padding:.42rem .85rem;cursor:pointer;transition:.25s}
+  .chip:hover,.chip:focus-visible{border-color:var(--green);color:var(--green)}
+  .stamp{display:inline-block;border:2px solid var(--green);color:var(--green);font-weight:700;font-size:.6rem;letter-spacing:.22em;line-height:1;padding:.34em .6em .3em;transform:rotate(-4deg);text-transform:uppercase;white-space:nowrap}
+  .stamp.a{border-color:#E0A93E;color:#E0A93E}
+  .pyleg{display:flex;gap:.7rem 1.8rem;flex-wrap:wrap;margin-top:1.6rem;font-size:.82rem;color:var(--muted);align-items:center}
+  .pyleg .stamp{transform:none;margin-right:-1rem}
+  .astamps{margin:.2rem 0 1rem}
+  .dov{position:fixed;inset:0;z-index:80;background:rgba(7,11,8,.88);backdrop-filter:blur(8px);display:none;overflow-y:auto;padding:5vh 5vw}
+  .dov.open{display:block}
+  .dobox{max-width:720px;margin:0 auto;background:var(--panel);border:1px solid var(--green-dim);padding:2.6rem 2.2rem;position:relative}
+  .doclose{position:absolute;top:.7rem;right:.9rem;background:none;border:none;color:var(--muted);font-size:1.7rem;line-height:1;cursor:pointer;font-family:var(--sans)}
+  .doclose:hover{color:var(--green)}
+  .doname{font-family:var(--serif);font-style:italic;font-size:2rem;color:var(--green);font-weight:500;margin:.2rem 0 .3rem}
+  .dorole{font-size:.9rem;color:var(--muted);margin-bottom:1.5rem;max-width:none}
+  .doitem{display:flex;gap:1rem;align-items:flex-start;border-top:1px solid var(--line);padding:1.1rem 0}
+  .doitem .stamp{margin-top:.25rem;flex-shrink:0}
+  .doitem p{margin:0;font-size:.92rem;max-width:none;color:var(--text)}
+  .dolbl{font-size:.68rem;letter-spacing:.3em;color:var(--green);text-transform:uppercase;margin-top:1.5rem}
+  .dobiz{font-size:.85rem;margin-top:.5rem;max-width:none}
+  /* desktop: first section of each view must clear the fixed header (logo+menu+submenu) */
+  @media (min-width:701px){
+    .panel>section:first-child,#panel-news .sub>section:first-child{padding-top:calc(var(--headh,130px) + 3.5rem)}
+  }
+
   /* ---------- floating join button ---------- */
   .fab{position:fixed;right:1.4rem;bottom:1.4rem;z-index:60;display:flex;align-items:center;gap:.7rem;text-decoration:none}
   .fab .flabel{opacity:0;transform:translateX(8px);transition:.35s;background:var(--panel);border:1px solid var(--green);
@@ -556,6 +588,93 @@
     <div class="frame">
       <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
       <h2 data-i="py_t">Pyramid</h2>
+      <p data-i="py_p1">This is how the system is built — level by level, from the man who signs to the people who pay. Click a name to open its dossier: role, businesses, documented facts and open accusations, each stamped for what it is.</p>
+      <div class="pyleg">
+        <span class="stamp">Fact</span><span data-i="py_leg_f">documented, with public sources</span>
+        <span class="stamp a">Allegation</span><span data-i="py_leg_a">public accusation — not a court verdict</span>
+      </div>
+      <div class="pybox" data-i="py_box">Albanian Social Pyramid — 2026</div>
+      <div class="pyr">
+        <div class="tier reveal" style="--tw:42%">
+          <div class="tnum">1</div>
+          <h3 data-i="py_t1">The Sovereign</h3>
+          <p data-i="py_d1">Edi Rama and the inner circle — plus the foreign capital that buys the coast.</p>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('rama')">Edi Rama</button>
+            <button type="button" class="chip" onclick="openDossier('olsi')">Olsi Rama</button>
+            <button type="button" class="chip" onclick="openDossier('agaci')">Engjëll Agaçi</button>
+            <button type="button" class="chip" onclick="openDossier('kushner')">Jared Kushner</button>
+            <button type="button" class="chip" onclick="openDossier('eagle')">Eagle Hills</button>
+          </div>
+        </div>
+        <div class="tier reveal" style="--tw:52%">
+          <div class="tnum">1.5</div>
+          <h3 data-i="py_t15">Economic Oligarchs</h3>
+          <p data-i="py_d15">They finance the system; the system returns concessions, permits and public tenders.</p>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('kastrati')">Shefqet Kastrati</button>
+            <button type="button" class="chip" onclick="openDossier('mane')">Samir Mane</button>
+            <button type="button" class="chip" onclick="openDossier('fusha')">Shkëlqim Fusha</button>
+            <button type="button" class="chip" onclick="openDossier('luca')">Gjergj Luca</button>
+            <button type="button" class="chip" onclick="openDossier('sinaj')">Vullnet Sinaj</button>
+          </div>
+        </div>
+        <div class="tier reveal" style="--tw:62%">
+          <div class="tnum">2</div>
+          <h3 data-i="py_t2">Court Nobility</h3>
+          <p data-i="py_d2">Ministers, mayors, SP deputies and friendly media — the executive arm.</p>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('balluku')">Belinda Balluku</button>
+            <button type="button" class="chip" onclick="openDossier('veliaj')">Erion Veliaj</button>
+            <button type="button" class="chip" onclick="openDossier('ahmetaj')">Arben Ahmetaj</button>
+            <button type="button" class="chip" onclick="openDossier('tahiri')">Saimir Tahiri</button>
+          </div>
+        </div>
+        <div class="tier reveal" style="--tw:72%">
+          <div class="tnum">3</div>
+          <h3 data-i="py_t3">The Modern Clergy</h3>
+          <p data-i="py_d3">Aligned judges, a limited SPAK, the police: the machinery of legitimation.</p>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('judges')" data-i="py_c_jud">Judges &amp; Vetting</button>
+            <button type="button" class="chip" onclick="openDossier('skyecc')" data-i="py_c_pol">Police &amp; SKY ECC</button>
+          </div>
+        </div>
+        <div class="tier reveal" style="--tw:82%">
+          <div class="tnum">4</div>
+          <h3 data-i="py_t4">Narco-Aristocracy</h3>
+          <p data-i="py_d4">Bosses, laundering, diplomatic cars — integrated into the legal economy.</p>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('habilaj')">Klani Habilaj</button>
+            <button type="button" class="chip" onclick="openDossier('gjika')">Gjika</button>
+          </div>
+        </div>
+        <div class="tier reveal" style="--tw:91%">
+          <div class="tnum">5</div>
+          <h3 data-i="py_t5">Bourgeoisie</h3>
+          <p data-i="py_d5">The urban middle class and professionals. Their answer is the airport: 40–50,000 Albanians emigrate every year.</p>
+        </div>
+        <div class="tier reveal" style="--tw:100%">
+          <div class="tnum">6</div>
+          <h3 data-i="py_t6">Plebs + Diaspora</h3>
+          <p data-i="py_d6">Workers, farmers, pensioners, young exiles. Their remittances hold up everything above them.</p>
+          <div class="card2" style="text-align:left;margin-top:1.6rem">
+            <h3 data-i="dy_t">Diary of the base</h3>
+            <p data-i="dy_p1">The base of the pyramid holds everything up — and sees everything. So the bottom level gets no dossier: it gets a diary. Tell your story, with your name or anonymously; maybe you know something nobody else does. Nothing leaves your device until you press send.</p>
+            <div class="tform">
+              <label for="dy-name" data-i="dy_name_l">Name or pseudonym (optional)</label>
+              <input id="dy-name" type="text" autocomplete="off">
+              <label for="dy-msg" data-i="dy_msg_l">Your story — what you know</label>
+              <textarea id="dy-msg" rows="6"></textarea>
+              <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem">
+                <button class="btn" type="button" onclick="sendStory('mail')" data-i="dy_send_mail">Send by email</button>
+                <button class="btn" type="button" onclick="sendStory('wa')" data-i="dy_send_wa">Send on WhatsApp</button>
+              </p>
+              <div class="srcnote" data-i="dy_note">To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before using it, we never publish a source without consent — and we treat protecting sources as a debt of honor.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="srcnote"><span data-i="py_disc">FACT entries rest on public documents, court records and published investigations. ALLEGATION entries are public accusations, attributed and awaiting proof: for every person named, the presumption of innocence stands until a final verdict.</span><br><span data-i="nw_src">Sources</span>: <a href="https://www.reporter.al" target="_blank" rel="noopener">Reporter.al / BIRN</a> · <a href="https://www.balkanweb.com" target="_blank" rel="noopener">BalkanWeb</a> · SPAK · VKM 2023–2024 · “Albania for Sale” briefing</div>
     </div>
   </section>
   </div>
@@ -586,6 +705,9 @@
   </div>
 </div>
 
+<div class="dov" id="dov" role="dialog" aria-modal="true" aria-label="Dossier">
+  <div class="dobox"></div>
+</div>
 
 </main>
 
@@ -697,6 +819,27 @@ const T = {
     st_oath:"We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.",
     st_p1:"Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.",
     st_p2:"The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.",
+    py_p1:'This is how the system is built — level by level, from the man who signs to the people who pay. Click a name to open its dossier: role, businesses, documented facts and open accusations, each stamped for what it is.',
+    py_leg_f:'documented, with public sources',
+    py_leg_a:'public accusation — not a court verdict',
+    py_box:'Albanian Social Pyramid — 2026',
+    py_t1:'The Sovereign', py_d1:'Edi Rama and the inner circle — plus the foreign capital that buys the coast.',
+    py_t15:'Economic Oligarchs', py_d15:'They finance the system; the system returns concessions, permits and public tenders.',
+    py_t2:'Court Nobility', py_d2:'Ministers, mayors, SP deputies and friendly media — the executive arm.',
+    py_t3:'The Modern Clergy', py_d3:'Aligned judges, a limited SPAK, the police: the machinery of legitimation.',
+    py_c_jud:'Judges & Vetting', py_c_pol:'Police & SKY ECC',
+    py_t4:'Narco-Aristocracy', py_d4:'Bosses, laundering, diplomatic cars — integrated into the legal economy.',
+    py_t5:'Bourgeoisie', py_d5:'The urban middle class and professionals. Their answer is the airport: 40–50,000 Albanians emigrate every year.',
+    py_t6:'Plebs + Diaspora', py_d6:'Workers, farmers, pensioners, young exiles. Their remittances hold up everything above them.',
+    py_biz:'Businesses & activities', py_conn:'Connections',
+    py_disc:'FACT entries rest on public documents, court records and published investigations. ALLEGATION entries are public accusations, attributed and awaiting proof: for every person named, the presumption of innocence stands until a final verdict.',
+    dy_t:'Diary of the base',
+    dy_p1:'The base of the pyramid holds everything up — and sees everything. So the bottom level gets no dossier: it gets a diary. Tell your story, with your name or anonymously; maybe you know something nobody else does. Nothing leaves your device until you press send.',
+    dy_name_l:'Name or pseudonym (optional)',
+    dy_msg_l:'Your story — what you know',
+    dy_send_mail:'Send by email',
+    dy_send_wa:'Send on WhatsApp',
+    dy_note:'To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before using it, we never publish a source without consent — and we treat protecting sources as a debt of honor.',
     ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
   },
   sq: {
@@ -794,6 +937,27 @@ const T = {
     st_oath:"Nuk do ta vendosim shtëpinë tonë operative në Shqipëri për sa kohë sistemi aktual qëndron në këmbë. Nuk do të kërkojmë lejet e tij, favoret e tij, as bekimet e tij.",
     st_p1:"Jo nga distanca — nga respekti. Të hyje tani do të thoshte të negocioje me po atë makineri që populli po e konteston. Refuzojmë ta ndërtojmë të renë brenda së vjetrës.",
     st_p2:"Ditën që sistemi bie — ditën që institucionet u përgjigjen qytetarëve dhe jo e kundërta — ne kthehemi në shtëpi, me gjithçka që kemi ndërtuar. Kjo është besa jonë: fjalë e dhënë publikisht, e mbajtur absolutisht.",
+    py_p1:'Kështu është ndërtuar sistemi — nivel pas niveli, nga ai që firmos te populli që paguan. Kliko një emër për të hapur dosjen: roli, bizneset, faktet e dokumentuara dhe akuzat e hapura, secila me vulën e asaj që është.',
+    py_leg_f:'e dokumentuar, me burime publike',
+    py_leg_a:'akuzë publike — jo vendim gjykate',
+    py_box:'Piramida Sociale Shqiptare — 2026',
+    py_t1:'Sovrani', py_d1:'Edi Rama dhe rrethi i ngushtë — plus kapitali i huaj që blen bregdetin.',
+    py_t15:'Oligarkët Ekonomikë', py_d15:'Ata financojnë sistemin; sistemi u kthen koncesione, leje dhe tenderë publikë.',
+    py_t2:'Fisnikëria e Oborrit', py_d2:'Ministra, kryebashkiakë, deputetë të PS dhe media miqësore — krahu ekzekutiv.',
+    py_t3:'Kleri Modern', py_d3:'Gjyqtarë të rreshtuar, një SPAK i kufizuar, policia: makineria e legjitimimit.',
+    py_c_jud:'Gjyqtarët & Vetting-u', py_c_pol:'Policia & SKY ECC',
+    py_t4:'Narko-Aristokracia', py_d4:'Bosë, pastrim parash, makina diplomatike — e integruar në ekonominë ligjore.',
+    py_t5:'Borgjezia', py_d5:'Shtresa e mesme urbane dhe profesionistët. Përgjigjja e tyre është aeroporti: 40–50.000 shqiptarë emigrojnë çdo vit.',
+    py_t6:'Plebs + Diaspora', py_d6:'Punëtorë, fshatarë, pensionistë, të rinj në mërgim. Remitancat e tyre mbajnë gjithçka sipër tyre.',
+    py_biz:'Bizneset & aktivitetet', py_conn:'Lidhjet',
+    py_disc:'Zërat FACT mbështeten në dokumente publike, akte gjyqësore dhe hetime të publikuara. Zërat ALLEGATION janë akuza publike, me autor dhe në pritje të provave: për çdo person të përmendur vlen prezumimi i pafajësisë deri në një vendim përfundimtar.',
+    dy_t:'Ditari i bazës',
+    dy_p1:'Baza e piramidës mban gjithçka në këmbë — dhe sheh gjithçka. Prandaj niveli i fundit nuk ka dosje: ka një ditar. Trego historinë tënde, me emër ose në mënyrë anonime; ndoshta di diçka që askush tjetër nuk e di. Asgjë nuk e lë pajisjen tënde derisa të shtypësh dërgo.',
+    dy_name_l:'Emri ose pseudonimi (opsional)',
+    dy_msg_l:'Historia jote — çfarë di',
+    dy_send_mail:'Dërgo me email',
+    dy_send_wa:'Dërgo në WhatsApp',
+    dy_note:'Për të mbetur anonim: përdor një llogari të përkohshme, lidhu përmes Tor ose VPN dhe hiq metadata-t nga fotot e dokumentet para se t\'i bashkëngjitësh. E verifikojmë atë që marrim para se ta përdorim, nuk publikojmë kurrë një burim pa pëlqim — dhe mbrojtja e burimeve për ne është borxh nderi.',
     ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
   },
   it: {
@@ -891,6 +1055,27 @@ const T = {
     st_oath:"Non stabiliremo la nostra sede operativa in Albania finché l'attuale sistema resterà in piedi. Non chiederemo i suoi permessi, i suoi favori, le sue benedizioni.",
     st_p1:"Non per distanza — per rispetto. Entrare ora significherebbe negoziare con la stessa macchina che il popolo sta contestando. Ci rifiutiamo di costruire il nuovo dentro il vecchio.",
     st_p2:"Il giorno in cui il sistema cadrà — il giorno in cui le istituzioni risponderanno ai cittadini e non il contrario — torneremo a casa, portando con noi tutto ciò che abbiamo costruito. Questa è la nostra besa: una parola data pubblicamente, mantenuta assolutamente.",
+    py_p1:'Così è costruito il sistema — livello per livello, da chi firma a chi paga. Clicca un nome per aprire il suo dossier: ruolo, attività, fatti documentati e accuse aperte, ognuno timbrato per ciò che è.',
+    py_leg_f:'documentato, con fonti pubbliche',
+    py_leg_a:'accusa pubblica — non un verdetto',
+    py_box:'Piramide Sociale Albanese — 2026',
+    py_t1:'Il Sovrano', py_d1:'Edi Rama e la cerchia ristretta — più il capitale estero che compra la costa.',
+    py_t15:'Oligarchi Economici', py_d15:'Finanziano il sistema; il sistema restituisce concessioni, permessi e appalti pubblici.',
+    py_t2:'Nobiltà di Corte', py_d2:'Ministri, sindaci, deputati SP e media amici — il braccio esecutivo.',
+    py_t3:'Il Clero Moderno', py_d3:'Giudici allineati, una SPAK limitata, la polizia: la macchina della legittimazione.',
+    py_c_jud:'Giudici & Vetting', py_c_pol:'Polizia & SKY ECC',
+    py_t4:'Narco-Aristocrazia', py_d4:'Boss, riciclaggio, auto diplomatiche — integrata nell’economia legale.',
+    py_t5:'Borghesia', py_d5:'Il ceto medio urbano e i professionisti. La loro risposta è l’aeroporto: 40–50.000 albanesi emigrano ogni anno.',
+    py_t6:'Plebe + Diaspora', py_d6:'Operai, contadini, pensionati, giovani esuli. Le loro rimesse sostengono tutto ciò che sta sopra.',
+    py_biz:'Attività & imprese', py_conn:'Connessioni',
+    py_disc:'Le voci FACT poggiano su documenti pubblici, atti giudiziari e inchieste pubblicate. Le voci ALLEGATION sono accuse pubbliche, attribuite e in attesa di prove: per ogni persona nominata vale la presunzione di innocenza fino a verdetto definitivo.',
+    dy_t:'Il diario della base',
+    dy_p1:'La base della piramide sostiene tutto — e vede tutto. Per questo l’ultimo livello non ha un dossier: ha un diario. Racconta la tua storia, col tuo nome o in forma anonima; forse sai qualcosa che nessun altro sa. Niente lascia il tuo dispositivo finché non premi invia.',
+    dy_name_l:'Nome o pseudonimo (facoltativo)',
+    dy_msg_l:'La tua storia — cosa sai',
+    dy_send_mail:'Invia via email',
+    dy_send_wa:'Invia su WhatsApp',
+    dy_note:"Per restare anonimo: usa un account usa-e-getta, collegati via Tor o VPN e rimuovi i metadati da foto e documenti prima di allegarli. Verifichiamo ciò che riceviamo prima di usarlo, non pubblichiamo mai una fonte senza consenso — e proteggere le fonti per noi è un debito d'onore.",
     ft_note:"Un movimento indipendente. Nessuna affiliazione partitica, nessun finanziamento estero, nessun permesso chiesto. © 2026 nderja.com"
   },
   fr: {
@@ -988,6 +1173,27 @@ const T = {
     st_oath:"Nous n'établirons pas notre siège opérationnel en Albanie tant que le système actuel restera debout. Nous ne demanderons ni ses permis, ni ses faveurs, ni ses bénédictions.",
     st_p1:"Non par distance — par respect. Entrer maintenant signifierait négocier avec la machinerie même que le peuple conteste. Nous refusons de construire le neuf dans le vieux.",
     st_p2:"Le jour où le système tombera — le jour où les institutions répondront aux citoyens et non l'inverse — nous rentrerons à la maison, avec tout ce que nous avons construit. C'est notre besa : une parole donnée publiquement, tenue absolument.",
+    py_p1:'Voilà comment le système est bâti — niveau par niveau, de celui qui signe à ceux qui paient. Clique un nom pour ouvrir son dossier : rôle, activités, faits documentés et accusations ouvertes, chacun tamponné pour ce qu’il est.',
+    py_leg_f:'documenté, avec sources publiques',
+    py_leg_a:'accusation publique — pas un verdict',
+    py_box:'Pyramide Sociale Albanaise — 2026',
+    py_t1:'Le Souverain', py_d1:'Edi Rama et le cercle rapproché — plus le capital étranger qui achète la côte.',
+    py_t15:'Oligarques Économiques', py_d15:'Ils financent le système ; le système rend concessions, permis et marchés publics.',
+    py_t2:'Noblesse de Cour', py_d2:'Ministres, maires, députés du PS et médias amis — le bras exécutif.',
+    py_t3:'Le Clergé Moderne', py_d3:'Juges alignés, une SPAK limitée, la police : la machine de légitimation.',
+    py_c_jud:'Juges & Vetting', py_c_pol:'Police & SKY ECC',
+    py_t4:'Narco-Aristocratie', py_d4:'Boss, blanchiment, voitures diplomatiques — intégrée à l’économie légale.',
+    py_t5:'Bourgeoisie', py_d5:'La classe moyenne urbaine et les professionnels. Leur réponse est l’aéroport : 40–50 000 Albanais émigrent chaque année.',
+    py_t6:'Plèbe + Diaspora', py_d6:'Ouvriers, paysans, retraités, jeunes exilés. Leurs transferts soutiennent tout ce qui est au-dessus.',
+    py_biz:'Activités & entreprises', py_conn:'Connexions',
+    py_disc:'Les entrées FACT reposent sur des documents publics, des actes judiciaires et des enquêtes publiées. Les entrées ALLEGATION sont des accusations publiques, attribuées et en attente de preuves : pour toute personne nommée, la présomption d’innocence vaut jusqu’à un verdict définitif.',
+    dy_t:'Le journal de la base',
+    dy_p1:'La base de la pyramide soutient tout — et voit tout. C’est pourquoi le dernier niveau n’a pas de dossier : il a un journal. Raconte ton histoire, avec ton nom ou anonymement ; tu sais peut-être quelque chose que personne d’autre ne sait. Rien ne quitte ton appareil avant que tu appuies sur envoyer.',
+    dy_name_l:'Nom ou pseudonyme (facultatif)',
+    dy_msg_l:'Ton histoire — ce que tu sais',
+    dy_send_mail:'Envoyer par e-mail',
+    dy_send_wa:'Envoyer sur WhatsApp',
+    dy_note:"Pour rester anonyme : utilise un compte jetable, connecte-toi via Tor ou un VPN et supprime les métadonnées des photos et documents avant de les joindre. Nous vérifions ce que nous recevons avant de l'utiliser, nous ne publions jamais une source sans son consentement — et protéger les sources est pour nous une dette d'honneur.",
     ft_note:"Un mouvement indépendant. Aucune affiliation partisane, aucun financement étranger, aucune permission demandée. © 2026 nderja.com"
   },
   de: {
@@ -1085,6 +1291,27 @@ const T = {
     st_oath:"Wir werden unseren operativen Sitz nicht in Albanien errichten, solange das gegenwärtige System steht. Wir werden weder seine Genehmigungen noch seine Gefälligkeiten noch seinen Segen erbitten.",
     st_p1:"Nicht aus Distanz — aus Respekt. Jetzt einzutreten hieße, mit genau der Maschinerie zu verhandeln, die das Volk anficht. Wir weigern uns, das Neue im Alten zu bauen.",
     st_p2:"An dem Tag, an dem das System fällt — an dem Tag, an dem die Institutionen den Bürgern antworten und nicht umgekehrt — kehren wir heim, mit allem, was wir gebaut haben. Das ist unsere Besa: ein öffentlich gegebenes Wort, absolut gehalten.",
+    py_p1:'So ist das System gebaut — Ebene für Ebene, von dem, der unterschreibt, bis zu denen, die zahlen. Klicke einen Namen, um sein Dossier zu öffnen: Rolle, Geschäfte, dokumentierte Fakten und offene Anschuldigungen, jedes gestempelt als das, was es ist.',
+    py_leg_f:'dokumentiert, mit öffentlichen Quellen',
+    py_leg_a:'öffentliche Anschuldigung — kein Urteil',
+    py_box:'Albanische Sozialpyramide — 2026',
+    py_t1:'Der Souverän', py_d1:'Edi Rama und der engste Kreis — plus das ausländische Kapital, das die Küste kauft.',
+    py_t15:'Wirtschaftsoligarchen', py_d15:'Sie finanzieren das System; das System liefert Konzessionen, Genehmigungen und öffentliche Aufträge zurück.',
+    py_t2:'Hofadel', py_d2:'Minister, Bürgermeister, SP-Abgeordnete und freundliche Medien — der ausführende Arm.',
+    py_t3:'Der Moderne Klerus', py_d3:'Angepasste Richter, eine begrenzte SPAK, die Polizei: die Maschinerie der Legitimation.',
+    py_c_jud:'Richter & Vetting', py_c_pol:'Polizei & SKY ECC',
+    py_t4:'Narco-Aristokratie', py_d4:'Bosse, Geldwäsche, Diplomatenautos — integriert in die legale Wirtschaft.',
+    py_t5:'Bürgertum', py_d5:'Die urbane Mittelschicht und die Fachkräfte. Ihre Antwort ist der Flughafen: 40–50.000 Albaner emigrieren jedes Jahr.',
+    py_t6:'Plebs + Diaspora', py_d6:'Arbeiter, Bauern, Rentner, junge Exilanten. Ihre Überweisungen tragen alles über ihnen.',
+    py_biz:'Geschäfte & Aktivitäten', py_conn:'Verbindungen',
+    py_disc:'FACT-Einträge stützen sich auf öffentliche Dokumente, Gerichtsakten und veröffentlichte Recherchen. ALLEGATION-Einträge sind öffentliche Anschuldigungen, zugeordnet und auf Beweise wartend: Für jede genannte Person gilt die Unschuldsvermutung bis zu einem endgültigen Urteil.',
+    dy_t:'Das Tagebuch der Basis',
+    dy_p1:'Die Basis der Pyramide trägt alles — und sieht alles. Deshalb bekommt die unterste Ebene kein Dossier: Sie bekommt ein Tagebuch. Erzähle deine Geschichte, mit Namen oder anonym; vielleicht weißt du etwas, das sonst niemand weiß. Nichts verlässt dein Gerät, bevor du auf Senden drückst.',
+    dy_name_l:'Name oder Pseudonym (optional)',
+    dy_msg_l:'Deine Geschichte — was du weißt',
+    dy_send_mail:'Per E-Mail senden',
+    dy_send_wa:'Über WhatsApp senden',
+    dy_note:'Um anonym zu bleiben: Nutze ein Wegwerfkonto, verbinde dich über Tor oder ein VPN und entferne Metadaten aus Fotos und Dokumenten, bevor du sie anhängst. Wir prüfen, was wir erhalten, bevor wir es verwenden, wir veröffentlichen nie eine Quelle ohne Zustimmung — und Quellenschutz ist für uns eine Ehrenschuld.',
     ft_note:"Eine unabhängige Bewegung. Keine Parteizugehörigkeit, keine ausländische Finanzierung, keine erbetene Erlaubnis. © 2026 nderja.com"
   },
   sv: {
@@ -1182,6 +1409,27 @@ const T = {
     st_oath:"Vi kommer inte att etablera vårt operativa hem i Albanien så länge det nuvarande systemet står. Vi kommer inte att söka dess tillstånd, dess tjänster eller dess välsignelser.",
     st_p1:"Inte av distans — av respekt. Att gå in nu vore att förhandla med just det maskineri som folket bestrider. Vi vägrar bygga det nya inuti det gamla.",
     st_p2:"Den dag systemet faller — den dag institutionerna svarar inför medborgarna och inte tvärtom — kommer vi hem, med allt vi har byggt. Detta är vår besa: ett offentligt givet ord, absolut hållet.",
+    py_p1:'Så är systemet byggt — nivå för nivå, från den som skriver under till dem som betalar. Klicka på ett namn för att öppna dess dossier: roll, verksamheter, dokumenterade fakta och öppna anklagelser, var och en stämplad för vad den är.',
+    py_leg_f:'dokumenterat, med offentliga källor',
+    py_leg_a:'offentlig anklagelse — ingen dom',
+    py_box:'Den Albanska Sociala Pyramiden — 2026',
+    py_t1:'Suveränen', py_d1:'Edi Rama och den inre kretsen — plus det utländska kapital som köper kusten.',
+    py_t15:'Ekonomiska Oligarker', py_d15:'De finansierar systemet; systemet ger tillbaka koncessioner, tillstånd och offentliga upphandlingar.',
+    py_t2:'Hovadeln', py_d2:'Ministrar, borgmästare, SP-ledamöter och vänliga medier — den verkställande armen.',
+    py_t3:'Det Moderna Prästerskapet', py_d3:'Anpassade domare, en begränsad SPAK, polisen: legitimeringens maskineri.',
+    py_c_jud:'Domare & Vetting', py_c_pol:'Polisen & SKY ECC',
+    py_t4:'Narko-Aristokratin', py_d4:'Bossar, penningtvätt, diplomatbilar — integrerad i den lagliga ekonomin.',
+    py_t5:'Borgerskapet', py_d5:'Den urbana medelklassen och de yrkesutbildade. Deras svar är flygplatsen: 40–50 000 albaner emigrerar varje år.',
+    py_t6:'Plebejer + Diaspora', py_d6:'Arbetare, bönder, pensionärer, unga i exil. Deras remitteringar bär upp allt ovanför dem.',
+    py_biz:'Verksamheter & företag', py_conn:'Kopplingar',
+    py_disc:'FACT-poster vilar på offentliga dokument, rättshandlingar och publicerade granskningar. ALLEGATION-poster är offentliga anklagelser, tillskrivna och i väntan på bevis: för varje namngiven person gäller oskuldspresumtionen tills en slutlig dom fallit.',
+    dy_t:'Basens dagbok',
+    dy_p1:'Pyramidens bas bär upp allt — och ser allt. Därför får den understa nivån inget dossier: den får en dagbok. Berätta din historia, med namn eller anonymt; kanske vet du något som ingen annan vet. Inget lämnar din enhet förrän du trycker på skicka.',
+    dy_name_l:'Namn eller pseudonym (valfritt)',
+    dy_msg_l:'Din historia — vad du vet',
+    dy_send_mail:'Skicka via e-post',
+    dy_send_wa:'Skicka på WhatsApp',
+    dy_note:'För att förbli anonym: använd ett engångskonto, anslut via Tor eller VPN och rensa metadata från foton och dokument innan du bifogar dem. Vi verifierar det vi tar emot innan vi använder det, vi publicerar aldrig en källa utan samtycke — och att skydda källor är för oss en hedersskuld.',
     ft_note:"En oberoende rörelse. Ingen partitillhörighet, ingen utländsk finansiering, inget tillstånd begärt. © 2026 nderja.com"
   },
   el: {
@@ -1279,6 +1527,27 @@ const T = {
     st_oath:"Δεν θα εγκαταστήσουμε την επιχειρησιακή μας έδρα στην Αλβανία όσο το σημερινό σύστημα παραμένει όρθιο. Δεν θα ζητήσουμε τις άδειές του, τις χάρες του, τις ευλογίες του.",
     st_p1:"Όχι από απόσταση — από σεβασμό. Το να μπούμε τώρα θα σήμαινε διαπραγμάτευση με τον ίδιο μηχανισμό που ο λαός αμφισβητεί. Αρνούμαστε να χτίσουμε το καινούργιο μέσα στο παλιό.",
     st_p2:"Τη μέρα που το σύστημα θα πέσει — τη μέρα που οι θεσμοί θα λογοδοτούν στους πολίτες και όχι το αντίστροφο — θα γυρίσουμε σπίτι, με όλα όσα έχουμε χτίσει. Αυτή είναι η besa μας: λόγος δοσμένος δημόσια, τηρημένος απόλυτα.",
+    py_p1:'Έτσι είναι χτισμένο το σύστημα — επίπεδο-επίπεδο, από αυτόν που υπογράφει ως αυτούς που πληρώνουν. Κάνε κλικ σε ένα όνομα για να ανοίξεις τον φάκελό του: ρόλος, επιχειρήσεις, τεκμηριωμένα γεγονότα και ανοιχτές κατηγορίες, το καθένα σφραγισμένο γι’ αυτό που είναι.',
+    py_leg_f:'τεκμηριωμένο, με δημόσιες πηγές',
+    py_leg_a:'δημόσια κατηγορία — όχι δικαστική απόφαση',
+    py_box:'Αλβανική Κοινωνική Πυραμίδα — 2026',
+    py_t1:'Ο Κυρίαρχος', py_d1:'Ο Έντι Ράμα και ο στενός κύκλος — συν το ξένο κεφάλαιο που αγοράζει την ακτή.',
+    py_t15:'Οικονομικοί Ολιγάρχες', py_d15:'Χρηματοδοτούν το σύστημα· το σύστημα επιστρέφει παραχωρήσεις, άδειες και δημόσιους διαγωνισμούς.',
+    py_t2:'Η Αυλική Αριστοκρατία', py_d2:'Υπουργοί, δήμαρχοι, βουλευτές του ΣΚ και φιλικά μέσα — ο εκτελεστικός βραχίονας.',
+    py_t3:'Ο Σύγχρονος Κλήρος', py_d3:'Ευθυγραμμισμένοι δικαστές, μια περιορισμένη SPAK, η αστυνομία: η μηχανή της νομιμοποίησης.',
+    py_c_jud:'Δικαστές & Vetting', py_c_pol:'Αστυνομία & SKY ECC',
+    py_t4:'Ναρκο-Αριστοκρατία', py_d4:'Αρχηγοί, ξέπλυμα, διπλωματικά αυτοκίνητα — ενσωματωμένη στη νόμιμη οικονομία.',
+    py_t5:'Αστική Τάξη', py_d5:'Η αστική μεσαία τάξη και οι επαγγελματίες. Η απάντησή τους είναι το αεροδρόμιο: 40–50.000 Αλβανοί μεταναστεύουν κάθε χρόνο.',
+    py_t6:'Πλέμπα + Διασπορά', py_d6:'Εργάτες, αγρότες, συνταξιούχοι, νέοι εξόριστοι. Τα εμβάσματά τους κρατούν όρθιο ό,τι βρίσκεται από πάνω τους.',
+    py_biz:'Επιχειρήσεις & δραστηριότητες', py_conn:'Διασυνδέσεις',
+    py_disc:'Οι καταχωρήσεις FACT στηρίζονται σε δημόσια έγγραφα, δικαστικά αρχεία και δημοσιευμένες έρευνες. Οι καταχωρήσεις ALLEGATION είναι δημόσιες κατηγορίες, αποδιδόμενες και εν αναμονή αποδείξεων: για κάθε πρόσωπο που κατονομάζεται ισχύει το τεκμήριο αθωότητας μέχρι τελεσίδικη απόφαση.',
+    dy_t:'Το ημερολόγιο της βάσης',
+    dy_p1:'Η βάση της πυραμίδας κρατά τα πάντα όρθια — και βλέπει τα πάντα. Γι’ αυτό το τελευταίο επίπεδο δεν έχει φάκελο: έχει ημερολόγιο. Πες την ιστορία σου, με το όνομά σου ή ανώνυμα· ίσως ξέρεις κάτι που κανείς άλλος δεν ξέρει. Τίποτα δεν φεύγει από τη συσκευή σου μέχρι να πατήσεις αποστολή.',
+    dy_name_l:'Όνομα ή ψευδώνυμο (προαιρετικό)',
+    dy_msg_l:'Η ιστορία σου — τι ξέρεις',
+    dy_send_mail:'Στείλε με email',
+    dy_send_wa:'Στείλε στο WhatsApp',
+    dy_note:'Για να μείνεις ανώνυμος: χρησιμοποίησε προσωρινό λογαριασμό, συνδέσου μέσω Tor ή VPN και αφαίρεσε τα μεταδεδομένα από φωτογραφίες και έγγραφα πριν τα επισυνάψεις. Επαληθεύουμε ό,τι λαμβάνουμε πριν το χρησιμοποιήσουμε, δεν δημοσιεύουμε ποτέ πηγή χωρίς συναίνεση — και θεωρούμε την προστασία των πηγών χρέος τιμής.',
     ft_note:"Ένα ανεξάρτητο κίνημα. Καμία κομματική ένταξη, καμία ξένη χρηματοδότηση, καμία άδεια ζητημένη. © 2026 nderja.com"
   },
   nl: {
@@ -1388,6 +1657,27 @@ const T = {
     cm_p1:'We zijn met weinigen, uit keuze en voorlopig. Het netwerk groeit persoon voor persoon: draai een node, vertaal, verifieer feiten, breng het idee naar jouw stad. Geen lidmaatschap, geen kosten, geen toestemming — bijdrage is de enige rang.',
     cm_p2:'Elke geplaatste node, elke toegevoegde taal, elke eerlijke correctie maakt het netwerk moeilijker het zwijgen op te leggen. Zo worden infrastructuur — en eer — gebouwd.',
     cm_cta:'Doe mee op GitHub',
+    py_p1:'Zo is het systeem gebouwd — laag voor laag, van wie tekent tot wie betaalt. Klik op een naam om zijn dossier te openen: rol, bedrijven, gedocumenteerde feiten en open beschuldigingen, elk gestempeld voor wat het is.',
+    py_leg_f:'gedocumenteerd, met openbare bronnen',
+    py_leg_a:'publieke beschuldiging — geen vonnis',
+    py_box:'Albanese Sociale Piramide — 2026',
+    py_t1:'De Soeverein', py_d1:'Edi Rama en de binnenste kring — plus het buitenlandse kapitaal dat de kust opkoopt.',
+    py_t15:'Economische Oligarchen', py_d15:'Zij financieren het systeem; het systeem geeft concessies, vergunningen en overheidsopdrachten terug.',
+    py_t2:'Hofadel', py_d2:'Ministers, burgemeesters, SP-parlementsleden en bevriende media — de uitvoerende arm.',
+    py_t3:'De Moderne Geestelijkheid', py_d3:'Meegaande rechters, een beperkte SPAK, de politie: de machinerie van de legitimatie.',
+    py_c_jud:'Rechters & Vetting', py_c_pol:'Politie & SKY ECC',
+    py_t4:'Narco-Aristocratie', py_d4:'Bazen, witwassen, diplomatieke auto’s — geïntegreerd in de legale economie.',
+    py_t5:'Burgerij', py_d5:'De stedelijke middenklasse en de professionals. Hun antwoord is de luchthaven: 40–50.000 Albanezen emigreren elk jaar.',
+    py_t6:'Plebs + Diaspora', py_d6:'Arbeiders, boeren, gepensioneerden, jonge ballingen. Hun overmakingen dragen alles boven hen.',
+    py_biz:'Bedrijven & activiteiten', py_conn:'Connecties',
+    py_disc:'FACT-vermeldingen rusten op openbare documenten, gerechtelijke stukken en gepubliceerd onderzoek. ALLEGATION-vermeldingen zijn publieke beschuldigingen, toegeschreven en in afwachting van bewijs: voor iedere genoemde persoon geldt het vermoeden van onschuld tot een definitief vonnis.',
+    dy_t:'Het dagboek van de basis',
+    dy_p1:'De basis van de piramide draagt alles — en ziet alles. Daarom krijgt de onderste laag geen dossier: ze krijgt een dagboek. Vertel je verhaal, met je naam of anoniem; misschien weet jij iets wat niemand anders weet. Niets verlaat je apparaat tot je op verzenden drukt.',
+    dy_name_l:'Naam of pseudoniem (optioneel)',
+    dy_msg_l:'Jouw verhaal — wat je weet',
+    dy_send_mail:'Verstuur per e-mail',
+    dy_send_wa:'Verstuur via WhatsApp',
+    dy_note:'Om anoniem te blijven: gebruik een wegwerpaccount, verbind via Tor of een VPN en verwijder metadata uit foto’s en documenten voor je ze bijvoegt. We verifiëren wat we ontvangen voor we het gebruiken, we publiceren nooit een bron zonder toestemming — en bronbescherming beschouwen we als een ereschuld.',
     ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
   },
   es: {
@@ -1497,9 +1787,621 @@ const T = {
     cm_p1:'Somos pocos, por elección y por ahora. La red crece persona a persona: activa un nodo, traduce, verifica hechos, lleva la idea a tu ciudad. Sin afiliación, sin cuotas, sin permiso — la contribución es el único rango.',
     cm_p2:'Cada nodo colocado, cada idioma añadido, cada corrección honesta hace la red más difícil de silenciar. Así se construyen las infraestructuras — y el honor.',
     cm_cta:'Únete en GitHub',
+    py_p1:'Así está construido el sistema — nivel a nivel, desde quien firma hasta quienes pagan. Haz clic en un nombre para abrir su dossier: cargo, negocios, hechos documentados y acusaciones abiertas, cada uno sellado por lo que es.',
+    py_leg_f:'documentado, con fuentes públicas',
+    py_leg_a:'acusación pública — no un veredicto',
+    py_box:'Pirámide Social Albanesa — 2026',
+    py_t1:'El Soberano', py_d1:'Edi Rama y el círculo íntimo — más el capital extranjero que compra la costa.',
+    py_t15:'Oligarcas Económicos', py_d15:'Financian el sistema; el sistema devuelve concesiones, permisos y contratos públicos.',
+    py_t2:'Nobleza de Corte', py_d2:'Ministros, alcaldes, diputados del PS y medios amigos — el brazo ejecutor.',
+    py_t3:'El Clero Moderno', py_d3:'Jueces alineados, una SPAK limitada, la policía: la maquinaria de la legitimación.',
+    py_c_jud:'Jueces & Vetting', py_c_pol:'Policía & SKY ECC',
+    py_t4:'Narco-Aristocracia', py_d4:'Jefes, blanqueo, coches diplomáticos — integrada en la economía legal.',
+    py_t5:'Burguesía', py_d5:'La clase media urbana y los profesionales. Su respuesta es el aeropuerto: 40–50.000 albaneses emigran cada año.',
+    py_t6:'Plebe + Diáspora', py_d6:'Obreros, campesinos, pensionistas, jóvenes exiliados. Sus remesas sostienen todo lo que tienen encima.',
+    py_biz:'Negocios & actividades', py_conn:'Conexiones',
+    py_disc:'Las entradas FACT se apoyan en documentos públicos, actas judiciales e investigaciones publicadas. Las entradas ALLEGATION son acusaciones públicas, atribuidas y a la espera de pruebas: para toda persona nombrada rige la presunción de inocencia hasta un veredicto definitivo.',
+    dy_t:'El diario de la base',
+    dy_p1:'La base de la pirámide lo sostiene todo — y lo ve todo. Por eso el último nivel no tiene dossier: tiene un diario. Cuenta tu historia, con tu nombre o de forma anónima; quizá sabes algo que nadie más sabe. Nada sale de tu dispositivo hasta que pulsas enviar.',
+    dy_name_l:'Nombre o seudónimo (opcional)',
+    dy_msg_l:'Tu historia — lo que sabes',
+    dy_send_mail:'Enviar por correo',
+    dy_send_wa:'Enviar por WhatsApp',
+    dy_note:'Para permanecer anónimo: usa una cuenta desechable, conéctate por Tor o VPN y elimina los metadatos de fotos y documentos antes de adjuntarlos. Verificamos lo que recibimos antes de usarlo, nunca publicamos una fuente sin consentimiento — y proteger a las fuentes es para nosotros una deuda de honor.',
     ft_note:'Un movimiento independiente. Sin afiliación partidista, sin financiación extranjera, sin permiso pedido. © 2026 nderja.com',
   },
 };
+
+/* ---------- pyramid dossiers ---------- */
+const DOS = {
+people:{
+  rama:{n:'Edi Rama',rel:['olsi','agaci','kushner','eagle','kastrati','mane','fusha','balluku','veliaj']},
+  olsi:{n:'Olsi Rama',rel:['rama']},
+  agaci:{n:'Engjëll Agaçi',rel:['rama','balluku']},
+  kushner:{n:'Jared Kushner',biz:['Affinity Partners'],rel:['rama','eagle']},
+  eagle:{n:'Eagle Hills — Mohamed Alabbar',biz:['Durrës Yachts & Marina'],rel:['rama','kushner']},
+  kastrati:{n:'Shefqet Kastrati',biz:['Kastrati Energy','Shell Albania','Albsig','Auto Star Albania','Tirana International Airport (TIA)','MBM Port','Downtown One','Green Coast','Rolling Hills','Mak Albania Hotel','Euronews Albania','Kastrati Construction','Kastrati Real Estate','Kastrati Retail','Kastrati Advertising'],rel:['rama','mane']},
+  mane:{n:'Samir Mane',biz:['BALFIN Group','Neptun','Jumbo Albania','SPAR Albania','Fashion Group Albania','Tirana Bank','AlbChrome','QTU (Qendra Tregtare Univers)','TEG (Tirana East Gate)','Green Coast','Rolling Hills','Mane TCI','Balfin Real Estate','Tirana Logistic Park','ACREM','NewCo Ferronikeli','Skopje East Gate','Stella Mare'],rel:['rama','kastrati']},
+  fusha:{n:'Shkëlqim Fusha',biz:['Fusha sh.p.k.'],rel:['rama','veliaj']},
+  luca:{n:'Gjergj Luca',biz:['Rozafa sh.p.k.','Rozafa Fish City','Fish City Elbasan','Rozafa Seafood','Rozafa Fish Market','Rozafa Agroturizëm','Apollonia Rozafa','Rozafa Aquaculture','Rozafa Shëngjin'],rel:['rama']},
+  sinaj:{n:'Vullnet Sinaj',biz:['Big Market','BigAlb Group','Big Market Distribution','Big Market Food'],rel:['rama']},
+  balluku:{n:'Belinda Balluku',rel:['rama','agaci','judges']},
+  veliaj:{n:'Erion Veliaj',rel:['rama','fusha']},
+  ahmetaj:{n:'Arben Ahmetaj',rel:['rama']},
+  tahiri:{n:'Saimir Tahiri',rel:['habilaj','skyecc']},
+  judges:{n:'Judges & Vetting',rel:['balluku','skyecc']},
+  skyecc:{n:'Police & SKY ECC',rel:['habilaj','tahiri','judges']},
+  habilaj:{n:'Klani Habilaj',rel:['tahiri','skyecc']},
+  gjika:{n:'Gjika',rel:['skyecc']}
+},
+t:{
+en:{
+  rama:{r:'Prime Minister since 2013. Chairs the National Territorial Council (KKT) that approves the country’s major construction projects.',i:[
+    ['F','He prefaced “The Albanian Files” — 523 projects by international firms — and chairs the very council that approves them. Protesters have submitted the volume to SPAK.'],
+    ['F','Government decisions of 2023–2024 authorised the sale of the Ballsh refinery for €9 million and its replacement by a solar park awarded without competitive tender.'],
+    ['F','Law 21/2024 stripped environmental protection from the Zvernec area, opening protected coastline to a foreign-backed resort — the spark of the Flamingo Revolution.'],
+    ['F','Charles McGonigal, former head of FBI counter-intelligence in New York, was convicted in the US over undeclared payments tied to Albanian interests and unregistered meetings with Rama.'],
+    ['A','Protesters allege avoided public consultations, laws tailored to pre-existing projects and a structural conflict of interest at the top of the approval chain.']]},
+  olsi:{r:'Brother of the Prime Minister.',i:[
+    ['A','Publicly named in Albanian media and protest material as an informal gatekeeper of business access to the government. No charges are on record.']]},
+  agaci:{r:'Secretary General of the Council of Ministers.',i:[
+    ['F','As Secretary General he coordinates the government decisions (VKM) through which the fast-track approvals — Ballsh, Durrës, Zvernec — passed.'],
+    ['A','Protesters name him as a key executor of the approval machine. No charges are on record.']]},
+  kushner:{r:'US investor — Affinity Partners.',i:[
+    ['F','His fund has announced luxury resort projects on the Albanian coast (Sazan / Zvernec area), fast-tracked through the strategic-investment framework.'],
+    ['F','Law 21/2024 removed environmental protections near Zvernec — the same area designated for the resort.'],
+    ['A','Critics allege the law was tailored to the project; the government denies it.']]},
+  eagle:{r:'Emirati real-estate group led by Mohamed Alabbar.',i:[
+    ['F','Leads “Durrës Yachts & Marina”: the country’s main commercial port is being converted into a luxury marina and real-estate development.'],
+    ['F','Cargo operations must be relocated to Porto Romano — an enormous cost borne largely by the public.'],
+    ['A','A strategic national asset converted into private waterfront property without an open competitive process, critics contend.']]},
+  kastrati:{r:'Owner of Kastrati Group — fuel, concessions, media.',i:[
+    ['F','Holds the concession of Tirana International Airport and dominates the fuel market; owns the broadcaster Euronews Albania.'],
+    ['A','Critics point to an extraordinary concentration of strategic public concessions in one group regarded as close to the government.']]},
+  mane:{r:'Owner of BALFIN Group — the largest private group in Albania.',i:[
+    ['F','Controls retail chains, shopping malls, a bank and the chrome-mining industry.'],
+    ['A','Named among the developers of Green Coast on the protected Palasë coast; critics allege privatisations and permits eased by political proximity.']]},
+  fusha:{r:'Owner of Fusha sh.p.k. — construction.',i:[
+    ['F','Won the major public works of central Tirana, including Skanderbeg Square and the new boulevard.'],
+    ['A','Critics allege a dominance in municipal and state tenders built on political ties.']]},
+  luca:{r:'Entrepreneur — Rozafa group: fishing, restaurants, port activities.',i:[
+    ['A','Publicly named among the businessmen closest to the government. No charges are on record.']]},
+  sinaj:{r:'Entrepreneur — Big Market / BigAlb Group supermarkets.',i:[
+    ['A','Publicly named among the businessmen closest to the government. No charges are on record.']]},
+  balluku:{r:'Former Deputy PM and Minister of Infrastructure and Energy — Rama’s right hand.',i:[
+    ['F','Indicted by SPAK for manipulating public tenders worth millions tied to major infrastructure projects; removed from government in February 2026.'],
+    ['F','In March 2026 the socialist majority in Parliament blocked SPAK’s request to lift her immunity for arrest — igniting the Flamingo protests.']]},
+  veliaj:{r:'Mayor of Tirana, long presented as Rama’s political heir.',i:[
+    ['F','Formally investigated by SPAK for corruption and money laundering in the “5D Construction” dossier; key municipal directors, including Taulant Tusha, have been arrested.'],
+    ['A','The accusation: a hidden private construction company created to self-award municipal contracts worth millions.']]},
+  ahmetaj:{r:'Former Deputy PM and Finance Minister.',i:[
+    ['F','Charged over the incinerators affair — corruption, money laundering, concealment of assets. Fled Albania before his immunity was lifted; a fugitive, with villas and accounts seized.'],
+    ['F','The incinerator concessions paid tens of millions of public euros for plants never completed or barely functioning; the businessmen behind them, Klodian Zoto and Mirel Mërtiri, are fugitives too.']]},
+  tahiri:{r:'Former Interior Minister.',i:[
+    ['F','Convicted of abuse of office after an Italian anti-mafia investigation into the Habilaj trafficking clan revealed the use of his private car and police cover for cannabis trafficking.']]},
+  judges:{n:'Judges & Vetting',r:'The judicial system under the vetting reform.',i:[
+    ['F','The vetting removed almost 47% of Albania’s judges and prosecutors — top figures of the Supreme and Constitutional Courts could not justify fortunes in seaside villas, flats and foreign accounts.'],
+    ['A','Aligned judges and a structurally limited SPAK are, protesters argue, the legitimising arm of the system — as when Parliament shields a minister from arrest.']]},
+  skyecc:{n:'Police & SKY ECC',r:'State police leadership hit by the SKY ECC / EncroChat decryptions.',i:[
+    ['F','Decrypted communications, passed to SPAK by Belgian, French and Dutch prosecutors, showed senior police officials and prosecutors on the payroll of the drug cartels of Elbasan, Shkodër and Vlorë.'],
+    ['F','They leaked raid plans, planned ambushes together with fugitives and helped launder drug money into construction; arrest warrants include former operational police chiefs.']]},
+  habilaj:{r:'Drug-trafficking clan from the Vlora area.',i:[
+    ['F','Dismantled by an Italian anti-mafia operation; its reach extended to the Interior Minister, whose private car the traffickers used.']]},
+  gjika:{r:'Name placed at the narco level of the pyramid by the protest movement.',i:[
+    ['A','Named in protest material as an alleged boss whose money is laundered into the legal economy. No conviction is documented in our archive; this entry stays open for evidence.']]}
+},
+sq:{
+  rama:{r:'Kryeministër që nga 2013. Drejton Këshillin Kombëtar të Territorit (KKT) që miraton projektet e mëdha të ndërtimit.',i:[
+    ['F','Shkroi parathënien e “The Albanian Files” — 523 projekte të studiove ndërkombëtare — dhe drejton po atë këshill që i miraton. Protestuesit ia kanë dorëzuar vëllimin SPAK-ut.'],
+    ['F','Vendime qeverie të 2023–2024 autorizuan shitjen e rafinerisë së Ballshit për 9 milionë euro dhe zëvendësimin e saj me një park fotovoltaik të dhënë pa garë konkurruese.'],
+    ['F','Ligji 21/2024 i hoqi mbrojtjen mjedisore zonës së Zvërnecit, duke ia hapur bregdetin e mbrojtur një resorti me kapital të huaj — shkëndija e Revolucionit të Flamingove.'],
+    ['F','Charles McGonigal, ish-shefi i kundërspiunazhit të FBI-së në Nju Jork, u dënua në SHBA për pagesa të padeklaruara të lidhura me interesa shqiptare dhe takime të paregjistruara me Ramën.'],
+    ['A','Protestuesit pretendojnë konsultime publike të shmangura, ligje të qepura sipas projekteve paraekzistuese dhe konflikt strukturor interesi në majë të zinxhirit të miratimeve.']]},
+  olsi:{r:'Vëllai i kryeministrit.',i:[
+    ['A','Përmendet publikisht në media dhe në materialet e protestës si portier informal i aksesit të biznesit te qeveria. Nuk ka akuza të regjistruara.']]},
+  agaci:{r:'Sekretar i Përgjithshëm i Këshillit të Ministrave.',i:[
+    ['F','Si Sekretar i Përgjithshëm koordinon vendimet e qeverisë (VKM) përmes të cilave kaluan miratimet e përshpejtuara — Ballshi, Durrësi, Zvërneci.'],
+    ['A','Protestuesit e përmendin si ekzekutor kyç të makinës së miratimeve. Nuk ka akuza të regjistruara.']]},
+  kushner:{r:'Investitor amerikan — Affinity Partners.',i:[
+    ['F','Fondi i tij ka shpallur projekte resortesh luksoze në bregdetin shqiptar (Sazan / zona e Zvërnecit), të përshpejtuara përmes kornizës së investimeve strategjike.'],
+    ['F','Ligji 21/2024 hoqi mbrojtjen mjedisore pranë Zvërnecit — po ajo zonë e caktuar për resortin.'],
+    ['A','Kritikët pretendojnë se ligji u qep sipas projektit; qeveria e mohon.']]},
+  eagle:{r:'Grup emiratas i pasurive të paluajtshme, i drejtuar nga Mohamed Alabbar.',i:[
+    ['F','Drejton “Durrës Yachts & Marina”: porti kryesor tregtar i vendit po shndërrohet në marinë luksoze dhe projekt pasurish të paluajtshme.'],
+    ['F','Operacionet e mallrave duhet të zhvendosen në Porto Romano — një kosto e jashtëzakonshme, kryesisht publike.'],
+    ['A','Një aset strategjik kombëtar i shndërruar në pronë private buzë detit pa një garë të hapur, thonë kritikët.']]},
+  kastrati:{r:'Pronar i Kastrati Group — karburante, koncesione, media.',i:[
+    ['F','Mban koncesionin e Aeroportit Ndërkombëtar të Tiranës dhe dominon tregun e karburanteve; zotëron televizionin Euronews Albania.'],
+    ['A','Kritikët tregojnë një përqendrim të jashtëzakonshëm koncesionesh publike strategjike në një grup që konsiderohet i afërt me qeverinë.']]},
+  mane:{r:'Pronar i BALFIN Group — grupi më i madh privat në Shqipëri.',i:[
+    ['F','Kontrollon zinxhirë tregtarë, qendra tregtare, një bankë dhe industrinë e kromit.'],
+    ['A','Përmendet mes zhvilluesve të Green Coast në bregun e mbrojtur të Palasës; kritikët pretendojnë privatizime dhe leje të lehtësuara nga afërsia politike.']]},
+  fusha:{r:'Pronar i Fusha sh.p.k. — ndërtim.',i:[
+    ['F','Fitoi punët e mëdha publike të qendrës së Tiranës, përfshirë sheshin Skënderbej dhe bulevardin e ri.'],
+    ['A','Kritikët pretendojnë një dominim të tenderëve bashkiakë e shtetërorë të ndërtuar mbi lidhje politike.']]},
+  luca:{r:'Sipërmarrës — grupi Rozafa: peshkim, restorante, aktivitete portuale.',i:[
+    ['A','Përmendet publikisht mes biznesmenëve më të afërt me qeverinë. Nuk ka akuza të regjistruara.']]},
+  sinaj:{r:'Sipërmarrës — supermarketet Big Market / BigAlb Group.',i:[
+    ['A','Përmendet publikisht mes biznesmenëve më të afërt me qeverinë. Nuk ka akuza të regjistruara.']]},
+  balluku:{r:'Ish-zëvendëskryeministre dhe ministre e Infrastrukturës dhe Energjisë — dora e djathtë e Ramës.',i:[
+    ['F','E akuzuar nga SPAK për manipulim tenderësh publikë milionësh të lidhur me projektet e mëdha infrastrukturore; e hequr nga qeveria në shkurt 2026.'],
+    ['F','Në mars 2026 shumica socialiste në Kuvend bllokoi kërkesën e SPAK për heqjen e imunitetit për arrestim — duke ndezur protestat Flamingo.']]},
+  veliaj:{r:'Kryebashkiak i Tiranës, i paraqitur gjatë si trashëgimtari politik i Ramës.',i:[
+    ['F','I hetuar zyrtarisht nga SPAK për korrupsion dhe pastrim parash në dosjen “5D Construction”; drejtorë kyç të bashkisë, mes tyre Taulant Tusha, janë arrestuar.'],
+    ['A','Akuza: një shoqëri ndërtimi private e fshehtë, e krijuar për t’i vetëdhënë tenderë bashkiakë milionësh.']]},
+  ahmetaj:{r:'Ish-zëvendëskryeministër dhe ministër i Financave.',i:[
+    ['F','I akuzuar për aferën e inceneratorëve — korrupsion, pastrim parash, fshehje pasurie. U largua nga Shqipëria para heqjes së imunitetit; i arratisur, me vila e llogari të sekuestruara.'],
+    ['F','Koncesionet e inceneratorëve paguan dhjetëra milionë euro publike për impiante të papërfunduara ose gjysmë-funksionale; biznesmenët pas tyre, Klodian Zoto dhe Mirel Mërtiri, janë gjithashtu të arratisur.']]},
+  tahiri:{r:'Ish-ministër i Brendshëm.',i:[
+    ['F','I dënuar për shpërdorim detyre pasi një hetim italian antimafia ndaj klanit trafikant Habilaj zbuloi përdorimin e makinës së tij private dhe mbulimin policor të trafikut të kanabisit.']]},
+  judges:{n:'Gjyqtarët & Vetting-u',r:'Sistemi gjyqësor nën reformën e vetting-ut.',i:[
+    ['F','Vetting-u largoi pothuajse 47% të gjyqtarëve dhe prokurorëve — figura të larta të Gjykatës së Lartë dhe Kushtetueses nuk justifikuan dot pasuri me vila buzë detit, apartamente dhe llogari jashtë vendit.'],
+    ['A','Gjyqtarë të rreshtuar dhe një SPAK strukturalisht i kufizuar janë, sipas protestuesve, krahu legjitimues i sistemit — si kur Kuvendi e mbron një ministre nga arrestimi.']]},
+  skyecc:{n:'Policia & SKY ECC',r:'Kupola e Policisë së Shtetit e goditur nga deshifrimet SKY ECC / EncroChat.',i:[
+    ['F','Komunikimet e deshifruara, të kaluara SPAK-ut nga prokuroritë belge, franceze dhe holandeze, treguan drejtues të lartë policie dhe prokurorë në listëpagesat e karteleve të drogës të Elbasanit, Shkodrës dhe Vlorës.'],
+    ['F','Rrjedhnin plane operacionesh, planifikonin prita bashkë me të arratisurit dhe ndihmonin pastrimin e parave të drogës në ndërtim; mes urdhër-arresteve ka ish-shefa të policisë operative.']]},
+  habilaj:{r:'Klan trafikantësh droge nga zona e Vlorës.',i:[
+    ['F','I çmontuar nga një operacion italian antimafia; krahu i tij arrinte deri te ministri i Brendshëm, makinën private të të cilit e përdornin trafikantët.']]},
+  gjika:{r:'Emër i vendosur në nivelin narko të piramidës nga lëvizja e protestës.',i:[
+    ['A','Përmendet në materialet e protestës si bos i pretenduar, paratë e të cilit pastrohen në ekonominë ligjore. Asnjë dënim nuk është i dokumentuar në arkivin tonë; kjo skedë mbetet e hapur për prova.']]}
+},
+it:{
+  rama:{r:'Primo ministro dal 2013. Presiede il Consiglio Nazionale del Territorio (KKT) che approva i grandi progetti edilizi del Paese.',i:[
+    ['F','Ha firmato la prefazione di “The Albanian Files” — 523 progetti di studi internazionali — e presiede proprio il consiglio che li approva. I manifestanti hanno consegnato il volume alla SPAK.'],
+    ['F','Decisioni di governo del 2023–2024 hanno autorizzato la vendita della raffineria di Ballsh per 9 milioni di euro e la sua sostituzione con un parco solare assegnato senza gara.'],
+    ['F','La legge 21/2024 ha tolto la protezione ambientale all’area di Zvernec, aprendo una costa protetta a un resort a capitale estero — la scintilla della Flamingo Revolution.'],
+    ['F','Charles McGonigal, ex capo del controspionaggio FBI a New York, è stato condannato negli USA per pagamenti non dichiarati legati a interessi albanesi e incontri non registrati con Rama.'],
+    ['A','I manifestanti denunciano consultazioni pubbliche evitate, leggi cucite su progetti preesistenti e un conflitto d’interessi strutturale in cima alla catena delle approvazioni.']]},
+  olsi:{r:'Fratello del primo ministro.',i:[
+    ['A','Indicato pubblicamente da media e materiale di protesta come guardiano informale dell’accesso degli affari al governo. Nessuna accusa formale agli atti.']]},
+  agaci:{r:'Segretario generale del Consiglio dei ministri.',i:[
+    ['F','Da Segretario generale coordina le decisioni di governo (VKM) attraverso cui sono passate le approvazioni accelerate — Ballsh, Durazzo, Zvernec.'],
+    ['A','I manifestanti lo indicano come esecutore chiave della macchina delle approvazioni. Nessuna accusa formale agli atti.']]},
+  kushner:{r:'Investitore statunitense — Affinity Partners.',i:[
+    ['F','Il suo fondo ha annunciato resort di lusso sulla costa albanese (Sazan / area di Zvernec), accelerati tramite il quadro degli investimenti strategici.'],
+    ['F','La legge 21/2024 ha rimosso le protezioni ambientali presso Zvernec — la stessa area destinata al resort.'],
+    ['A','I critici sostengono che la legge sia stata cucita sul progetto; il governo smentisce.']]},
+  eagle:{r:'Gruppo immobiliare emiratino guidato da Mohamed Alabbar.',i:[
+    ['F','Guida “Durrës Yachts & Marina”: il principale porto commerciale del Paese viene convertito in marina di lusso e progetto immobiliare.'],
+    ['F','Le operazioni merci devono trasferirsi a Porto Romano — un costo enorme, in gran parte pubblico.'],
+    ['A','Un asset strategico nazionale trasformato in waterfront privato senza gara aperta, sostengono i critici.']]},
+  kastrati:{r:'Proprietario di Kastrati Group — carburanti, concessioni, media.',i:[
+    ['F','Detiene la concessione dell’aeroporto internazionale di Tirana e domina il mercato dei carburanti; possiede l’emittente Euronews Albania.'],
+    ['A','I critici segnalano una concentrazione straordinaria di concessioni pubbliche strategiche in un gruppo considerato vicino al governo.']]},
+  mane:{r:'Proprietario di BALFIN Group — il più grande gruppo privato d’Albania.',i:[
+    ['F','Controlla catene retail, centri commerciali, una banca e l’industria mineraria del cromo.'],
+    ['A','Citato tra gli sviluppatori di Green Coast sulla costa protetta di Palasë; i critici denunciano privatizzazioni e permessi agevolati dalla vicinanza politica.']]},
+  fusha:{r:'Proprietario di Fusha sh.p.k. — costruzioni.',i:[
+    ['F','Ha vinto le grandi opere pubbliche del centro di Tirana, tra cui piazza Skanderbeg e il nuovo boulevard.'],
+    ['A','I critici denunciano un dominio negli appalti comunali e statali costruito su legami politici.']]},
+  luca:{r:'Imprenditore — gruppo Rozafa: pesca, ristorazione, attività portuali.',i:[
+    ['A','Indicato pubblicamente tra gli imprenditori più vicini al governo. Nessuna accusa formale agli atti.']]},
+  sinaj:{r:'Imprenditore — supermercati Big Market / BigAlb Group.',i:[
+    ['A','Indicato pubblicamente tra gli imprenditori più vicini al governo. Nessuna accusa formale agli atti.']]},
+  balluku:{r:'Ex vicepremier e ministra delle Infrastrutture e dell’Energia — il braccio destro di Rama.',i:[
+    ['F','Incriminata dalla SPAK per manipolazione di appalti pubblici milionari legati ai grandi progetti infrastrutturali; rimossa dal governo a febbraio 2026.'],
+    ['F','A marzo 2026 la maggioranza socialista in Parlamento ha bloccato la richiesta della SPAK di revocarle l’immunità per l’arresto — accendendo le proteste Flamingo.']]},
+  veliaj:{r:'Sindaco di Tirana, a lungo presentato come delfino politico di Rama.',i:[
+    ['F','Formalmente indagato dalla SPAK per corruzione e riciclaggio nel dossier “5D Construction”; arrestati direttori comunali chiave, tra cui Taulant Tusha.'],
+    ['A','L’accusa: una società edilizia privata occulta creata per auto-assegnarsi appalti comunali da milioni di euro.']]},
+  ahmetaj:{r:'Ex vicepremier e ministro delle Finanze.',i:[
+    ['F','Accusato per l’affare dei termovalorizzatori — corruzione, riciclaggio, occultamento di beni. Fuggito dall’Albania prima della revoca dell’immunità; latitante, con ville e conti sequestrati.'],
+    ['F','Le concessioni degli inceneritori hanno pagato decine di milioni di euro pubblici per impianti mai completati o malfunzionanti; gli imprenditori dietro l’affare, Klodian Zoto e Mirel Mërtiri, sono anch’essi latitanti.']]},
+  tahiri:{r:'Ex ministro dell’Interno.',i:[
+    ['F','Condannato per abuso d’ufficio dopo che un’inchiesta antimafia italiana sul clan di trafficanti Habilaj rivelò l’uso della sua auto privata e coperture di polizia sul traffico di cannabis.']]},
+  judges:{n:'Giudici & Vetting',r:'Il sistema giudiziario sotto la riforma del vetting.',i:[
+    ['F','Il vetting ha rimosso quasi il 47% di giudici e procuratori — figure apicali di Corte Suprema e Costituzionale non hanno saputo giustificare patrimoni fatti di ville al mare, appartamenti e conti all’estero.'],
+    ['A','Giudici allineati e una SPAK strutturalmente limitata sono, secondo i manifestanti, il braccio di legittimazione del sistema — come quando il Parlamento protegge una ministra dall’arresto.']]},
+  skyecc:{n:'Polizia & SKY ECC',r:'I vertici della Polizia di Stato colpiti dalle decrittazioni SKY ECC / EncroChat.',i:[
+    ['F','Le comunicazioni decrittate, girate alla SPAK dalle procure belga, francese e olandese, hanno mostrato alti dirigenti di polizia e procuratori sul libro paga dei cartelli della droga di Elbasan, Scutari e Valona.'],
+    ['F','Passavano informazioni sui blitz, pianificavano agguati con i latitanti e aiutavano a riciclare i soldi della droga nell’edilizia; tra i mandati di cattura figurano ex capi della polizia operativa.']]},
+  habilaj:{r:'Clan di narcotrafficanti dell’area di Valona.',i:[
+    ['F','Smantellato da un’operazione antimafia italiana; i suoi legami arrivavano fino al ministro dell’Interno, di cui i trafficanti usavano l’auto privata.']]},
+  gjika:{r:'Nome collocato al livello narco della piramide dal movimento di protesta.',i:[
+    ['A','Indicato nel materiale di protesta come presunto boss il cui denaro viene riciclato nell’economia legale. Nessuna condanna documentata nel nostro archivio; questa scheda resta aperta alle prove.']]}
+},
+fr:{
+  rama:{r:'Premier ministre depuis 2013. Préside le Conseil national du territoire (KKT) qui approuve les grands projets de construction du pays.',i:[
+    ['F','Il a préfacé « The Albanian Files » — 523 projets de cabinets internationaux — et préside le conseil même qui les approuve. Les manifestants ont remis le volume à la SPAK.'],
+    ['F','Des décisions gouvernementales de 2023–2024 ont autorisé la vente de la raffinerie de Ballsh pour 9 millions d’euros et son remplacement par un parc solaire attribué sans appel d’offres.'],
+    ['F','La loi 21/2024 a retiré la protection environnementale de la zone de Zvernec, ouvrant un littoral protégé à un resort à capitaux étrangers — l’étincelle de la Flamingo Revolution.'],
+    ['F','Charles McGonigal, ex-chef du contre-espionnage du FBI à New York, a été condamné aux États-Unis pour des paiements non déclarés liés à des intérêts albanais et des rencontres non enregistrées avec Rama.'],
+    ['A','Les manifestants dénoncent des consultations publiques évitées, des lois taillées pour des projets préexistants et un conflit d’intérêts structurel au sommet de la chaîne d’approbation.']]},
+  olsi:{r:'Frère du Premier ministre.',i:[
+    ['A','Désigné publiquement par les médias et le matériel de protestation comme portier informel de l’accès des affaires au gouvernement. Aucune charge enregistrée.']]},
+  agaci:{r:'Secrétaire général du Conseil des ministres.',i:[
+    ['F','En tant que Secrétaire général, il coordonne les décisions gouvernementales (VKM) par lesquelles sont passées les approbations accélérées — Ballsh, Durrës, Zvernec.'],
+    ['A','Les manifestants le désignent comme exécuteur clé de la machine à approbations. Aucune charge enregistrée.']]},
+  kushner:{r:'Investisseur américain — Affinity Partners.',i:[
+    ['F','Son fonds a annoncé des resorts de luxe sur la côte albanaise (Sazan / zone de Zvernec), accélérés via le cadre des investissements stratégiques.'],
+    ['F','La loi 21/2024 a supprimé les protections environnementales près de Zvernec — la zone même destinée au resort.'],
+    ['A','Les critiques affirment que la loi a été taillée pour le projet ; le gouvernement dément.']]},
+  eagle:{r:'Groupe immobilier émirati dirigé par Mohamed Alabbar.',i:[
+    ['F','Mène « Durrës Yachts & Marina » : le principal port commercial du pays est converti en marina de luxe et projet immobilier.'],
+    ['F','Les opérations de fret doivent être déplacées à Porto Romano — un coût énorme, largement public.'],
+    ['A','Un actif national stratégique transformé en waterfront privé sans procédure concurrentielle ouverte, soutiennent les critiques.']]},
+  kastrati:{r:'Propriétaire de Kastrati Group — carburants, concessions, médias.',i:[
+    ['F','Détient la concession de l’aéroport international de Tirana et domine le marché des carburants ; possède la chaîne Euronews Albania.'],
+    ['A','Les critiques pointent une concentration extraordinaire de concessions publiques stratégiques dans un groupe réputé proche du gouvernement.']]},
+  mane:{r:'Propriétaire de BALFIN Group — le plus grand groupe privé d’Albanie.',i:[
+    ['F','Contrôle des chaînes de distribution, des centres commerciaux, une banque et l’industrie minière du chrome.'],
+    ['A','Cité parmi les promoteurs de Green Coast sur la côte protégée de Palasë ; les critiques dénoncent des privatisations et permis facilités par la proximité politique.']]},
+  fusha:{r:'Propriétaire de Fusha sh.p.k. — construction.',i:[
+    ['F','A remporté les grands travaux publics du centre de Tirana, dont la place Skanderbeg et le nouveau boulevard.'],
+    ['A','Les critiques dénoncent une domination des marchés municipaux et d’État bâtie sur des liens politiques.']]},
+  luca:{r:'Entrepreneur — groupe Rozafa : pêche, restauration, activités portuaires.',i:[
+    ['A','Cité publiquement parmi les hommes d’affaires les plus proches du gouvernement. Aucune charge enregistrée.']]},
+  sinaj:{r:'Entrepreneur — supermarchés Big Market / BigAlb Group.',i:[
+    ['A','Cité publiquement parmi les hommes d’affaires les plus proches du gouvernement. Aucune charge enregistrée.']]},
+  balluku:{r:'Ex-vice-Première ministre et ministre des Infrastructures et de l’Énergie — le bras droit de Rama.',i:[
+    ['F','Inculpée par la SPAK pour manipulation d’appels d’offres publics de plusieurs millions liés aux grands projets d’infrastructure ; écartée du gouvernement en février 2026.'],
+    ['F','En mars 2026, la majorité socialiste au Parlement a bloqué la demande de la SPAK de lever son immunité pour l’arrêter — allumant les manifestations Flamingo.']]},
+  veliaj:{r:'Maire de Tirana, longtemps présenté comme le dauphin politique de Rama.',i:[
+    ['F','Officiellement mis en examen par la SPAK pour corruption et blanchiment dans le dossier « 5D Construction » ; des directeurs municipaux clés, dont Taulant Tusha, ont été arrêtés.'],
+    ['A','L’accusation : une société de construction privée occulte créée pour s’auto-attribuer des marchés municipaux de plusieurs millions.']]},
+  ahmetaj:{r:'Ex-vice-Premier ministre et ministre des Finances.',i:[
+    ['F','Poursuivi dans l’affaire des incinérateurs — corruption, blanchiment, dissimulation de biens. A fui l’Albanie avant la levée de son immunité ; en fuite, villas et comptes saisis.'],
+    ['F','Les concessions des incinérateurs ont versé des dizaines de millions d’euros publics pour des usines jamais achevées ou à peine fonctionnelles ; les hommes d’affaires derrière, Klodian Zoto et Mirel Mërtiri, sont eux aussi en fuite.']]},
+  tahiri:{r:'Ex-ministre de l’Intérieur.',i:[
+    ['F','Condamné pour abus de fonction après qu’une enquête antimafia italienne sur le clan de trafiquants Habilaj a révélé l’usage de sa voiture privée et des couvertures policières du trafic de cannabis.']]},
+  judges:{n:'Juges & Vetting',r:'Le système judiciaire sous la réforme du vetting.',i:[
+    ['F','Le vetting a écarté près de 47 % des juges et procureurs — des figures de la Cour suprême et de la Cour constitutionnelle n’ont pas pu justifier des fortunes en villas, appartements et comptes à l’étranger.'],
+    ['A','Des juges alignés et une SPAK structurellement limitée sont, selon les manifestants, le bras de légitimation du système — comme lorsque le Parlement protège une ministre de l’arrestation.']]},
+  skyecc:{n:'Police & SKY ECC',r:'Les sommets de la police d’État frappés par les décryptages SKY ECC / EncroChat.',i:[
+    ['F','Les communications décryptées, transmises à la SPAK par les parquets belge, français et néerlandais, ont montré de hauts responsables policiers et des procureurs sur la paie des cartels de la drogue d’Elbasan, Shkodër et Vlorë.'],
+    ['F','Ils divulguaient les plans des raids, planifiaient des embuscades avec des fugitifs et aidaient à blanchir l’argent de la drogue dans le bâtiment ; parmi les mandats d’arrêt, d’ex-chefs de la police opérationnelle.']]},
+  habilaj:{r:'Clan de narcotrafiquants de la région de Vlora.',i:[
+    ['F','Démantelé par une opération antimafia italienne ; ses ramifications atteignaient le ministre de l’Intérieur, dont les trafiquants utilisaient la voiture privée.']]},
+  gjika:{r:'Nom placé au niveau narco de la pyramide par le mouvement de protestation.',i:[
+    ['A','Cité dans le matériel de protestation comme boss présumé dont l’argent serait blanchi dans l’économie légale. Aucune condamnation documentée dans nos archives ; cette fiche reste ouverte aux preuves.']]}
+}
+}
+};
+
+DOS.t.de = {
+  rama:{r:'Ministerpräsident seit 2013. Führt den Nationalen Territorialrat (KKT), der die großen Bauprojekte des Landes genehmigt.',i:[
+    ['F','Er schrieb das Vorwort zu „The Albanian Files“ — 523 Projekte internationaler Büros — und führt genau den Rat, der sie genehmigt. Demonstranten haben den Band der SPAK übergeben.'],
+    ['F','Regierungsbeschlüsse von 2023–2024 genehmigten den Verkauf der Raffinerie Ballsh für 9 Millionen Euro und ihren Ersatz durch einen ohne Ausschreibung vergebenen Solarpark.'],
+    ['F','Gesetz 21/2024 entzog dem Gebiet Zvernec den Umweltschutz und öffnete geschützte Küste für ein Resort mit ausländischem Kapital — der Funke der Flamingo Revolution.'],
+    ['F','Charles McGonigal, Ex-Chef der FBI-Spionageabwehr in New York, wurde in den USA verurteilt — wegen nicht deklarierter Zahlungen mit albanischem Bezug und nicht registrierter Treffen mit Rama.'],
+    ['A','Demonstranten werfen der Spitze vermiedene öffentliche Konsultationen, auf bestehende Projekte zugeschnittene Gesetze und einen strukturellen Interessenkonflikt vor.']]},
+  olsi:{r:'Bruder des Ministerpräsidenten.',i:[
+    ['A','Öffentlich in Medien und Protestmaterial als informeller Türsteher des Geschäftszugangs zur Regierung genannt. Keine Anklagen aktenkundig.']]},
+  agaci:{r:'Generalsekretär des Ministerrats.',i:[
+    ['F','Als Generalsekretär koordiniert er die Regierungsbeschlüsse (VKM), über die die Schnellgenehmigungen — Ballsh, Durrës, Zvernec — liefen.'],
+    ['A','Demonstranten nennen ihn einen Schlüsselvollstrecker der Genehmigungsmaschine. Keine Anklagen aktenkundig.']]},
+  kushner:{r:'US-Investor — Affinity Partners.',i:[
+    ['F','Sein Fonds hat Luxusresorts an der albanischen Küste (Sazan / Gebiet Zvernec) angekündigt, beschleunigt über den Rahmen strategischer Investitionen.'],
+    ['F','Gesetz 21/2024 hob den Umweltschutz bei Zvernec auf — genau das Gebiet, das für das Resort vorgesehen ist.'],
+    ['A','Kritiker behaupten, das Gesetz sei auf das Projekt zugeschnitten; die Regierung bestreitet das.']]},
+  eagle:{r:'Emiratischer Immobilienkonzern unter Mohamed Alabbar.',i:[
+    ['F','Führt „Durrës Yachts & Marina“: Der wichtigste Handelshafen des Landes wird in eine Luxusmarina mit Immobilienprojekt umgewandelt.'],
+    ['F','Der Frachtbetrieb muss nach Porto Romano verlegt werden — enorme Kosten, größtenteils öffentlich getragen.'],
+    ['A','Ein strategisches nationales Gut, ohne offenes Wettbewerbsverfahren in private Uferimmobilien verwandelt, sagen Kritiker.']]},
+  kastrati:{r:'Eigentümer der Kastrati Group — Treibstoff, Konzessionen, Medien.',i:[
+    ['F','Hält die Konzession des internationalen Flughafens Tirana und dominiert den Treibstoffmarkt; besitzt den Sender Euronews Albania.'],
+    ['A','Kritiker verweisen auf eine außergewöhnliche Konzentration strategischer öffentlicher Konzessionen in einer als regierungsnah geltenden Gruppe.']]},
+  mane:{r:'Eigentümer der BALFIN Group — der größten Privatgruppe Albaniens.',i:[
+    ['F','Kontrolliert Handelsketten, Einkaufszentren, eine Bank und den Chrombergbau.'],
+    ['A','Genannt unter den Entwicklern von Green Coast an der geschützten Küste von Palasë; Kritiker beklagen durch politische Nähe erleichterte Privatisierungen und Genehmigungen.']]},
+  fusha:{r:'Eigentümer von Fusha sh.p.k. — Bau.',i:[
+    ['F','Gewann die großen öffentlichen Bauvorhaben im Zentrum Tiranas, darunter den Skanderbeg-Platz und den neuen Boulevard.'],
+    ['A','Kritiker beklagen eine auf politischen Verbindungen gebaute Dominanz bei kommunalen und staatlichen Ausschreibungen.']]},
+  luca:{r:'Unternehmer — Rozafa-Gruppe: Fischerei, Gastronomie, Hafenaktivitäten.',i:[
+    ['A','Öffentlich unter den regierungsnächsten Geschäftsleuten genannt. Keine Anklagen aktenkundig.']]},
+  sinaj:{r:'Unternehmer — Supermärkte Big Market / BigAlb Group.',i:[
+    ['A','Öffentlich unter den regierungsnächsten Geschäftsleuten genannt. Keine Anklagen aktenkundig.']]},
+  balluku:{r:'Ex-Vizepremierministerin und Ministerin für Infrastruktur und Energie — Ramas rechte Hand.',i:[
+    ['F','Von der SPAK angeklagt wegen Manipulation millionenschwerer öffentlicher Ausschreibungen bei großen Infrastrukturprojekten; im Februar 2026 aus der Regierung entfernt.'],
+    ['F','Im März 2026 blockierte die sozialistische Mehrheit im Parlament den SPAK-Antrag auf Aufhebung ihrer Immunität zur Verhaftung — und entzündete die Flamingo-Proteste.']]},
+  veliaj:{r:'Bürgermeister von Tirana, lange als Ramas politischer Erbe präsentiert.',i:[
+    ['F','Von der SPAK offiziell wegen Korruption und Geldwäsche im Dossier „5D Construction“ untersucht; wichtige Stadtdirektoren, darunter Taulant Tusha, wurden verhaftet.'],
+    ['A','Der Vorwurf: eine verdeckte private Baufirma, geschaffen, um sich selbst Millionenaufträge der Stadt zuzuschanzen.']]},
+  ahmetaj:{r:'Ex-Vizepremier und Finanzminister.',i:[
+    ['F','Angeklagt in der Müllverbrennungsaffäre — Korruption, Geldwäsche, Vermögensverschleierung. Floh vor Aufhebung seiner Immunität aus Albanien; flüchtig, Villen und Konten beschlagnahmt.'],
+    ['F','Die Verbrennungskonzessionen zahlten zig Millionen öffentlicher Euro für nie fertiggestellte oder kaum funktionierende Anlagen; die Geschäftsleute dahinter, Klodian Zoto und Mirel Mërtiri, sind ebenfalls flüchtig.']]},
+  tahiri:{r:'Ex-Innenminister.',i:[
+    ['F','Verurteilt wegen Amtsmissbrauchs, nachdem eine italienische Antimafia-Ermittlung zum Schmugglerclan Habilaj die Nutzung seines Privatwagens und polizeiliche Deckung des Cannabishandels enthüllte.']]},
+  judges:{n:'Richter & Vetting',r:'Das Justizsystem unter der Vetting-Reform.',i:[
+    ['F','Das Vetting entfernte fast 47 % der Richter und Staatsanwälte — Spitzenfiguren des Obersten und des Verfassungsgerichts konnten Vermögen aus Strandvillen, Wohnungen und Auslandskonten nicht erklären.'],
+    ['A','Angepasste Richter und eine strukturell begrenzte SPAK sind, so die Demonstranten, der Legitimationsarm des Systems — etwa wenn das Parlament eine Ministerin vor der Verhaftung schützt.']]},
+  skyecc:{n:'Polizei & SKY ECC',r:'Die Führung der Staatspolizei, getroffen von den SKY-ECC-/EncroChat-Entschlüsselungen.',i:[
+    ['F','Entschlüsselte Kommunikation, von belgischen, französischen und niederländischen Staatsanwaltschaften an die SPAK übergeben, zeigte hohe Polizeibeamte und Staatsanwälte auf den Gehaltslisten der Drogenkartelle von Elbasan, Shkodër und Vlorë.'],
+    ['F','Sie verrieten Razzienpläne, planten Hinterhalte mit Flüchtigen und halfen, Drogengeld im Bausektor zu waschen; unter den Haftbefehlen sind ehemalige operative Polizeichefs.']]},
+  habilaj:{r:'Drogenhändlerclan aus der Region Vlora.',i:[
+    ['F','Von einer italienischen Antimafia-Operation zerschlagen; seine Verbindungen reichten bis zum Innenminister, dessen Privatwagen die Händler nutzten.']]},
+  gjika:{r:'Name, den die Protestbewegung auf der Narco-Ebene der Pyramide platziert.',i:[
+    ['A','In Protestmaterial als mutmaßlicher Boss genannt, dessen Geld in die legale Wirtschaft gewaschen werde. Keine dokumentierte Verurteilung in unserem Archiv; dieser Eintrag bleibt für Beweise offen.']]}
+};
+
+DOS.t.sv = {
+  rama:{r:'Premiärminister sedan 2013. Leder Nationella territorialrådet (KKT) som godkänner landets stora byggprojekt.',i:[
+    ['F','Han skrev förordet till ”The Albanian Files” — 523 projekt från internationella byråer — och leder just det råd som godkänner dem. Demonstranter har lämnat volymen till SPAK.'],
+    ['F','Regeringsbeslut 2023–2024 godkände försäljningen av Ballsh-raffinaderiet för 9 miljoner euro och dess ersättning med en solpark tilldelad utan upphandling.'],
+    ['F','Lag 21/2024 tog bort miljöskyddet i Zvernec-området och öppnade skyddad kust för ett utlandsfinansierat resort — gnistan till Flamingo Revolution.'],
+    ['F','Charles McGonigal, tidigare chef för FBI:s kontraspionage i New York, dömdes i USA för odeklarerade betalningar kopplade till albanska intressen och oregistrerade möten med Rama.'],
+    ['A','Demonstranter anklagar toppen för undvikta samråd, lagar skräddarsydda för befintliga projekt och en strukturell intressekonflikt i godkännandekedjan.']]},
+  olsi:{r:'Premiärministerns bror.',i:[
+    ['A','Utpekad offentligt i media och protestmaterial som informell grindvakt för näringslivets tillgång till regeringen. Inga åtal registrerade.']]},
+  agaci:{r:'Generalsekreterare i ministerrådet.',i:[
+    ['F','Som generalsekreterare samordnar han regeringsbesluten (VKM) genom vilka snabbgodkännandena — Ballsh, Durrës, Zvernec — passerade.'],
+    ['A','Demonstranter pekar ut honom som en nyckelverkställare i godkännandemaskinen. Inga åtal registrerade.']]},
+  kushner:{r:'Amerikansk investerare — Affinity Partners.',i:[
+    ['F','Hans fond har annonserat lyxresorter på den albanska kusten (Sazan / Zvernec-området), snabbspårade genom ramverket för strategiska investeringar.'],
+    ['F','Lag 21/2024 tog bort miljöskyddet vid Zvernec — samma område som avsatts för resorten.'],
+    ['A','Kritiker hävdar att lagen skräddarsyddes för projektet; regeringen förnekar.']]},
+  eagle:{r:'Emiratisk fastighetskoncern ledd av Mohamed Alabbar.',i:[
+    ['F','Leder ”Durrës Yachts & Marina”: landets viktigaste handelshamn omvandlas till lyxmarina och fastighetsprojekt.'],
+    ['F','Godstrafiken måste flyttas till Porto Romano — en enorm kostnad som till stor del bärs av det offentliga.'],
+    ['A','En strategisk nationell tillgång omvandlad till privat strandnära egendom utan öppen konkurrens, menar kritiker.']]},
+  kastrati:{r:'Ägare av Kastrati Group — bränsle, koncessioner, media.',i:[
+    ['F','Innehar koncessionen för Tiranas internationella flygplats och dominerar bränslemarknaden; äger kanalen Euronews Albania.'],
+    ['A','Kritiker pekar på en extraordinär koncentration av strategiska offentliga koncessioner i en grupp som anses stå regeringen nära.']]},
+  mane:{r:'Ägare av BALFIN Group — Albaniens största privata koncern.',i:[
+    ['F','Kontrollerar butikskedjor, köpcentrum, en bank och kromgruvindustrin.'],
+    ['A','Nämnd bland utvecklarna av Green Coast på den skyddade Palasë-kusten; kritiker hävdar privatiseringar och tillstånd underlättade av politisk närhet.']]},
+  fusha:{r:'Ägare av Fusha sh.p.k. — bygg.',i:[
+    ['F','Vann de stora offentliga arbetena i centrala Tirana, inklusive Skanderbeg-torget och den nya boulevarden.'],
+    ['A','Kritiker hävdar en dominans i kommunala och statliga upphandlingar byggd på politiska band.']]},
+  luca:{r:'Företagare — Rozafa-gruppen: fiske, restauranger, hamnverksamhet.',i:[
+    ['A','Offentligt nämnd bland affärsmännen närmast regeringen. Inga åtal registrerade.']]},
+  sinaj:{r:'Företagare — Big Market / BigAlb Group.',i:[
+    ['A','Offentligt nämnd bland affärsmännen närmast regeringen. Inga åtal registrerade.']]},
+  balluku:{r:'Tidigare vice premiärminister och infrastruktur- och energiminister — Ramas högra hand.',i:[
+    ['F','Åtalad av SPAK för manipulation av offentliga mångmiljonupphandlingar kopplade till stora infrastrukturprojekt; avlägsnad ur regeringen i februari 2026.'],
+    ['F','I mars 2026 blockerade den socialistiska majoriteten i parlamentet SPAK:s begäran att häva hennes immunitet för gripande — vilket tände Flamingo-protesterna.']]},
+  veliaj:{r:'Tiranas borgmästare, länge framställd som Ramas politiska arvtagare.',i:[
+    ['F','Formellt utredd av SPAK för korruption och penningtvätt i ”5D Construction”-dossiern; viktiga kommunala direktörer, däribland Taulant Tusha, har gripits.'],
+    ['A','Anklagelsen: ett dolt privat byggbolag skapat för att tilldela sig själv kommunala mångmiljonkontrakt.']]},
+  ahmetaj:{r:'Tidigare vice premiärminister och finansminister.',i:[
+    ['F','Åtalad i förbränningsanläggningsaffären — korruption, penningtvätt, döljande av tillgångar. Flydde Albanien innan immuniteten hävdes; på flykt, med villor och konton beslagtagna.'],
+    ['F','Koncessionerna betalade tiotals miljoner offentliga euro för anläggningar som aldrig färdigställdes eller knappt fungerade; affärsmännen bakom, Klodian Zoto och Mirel Mërtiri, är också på flykt.']]},
+  tahiri:{r:'Tidigare inrikesminister.',i:[
+    ['F','Dömd för tjänstefel efter att en italiensk antimaffiautredning av smugglarklanen Habilaj avslöjade användningen av hans privata bil och polisiärt skydd av cannabishandeln.']]},
+  judges:{n:'Domare & Vetting',r:'Rättssystemet under vetting-reformen.',i:[
+    ['F','Vettingen avlägsnade nästan 47 % av Albaniens domare och åklagare — toppfigurer i Högsta domstolen och Författningsdomstolen kunde inte förklara förmögenheter i strandvillor, lägenheter och utländska konton.'],
+    ['A','Anpassade domare och en strukturellt begränsad SPAK är, menar demonstranterna, systemets legitimeringsarm — som när parlamentet skyddar en minister från gripande.']]},
+  skyecc:{n:'Polisen & SKY ECC',r:'Statspolisens ledning träffad av SKY ECC-/EncroChat-dekrypteringarna.',i:[
+    ['F','Dekrypterad kommunikation, överlämnad till SPAK av belgiska, franska och nederländska åklagare, visade höga polischefer och åklagare på narkotikakartellernas lönelistor i Elbasan, Shkodër och Vlorë.'],
+    ['F','De läckte razziaplaner, planerade bakhåll tillsammans med efterlysta och hjälpte till att tvätta narkotikapengar i byggsektorn; bland häktningsordrarna finns tidigare operativa polischefer.']]},
+  habilaj:{r:'Narkotikaklan från Vlora-området.',i:[
+    ['F','Krossad av en italiensk antimaffiaoperation; dess förgreningar nådde inrikesministern, vars privata bil smugglarna använde.']]},
+  gjika:{r:'Namn placerat på pyramidens narkonivå av proteströrelsen.',i:[
+    ['A','Nämnd i protestmaterial som påstådd boss vars pengar tvättas in i den lagliga ekonomin. Ingen dom dokumenterad i vårt arkiv; denna post hålls öppen för bevis.']]}
+};
+
+DOS.t.el = {
+  rama:{r:'Πρωθυπουργός από το 2013. Προεδρεύει στο Εθνικό Συμβούλιο Εδάφους (KKT) που εγκρίνει τα μεγάλα κατασκευαστικά έργα της χώρας.',i:[
+    ['F','Προλόγισε το «The Albanian Files» — 523 έργα διεθνών γραφείων — και προεδρεύει στο ίδιο το συμβούλιο που τα εγκρίνει. Διαδηλωτές κατέθεσαν τον τόμο στη SPAK.'],
+    ['F','Κυβερνητικές αποφάσεις του 2023–2024 ενέκριναν την πώληση του διυλιστηρίου Ballsh για 9 εκατ. ευρώ και την αντικατάστασή του από φωτοβολταϊκό πάρκο χωρίς διαγωνισμό.'],
+    ['F','Ο νόμος 21/2024 αφαίρεσε την περιβαλλοντική προστασία από την περιοχή Zvernec, ανοίγοντας προστατευόμενη ακτή σε resort με ξένα κεφάλαια — η σπίθα της Flamingo Revolution.'],
+    ['F','Ο Charles McGonigal, πρώην επικεφαλής της αντικατασκοπείας του FBI στη Νέα Υόρκη, καταδικάστηκε στις ΗΠΑ για αδήλωτες πληρωμές συνδεδεμένες με αλβανικά συμφέροντα και μη καταγεγραμμένες συναντήσεις με τον Ράμα.'],
+    ['A','Οι διαδηλωτές καταγγέλλουν αποφυγή δημόσιας διαβούλευσης, νόμους ραμμένους σε προϋπάρχοντα έργα και δομική σύγκρουση συμφερόντων στην κορυφή της αλυσίδας εγκρίσεων.']]},
+  olsi:{r:'Αδελφός του πρωθυπουργού.',i:[
+    ['A','Κατονομάζεται δημόσια σε μέσα ενημέρωσης και υλικό διαμαρτυρίας ως άτυπος θυρωρός της πρόσβασης των επιχειρήσεων στην κυβέρνηση. Δεν υπάρχουν καταγεγραμμένες κατηγορίες.']]},
+  agaci:{r:'Γενικός Γραμματέας του Υπουργικού Συμβουλίου.',i:[
+    ['F','Ως Γενικός Γραμματέας συντονίζει τις κυβερνητικές αποφάσεις (VKM) μέσα από τις οποίες πέρασαν οι ταχείες εγκρίσεις — Ballsh, Δυρράχιο, Zvernec.'],
+    ['A','Οι διαδηλωτές τον κατονομάζουν ως βασικό εκτελεστή της μηχανής των εγκρίσεων. Δεν υπάρχουν καταγεγραμμένες κατηγορίες.']]},
+  kushner:{r:'Αμερικανός επενδυτής — Affinity Partners.',i:[
+    ['F','Το fund του έχει ανακοινώσει πολυτελή resorts στην αλβανική ακτή (Σαζάν / περιοχή Zvernec), με ταχεία διαδικασία μέσω του πλαισίου στρατηγικών επενδύσεων.'],
+    ['F','Ο νόμος 21/2024 αφαίρεσε την περιβαλλοντική προστασία κοντά στο Zvernec — την ίδια περιοχή που προορίζεται για το resort.'],
+    ['A','Επικριτές υποστηρίζουν ότι ο νόμος ράφτηκε στα μέτρα του έργου· η κυβέρνηση το αρνείται.']]},
+  eagle:{r:'Εμιρατινός όμιλος ακινήτων υπό τον Mohamed Alabbar.',i:[
+    ['F','Ηγείται του «Durrës Yachts & Marina»: το κύριο εμπορικό λιμάνι της χώρας μετατρέπεται σε πολυτελή μαρίνα και έργο ακινήτων.'],
+    ['F','Οι εμπορευματικές δραστηριότητες πρέπει να μεταφερθούν στο Porto Romano — τεράστιο κόστος, κυρίως δημόσιο.'],
+    ['A','Ένα στρατηγικό εθνικό περιουσιακό στοιχείο μετατρέπεται σε ιδιωτικό παραθαλάσσιο ακίνητο χωρίς ανοιχτό διαγωνισμό, υποστηρίζουν οι επικριτές.']]},
+  kastrati:{r:'Ιδιοκτήτης του Kastrati Group — καύσιμα, παραχωρήσεις, μέσα ενημέρωσης.',i:[
+    ['F','Κατέχει την παραχώρηση του Διεθνούς Αερολιμένα Τιράνων και κυριαρχεί στην αγορά καυσίμων· κατέχει το κανάλι Euronews Albania.'],
+    ['A','Επικριτές επισημαίνουν μια εξαιρετική συγκέντρωση στρατηγικών δημόσιων παραχωρήσεων σε έναν όμιλο που θεωρείται κοντά στην κυβέρνηση.']]},
+  mane:{r:'Ιδιοκτήτης του BALFIN Group — του μεγαλύτερου ιδιωτικού ομίλου της Αλβανίας.',i:[
+    ['F','Ελέγχει αλυσίδες λιανικής, εμπορικά κέντρα, μια τράπεζα και τη βιομηχανία εξόρυξης χρωμίου.'],
+    ['A','Αναφέρεται μεταξύ των developers του Green Coast στην προστατευόμενη ακτή της Palasë· επικριτές καταγγέλλουν ιδιωτικοποιήσεις και άδειες διευκολυμένες από την πολιτική εγγύτητα.']]},
+  fusha:{r:'Ιδιοκτήτης της Fusha sh.p.k. — κατασκευές.',i:[
+    ['F','Κέρδισε τα μεγάλα δημόσια έργα του κέντρου των Τιράνων, μεταξύ άλλων την πλατεία Σκεντέρμπεη και τη νέα λεωφόρο.'],
+    ['A','Επικριτές καταγγέλλουν κυριαρχία στους δημοτικούς και κρατικούς διαγωνισμούς χτισμένη πάνω σε πολιτικούς δεσμούς.']]},
+  luca:{r:'Επιχειρηματίας — όμιλος Rozafa: αλιεία, εστίαση, λιμενικές δραστηριότητες.',i:[
+    ['A','Κατονομάζεται δημόσια μεταξύ των επιχειρηματιών πιο κοντά στην κυβέρνηση. Δεν υπάρχουν καταγεγραμμένες κατηγορίες.']]},
+  sinaj:{r:'Επιχειρηματίας — σούπερ μάρκετ Big Market / BigAlb Group.',i:[
+    ['A','Κατονομάζεται δημόσια μεταξύ των επιχειρηματιών πιο κοντά στην κυβέρνηση. Δεν υπάρχουν καταγεγραμμένες κατηγορίες.']]},
+  balluku:{r:'Πρώην αντιπρόεδρος κυβέρνησης και υπουργός Υποδομών και Ενέργειας — το δεξί χέρι του Ράμα.',i:[
+    ['F','Κατηγορήθηκε από τη SPAK για χειραγώγηση δημόσιων διαγωνισμών εκατομμυρίων σε μεγάλα έργα υποδομής· απομακρύνθηκε από την κυβέρνηση τον Φεβρουάριο του 2026.'],
+    ['F','Τον Μάρτιο του 2026 η σοσιαλιστική πλειοψηφία στη Βουλή μπλόκαρε το αίτημα της SPAK για άρση της ασυλίας της προς σύλληψη — ανάβοντας τις διαδηλώσεις Flamingo.']]},
+  veliaj:{r:'Δήμαρχος Τιράνων, επί χρόνια ο πολιτικός «διάδοχος» του Ράμα.',i:[
+    ['F','Ερευνάται επίσημα από τη SPAK για διαφθορά και ξέπλυμα χρήματος στον φάκελο «5D Construction»· βασικοί δημοτικοί διευθυντές, όπως ο Taulant Tusha, έχουν συλληφθεί.'],
+    ['A','Η κατηγορία: μια κρυφή ιδιωτική κατασκευαστική εταιρεία φτιαγμένη για να αυτο-αναθέτει δημοτικές συμβάσεις εκατομμυρίων.']]},
+  ahmetaj:{r:'Πρώην αντιπρόεδρος κυβέρνησης και υπουργός Οικονομικών.',i:[
+    ['F','Κατηγορούμενος για την υπόθεση των αποτεφρωτήρων — διαφθορά, ξέπλυμα, απόκρυψη περιουσίας. Διέφυγε από την Αλβανία πριν την άρση της ασυλίας του· φυγόδικος, με βίλες και λογαριασμούς κατασχεμένους.'],
+    ['F','Οι παραχωρήσεις των αποτεφρωτήρων πλήρωσαν δεκάδες εκατομμύρια δημόσια ευρώ για εγκαταστάσεις ημιτελείς ή σχεδόν μη λειτουργικές· οι επιχειρηματίες πίσω τους, Klodian Zoto και Mirel Mërtiri, είναι επίσης φυγόδικοι.']]},
+  tahiri:{r:'Πρώην υπουργός Εσωτερικών.',i:[
+    ['F','Καταδικάστηκε για κατάχρηση εξουσίας όταν ιταλική έρευνα κατά της μαφίας για το κλαν διακινητών Habilaj αποκάλυψε τη χρήση του ιδιωτικού του αυτοκινήτου και αστυνομική κάλυψη της διακίνησης κάνναβης.']]},
+  judges:{n:'Δικαστές & Vetting',r:'Το δικαστικό σύστημα υπό τη μεταρρύθμιση του vetting.',i:[
+    ['F','Το vetting απομάκρυνε σχεδόν το 47% των δικαστών και εισαγγελέων — κορυφαίες φυσιογνωμίες του Ανώτατου και του Συνταγματικού Δικαστηρίου δεν μπόρεσαν να δικαιολογήσουν περιουσίες από βίλες, διαμερίσματα και λογαριασμούς στο εξωτερικό.'],
+    ['A','Ευθυγραμμισμένοι δικαστές και μια δομικά περιορισμένη SPAK είναι, λένε οι διαδηλωτές, ο βραχίονας νομιμοποίησης του συστήματος — όπως όταν η Βουλή προστατεύει μια υπουργό από τη σύλληψη.']]},
+  skyecc:{n:'Αστυνομία & SKY ECC',r:'Η ηγεσία της Κρατικής Αστυνομίας χτυπημένη από τις αποκρυπτογραφήσεις SKY ECC / EncroChat.',i:[
+    ['F','Αποκρυπτογραφημένες επικοινωνίες, που παραδόθηκαν στη SPAK από βελγικές, γαλλικές και ολλανδικές εισαγγελίες, έδειξαν υψηλόβαθμους αστυνομικούς και εισαγγελείς στο μισθολόγιο των καρτέλ ναρκωτικών του Ελμπασάν, της Σκόδρας και της Αυλώνας.'],
+    ['F','Διέρρεαν σχέδια εφόδων, σχεδίαζαν ενέδρες μαζί με φυγόδικους και βοηθούσαν στο ξέπλυμα χρημάτων των ναρκωτικών στις κατασκευές· στα εντάλματα σύλληψης περιλαμβάνονται πρώην επιχειρησιακοί αρχηγοί της αστυνομίας.']]},
+  habilaj:{r:'Κλαν διακίνησης ναρκωτικών από την περιοχή της Αυλώνας.',i:[
+    ['F','Εξαρθρώθηκε από ιταλική επιχείρηση κατά της μαφίας· οι διασυνδέσεις του έφταναν ως τον υπουργό Εσωτερικών, του οποίου το ιδιωτικό αυτοκίνητο χρησιμοποιούσαν οι διακινητές.']]},
+  gjika:{r:'Όνομα που το κίνημα διαμαρτυρίας τοποθετεί στο ναρκο-επίπεδο της πυραμίδας.',i:[
+    ['A','Αναφέρεται σε υλικό διαμαρτυρίας ως φερόμενος «boss» του οποίου τα χρήματα ξεπλένονται στη νόμιμη οικονομία. Καμία καταδίκη δεν τεκμηριώνεται στο αρχείο μας· η καρτέλα μένει ανοιχτή για αποδείξεις.']]}
+};
+
+DOS.t.nl = {
+  rama:{r:'Premier sinds 2013. Zit de Nationale Territoriale Raad (KKT) voor die de grote bouwprojecten van het land goedkeurt.',i:[
+    ['F','Hij schreef het voorwoord van “The Albanian Files” — 523 projecten van internationale bureaus — en zit precies de raad voor die ze goedkeurt. Demonstranten hebben het boek aan SPAK overhandigd.'],
+    ['F','Regeringsbesluiten van 2023–2024 keurden de verkoop van de Ballsh-raffinaderij voor 9 miljoen euro goed en de vervanging door een zonnepark, gegund zonder aanbesteding.'],
+    ['F','Wet 21/2024 ontnam het gebied Zvernec zijn milieubescherming en opende beschermde kust voor een resort met buitenlands kapitaal — de vonk van de Flamingo Revolution.'],
+    ['F','Charles McGonigal, ex-hoofd contraspionage van de FBI in New York, werd in de VS veroordeeld voor niet-aangegeven betalingen gelinkt aan Albanese belangen en niet-geregistreerde ontmoetingen met Rama.'],
+    ['A','Demonstranten stellen vermeden inspraak, wetten op maat van bestaande projecten en een structureel belangenconflict aan de top van de goedkeuringsketen aan de kaak.']]},
+  olsi:{r:'Broer van de premier.',i:[
+    ['A','Publiekelijk genoemd in media en protestmateriaal als informele poortwachter van zakelijke toegang tot de regering. Geen aanklachten geregistreerd.']]},
+  agaci:{r:'Secretaris-generaal van de ministerraad.',i:[
+    ['F','Als secretaris-generaal coördineert hij de regeringsbesluiten (VKM) waarlangs de versnelde goedkeuringen — Ballsh, Durrës, Zvernec — liepen.'],
+    ['A','Demonstranten noemen hem een sleuteluitvoerder van de goedkeuringsmachine. Geen aanklachten geregistreerd.']]},
+  kushner:{r:'Amerikaanse investeerder — Affinity Partners.',i:[
+    ['F','Zijn fonds kondigde luxeresorts aan de Albanese kust aan (Sazan / gebied Zvernec), versneld via het kader voor strategische investeringen.'],
+    ['F','Wet 21/2024 schrapte de milieubescherming bij Zvernec — precies het gebied dat voor het resort is bestemd.'],
+    ['A','Critici stellen dat de wet op maat van het project is gemaakt; de regering ontkent.']]},
+  eagle:{r:'Emiraatse vastgoedgroep geleid door Mohamed Alabbar.',i:[
+    ['F','Leidt “Durrës Yachts & Marina”: de belangrijkste handelshaven van het land wordt omgebouwd tot luxejachthaven en vastgoedproject.'],
+    ['F','De vrachtactiviteiten moeten naar Porto Romano verhuizen — een enorme kost, grotendeels publiek gedragen.'],
+    ['A','Een strategisch nationaal actief omgezet in privaat waterfrontvastgoed zonder open concurrentie, stellen critici.']]},
+  kastrati:{r:'Eigenaar van Kastrati Group — brandstof, concessies, media.',i:[
+    ['F','Houdt de concessie van de internationale luchthaven van Tirana en domineert de brandstofmarkt; bezit de zender Euronews Albania.'],
+    ['A','Critici wijzen op een buitengewone concentratie van strategische publieke concessies in één groep die als regeringsgezind geldt.']]},
+  mane:{r:'Eigenaar van BALFIN Group — de grootste private groep van Albanië.',i:[
+    ['F','Controleert winkelketens, winkelcentra, een bank en de chroommijnbouw.'],
+    ['A','Genoemd onder de ontwikkelaars van Green Coast aan de beschermde kust van Palasë; critici stellen privatiseringen en vergunningen vergemakkelijkt door politieke nabijheid.']]},
+  fusha:{r:'Eigenaar van Fusha sh.p.k. — bouw.',i:[
+    ['F','Won de grote publieke werken van het centrum van Tirana, waaronder het Skanderbegplein en de nieuwe boulevard.'],
+    ['A','Critici stellen een dominantie in gemeentelijke en staatsaanbestedingen gebouwd op politieke banden.']]},
+  luca:{r:'Ondernemer — Rozafa-groep: visserij, horeca, havenactiviteiten.',i:[
+    ['A','Publiekelijk genoemd onder de zakenlieden die het dichtst bij de regering staan. Geen aanklachten geregistreerd.']]},
+  sinaj:{r:'Ondernemer — supermarkten Big Market / BigAlb Group.',i:[
+    ['A','Publiekelijk genoemd onder de zakenlieden die het dichtst bij de regering staan. Geen aanklachten geregistreerd.']]},
+  balluku:{r:'Ex-vicepremier en minister van Infrastructuur en Energie — de rechterhand van Rama.',i:[
+    ['F','Door SPAK aangeklaagd voor manipulatie van miljoenenaanbestedingen bij grote infrastructuurprojecten; in februari 2026 uit de regering verwijderd.'],
+    ['F','In maart 2026 blokkeerde de socialistische meerderheid in het parlement het verzoek van SPAK om haar immuniteit op te heffen voor arrestatie — wat de Flamingo-protesten deed ontbranden.']]},
+  veliaj:{r:'Burgemeester van Tirana, lang gepresenteerd als de politieke kroonprins van Rama.',i:[
+    ['F','Formeel onderzocht door SPAK voor corruptie en witwassen in het “5D Construction”-dossier; belangrijke gemeentedirecteuren, onder wie Taulant Tusha, zijn gearresteerd.'],
+    ['A','De beschuldiging: een verborgen privébouwbedrijf, opgericht om zichzelf gemeentelijke miljoenencontracten te gunnen.']]},
+  ahmetaj:{r:'Ex-vicepremier en minister van Financiën.',i:[
+    ['F','Aangeklaagd in de verbrandingsovensaffaire — corruptie, witwassen, verhulling van vermogen. Vluchtte uit Albanië vóór de opheffing van zijn immuniteit; voortvluchtig, met villa’s en rekeningen in beslag genomen.'],
+    ['F','De concessies betaalden tientallen miljoenen publieke euro’s voor installaties die nooit werden afgebouwd of amper werkten; de zakenlieden erachter, Klodian Zoto en Mirel Mërtiri, zijn eveneens voortvluchtig.']]},
+  tahiri:{r:'Ex-minister van Binnenlandse Zaken.',i:[
+    ['F','Veroordeeld voor ambtsmisbruik nadat een Italiaans antimaffiaonderzoek naar de smokkelclan Habilaj het gebruik van zijn privéauto en politiedekking van de cannabishandel onthulde.']]},
+  judges:{n:'Rechters & Vetting',r:'Het gerechtelijk systeem onder de vetting-hervorming.',i:[
+    ['F','De vetting verwijderde bijna 47% van de Albanese rechters en aanklagers — topfiguren van het Hooggerechtshof en het Grondwettelijk Hof konden fortuinen aan strandvilla’s, appartementen en buitenlandse rekeningen niet verklaren.'],
+    ['A','Meegaande rechters en een structureel beperkte SPAK vormen, aldus de demonstranten, de legitimerende arm van het systeem — zoals wanneer het parlement een minister tegen arrestatie beschermt.']]},
+  skyecc:{n:'Politie & SKY ECC',r:'De top van de staatspolitie geraakt door de SKY ECC-/EncroChat-ontsleutelingen.',i:[
+    ['F','Ontsleutelde communicatie, door Belgische, Franse en Nederlandse parketten aan SPAK overgedragen, toonde hoge politiefunctionarissen en aanklagers op de loonlijst van de drugskartels van Elbasan, Shkodër en Vlorë.'],
+    ['F','Ze lekten invalplannen, beraamden hinderlagen samen met voortvluchtigen en hielpen drugsgeld wit te wassen in de bouw; onder de arrestatiebevelen zijn ex-chefs van de operationele politie.']]},
+  habilaj:{r:'Drugssmokkelclan uit de regio Vlora.',i:[
+    ['F','Ontmanteld door een Italiaanse antimaffiaoperatie; zijn vertakkingen reikten tot de minister van Binnenlandse Zaken, wiens privéauto de smokkelaars gebruikten.']]},
+  gjika:{r:'Naam die de protestbeweging op het narconiveau van de piramide plaatst.',i:[
+    ['A','Genoemd in protestmateriaal als vermeende baas wiens geld in de legale economie zou worden witgewassen. Geen veroordeling gedocumenteerd in ons archief; dit dossier blijft open voor bewijs.']]}
+};
+
+DOS.t.es = {
+  rama:{r:'Primer ministro desde 2013. Preside el Consejo Nacional del Territorio (KKT) que aprueba los grandes proyectos de construcción del país.',i:[
+    ['F','Prologó “The Albanian Files” — 523 proyectos de estudios internacionales — y preside el mismo consejo que los aprueba. Los manifestantes entregaron el volumen a la SPAK.'],
+    ['F','Decisiones de gobierno de 2023–2024 autorizaron la venta de la refinería de Ballsh por 9 millones de euros y su sustitución por un parque solar adjudicado sin licitación.'],
+    ['F','La ley 21/2024 retiró la protección ambiental de la zona de Zvernec, abriendo costa protegida a un resort con capital extranjero — la chispa de la Flamingo Revolution.'],
+    ['F','Charles McGonigal, ex jefe del contraespionaje del FBI en Nueva York, fue condenado en EE. UU. por pagos no declarados ligados a intereses albaneses y reuniones no registradas con Rama.'],
+    ['A','Los manifestantes denuncian consultas públicas evitadas, leyes hechas a medida de proyectos preexistentes y un conflicto de intereses estructural en la cima de la cadena de aprobaciones.']]},
+  olsi:{r:'Hermano del primer ministro.',i:[
+    ['A','Señalado públicamente en medios y material de protesta como portero informal del acceso de los negocios al gobierno. Sin cargos registrados.']]},
+  agaci:{r:'Secretario general del Consejo de Ministros.',i:[
+    ['F','Como secretario general coordina las decisiones de gobierno (VKM) por las que pasaron las aprobaciones aceleradas — Ballsh, Durrës, Zvernec.'],
+    ['A','Los manifestantes lo señalan como ejecutor clave de la máquina de aprobaciones. Sin cargos registrados.']]},
+  kushner:{r:'Inversor estadounidense — Affinity Partners.',i:[
+    ['F','Su fondo ha anunciado resorts de lujo en la costa albanesa (Sazan / zona de Zvernec), acelerados mediante el marco de inversiones estratégicas.'],
+    ['F','La ley 21/2024 eliminó las protecciones ambientales junto a Zvernec — la misma zona destinada al resort.'],
+    ['A','Los críticos sostienen que la ley se hizo a medida del proyecto; el gobierno lo niega.']]},
+  eagle:{r:'Grupo inmobiliario emiratí dirigido por Mohamed Alabbar.',i:[
+    ['F','Lidera “Durrës Yachts & Marina”: el principal puerto comercial del país se convierte en marina de lujo y proyecto inmobiliario.'],
+    ['F','Las operaciones de carga deben trasladarse a Porto Romano — un coste enorme, en gran parte público.'],
+    ['A','Un activo estratégico nacional convertido en propiedad privada frente al mar sin concurso abierto, sostienen los críticos.']]},
+  kastrati:{r:'Propietario de Kastrati Group — combustibles, concesiones, medios.',i:[
+    ['F','Posee la concesión del aeropuerto internacional de Tirana y domina el mercado de combustibles; es dueño del canal Euronews Albania.'],
+    ['A','Los críticos señalan una concentración extraordinaria de concesiones públicas estratégicas en un grupo considerado cercano al gobierno.']]},
+  mane:{r:'Propietario de BALFIN Group — el mayor grupo privado de Albania.',i:[
+    ['F','Controla cadenas minoristas, centros comerciales, un banco y la industria minera del cromo.'],
+    ['A','Citado entre los promotores de Green Coast en la costa protegida de Palasë; los críticos denuncian privatizaciones y permisos facilitados por la cercanía política.']]},
+  fusha:{r:'Propietario de Fusha sh.p.k. — construcción.',i:[
+    ['F','Ganó las grandes obras públicas del centro de Tirana, incluida la plaza Skanderbeg y el nuevo bulevar.'],
+    ['A','Los críticos denuncian un dominio de las licitaciones municipales y estatales construido sobre lazos políticos.']]},
+  luca:{r:'Empresario — grupo Rozafa: pesca, restauración, actividades portuarias.',i:[
+    ['A','Señalado públicamente entre los empresarios más cercanos al gobierno. Sin cargos registrados.']]},
+  sinaj:{r:'Empresario — supermercados Big Market / BigAlb Group.',i:[
+    ['A','Señalado públicamente entre los empresarios más cercanos al gobierno. Sin cargos registrados.']]},
+  balluku:{r:'Ex viceprimera ministra y ministra de Infraestructuras y Energía — la mano derecha de Rama.',i:[
+    ['F','Imputada por la SPAK por manipulación de licitaciones públicas millonarias ligadas a los grandes proyectos de infraestructura; apartada del gobierno en febrero de 2026.'],
+    ['F','En marzo de 2026 la mayoría socialista del Parlamento bloqueó la petición de la SPAK de levantarle la inmunidad para su arresto — encendiendo las protestas Flamingo.']]},
+  veliaj:{r:'Alcalde de Tirana, presentado durante años como el delfín político de Rama.',i:[
+    ['F','Investigado formalmente por la SPAK por corrupción y blanqueo en el expediente “5D Construction”; directores municipales clave, entre ellos Taulant Tusha, han sido arrestados.'],
+    ['A','La acusación: una constructora privada oculta creada para autoadjudicarse contratos municipales millonarios.']]},
+  ahmetaj:{r:'Ex viceprimer ministro y ministro de Finanzas.',i:[
+    ['F','Acusado por el caso de las incineradoras — corrupción, blanqueo, ocultación de bienes. Huyó de Albania antes de que se levantara su inmunidad; prófugo, con villas y cuentas embargadas.'],
+    ['F','Las concesiones de las incineradoras pagaron decenas de millones de euros públicos por plantas nunca terminadas o apenas funcionales; los empresarios detrás, Klodian Zoto y Mirel Mërtiri, también están prófugos.']]},
+  tahiri:{r:'Ex ministro del Interior.',i:[
+    ['F','Condenado por abuso de funciones después de que una investigación antimafia italiana sobre el clan traficante Habilaj revelara el uso de su coche privado y coberturas policiales del tráfico de cannabis.']]},
+  judges:{n:'Jueces & Vetting',r:'El sistema judicial bajo la reforma del vetting.',i:[
+    ['F','El vetting apartó a casi el 47% de los jueces y fiscales — figuras de la Corte Suprema y la Constitucional no pudieron justificar fortunas en villas junto al mar, pisos y cuentas en el extranjero.'],
+    ['A','Jueces alineados y una SPAK estructuralmente limitada son, según los manifestantes, el brazo legitimador del sistema — como cuando el Parlamento protege a una ministra del arresto.']]},
+  skyecc:{n:'Policía & SKY ECC',r:'La cúpula de la Policía del Estado golpeada por los descifrados de SKY ECC / EncroChat.',i:[
+    ['F','Las comunicaciones descifradas, entregadas a la SPAK por las fiscalías belga, francesa y neerlandesa, mostraron a altos mandos policiales y fiscales en la nómina de los cárteles de la droga de Elbasan, Shkodër y Vlorë.'],
+    ['F','Filtraban planes de redadas, planeaban emboscadas junto a prófugos y ayudaban a blanquear dinero de la droga en la construcción; entre las órdenes de arresto hay ex jefes de la policía operativa.']]},
+  habilaj:{r:'Clan de narcotraficantes de la zona de Vlora.',i:[
+    ['F','Desmantelado por una operación antimafia italiana; sus ramificaciones llegaban hasta el ministro del Interior, cuyo coche privado usaban los traficantes.']]},
+  gjika:{r:'Nombre situado en el nivel narco de la pirámide por el movimiento de protesta.',i:[
+    ['A','Citado en material de protesta como presunto jefe cuyo dinero se blanquearía en la economía legal. Ninguna condena documentada en nuestro archivo; esta ficha queda abierta a las pruebas.']]}
+};
+
+/* fixed header height → CSS var, so panels always start below the submenu */
+function setHeadH(){
+  const h=document.querySelector('header');
+  if(h) document.documentElement.style.setProperty('--headh',h.offsetHeight+'px');
+}
+window.addEventListener('resize',setHeadH);
+window.addEventListener('load',setHeadH);
+setHeadH();
+
+/* ---------- dossier modal ---------- */
+let OPEN_DOS = null;
+function dtr(k){ return (T[LANG]&&T[LANG][k]!==undefined)?T[LANG][k]:T.en[k]; }
+function renderDossier(id){
+  const p=DOS.people[id];
+  const t=(DOS.t[LANG]&&DOS.t[LANG][id])||DOS.t.en[id];
+  if(!p||!t) return;
+  const stamp=s=>'<span class="stamp'+(s==='A'?' a':'')+'">'+(s==='A'?'Allegation':'Fact')+'</span>';
+  let h='<button class="doclose" type="button" onclick="closeDossier()" aria-label="Close">×</button>';
+  h+='<div class="eyebrow">Dossier</div>';
+  h+='<h3 class="doname">'+(t.n||p.n)+'</h3>';
+  h+='<p class="dorole">'+t.r+'</p>';
+  h+=t.i.map(it=>'<div class="doitem">'+stamp(it[0])+'<p>'+it[1]+'</p></div>').join('');
+  if(p.biz&&p.biz.length){
+    h+='<div class="dolbl">'+dtr('py_biz')+'</div><p class="dobiz">'+p.biz.join(' · ')+'</p>';
+  }
+  if(p.rel&&p.rel.length){
+    h+='<div class="dolbl">'+dtr('py_conn')+'</div><div class="chips" style="justify-content:flex-start">'+
+      p.rel.map(r=>{
+        const rp=DOS.people[r]; if(!rp) return '';
+        const rt=(DOS.t[LANG]&&DOS.t[LANG][r])||DOS.t.en[r];
+        return '<button type="button" class="chip" onclick="openDossier(\''+r+'\')">'+((rt&&rt.n)||rp.n)+'</button>';
+      }).join('')+'</div>';
+  }
+  h+='<div class="srcnote">'+dtr('py_disc')+'</div>';
+  document.querySelector('#dov .dobox').innerHTML=h;
+}
+function openDossier(id){
+  OPEN_DOS=id;
+  renderDossier(id);
+  const ov=document.getElementById('dov');
+  ov.classList.add('open');
+  ov.scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+function closeDossier(){
+  OPEN_DOS=null;
+  document.getElementById('dov').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.getElementById('dov').addEventListener('click',e=>{ if(e.target.id==='dov') closeDossier(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDossier(); });
+
+/* diary of the base: composed client-side, sent through the user's own channel */
+function sendStory(via){
+  const name=document.getElementById('dy-name').value.trim();
+  const msg=document.getElementById('dy-msg').value.trim();
+  if(!msg){document.getElementById('dy-msg').focus();return}
+  const txt=(name?name+'\n\n':'')+msg;
+  if(via==='mail'){
+    location.href='mailto:h8db0y@protonmail.com?subject='+encodeURIComponent('Diary — Pyramid, voice from the base')+'&body='+encodeURIComponent(txt);
+  }else{
+    window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank','noopener');
+  }
+}
 
 let LANG = 'en';
 function setLang(lang){
@@ -1520,6 +2422,8 @@ function setLang(lang){
   document.querySelectorAll('.langs button').forEach(b=>{
     b.classList.toggle('active', b.dataset.lang===lang);
   });
+  if(OPEN_DOS) renderDossier(OPEN_DOS);
+  setHeadH();
 }
 document.querySelectorAll('.langs button').forEach(b=>{
   b.addEventListener('click',()=>setLang(b.dataset.lang));
@@ -1533,6 +2437,7 @@ function showPanel(name){
   if(name==='news') showSub('fight');
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
+  setHeadH();
 }
 document.querySelectorAll('.menu button').forEach(b=>{
   b.addEventListener('click',()=>showPanel(b.dataset.panel));
@@ -1545,6 +2450,7 @@ function showSub(name){
   window.scrollTo({top:0});
   document.querySelectorAll('#panel-news .sub.active .reveal').forEach(el=>el.classList.add('in'));
   if(name==='map') initMap();
+  setHeadH();
 }
 document.querySelectorAll('#fr-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSub(b.dataset.sub));
