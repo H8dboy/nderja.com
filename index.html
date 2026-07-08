@@ -195,6 +195,26 @@
   .doitem p{margin:0;font-size:.92rem;max-width:none;color:var(--text)}
   .dolbl{font-size:.68rem;letter-spacing:.3em;color:var(--green);text-transform:uppercase;margin-top:1.5rem}
   .dobiz{font-size:.85rem;margin-top:.5rem;max-width:none}
+  /* tier sub-group labels (political caste) */
+  .pygrp{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);margin-top:1.2rem}
+  /* clickable base tier (bourgeoisie + diaspora) */
+  .tier.base{cursor:pointer;font-family:inherit;color:inherit;display:block;width:100%;border-color:var(--green-dim);transition:.25s}
+  .tier.base:hover,.tier.base:focus-visible{border-color:var(--green);background:#0F1A13;outline:none}
+  .baseopen{display:inline-block;margin-top:1.1rem;color:var(--green);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+  /* ---------- wall of stories (bacheca) ---------- */
+  .boardbox{max-width:1000px;margin:0 auto;background:var(--panel);border:1px solid var(--green-dim);padding:3rem clamp(1.4rem,4vw,3rem);position:relative}
+  .board-h{font-family:var(--serif);font-style:italic;color:var(--green);margin:.3rem 0 1rem}
+  .board-lead{max-width:760px;color:var(--muted);margin-bottom:2.4rem}
+  .board-wall{columns:280px 3;column-gap:1.2rem}
+  .story{break-inside:avoid;background:var(--bg);border:1px solid var(--line);border-left:2px solid var(--green);padding:1.4rem 1.5rem;margin:0 0 1.2rem}
+  .story .stxt{color:var(--text);font-size:.95rem;line-height:1.6}
+  .story .stxt::before{content:"\201C";color:var(--green);font-family:var(--serif);font-size:1.6rem;line-height:0;margin-right:.15rem;vertical-align:-.35rem}
+  .story .smeta{margin-top:1rem;font-size:.75rem;letter-spacing:.08em;color:var(--muted)}
+  .story .smeta b{color:var(--green);font-weight:500;font-style:italic;font-family:var(--serif);font-size:.95rem;letter-spacing:0}
+  .board-empty{border:1px dashed var(--green-dim);padding:2.6rem 2rem;text-align:center;color:var(--muted);font-family:var(--serif);font-style:italic;font-size:1.2rem}
+  .board-form{margin-top:2.8rem;border-top:1px solid var(--line);padding-top:2rem}
+  .board-form h3{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--green);font-weight:500;margin-bottom:.4rem}
+  .board-form .tform{max-width:640px}
   /* desktop: first section of each view must clear the fixed header (logo+menu+submenu) */
   @media (min-width:701px){
     .panel>section:first-child,#panel-news .sub>section:first-child{padding-top:calc(var(--headh,130px) + 3.5rem)}
@@ -621,13 +641,23 @@
         </div>
         <div class="tier reveal" style="--tw:62%">
           <div class="tnum">2</div>
-          <h3 data-i="py_t2">Court Nobility</h3>
-          <p data-i="py_d2">Ministers, mayors, SP deputies and friendly media — the executive arm.</p>
+          <h3 data-i="py_t2">The Political Caste</h3>
+          <p data-i="py_d2">Ministers, mayors and MPs. Rama’s court on one side; the opposition old guard (Berisha, Meta) accused alongside it. Different colours, the same system.</p>
+          <div class="pygrp" data-i="py_g_sp">Rama’s court</div>
           <div class="chips">
             <button type="button" class="chip" onclick="openDossier('balluku')">Belinda Balluku</button>
             <button type="button" class="chip" onclick="openDossier('veliaj')">Erion Veliaj</button>
             <button type="button" class="chip" onclick="openDossier('ahmetaj')">Arben Ahmetaj</button>
             <button type="button" class="chip" onclick="openDossier('tahiri')">Saimir Tahiri</button>
+          </div>
+          <div class="pygrp" data-i="py_g_pd">The opposition old guard</div>
+          <div class="chips">
+            <button type="button" class="chip" onclick="openDossier('berisha')">Sali Berisha</button>
+            <button type="button" class="chip" onclick="openDossier('malltezi')">Jamarbër Malltezi</button>
+            <button type="button" class="chip" onclick="openDossier('bektashi')">Fatmir Bektashi</button>
+            <button type="button" class="chip" onclick="openDossier('mediu')">Fatmir Mediu</button>
+            <button type="button" class="chip" onclick="openDossier('shkelzenb')">Shkëlzen Berisha</button>
+            <button type="button" class="chip" onclick="openDossier('meta')">Ilir Meta</button>
           </div>
         </div>
         <div class="tier reveal" style="--tw:72%">
@@ -648,31 +678,12 @@
             <button type="button" class="chip" onclick="openDossier('gjika')">Gjika</button>
           </div>
         </div>
-        <div class="tier reveal" style="--tw:91%">
-          <div class="tnum">5</div>
-          <h3 data-i="py_t5">Bourgeoisie</h3>
-          <p data-i="py_d5">The urban middle class and professionals. Their answer is the airport: 40–50,000 Albanians emigrate every year.</p>
-        </div>
-        <div class="tier reveal" style="--tw:100%">
-          <div class="tnum">6</div>
-          <h3 data-i="py_t6">Plebs + Diaspora</h3>
-          <p data-i="py_d6">Workers, farmers, pensioners, young exiles. Their remittances hold up everything above them.</p>
-          <div class="card2" style="text-align:left;margin-top:1.6rem">
-            <h3 data-i="dy_t">Diary of the base</h3>
-            <p data-i="dy_p1">The base of the pyramid holds everything up — and sees everything. So the bottom level gets no dossier: it gets a diary. Tell your story, with your name or anonymously; maybe you know something nobody else does. Nothing leaves your device until you press send.</p>
-            <div class="tform">
-              <label for="dy-name" data-i="dy_name_l">Name or pseudonym (optional)</label>
-              <input id="dy-name" type="text" autocomplete="off">
-              <label for="dy-msg" data-i="dy_msg_l">Your story — what you know</label>
-              <textarea id="dy-msg" rows="6"></textarea>
-              <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem">
-                <button class="btn" type="button" onclick="sendStory('mail')" data-i="dy_send_mail">Send by email</button>
-                <button class="btn" type="button" onclick="sendStory('wa')" data-i="dy_send_wa">Send on WhatsApp</button>
-              </p>
-              <div class="srcnote" data-i="dy_note">To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before using it, we never publish a source without consent — and we treat protecting sources as a debt of honor.</div>
-            </div>
-          </div>
-        </div>
+        <button type="button" class="tier base reveal" style="--tw:100%" onclick="openBoard()">
+          <div class="tnum">5 · 6</div>
+          <h3 data-i="py_t56">Bourgeoisie + Diaspora</h3>
+          <p data-i="py_d56">The urban middle class that emigrates, and the workers, farmers, pensioners and young exiles whose remittances hold up everything above them. The base of the pyramid carries the whole weight — and sees everything.</p>
+          <span class="baseopen" data-i="py_open">Open the wall of stories →</span>
+        </button>
       </div>
       <div class="srcnote"><span data-i="py_disc">FACT entries rest on public documents, court records and published investigations. ALLEGATION entries are public accusations, attributed and awaiting proof: for every person named, the presumption of innocence stands until a final verdict.</span><br><span data-i="nw_src">Sources</span>: <a href="https://www.reporter.al" target="_blank" rel="noopener">Reporter.al / BIRN</a> · <a href="https://www.balkanweb.com" target="_blank" rel="noopener">BalkanWeb</a> · SPAK · VKM 2023–2024 · “Albania for Sale” briefing</div>
     </div>
@@ -707,6 +718,32 @@
 
 <div class="dov" id="dov" role="dialog" aria-modal="true" aria-label="Dossier">
   <div class="dobox"></div>
+</div>
+
+<div class="dov" id="board" role="dialog" aria-modal="true" aria-label="Wall of stories">
+  <div class="boardbox">
+    <button class="doclose" type="button" onclick="closeBoard()" aria-label="Close">×</button>
+    <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
+    <h2 class="board-h" data-i="bd_t">The Wall of the Base</h2>
+    <p class="board-lead" data-i="bd_p1">This is the page of those who hold up everything and are named in nothing. No dossier here — a wall. Albanians of the base and the diaspora leave their stories of suffering: what the system took, what they saw, what they carry. With a name or anonymously.</p>
+    <div class="board-wall" id="board-wall"></div>
+    <div class="board-form">
+      <h3 data-i="bd_form_t">Add your story</h3>
+      <div class="tform">
+        <label for="dy-name" data-i="dy_name_l">Name or pseudonym (optional)</label>
+        <input id="dy-name" type="text" autocomplete="off">
+        <label for="dy-city" data-i="bd_city_l">City or region (optional)</label>
+        <input id="dy-city" type="text" autocomplete="off">
+        <label for="dy-msg" data-i="dy_msg_l">Your story — what you know</label>
+        <textarea id="dy-msg" rows="6"></textarea>
+        <p style="display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.3rem">
+          <button class="btn" type="button" onclick="sendStory('mail')" data-i="dy_send_mail">Send by email</button>
+          <button class="btn" type="button" onclick="sendStory('wa')" data-i="dy_send_wa">Send on WhatsApp</button>
+        </p>
+        <div class="srcnote" data-i="dy_note">To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before publishing it here, we never publish a source without consent — and we treat protecting sources as a debt of honor.</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 </main>
@@ -825,21 +862,26 @@ const T = {
     py_box:'Albanian Social Pyramid — 2026',
     py_t1:'The Sovereign', py_d1:'Edi Rama and the inner circle — plus the foreign capital that buys the coast.',
     py_t15:'Economic Oligarchs', py_d15:'They finance the system; the system returns concessions, permits and public tenders.',
-    py_t2:'Court Nobility', py_d2:'Ministers, mayors, SP deputies and friendly media — the executive arm.',
+    py_t2:'The Political Caste', py_d2:'Ministers, mayors and MPs. Rama’s court on one side; the opposition old guard (Berisha, Meta) accused alongside it. Different colours, the same system.',
+    py_g_sp:'Rama’s court', py_g_pd:'The opposition old guard',
     py_t3:'The Modern Clergy', py_d3:'Aligned judges, a limited SPAK, the police: the machinery of legitimation.',
     py_c_jud:'Judges & Vetting', py_c_pol:'Police & SKY ECC',
     py_t4:'Narco-Aristocracy', py_d4:'Bosses, laundering, diplomatic cars — integrated into the legal economy.',
-    py_t5:'Bourgeoisie', py_d5:'The urban middle class and professionals. Their answer is the airport: 40–50,000 Albanians emigrate every year.',
-    py_t6:'Plebs + Diaspora', py_d6:'Workers, farmers, pensioners, young exiles. Their remittances hold up everything above them.',
+    py_t56:'Bourgeoisie + Diaspora', py_d56:'The urban middle class that emigrates, and the workers, farmers, pensioners and young exiles whose remittances hold up everything above them. The base of the pyramid carries the whole weight — and sees everything.',
+    py_open:'Open the wall of stories →',
     py_biz:'Businesses & activities', py_conn:'Connections',
     py_disc:'FACT entries rest on public documents, court records and published investigations. ALLEGATION entries are public accusations, attributed and awaiting proof: for every person named, the presumption of innocence stands until a final verdict.',
-    dy_t:'Diary of the base',
-    dy_p1:'The base of the pyramid holds everything up — and sees everything. So the bottom level gets no dossier: it gets a diary. Tell your story, with your name or anonymously; maybe you know something nobody else does. Nothing leaves your device until you press send.',
+    bd_t:'The Wall of the Base',
+    bd_p1:'This is the page of those who hold up everything and are named in nothing. No dossier here — a wall. Albanians of the base and the diaspora leave their stories of suffering: what the system took, what they saw, what they carry. With a name or anonymously.',
+    bd_empty:'The wall is open. No story has been published yet — be the first voice from the base.',
+    bd_anon:'Anonymous',
+    bd_form_t:'Add your story',
+    bd_city_l:'City or region (optional)',
     dy_name_l:'Name or pseudonym (optional)',
     dy_msg_l:'Your story — what you know',
     dy_send_mail:'Send by email',
     dy_send_wa:'Send on WhatsApp',
-    dy_note:'To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before using it, we never publish a source without consent — and we treat protecting sources as a debt of honor.',
+    dy_note:'To stay anonymous: use a throwaway account, connect through Tor or a VPN, and strip metadata from photos and documents before attaching them. We verify what we receive before publishing it here, we never publish a source without consent — and we treat protecting sources as a debt of honor.',
     ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
   },
   sq: {
@@ -943,16 +985,21 @@ const T = {
     py_box:'Piramida Sociale Shqiptare — 2026',
     py_t1:'Sovrani', py_d1:'Edi Rama dhe rrethi i ngushtë — plus kapitali i huaj që blen bregdetin.',
     py_t15:'Oligarkët Ekonomikë', py_d15:'Ata financojnë sistemin; sistemi u kthen koncesione, leje dhe tenderë publikë.',
-    py_t2:'Fisnikëria e Oborrit', py_d2:'Ministra, kryebashkiakë, deputetë të PS dhe media miqësore — krahu ekzekutiv.',
+    py_t2:'Kasta Politike', py_d2:'Ministra, kryebashkiakë dhe deputetë. Nga njëra anë oborri i Ramës; nga tjetra e vjetra e opozitës (Berisha, Meta) e akuzuar krah tyre. Ngjyra të ndryshme, i njëjti sistem.',
+    py_g_sp:'Oborri i Ramës', py_g_pd:'E vjetra e opozitës',
     py_t3:'Kleri Modern', py_d3:'Gjyqtarë të rreshtuar, një SPAK i kufizuar, policia: makineria e legjitimimit.',
     py_c_jud:'Gjyqtarët & Vetting-u', py_c_pol:'Policia & SKY ECC',
     py_t4:'Narko-Aristokracia', py_d4:'Bosë, pastrim parash, makina diplomatike — e integruar në ekonominë ligjore.',
-    py_t5:'Borgjezia', py_d5:'Shtresa e mesme urbane dhe profesionistët. Përgjigjja e tyre është aeroporti: 40–50.000 shqiptarë emigrojnë çdo vit.',
-    py_t6:'Plebs + Diaspora', py_d6:'Punëtorë, fshatarë, pensionistë, të rinj në mërgim. Remitancat e tyre mbajnë gjithçka sipër tyre.',
+    py_t56:'Borgjezia + Diaspora', py_d56:'Shtresa e mesme urbane që emigron, dhe punëtorët, fshatarët, pensionistët e të rinjtë në mërgim, remitancat e të cilëve mbajnë gjithçka sipër tyre. Baza e piramidës mban gjithë peshën — dhe sheh gjithçka.',
+    py_open:'Hap bacekën e dëshmive →',
     py_biz:'Bizneset & aktivitetet', py_conn:'Lidhjet',
     py_disc:'Zërat FACT mbështeten në dokumente publike, akte gjyqësore dhe hetime të publikuara. Zërat ALLEGATION janë akuza publike, me autor dhe në pritje të provave: për çdo person të përmendur vlen prezumimi i pafajësisë deri në një vendim përfundimtar.',
-    dy_t:'Ditari i bazës',
-    dy_p1:'Baza e piramidës mban gjithçka në këmbë — dhe sheh gjithçka. Prandaj niveli i fundit nuk ka dosje: ka një ditar. Trego historinë tënde, me emër ose në mënyrë anonime; ndoshta di diçka që askush tjetër nuk e di. Asgjë nuk e lë pajisjen tënde derisa të shtypësh dërgo.',
+    bd_t:'Bacekja e Bazës',
+    bd_p1:'Kjo është faqja e atyre që mbajnë gjithçka dhe nuk përmenden askund. Këtu nuk ka dosje — ka një bacekë. Shqiptarët e bazës dhe të diasporës lënë historitë e tyre të vuajtjes: çfarë ua mori sistemi, çfarë panë, çfarë mbajnë. Me emër ose në mënyrë anonime.',
+    bd_empty:'Bacekja është e hapur. Ende nuk është publikuar asnjë histori — bëhu zëri i parë nga baza.',
+    bd_anon:'Anonim',
+    bd_form_t:'Shto historinë tënde',
+    bd_city_l:'Qyteti ose rajoni (opsional)',
     dy_name_l:'Emri ose pseudonimi (opsional)',
     dy_msg_l:'Historia jote — çfarë di',
     dy_send_mail:'Dërgo me email',
@@ -1061,16 +1108,21 @@ const T = {
     py_box:'Piramide Sociale Albanese — 2026',
     py_t1:'Il Sovrano', py_d1:'Edi Rama e la cerchia ristretta — più il capitale estero che compra la costa.',
     py_t15:'Oligarchi Economici', py_d15:'Finanziano il sistema; il sistema restituisce concessioni, permessi e appalti pubblici.',
-    py_t2:'Nobiltà di Corte', py_d2:'Ministri, sindaci, deputati SP e media amici — il braccio esecutivo.',
+    py_t2:'La Casta Politica', py_d2:'Ministri, sindaci e deputati. Da un lato la corte di Rama; dall’altro la vecchia guardia dell’opposizione (Berisha, Meta) accusata accanto a lei. Colori diversi, lo stesso sistema.',
+    py_g_sp:'La corte di Rama', py_g_pd:'La vecchia guardia dell’opposizione',
     py_t3:'Il Clero Moderno', py_d3:'Giudici allineati, una SPAK limitata, la polizia: la macchina della legittimazione.',
     py_c_jud:'Giudici & Vetting', py_c_pol:'Polizia & SKY ECC',
     py_t4:'Narco-Aristocrazia', py_d4:'Boss, riciclaggio, auto diplomatiche — integrata nell’economia legale.',
-    py_t5:'Borghesia', py_d5:'Il ceto medio urbano e i professionisti. La loro risposta è l’aeroporto: 40–50.000 albanesi emigrano ogni anno.',
-    py_t6:'Plebe + Diaspora', py_d6:'Operai, contadini, pensionati, giovani esuli. Le loro rimesse sostengono tutto ciò che sta sopra.',
+    py_t56:'Borghesia + Diaspora', py_d56:'Il ceto medio urbano che emigra, e gli operai, i contadini, i pensionati e i giovani esuli le cui rimesse sostengono tutto ciò che sta sopra. La base della piramide regge tutto il peso — e vede tutto.',
+    py_open:'Apri la bacheca delle storie →',
     py_biz:'Attività & imprese', py_conn:'Connessioni',
     py_disc:'Le voci FACT poggiano su documenti pubblici, atti giudiziari e inchieste pubblicate. Le voci ALLEGATION sono accuse pubbliche, attribuite e in attesa di prove: per ogni persona nominata vale la presunzione di innocenza fino a verdetto definitivo.',
-    dy_t:'Il diario della base',
-    dy_p1:'La base della piramide sostiene tutto — e vede tutto. Per questo l’ultimo livello non ha un dossier: ha un diario. Racconta la tua storia, col tuo nome o in forma anonima; forse sai qualcosa che nessun altro sa. Niente lascia il tuo dispositivo finché non premi invia.',
+    bd_t:'La Bacheca della Base',
+    bd_p1:'Questa è la pagina di chi sostiene tutto e non è nominato in niente. Qui non c’è un dossier — c’è una bacheca. Gli albanesi della base e della diaspora lasciano le loro storie di sofferenza: cosa ha tolto il sistema, cosa hanno visto, cosa portano. Col proprio nome o in forma anonima.',
+    bd_empty:'La bacheca è aperta. Non è stata ancora pubblicata nessuna storia — sii la prima voce dalla base.',
+    bd_anon:'Anonimo',
+    bd_form_t:'Aggiungi la tua storia',
+    bd_city_l:'Città o regione (facoltativo)',
     dy_name_l:'Nome o pseudonimo (facoltativo)',
     dy_msg_l:'La tua storia — cosa sai',
     dy_send_mail:'Invia via email',
@@ -1179,16 +1231,21 @@ const T = {
     py_box:'Pyramide Sociale Albanaise — 2026',
     py_t1:'Le Souverain', py_d1:'Edi Rama et le cercle rapproché — plus le capital étranger qui achète la côte.',
     py_t15:'Oligarques Économiques', py_d15:'Ils financent le système ; le système rend concessions, permis et marchés publics.',
-    py_t2:'Noblesse de Cour', py_d2:'Ministres, maires, députés du PS et médias amis — le bras exécutif.',
+    py_t2:'La Caste Politique', py_d2:'Ministres, maires et députés. D’un côté la cour de Rama ; de l’autre la vieille garde de l’opposition (Berisha, Meta) accusée à ses côtés. Des couleurs différentes, le même système.',
+    py_g_sp:'La cour de Rama', py_g_pd:'La vieille garde de l’opposition',
     py_t3:'Le Clergé Moderne', py_d3:'Juges alignés, une SPAK limitée, la police : la machine de légitimation.',
     py_c_jud:'Juges & Vetting', py_c_pol:'Police & SKY ECC',
     py_t4:'Narco-Aristocratie', py_d4:'Boss, blanchiment, voitures diplomatiques — intégrée à l’économie légale.',
-    py_t5:'Bourgeoisie', py_d5:'La classe moyenne urbaine et les professionnels. Leur réponse est l’aéroport : 40–50 000 Albanais émigrent chaque année.',
-    py_t6:'Plèbe + Diaspora', py_d6:'Ouvriers, paysans, retraités, jeunes exilés. Leurs transferts soutiennent tout ce qui est au-dessus.',
+    py_t56:'Bourgeoisie + Diaspora', py_d56:'La classe moyenne urbaine qui émigre, et les ouvriers, paysans, retraités et jeunes exilés dont les transferts soutiennent tout ce qui est au-dessus. La base de la pyramide porte tout le poids — et voit tout.',
+    py_open:'Ouvrir le mur des récits →',
     py_biz:'Activités & entreprises', py_conn:'Connexions',
     py_disc:'Les entrées FACT reposent sur des documents publics, des actes judiciaires et des enquêtes publiées. Les entrées ALLEGATION sont des accusations publiques, attribuées et en attente de preuves : pour toute personne nommée, la présomption d’innocence vaut jusqu’à un verdict définitif.',
-    dy_t:'Le journal de la base',
-    dy_p1:'La base de la pyramide soutient tout — et voit tout. C’est pourquoi le dernier niveau n’a pas de dossier : il a un journal. Raconte ton histoire, avec ton nom ou anonymement ; tu sais peut-être quelque chose que personne d’autre ne sait. Rien ne quitte ton appareil avant que tu appuies sur envoyer.',
+    bd_t:'Le Mur de la Base',
+    bd_p1:'C’est la page de ceux qui soutiennent tout et ne sont nommés dans rien. Ici pas de dossier — un mur. Les Albanais de la base et de la diaspora y laissent leurs récits de souffrance : ce que le système a pris, ce qu’ils ont vu, ce qu’ils portent. Avec un nom ou anonymement.',
+    bd_empty:'Le mur est ouvert. Aucun récit n’a encore été publié — sois la première voix de la base.',
+    bd_anon:'Anonyme',
+    bd_form_t:'Ajoute ton récit',
+    bd_city_l:'Ville ou région (facultatif)',
     dy_name_l:'Nom ou pseudonyme (facultatif)',
     dy_msg_l:'Ton histoire — ce que tu sais',
     dy_send_mail:'Envoyer par e-mail',
@@ -1297,16 +1354,21 @@ const T = {
     py_box:'Albanische Sozialpyramide — 2026',
     py_t1:'Der Souverän', py_d1:'Edi Rama und der engste Kreis — plus das ausländische Kapital, das die Küste kauft.',
     py_t15:'Wirtschaftsoligarchen', py_d15:'Sie finanzieren das System; das System liefert Konzessionen, Genehmigungen und öffentliche Aufträge zurück.',
-    py_t2:'Hofadel', py_d2:'Minister, Bürgermeister, SP-Abgeordnete und freundliche Medien — der ausführende Arm.',
+    py_t2:'Die Politische Kaste', py_d2:'Minister, Bürgermeister und Abgeordnete. Auf der einen Seite Ramas Hof; auf der anderen die alte Garde der Opposition (Berisha, Meta), daneben angeklagt. Andere Farben, dasselbe System.',
+    py_g_sp:'Ramas Hof', py_g_pd:'Die alte Garde der Opposition',
     py_t3:'Der Moderne Klerus', py_d3:'Angepasste Richter, eine begrenzte SPAK, die Polizei: die Maschinerie der Legitimation.',
     py_c_jud:'Richter & Vetting', py_c_pol:'Polizei & SKY ECC',
     py_t4:'Narco-Aristokratie', py_d4:'Bosse, Geldwäsche, Diplomatenautos — integriert in die legale Wirtschaft.',
-    py_t5:'Bürgertum', py_d5:'Die urbane Mittelschicht und die Fachkräfte. Ihre Antwort ist der Flughafen: 40–50.000 Albaner emigrieren jedes Jahr.',
-    py_t6:'Plebs + Diaspora', py_d6:'Arbeiter, Bauern, Rentner, junge Exilanten. Ihre Überweisungen tragen alles über ihnen.',
+    py_t56:'Bürgertum + Diaspora', py_d56:'Die urbane Mittelschicht, die auswandert, und die Arbeiter, Bauern, Rentner und jungen Exilanten, deren Überweisungen alles über ihnen tragen. Die Basis der Pyramide trägt das ganze Gewicht — und sieht alles.',
+    py_open:'Die Wand der Geschichten öffnen →',
     py_biz:'Geschäfte & Aktivitäten', py_conn:'Verbindungen',
     py_disc:'FACT-Einträge stützen sich auf öffentliche Dokumente, Gerichtsakten und veröffentlichte Recherchen. ALLEGATION-Einträge sind öffentliche Anschuldigungen, zugeordnet und auf Beweise wartend: Für jede genannte Person gilt die Unschuldsvermutung bis zu einem endgültigen Urteil.',
-    dy_t:'Das Tagebuch der Basis',
-    dy_p1:'Die Basis der Pyramide trägt alles — und sieht alles. Deshalb bekommt die unterste Ebene kein Dossier: Sie bekommt ein Tagebuch. Erzähle deine Geschichte, mit Namen oder anonym; vielleicht weißt du etwas, das sonst niemand weiß. Nichts verlässt dein Gerät, bevor du auf Senden drückst.',
+    bd_t:'Die Wand der Basis',
+    bd_p1:'Dies ist die Seite derer, die alles tragen und in nichts genannt werden. Hier kein Dossier — eine Wand. Albaner der Basis und der Diaspora hinterlassen ihre Geschichten des Leidens: was das System nahm, was sie sahen, was sie tragen. Mit Namen oder anonym.',
+    bd_empty:'Die Wand ist offen. Noch wurde keine Geschichte veröffentlicht — sei die erste Stimme aus der Basis.',
+    bd_anon:'Anonym',
+    bd_form_t:'Deine Geschichte hinzufügen',
+    bd_city_l:'Stadt oder Region (optional)',
     dy_name_l:'Name oder Pseudonym (optional)',
     dy_msg_l:'Deine Geschichte — was du weißt',
     dy_send_mail:'Per E-Mail senden',
@@ -1415,16 +1477,21 @@ const T = {
     py_box:'Den Albanska Sociala Pyramiden — 2026',
     py_t1:'Suveränen', py_d1:'Edi Rama och den inre kretsen — plus det utländska kapital som köper kusten.',
     py_t15:'Ekonomiska Oligarker', py_d15:'De finansierar systemet; systemet ger tillbaka koncessioner, tillstånd och offentliga upphandlingar.',
-    py_t2:'Hovadeln', py_d2:'Ministrar, borgmästare, SP-ledamöter och vänliga medier — den verkställande armen.',
+    py_t2:'Den Politiska Kasten', py_d2:'Ministrar, borgmästare och parlamentsledamöter. På ena sidan Ramas hov; på andra oppositionens gamla garde (Berisha, Meta) anklagat bredvid det. Olika färger, samma system.',
+    py_g_sp:'Ramas hov', py_g_pd:'Oppositionens gamla garde',
     py_t3:'Det Moderna Prästerskapet', py_d3:'Anpassade domare, en begränsad SPAK, polisen: legitimeringens maskineri.',
     py_c_jud:'Domare & Vetting', py_c_pol:'Polisen & SKY ECC',
     py_t4:'Narko-Aristokratin', py_d4:'Bossar, penningtvätt, diplomatbilar — integrerad i den lagliga ekonomin.',
-    py_t5:'Borgerskapet', py_d5:'Den urbana medelklassen och de yrkesutbildade. Deras svar är flygplatsen: 40–50 000 albaner emigrerar varje år.',
-    py_t6:'Plebejer + Diaspora', py_d6:'Arbetare, bönder, pensionärer, unga i exil. Deras remitteringar bär upp allt ovanför dem.',
+    py_t56:'Borgerskapet + Diasporan', py_d56:'Den urbana medelklassen som emigrerar, och arbetarna, bönderna, pensionärerna och de unga i exil vars remitteringar bär upp allt ovanför dem. Pyramidens bas bär hela tyngden — och ser allt.',
+    py_open:'Öppna berättelsernas vägg →',
     py_biz:'Verksamheter & företag', py_conn:'Kopplingar',
     py_disc:'FACT-poster vilar på offentliga dokument, rättshandlingar och publicerade granskningar. ALLEGATION-poster är offentliga anklagelser, tillskrivna och i väntan på bevis: för varje namngiven person gäller oskuldspresumtionen tills en slutlig dom fallit.',
-    dy_t:'Basens dagbok',
-    dy_p1:'Pyramidens bas bär upp allt — och ser allt. Därför får den understa nivån inget dossier: den får en dagbok. Berätta din historia, med namn eller anonymt; kanske vet du något som ingen annan vet. Inget lämnar din enhet förrän du trycker på skicka.',
+    bd_t:'Basens Vägg',
+    bd_p1:'Detta är sidan för dem som bär upp allt och nämns i ingenting. Här finns inget dossier — en vägg. Albaner från basen och diasporan lämnar sina berättelser om lidande: vad systemet tog, vad de såg, vad de bär. Med namn eller anonymt.',
+    bd_empty:'Väggen är öppen. Ingen berättelse har publicerats ännu — bli den första rösten från basen.',
+    bd_anon:'Anonym',
+    bd_form_t:'Lägg till din berättelse',
+    bd_city_l:'Stad eller region (valfritt)',
     dy_name_l:'Namn eller pseudonym (valfritt)',
     dy_msg_l:'Din historia — vad du vet',
     dy_send_mail:'Skicka via e-post',
@@ -1533,16 +1600,21 @@ const T = {
     py_box:'Αλβανική Κοινωνική Πυραμίδα — 2026',
     py_t1:'Ο Κυρίαρχος', py_d1:'Ο Έντι Ράμα και ο στενός κύκλος — συν το ξένο κεφάλαιο που αγοράζει την ακτή.',
     py_t15:'Οικονομικοί Ολιγάρχες', py_d15:'Χρηματοδοτούν το σύστημα· το σύστημα επιστρέφει παραχωρήσεις, άδειες και δημόσιους διαγωνισμούς.',
-    py_t2:'Η Αυλική Αριστοκρατία', py_d2:'Υπουργοί, δήμαρχοι, βουλευτές του ΣΚ και φιλικά μέσα — ο εκτελεστικός βραχίονας.',
+    py_t2:'Η Πολιτική Κάστα', py_d2:'Υπουργοί, δήμαρχοι και βουλευτές. Από τη μια η αυλή του Ράμα· από την άλλη η παλιά φρουρά της αντιπολίτευσης (Μπερίσα, Μέτα) κατηγορούμενη δίπλα της. Διαφορετικά χρώματα, το ίδιο σύστημα.',
+    py_g_sp:'Η αυλή του Ράμα', py_g_pd:'Η παλιά φρουρά της αντιπολίτευσης',
     py_t3:'Ο Σύγχρονος Κλήρος', py_d3:'Ευθυγραμμισμένοι δικαστές, μια περιορισμένη SPAK, η αστυνομία: η μηχανή της νομιμοποίησης.',
     py_c_jud:'Δικαστές & Vetting', py_c_pol:'Αστυνομία & SKY ECC',
     py_t4:'Ναρκο-Αριστοκρατία', py_d4:'Αρχηγοί, ξέπλυμα, διπλωματικά αυτοκίνητα — ενσωματωμένη στη νόμιμη οικονομία.',
-    py_t5:'Αστική Τάξη', py_d5:'Η αστική μεσαία τάξη και οι επαγγελματίες. Η απάντησή τους είναι το αεροδρόμιο: 40–50.000 Αλβανοί μεταναστεύουν κάθε χρόνο.',
-    py_t6:'Πλέμπα + Διασπορά', py_d6:'Εργάτες, αγρότες, συνταξιούχοι, νέοι εξόριστοι. Τα εμβάσματά τους κρατούν όρθιο ό,τι βρίσκεται από πάνω τους.',
+    py_t56:'Αστική Τάξη + Διασπορά', py_d56:'Η αστική μεσαία τάξη που μεταναστεύει, και οι εργάτες, αγρότες, συνταξιούχοι και νέοι εξόριστοι, των οποίων τα εμβάσματα κρατούν όρθιο ό,τι βρίσκεται από πάνω. Η βάση της πυραμίδας σηκώνει όλο το βάρος — και βλέπει τα πάντα.',
+    py_open:'Άνοιξε τον τοίχο των ιστοριών →',
     py_biz:'Επιχειρήσεις & δραστηριότητες', py_conn:'Διασυνδέσεις',
     py_disc:'Οι καταχωρήσεις FACT στηρίζονται σε δημόσια έγγραφα, δικαστικά αρχεία και δημοσιευμένες έρευνες. Οι καταχωρήσεις ALLEGATION είναι δημόσιες κατηγορίες, αποδιδόμενες και εν αναμονή αποδείξεων: για κάθε πρόσωπο που κατονομάζεται ισχύει το τεκμήριο αθωότητας μέχρι τελεσίδικη απόφαση.',
-    dy_t:'Το ημερολόγιο της βάσης',
-    dy_p1:'Η βάση της πυραμίδας κρατά τα πάντα όρθια — και βλέπει τα πάντα. Γι’ αυτό το τελευταίο επίπεδο δεν έχει φάκελο: έχει ημερολόγιο. Πες την ιστορία σου, με το όνομά σου ή ανώνυμα· ίσως ξέρεις κάτι που κανείς άλλος δεν ξέρει. Τίποτα δεν φεύγει από τη συσκευή σου μέχρι να πατήσεις αποστολή.',
+    bd_t:'Ο Τοίχος της Βάσης',
+    bd_p1:'Αυτή είναι η σελίδα εκείνων που κρατούν τα πάντα και δεν κατονομάζονται πουθενά. Εδώ δεν υπάρχει φάκελος — ένας τοίχος. Αλβανοί της βάσης και της διασποράς αφήνουν τις ιστορίες τους για τον πόνο: τι πήρε το σύστημα, τι είδαν, τι κουβαλούν. Με όνομα ή ανώνυμα.',
+    bd_empty:'Ο τοίχος είναι ανοιχτός. Καμία ιστορία δεν έχει δημοσιευτεί ακόμη — γίνε η πρώτη φωνή από τη βάση.',
+    bd_anon:'Ανώνυμος',
+    bd_form_t:'Πρόσθεσε την ιστορία σου',
+    bd_city_l:'Πόλη ή περιοχή (προαιρετικό)',
     dy_name_l:'Όνομα ή ψευδώνυμο (προαιρετικό)',
     dy_msg_l:'Η ιστορία σου — τι ξέρεις',
     dy_send_mail:'Στείλε με email',
@@ -1663,16 +1735,21 @@ const T = {
     py_box:'Albanese Sociale Piramide — 2026',
     py_t1:'De Soeverein', py_d1:'Edi Rama en de binnenste kring — plus het buitenlandse kapitaal dat de kust opkoopt.',
     py_t15:'Economische Oligarchen', py_d15:'Zij financieren het systeem; het systeem geeft concessies, vergunningen en overheidsopdrachten terug.',
-    py_t2:'Hofadel', py_d2:'Ministers, burgemeesters, SP-parlementsleden en bevriende media — de uitvoerende arm.',
+    py_t2:'De Politieke Kaste', py_d2:'Ministers, burgemeesters en parlementsleden. Aan de ene kant Rama’s hof; aan de andere de oude garde van de oppositie (Berisha, Meta) die ernaast wordt aangeklaagd. Andere kleuren, hetzelfde systeem.',
+    py_g_sp:'Rama’s hof', py_g_pd:'De oude garde van de oppositie',
     py_t3:'De Moderne Geestelijkheid', py_d3:'Meegaande rechters, een beperkte SPAK, de politie: de machinerie van de legitimatie.',
     py_c_jud:'Rechters & Vetting', py_c_pol:'Politie & SKY ECC',
     py_t4:'Narco-Aristocratie', py_d4:'Bazen, witwassen, diplomatieke auto’s — geïntegreerd in de legale economie.',
-    py_t5:'Burgerij', py_d5:'De stedelijke middenklasse en de professionals. Hun antwoord is de luchthaven: 40–50.000 Albanezen emigreren elk jaar.',
-    py_t6:'Plebs + Diaspora', py_d6:'Arbeiders, boeren, gepensioneerden, jonge ballingen. Hun overmakingen dragen alles boven hen.',
+    py_t56:'Burgerij + Diaspora', py_d56:'De stedelijke middenklasse die emigreert, en de arbeiders, boeren, gepensioneerden en jonge ballingen wier overmakingen alles boven hen dragen. De basis van de piramide draagt het hele gewicht — en ziet alles.',
+    py_open:'Open de muur van verhalen →',
     py_biz:'Bedrijven & activiteiten', py_conn:'Connecties',
     py_disc:'FACT-vermeldingen rusten op openbare documenten, gerechtelijke stukken en gepubliceerd onderzoek. ALLEGATION-vermeldingen zijn publieke beschuldigingen, toegeschreven en in afwachting van bewijs: voor iedere genoemde persoon geldt het vermoeden van onschuld tot een definitief vonnis.',
-    dy_t:'Het dagboek van de basis',
-    dy_p1:'De basis van de piramide draagt alles — en ziet alles. Daarom krijgt de onderste laag geen dossier: ze krijgt een dagboek. Vertel je verhaal, met je naam of anoniem; misschien weet jij iets wat niemand anders weet. Niets verlaat je apparaat tot je op verzenden drukt.',
+    bd_t:'De Muur van de Basis',
+    bd_p1:'Dit is de pagina van hen die alles dragen en in niets worden genoemd. Hier geen dossier — een muur. Albanezen van de basis en de diaspora laten hun verhalen van lijden achter: wat het systeem nam, wat ze zagen, wat ze dragen. Met een naam of anoniem.',
+    bd_empty:'De muur is open. Er is nog geen verhaal gepubliceerd — wees de eerste stem uit de basis.',
+    bd_anon:'Anoniem',
+    bd_form_t:'Voeg je verhaal toe',
+    bd_city_l:'Stad of regio (optioneel)',
     dy_name_l:'Naam of pseudoniem (optioneel)',
     dy_msg_l:'Jouw verhaal — wat je weet',
     dy_send_mail:'Verstuur per e-mail',
@@ -1793,16 +1870,21 @@ const T = {
     py_box:'Pirámide Social Albanesa — 2026',
     py_t1:'El Soberano', py_d1:'Edi Rama y el círculo íntimo — más el capital extranjero que compra la costa.',
     py_t15:'Oligarcas Económicos', py_d15:'Financian el sistema; el sistema devuelve concesiones, permisos y contratos públicos.',
-    py_t2:'Nobleza de Corte', py_d2:'Ministros, alcaldes, diputados del PS y medios amigos — el brazo ejecutor.',
+    py_t2:'La Casta Política', py_d2:'Ministros, alcaldes y diputados. De un lado la corte de Rama; del otro la vieja guardia de la oposición (Berisha, Meta) acusada junto a ella. Colores distintos, el mismo sistema.',
+    py_g_sp:'La corte de Rama', py_g_pd:'La vieja guardia de la oposición',
     py_t3:'El Clero Moderno', py_d3:'Jueces alineados, una SPAK limitada, la policía: la maquinaria de la legitimación.',
     py_c_jud:'Jueces & Vetting', py_c_pol:'Policía & SKY ECC',
     py_t4:'Narco-Aristocracia', py_d4:'Jefes, blanqueo, coches diplomáticos — integrada en la economía legal.',
-    py_t5:'Burguesía', py_d5:'La clase media urbana y los profesionales. Su respuesta es el aeropuerto: 40–50.000 albaneses emigran cada año.',
-    py_t6:'Plebe + Diáspora', py_d6:'Obreros, campesinos, pensionistas, jóvenes exiliados. Sus remesas sostienen todo lo que tienen encima.',
+    py_t56:'Burguesía + Diáspora', py_d56:'La clase media urbana que emigra, y los obreros, campesinos, pensionistas y jóvenes exiliados cuyas remesas sostienen todo lo que tienen encima. La base de la pirámide carga todo el peso — y lo ve todo.',
+    py_open:'Abrir el muro de las historias →',
     py_biz:'Negocios & actividades', py_conn:'Conexiones',
     py_disc:'Las entradas FACT se apoyan en documentos públicos, actas judiciales e investigaciones publicadas. Las entradas ALLEGATION son acusaciones públicas, atribuidas y a la espera de pruebas: para toda persona nombrada rige la presunción de inocencia hasta un veredicto definitivo.',
-    dy_t:'El diario de la base',
-    dy_p1:'La base de la pirámide lo sostiene todo — y lo ve todo. Por eso el último nivel no tiene dossier: tiene un diario. Cuenta tu historia, con tu nombre o de forma anónima; quizá sabes algo que nadie más sabe. Nada sale de tu dispositivo hasta que pulsas enviar.',
+    bd_t:'El Muro de la Base',
+    bd_p1:'Esta es la página de quienes lo sostienen todo y no son nombrados en nada. Aquí no hay dossier — un muro. Los albaneses de la base y de la diáspora dejan sus historias de sufrimiento: qué les quitó el sistema, qué vieron, qué cargan. Con un nombre o de forma anónima.',
+    bd_empty:'El muro está abierto. Aún no se ha publicado ninguna historia — sé la primera voz de la base.',
+    bd_anon:'Anónimo',
+    bd_form_t:'Añade tu historia',
+    bd_city_l:'Ciudad o región (opcional)',
     dy_name_l:'Nombre o seudónimo (opcional)',
     dy_msg_l:'Tu historia — lo que sabes',
     dy_send_mail:'Enviar por correo',
@@ -1832,7 +1914,13 @@ people:{
   judges:{n:'Judges & Vetting',rel:['balluku','skyecc']},
   skyecc:{n:'Police & SKY ECC',rel:['habilaj','tahiri','judges']},
   habilaj:{n:'Klani Habilaj',rel:['tahiri','skyecc']},
-  gjika:{n:'Gjika',rel:['skyecc']}
+  gjika:{n:'Gjika',rel:['skyecc']},
+  berisha:{n:'Sali Berisha',rel:['malltezi','shkelzenb','meta','mediu']},
+  malltezi:{n:'Jamarbër Malltezi',rel:['berisha','bektashi']},
+  bektashi:{n:'Fatmir Bektashi',biz:['Construction / Partizani complex'],rel:['malltezi','berisha']},
+  mediu:{n:'Fatmir Mediu',rel:['shkelzenb','berisha']},
+  shkelzenb:{n:'Shkëlzen Berisha',rel:['berisha','mediu']},
+  meta:{n:'Ilir Meta',rel:['berisha','rama']}
 },
 t:{
 en:{
@@ -1888,7 +1976,22 @@ en:{
   habilaj:{r:'Drug-trafficking clan from the Vlora area.',i:[
     ['F','Dismantled by an Italian anti-mafia operation; its reach extended to the Interior Minister, whose private car the traffickers used.']]},
   gjika:{r:'Name placed at the narco level of the pyramid by the protest movement.',i:[
-    ['A','Named in protest material as an alleged boss whose money is laundered into the legal economy. No conviction is documented in our archive; this entry stays open for evidence.']]}
+    ['A','Named in protest material as an alleged boss whose money is laundered into the legal economy. No conviction is documented in our archive; this entry stays open for evidence.']]},
+  berisha:{r:'Former President (1992–97) and Prime Minister (2005–2013); historic leader of the Democratic Party. The other pole of the same caste.',i:[
+    ['F','SPAK has charged him and placed him under a judicial measure for passive corruption over the privatisation of the former “Partizani” sports-club land in Tirana.'],
+    ['A','Prosecutors allege that as PM he changed laws and pressed ministries to speed up the deal for his family’s benefit. Charges, not a final verdict.']]},
+  malltezi:{r:'Berisha’s son-in-law — the effective beneficiary of the Partizani affair.',i:[
+    ['F','Arrested by SPAK. Prosecutors say the decrees signed by his father-in-law turned public sports land into a residential mega-complex, netting him over €5.4 million in illicit profit.']]},
+  bektashi:{r:'Powerful construction contractor tied to Berisha’s son-in-law.',i:[
+    ['A','Investigated for active corruption and money laundering for building the residences and screening the money flows in the Partizani affair.']]},
+  mediu:{r:'Former Defence Minister and Berisha ally; leader of the Republican Party.',i:[
+    ['F','On trial over the 2008 Gërdec munitions-depot explosion that killed 26 people and injured hundreds; SPAK reopened the case.'],
+    ['A','Investigators allege the arms-dismantling plant was run illegally to favour a private company tied to the power family of the time, bypassing every safety rule to maximise gunpowder-sale profits.']]},
+  shkelzenb:{r:'Son of Sali Berisha.',i:[
+    ['A','Repeatedly named in testimonies, US diplomatic cables and emails as the “shadow director” behind the Gërdec arms contracts and arms deals with American middlemen (the AEY affair depicted in War Dogs). No conviction is documented.']]},
+  meta:{r:'Former President, former PM and leader of the Freedom Party; longtime ally and rival of both Rama and Berisha.',i:[
+    ['F','Spectacularly arrested by SPAK on heavy charges of corruption, money laundering and failure to declare assets.'],
+    ['A','Investigations concern alleged bribes in telecoms (the CEZ–DIA case) and hidden financing for lobbying in the US. Charges, not verdicts.']]}
 },
 sq:{
   rama:{r:'Kryeministër që nga 2013. Drejton Këshillin Kombëtar të Territorit (KKT) që miraton projektet e mëdha të ndërtimit.',i:[
@@ -1943,7 +2046,22 @@ sq:{
   habilaj:{r:'Klan trafikantësh droge nga zona e Vlorës.',i:[
     ['F','I çmontuar nga një operacion italian antimafia; krahu i tij arrinte deri te ministri i Brendshëm, makinën private të të cilit e përdornin trafikantët.']]},
   gjika:{r:'Emër i vendosur në nivelin narko të piramidës nga lëvizja e protestës.',i:[
-    ['A','Përmendet në materialet e protestës si bos i pretenduar, paratë e të cilit pastrohen në ekonominë ligjore. Asnjë dënim nuk është i dokumentuar në arkivin tonë; kjo skedë mbetet e hapur për prova.']]}
+    ['A','Përmendet në materialet e protestës si bos i pretenduar, paratë e të cilit pastrohen në ekonominë ligjore. Asnjë dënim nuk është i dokumentuar në arkivin tonë; kjo skedë mbetet e hapur për prova.']]},
+  berisha:{r:'Ish-President (1992–97) dhe Kryeministër (2005–2013); lideri historik i Partisë Demokratike. Poli tjetër i së njëjtës kastë.',i:[
+    ['F','SPAK e ka akuzuar dhe e ka vënë nën masë sigurie për korrupsion pasiv lidhur me privatizimin e tokës së ish-klubit sportiv “Partizani” në Tiranë.'],
+    ['A','Prokuroria pretendon se si kryeministër ndryshoi ligje dhe u ushtroi presion ministrive për ta përshpejtuar marrëveshjen në dobi të familjes së tij. Akuza, jo vendim i formës së prerë.']]},
+  malltezi:{r:'Dhëndri i Berishës — përfituesi faktik i aferës Partizani.',i:[
+    ['F','I arrestuar nga SPAK. Prokuroria thotë se dekretet e firmosura nga vjehrri e kthyen tokën publike sportive në një mega-kompleks banimi, duke i sjellë mbi 5,4 milionë euro fitim të paligjshëm.']]},
+  bektashi:{r:'Sipërmarrës i fuqishëm ndërtimi i lidhur me dhëndrin e Berishës.',i:[
+    ['A','I hetuar për korrupsion aktiv dhe pastrim parash për ndërtimin e banesave dhe fshehjen e flukseve të parasë në aferën Partizani.']]},
+  mediu:{r:'Ish-ministër i Mbrojtjes dhe aleat i Berishës; lider i Partisë Republikane.',i:[
+    ['F','Nën gjykim për shpërthimin e depozitës së municioneve në Gërdec (2008) që la 26 të vdekur dhe qindra të plagosur; SPAK e rihapi çështjen.'],
+    ['A','Hetuesit pretendojnë se impianti i çmontimit të armëve funksiononte në mënyrë të paligjshme për të favorizuar një kompani private të lidhur me familjen e pushtetit të kohës, duke shkelur çdo rregull sigurie për të maksimizuar fitimet nga shitja e barutit.']]},
+  shkelzenb:{r:'Djali i Sali Berishës.',i:[
+    ['A','Përmendet vazhdimisht në dëshmi, kabllograme diplomatike amerikane dhe email-e si “regjisori në hije” pas kontratave të armëve të Gërdecit dhe tregtisë së armëve me ndërmjetës amerikanë (afera AEY e treguar në War Dogs). Asnjë dënim nuk është i dokumentuar.']]},
+  meta:{r:'Ish-President, ish-Kryeministër dhe lider i Partisë së Lirisë; prej kohësh aleat dhe rival i të dyve, Ramës dhe Berishës.',i:[
+    ['F','I arrestuar në mënyrë spektakolare nga SPAK me akuza të rënda korrupsioni, pastrimi parash dhe mosdeklarimi pasurie.'],
+    ['A','Hetimet lidhen me ryshfete të pretenduara në telekomunikacion (çështja CEZ–DIA) dhe financime të fshehta për lobim në SHBA. Akuza, jo vendime.']]}
 },
 it:{
   rama:{r:'Primo ministro dal 2013. Presiede il Consiglio Nazionale del Territorio (KKT) che approva i grandi progetti edilizi del Paese.',i:[
@@ -1998,7 +2116,22 @@ it:{
   habilaj:{r:'Clan di narcotrafficanti dell’area di Valona.',i:[
     ['F','Smantellato da un’operazione antimafia italiana; i suoi legami arrivavano fino al ministro dell’Interno, di cui i trafficanti usavano l’auto privata.']]},
   gjika:{r:'Nome collocato al livello narco della piramide dal movimento di protesta.',i:[
-    ['A','Indicato nel materiale di protesta come presunto boss il cui denaro viene riciclato nell’economia legale. Nessuna condanna documentata nel nostro archivio; questa scheda resta aperta alle prove.']]}
+    ['A','Indicato nel materiale di protesta come presunto boss il cui denaro viene riciclato nell’economia legale. Nessuna condanna documentata nel nostro archivio; questa scheda resta aperta alle prove.']]},
+  berisha:{r:'Ex Presidente (1992–97) ed ex premier (2005–2013); leader storico del Partito Democratico. L’altro polo della stessa casta.',i:[
+    ['F','La SPAK lo ha accusato e posto sotto misura per corruzione passiva sulla privatizzazione dei terreni dell’ex club sportivo “Partizani” a Tirana.'],
+    ['A','I magistrati sostengono che da premier abbia cambiato leggi e fatto pressioni sui ministeri per accelerare l’affare a beneficio della sua famiglia. Accuse, non verdetto definitivo.']]},
+  malltezi:{r:'Genero di Berisha — l’effettivo beneficiario dell’affare Partizani.',i:[
+    ['F','Arrestato dalla SPAK. Secondo i magistrati, grazie ai decreti firmati dal suocero ha trasformato i terreni sportivi pubblici in un mega complesso residenziale, intascando oltre 5,4 milioni di euro di profitti illeciti.']]},
+  bektashi:{r:'Potente costruttore edile legato al genero di Berisha.',i:[
+    ['A','Indagato per corruzione attiva e riciclaggio per aver materialmente costruito gli edifici e schermato i flussi di denaro nell’affare Partizani.']]},
+  mediu:{r:'Ex ministro della Difesa e alleato di Berisha; leader del Partito Repubblicano.',i:[
+    ['F','Sotto processo per l’esplosione della fabbrica di munizioni di Gërdec (2008), che causò 26 morti e centinaia di feriti; la SPAK ha riaperto il caso.'],
+    ['A','L’inchiesta sostiene che l’impianto di smantellamento armi fosse gestito illegalmente per favorire una società privata legata alla famiglia del potere di allora, aggirando ogni norma di sicurezza per massimizzare i profitti sulla vendita di polvere da sparo.']]},
+  shkelzenb:{r:'Figlio di Sali Berisha.',i:[
+    ['A','Più volte citato in testimonianze, cablogrammi diplomatici statunitensi ed e-mail come il “regista ombra” dietro i contratti sulle armi di Gërdec e la compravendita di armi con intermediari americani (la vicenda AEY del film War Dogs). Nessuna condanna documentata.']]},
+  meta:{r:'Ex Presidente, ex premier e leader del Partito della Libertà; da tempo alleato e rivale sia di Rama sia di Berisha.',i:[
+    ['F','Arrestato in modo spettacolare dalla SPAK con pesanti accuse di corruzione, riciclaggio e mancata dichiarazione dei beni.'],
+    ['A','Le indagini riguardano presunte tangenti nelle telecomunicazioni (il caso CEZ–DIA) e finanziamenti occulti per attività di lobbying negli USA. Accuse, non verdetti.']]}
 },
 fr:{
   rama:{r:'Premier ministre depuis 2013. Préside le Conseil national du territoire (KKT) qui approuve les grands projets de construction du pays.',i:[
@@ -2053,7 +2186,22 @@ fr:{
   habilaj:{r:'Clan de narcotrafiquants de la région de Vlora.',i:[
     ['F','Démantelé par une opération antimafia italienne ; ses ramifications atteignaient le ministre de l’Intérieur, dont les trafiquants utilisaient la voiture privée.']]},
   gjika:{r:'Nom placé au niveau narco de la pyramide par le mouvement de protestation.',i:[
-    ['A','Cité dans le matériel de protestation comme boss présumé dont l’argent serait blanchi dans l’économie légale. Aucune condamnation documentée dans nos archives ; cette fiche reste ouverte aux preuves.']]}
+    ['A','Cité dans le matériel de protestation comme boss présumé dont l’argent serait blanchi dans l’économie légale. Aucune condamnation documentée dans nos archives ; cette fiche reste ouverte aux preuves.']]},
+  berisha:{r:'Ancien Président (1992–97) et ancien Premier ministre (2005–2013) ; chef historique du Parti démocrate. L’autre pôle de la même caste.',i:[
+    ['F','La SPAK l’a inculpé et placé sous mesure judiciaire pour corruption passive sur la privatisation des terrains de l’ancien club sportif « Partizani » à Tirana.'],
+    ['A','Les procureurs affirment qu’en tant que Premier ministre il a changé des lois et fait pression sur les ministères pour accélérer l’affaire au profit de sa famille. Des charges, pas un verdict définitif.']]},
+  malltezi:{r:'Gendre de Berisha — le bénéficiaire effectif de l’affaire Partizani.',i:[
+    ['F','Arrêté par la SPAK. Selon les procureurs, grâce aux décrets signés par son beau-père, il a transformé les terrains sportifs publics en méga-complexe résidentiel, empochant plus de 5,4 millions d’euros de profits illicites.']]},
+  bektashi:{r:'Puissant constructeur lié au gendre de Berisha.',i:[
+    ['A','Poursuivi pour corruption active et blanchiment pour avoir bâti les logements et masqué les flux d’argent dans l’affaire Partizani.']]},
+  mediu:{r:'Ancien ministre de la Défense et allié de Berisha ; chef du Parti républicain.',i:[
+    ['F','Jugé pour l’explosion du dépôt de munitions de Gërdec (2008) qui fit 26 morts et des centaines de blessés ; la SPAK a rouvert le dossier.'],
+    ['A','L’enquête soutient que l’usine de démantèlement d’armes était gérée illégalement pour favoriser une société privée liée à la famille au pouvoir de l’époque, contournant toute règle de sécurité pour maximiser les profits sur la vente de poudre.']]},
+  shkelzenb:{r:'Fils de Sali Berisha.',i:[
+    ['A','Cité à plusieurs reprises dans des témoignages, des câbles diplomatiques américains et des e-mails comme le « metteur en scène de l’ombre » derrière les contrats d’armes de Gërdec et le commerce d’armes avec des intermédiaires américains (l’affaire AEY du film War Dogs). Aucune condamnation documentée.']]},
+  meta:{r:'Ancien Président, ancien Premier ministre et chef du Parti de la liberté ; de longue date allié et rival de Rama comme de Berisha.',i:[
+    ['F','Arrêté de façon spectaculaire par la SPAK sous de lourdes accusations de corruption, blanchiment et non-déclaration de biens.'],
+    ['A','Les enquêtes portent sur des pots-de-vin présumés dans les télécoms (l’affaire CEZ–DIA) et un financement occulte du lobbying aux États-Unis. Des charges, pas des verdicts.']]}
 }
 }
 };
@@ -2111,7 +2259,22 @@ DOS.t.de = {
   habilaj:{r:'Drogenhändlerclan aus der Region Vlora.',i:[
     ['F','Von einer italienischen Antimafia-Operation zerschlagen; seine Verbindungen reichten bis zum Innenminister, dessen Privatwagen die Händler nutzten.']]},
   gjika:{r:'Name, den die Protestbewegung auf der Narco-Ebene der Pyramide platziert.',i:[
-    ['A','In Protestmaterial als mutmaßlicher Boss genannt, dessen Geld in die legale Wirtschaft gewaschen werde. Keine dokumentierte Verurteilung in unserem Archiv; dieser Eintrag bleibt für Beweise offen.']]}
+    ['A','In Protestmaterial als mutmaßlicher Boss genannt, dessen Geld in die legale Wirtschaft gewaschen werde. Keine dokumentierte Verurteilung in unserem Archiv; dieser Eintrag bleibt für Beweise offen.']]},
+  berisha:{r:'Ex-Präsident (1992–97) und Ex-Ministerpräsident (2005–2013); historischer Führer der Demokratischen Partei. Der andere Pol derselben Kaste.',i:[
+    ['F','Die SPAK hat ihn angeklagt und unter eine gerichtliche Maßnahme gestellt — wegen passiver Korruption bei der Privatisierung des Geländes des früheren Sportklubs „Partizani“ in Tirana.'],
+    ['A','Die Staatsanwaltschaft wirft ihm vor, als Ministerpräsident Gesetze geändert und Ministerien gedrängt zu haben, um das Geschäft zum Vorteil seiner Familie zu beschleunigen. Anklagen, kein endgültiges Urteil.']]},
+  malltezi:{r:'Berishas Schwiegersohn — der eigentliche Nutznießer der Partizani-Affäre.',i:[
+    ['F','Von der SPAK verhaftet. Laut Staatsanwaltschaft verwandelte er dank der von seinem Schwiegervater unterzeichneten Dekrete öffentliches Sportgelände in einen riesigen Wohnkomplex und strich über 5,4 Millionen Euro illegalen Gewinn ein.']]},
+  bektashi:{r:'Mächtiger Bauunternehmer, verbunden mit Berishas Schwiegersohn.',i:[
+    ['A','Ermittelt wegen aktiver Korruption und Geldwäsche, weil er die Wohnungen baute und die Geldflüsse in der Partizani-Affäre verschleierte.']]},
+  mediu:{r:'Ex-Verteidigungsminister und Berisha-Verbündeter; Führer der Republikanischen Partei.',i:[
+    ['F','Angeklagt wegen der Explosion des Munitionslagers Gërdec (2008), die 26 Menschen tötete und Hunderte verletzte; die SPAK nahm den Fall wieder auf.'],
+    ['A','Die Ermittler behaupten, die Waffenzerlegungsanlage sei illegal betrieben worden, um eine mit der damaligen Machtfamilie verbundene Privatfirma zu begünstigen — unter Umgehung jeder Sicherheitsregel, um den Gewinn aus dem Schießpulververkauf zu maximieren.']]},
+  shkelzenb:{r:'Sohn von Sali Berisha.',i:[
+    ['A','Wiederholt in Zeugenaussagen, US-Diplomatendepeschen und E-Mails als „Schattenregisseur“ hinter den Gërdec-Waffenverträgen und den Waffengeschäften mit amerikanischen Mittelsmännern genannt (die AEY-Affäre im Film War Dogs). Keine dokumentierte Verurteilung.']]},
+  meta:{r:'Ex-Präsident, Ex-Ministerpräsident und Führer der Freiheitspartei; langjähriger Verbündeter und Rivale sowohl Ramas als auch Berishas.',i:[
+    ['F','Spektakulär von der SPAK verhaftet unter schweren Vorwürfen der Korruption, Geldwäsche und Nichtangabe von Vermögen.'],
+    ['A','Die Ermittlungen betreffen mutmaßliche Bestechung im Telekom-Sektor (der Fall CEZ–DIA) und verdeckte Finanzierung von Lobbyarbeit in den USA. Anklagen, keine Urteile.']]}
 };
 
 DOS.t.sv = {
@@ -2167,7 +2330,22 @@ DOS.t.sv = {
   habilaj:{r:'Narkotikaklan från Vlora-området.',i:[
     ['F','Krossad av en italiensk antimaffiaoperation; dess förgreningar nådde inrikesministern, vars privata bil smugglarna använde.']]},
   gjika:{r:'Namn placerat på pyramidens narkonivå av proteströrelsen.',i:[
-    ['A','Nämnd i protestmaterial som påstådd boss vars pengar tvättas in i den lagliga ekonomin. Ingen dom dokumenterad i vårt arkiv; denna post hålls öppen för bevis.']]}
+    ['A','Nämnd i protestmaterial som påstådd boss vars pengar tvättas in i den lagliga ekonomin. Ingen dom dokumenterad i vårt arkiv; denna post hålls öppen för bevis.']]},
+  berisha:{r:'Tidigare president (1992–97) och premiärminister (2005–2013); Demokratiska partiets historiske ledare. Den andra polen av samma kast.',i:[
+    ['F','SPAK har åtalat honom och satt honom under rättslig åtgärd för passiv korruption kring privatiseringen av marken vid den forna sportklubben ”Partizani” i Tirana.'],
+    ['A','Åklagarna hävdar att han som premiärminister ändrade lagar och pressade ministerier för att påskynda affären till familjens fördel. Åtal, inte en slutlig dom.']]},
+  malltezi:{r:'Berishas svärson — den faktiske förmånstagaren i Partizani-affären.',i:[
+    ['F','Gripen av SPAK. Enligt åklagarna förvandlade han, tack vare dekret undertecknade av svärfadern, offentlig sportmark till ett bostadsmegakomplex och håvade in över 5,4 miljoner euro i olaglig vinst.']]},
+  bektashi:{r:'Mäktig byggentreprenör kopplad till Berishas svärson.',i:[
+    ['A','Utreds för aktiv korruption och penningtvätt för att ha byggt bostäderna och skärmat penningflödena i Partizani-affären.']]},
+  mediu:{r:'Tidigare försvarsminister och Berisha-allierad; Republikanska partiets ledare.',i:[
+    ['F','Åtalad för explosionen i ammunitionsdepån i Gërdec (2008) som dödade 26 människor och skadade hundratals; SPAK återupptog fallet.'],
+    ['A','Utredarna hävdar att vapennedmonteringsanläggningen drevs olagligt för att gynna ett privat bolag knutet till dåtidens maktfamilj, med förbigående av alla säkerhetsregler för att maximera vinsten på krutförsäljningen.']]},
+  shkelzenb:{r:'Son till Sali Berisha.',i:[
+    ['A','Upprepade gånger nämnd i vittnesmål, amerikanska diplomatdepescher och e-post som ”skuggregissören” bakom Gërdec-vapenkontrakten och vapenaffärerna med amerikanska mellanhänder (AEY-affären i filmen War Dogs). Ingen dom dokumenterad.']]},
+  meta:{r:'Tidigare president, tidigare premiärminister och Frihetspartiets ledare; sedan länge allierad och rival till både Rama och Berisha.',i:[
+    ['F','Spektakulärt gripen av SPAK under grava anklagelser om korruption, penningtvätt och underlåtenhet att deklarera tillgångar.'],
+    ['A','Utredningarna gäller påstådda mutor inom telekom (fallet CEZ–DIA) och dold finansiering av lobbying i USA. Åtal, inte domar.']]}
 };
 
 DOS.t.el = {
@@ -2223,7 +2401,22 @@ DOS.t.el = {
   habilaj:{r:'Κλαν διακίνησης ναρκωτικών από την περιοχή της Αυλώνας.',i:[
     ['F','Εξαρθρώθηκε από ιταλική επιχείρηση κατά της μαφίας· οι διασυνδέσεις του έφταναν ως τον υπουργό Εσωτερικών, του οποίου το ιδιωτικό αυτοκίνητο χρησιμοποιούσαν οι διακινητές.']]},
   gjika:{r:'Όνομα που το κίνημα διαμαρτυρίας τοποθετεί στο ναρκο-επίπεδο της πυραμίδας.',i:[
-    ['A','Αναφέρεται σε υλικό διαμαρτυρίας ως φερόμενος «boss» του οποίου τα χρήματα ξεπλένονται στη νόμιμη οικονομία. Καμία καταδίκη δεν τεκμηριώνεται στο αρχείο μας· η καρτέλα μένει ανοιχτή για αποδείξεις.']]}
+    ['A','Αναφέρεται σε υλικό διαμαρτυρίας ως φερόμενος «boss» του οποίου τα χρήματα ξεπλένονται στη νόμιμη οικονομία. Καμία καταδίκη δεν τεκμηριώνεται στο αρχείο μας· η καρτέλα μένει ανοιχτή για αποδείξεις.']]},
+  berisha:{r:'Πρώην Πρόεδρος (1992–97) και πρώην πρωθυπουργός (2005–2013)· ιστορικός ηγέτης του Δημοκρατικού Κόμματος. Ο άλλος πόλος της ίδιας κάστας.',i:[
+    ['F','Η SPAK τον κατηγόρησε και τον έθεσε υπό δικαστικό μέτρο για παθητική διαφθορά σχετικά με την ιδιωτικοποίηση της έκτασης του πρώην αθλητικού συλλόγου «Partizani» στα Τίρανα.'],
+    ['A','Οι εισαγγελείς ισχυρίζονται ότι ως πρωθυπουργός άλλαξε νόμους και πίεσε υπουργεία για να επιταχύνει τη συμφωνία προς όφελος της οικογένειάς του. Κατηγορίες, όχι τελεσίδικη απόφαση.']]},
+  malltezi:{r:'Γαμπρός του Μπερίσα — ο ουσιαστικός ωφελημένος της υπόθεσης Partizani.',i:[
+    ['F','Συνελήφθη από τη SPAK. Κατά τους εισαγγελείς, χάρη στα διατάγματα που υπέγραψε ο πεθερός του, μετέτρεψε τη δημόσια αθλητική έκταση σε ένα μεγα-συγκρότημα κατοικιών, καρπωμένος πάνω από 5,4 εκατ. ευρώ παράνομο κέρδος.']]},
+  bektashi:{r:'Ισχυρός εργολάβος κατασκευών συνδεδεμένος με τον γαμπρό του Μπερίσα.',i:[
+    ['A','Ερευνάται για ενεργητική διαφθορά και ξέπλυμα χρήματος επειδή έχτισε τις κατοικίες και συγκάλυψε τις ροές χρήματος στην υπόθεση Partizani.']]},
+  mediu:{r:'Πρώην υπουργός Άμυνας και σύμμαχος του Μπερίσα· ηγέτης του Ρεπουμπλικανικού Κόμματος.',i:[
+    ['F','Δικάζεται για την έκρηξη της αποθήκης πυρομαχικών στο Gërdec (2008) που σκότωσε 26 άτομα και τραυμάτισε εκατοντάδες· η SPAK επανάνοιξε την υπόθεση.'],
+    ['A','Οι ερευνητές ισχυρίζονται ότι η μονάδα αποσυναρμολόγησης όπλων λειτουργούσε παράνομα για να ευνοήσει μια ιδιωτική εταιρεία συνδεδεμένη με την τότε οικογένεια της εξουσίας, παρακάμπτοντας κάθε κανόνα ασφαλείας για να μεγιστοποιήσει τα κέρδη από την πώληση πυρίτιδας.']]},
+  shkelzenb:{r:'Γιος του Σαλί Μπερίσα.',i:[
+    ['A','Αναφέρεται επανειλημμένα σε μαρτυρίες, αμερικανικά διπλωματικά τηλεγραφήματα και email ως ο «σκηνοθέτης στη σκιά» πίσω από τα συμβόλαια όπλων του Gërdec και το εμπόριο όπλων με Αμερικανούς μεσάζοντες (η υπόθεση AEY της ταινίας War Dogs). Καμία καταδίκη δεν τεκμηριώνεται.']]},
+  meta:{r:'Πρώην Πρόεδρος, πρώην πρωθυπουργός και ηγέτης του Κόμματος της Ελευθερίας· επί μακρόν σύμμαχος και αντίπαλος τόσο του Ράμα όσο και του Μπερίσα.',i:[
+    ['F','Συνελήφθη θεαματικά από τη SPAK με βαριές κατηγορίες διαφθοράς, ξεπλύματος χρήματος και μη δήλωσης περιουσίας.'],
+    ['A','Οι έρευνες αφορούν φερόμενες δωροδοκίες στις τηλεπικοινωνίες (η υπόθεση CEZ–DIA) και κρυφή χρηματοδότηση για lobbying στις ΗΠΑ. Κατηγορίες, όχι αποφάσεις.']]}
 };
 
 DOS.t.nl = {
@@ -2279,7 +2472,22 @@ DOS.t.nl = {
   habilaj:{r:'Drugssmokkelclan uit de regio Vlora.',i:[
     ['F','Ontmanteld door een Italiaanse antimaffiaoperatie; zijn vertakkingen reikten tot de minister van Binnenlandse Zaken, wiens privéauto de smokkelaars gebruikten.']]},
   gjika:{r:'Naam die de protestbeweging op het narconiveau van de piramide plaatst.',i:[
-    ['A','Genoemd in protestmateriaal als vermeende baas wiens geld in de legale economie zou worden witgewassen. Geen veroordeling gedocumenteerd in ons archief; dit dossier blijft open voor bewijs.']]}
+    ['A','Genoemd in protestmateriaal als vermeende baas wiens geld in de legale economie zou worden witgewassen. Geen veroordeling gedocumenteerd in ons archief; dit dossier blijft open voor bewijs.']]},
+  berisha:{r:'Voormalig president (1992–97) en premier (2005–2013); historisch leider van de Democratische Partij. De andere pool van dezelfde kaste.',i:[
+    ['F','SPAK heeft hem aangeklaagd en onder een gerechtelijke maatregel geplaatst voor passieve corruptie rond de privatisering van de grond van de voormalige sportclub “Partizani” in Tirana.'],
+    ['A','De aanklagers stellen dat hij als premier wetten wijzigde en ministeries onder druk zette om de deal te versnellen ten gunste van zijn familie. Aanklachten, geen definitief vonnis.']]},
+  malltezi:{r:'Schoonzoon van Berisha — de feitelijke begunstigde van de Partizani-affaire.',i:[
+    ['F','Gearresteerd door SPAK. Volgens de aanklagers veranderde hij, dankzij de door zijn schoonvader ondertekende decreten, publieke sportgrond in een woonmegacomplex en streek hij meer dan 5,4 miljoen euro onwettige winst op.']]},
+  bektashi:{r:'Machtige bouwondernemer verbonden met Berisha’s schoonzoon.',i:[
+    ['A','Onderzocht voor actieve corruptie en witwassen omdat hij de woningen bouwde en de geldstromen in de Partizani-affaire afschermde.']]},
+  mediu:{r:'Voormalig minister van Defensie en bondgenoot van Berisha; leider van de Republikeinse Partij.',i:[
+    ['F','Terechtstaand voor de explosie van het munitiedepot in Gërdec (2008) die 26 doden en honderden gewonden veroorzaakte; SPAK heropende de zaak.'],
+    ['A','De onderzoekers stellen dat de wapenontmantelingsfabriek illegaal werd gerund om een privébedrijf te bevoordelen dat gelinkt was aan de toenmalige machtsfamilie, met omzeiling van elke veiligheidsregel om de winst op de kruitverkoop te maximaliseren.']]},
+  shkelzenb:{r:'Zoon van Sali Berisha.',i:[
+    ['A','Herhaaldelijk genoemd in getuigenissen, Amerikaanse diplomatieke telegrammen en e-mails als de “schaduwregisseur” achter de Gërdec-wapencontracten en de wapenhandel met Amerikaanse tussenpersonen (de AEY-affaire uit de film War Dogs). Geen veroordeling gedocumenteerd.']]},
+  meta:{r:'Voormalig president, voormalig premier en leider van de Vrijheidspartij; al lang bondgenoot en rivaal van zowel Rama als Berisha.',i:[
+    ['F','Spectaculair gearresteerd door SPAK op zware beschuldigingen van corruptie, witwassen en het niet opgeven van vermogen.'],
+    ['A','De onderzoeken betreffen vermeende steekpenningen in telecom (de CEZ–DIA-zaak) en verborgen financiering van lobbywerk in de VS. Aanklachten, geen vonnissen.']]}
 };
 
 DOS.t.es = {
@@ -2335,7 +2543,22 @@ DOS.t.es = {
   habilaj:{r:'Clan de narcotraficantes de la zona de Vlora.',i:[
     ['F','Desmantelado por una operación antimafia italiana; sus ramificaciones llegaban hasta el ministro del Interior, cuyo coche privado usaban los traficantes.']]},
   gjika:{r:'Nombre situado en el nivel narco de la pirámide por el movimiento de protesta.',i:[
-    ['A','Citado en material de protesta como presunto jefe cuyo dinero se blanquearía en la economía legal. Ninguna condena documentada en nuestro archivo; esta ficha queda abierta a las pruebas.']]}
+    ['A','Citado en material de protesta como presunto jefe cuyo dinero se blanquearía en la economía legal. Ninguna condena documentada en nuestro archivo; esta ficha queda abierta a las pruebas.']]},
+  berisha:{r:'Ex presidente (1992–97) y ex primer ministro (2005–2013); líder histórico del Partido Democrático. El otro polo de la misma casta.',i:[
+    ['F','La SPAK lo ha acusado y puesto bajo medida judicial por corrupción pasiva en la privatización de los terrenos del antiguo club deportivo “Partizani” en Tirana.'],
+    ['A','Los fiscales sostienen que como primer ministro cambió leyes y presionó a los ministerios para acelerar el negocio en beneficio de su familia. Cargos, no un veredicto definitivo.']]},
+  malltezi:{r:'Yerno de Berisha — el beneficiario efectivo del caso Partizani.',i:[
+    ['F','Detenido por la SPAK. Según los fiscales, gracias a los decretos firmados por su suegro convirtió terrenos deportivos públicos en un megacomplejo residencial, embolsándose más de 5,4 millones de euros de beneficio ilícito.']]},
+  bektashi:{r:'Poderoso constructor ligado al yerno de Berisha.',i:[
+    ['A','Investigado por corrupción activa y blanqueo por haber construido las viviendas y ocultado los flujos de dinero en el caso Partizani.']]},
+  mediu:{r:'Ex ministro de Defensa y aliado de Berisha; líder del Partido Republicano.',i:[
+    ['F','Procesado por la explosión del depósito de municiones de Gërdec (2008), que causó 26 muertos y cientos de heridos; la SPAK reabrió el caso.'],
+    ['A','Los investigadores sostienen que la planta de desmantelamiento de armas se gestionaba ilegalmente para favorecer a una empresa privada ligada a la familia del poder de entonces, saltándose toda norma de seguridad para maximizar los beneficios de la venta de pólvora.']]},
+  shkelzenb:{r:'Hijo de Sali Berisha.',i:[
+    ['A','Citado repetidamente en testimonios, cables diplomáticos estadounidenses y correos como el “director en la sombra” tras los contratos de armas de Gërdec y la compraventa de armas con intermediarios estadounidenses (el caso AEY de la película War Dogs). Ninguna condena documentada.']]},
+  meta:{r:'Ex presidente, ex primer ministro y líder del Partido de la Libertad; desde hace tiempo aliado y rival tanto de Rama como de Berisha.',i:[
+    ['F','Detenido de forma espectacular por la SPAK bajo graves cargos de corrupción, blanqueo y no declaración de bienes.'],
+    ['A','Las investigaciones se refieren a presuntos sobornos en telecomunicaciones (el caso CEZ–DIA) y financiación oculta para lobby en EE. UU. Cargos, no veredictos.']]}
 };
 
 /* fixed header height → CSS var, so panels always start below the submenu */
@@ -2388,16 +2611,59 @@ function closeDossier(){
   document.body.style.overflow='';
 }
 document.getElementById('dov').addEventListener('click',e=>{ if(e.target.id==='dov') closeDossier(); });
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDossier(); });
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeDossier(); closeBoard(); } });
+
+/* ---------- wall of stories (bacheca) ----------
+   Curated wall: verified stories the movement has published, with consent.
+   New submissions arrive through the author's own email / WhatsApp (below)
+   and are added here after verification. Append entries to STORIES. */
+const STORIES = [
+  // { txt:'…', by:'Anonymous', place:'Vlorë', date:'2026' },
+];
+function renderBoard(){
+  const wall=document.getElementById('board-wall');
+  if(!wall) return;
+  if(!STORIES.length){
+    wall.style.columns='auto';
+    wall.innerHTML='<div class="board-empty">'+dtr('bd_empty')+'</div>';
+    return;
+  }
+  wall.style.columns='';
+  const anon=dtr('bd_anon');
+  wall.innerHTML=STORIES.map(s=>{
+    const by=s.by||anon;
+    const meta=[by, s.place, s.date].filter(Boolean);
+    return '<div class="story"><div class="stxt"></div><div class="smeta"><b>'+esc(by)+'</b>'+
+      (s.place?' · '+esc(s.place):'')+(s.date?' · '+esc(s.date):'')+'</div></div>';
+  }).join('');
+  // fill text safely (avoid HTML injection from stored stories)
+  const cards=wall.querySelectorAll('.story .stxt');
+  STORIES.forEach((s,idx)=>{ if(cards[idx]) cards[idx].textContent=s.txt; });
+}
+function openBoard(){
+  renderBoard();
+  const ov=document.getElementById('board');
+  ov.classList.add('open');
+  ov.scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+function closeBoard(){
+  const ov=document.getElementById('board');
+  if(ov) ov.classList.remove('open');
+  if(!OPEN_DOS) document.body.style.overflow='';
+}
+document.getElementById('board').addEventListener('click',e=>{ if(e.target.id==='board') closeBoard(); });
 
 /* diary of the base: composed client-side, sent through the user's own channel */
 function sendStory(via){
   const name=document.getElementById('dy-name').value.trim();
+  const city=document.getElementById('dy-city').value.trim();
   const msg=document.getElementById('dy-msg').value.trim();
   if(!msg){document.getElementById('dy-msg').focus();return}
-  const txt=(name?name+'\n\n':'')+msg;
+  const head=[name,city].filter(Boolean).join(' — ');
+  const txt=(head?head+'\n\n':'')+msg;
   if(via==='mail'){
-    location.href='mailto:h8db0y@protonmail.com?subject='+encodeURIComponent('Diary — Pyramid, voice from the base')+'&body='+encodeURIComponent(txt);
+    location.href='mailto:h8db0y@protonmail.com?subject='+encodeURIComponent('Wall of the base — a story')+'&body='+encodeURIComponent(txt);
   }else{
     window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank','noopener');
   }
