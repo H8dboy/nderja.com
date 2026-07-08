@@ -67,8 +67,12 @@
   .art-card:hover{border-color:var(--green)}
   .art-card img{width:100%;height:170px;object-fit:cover;display:block}
   .art-card .ac-body{padding:1.1rem 1.2rem 1.3rem}
+  .art-card.noimg .ac-body{padding:1.5rem 1.3rem 1.4rem;border-top:2px solid var(--green)}
+  .art-card .ac-kick{font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--green);margin-bottom:.7rem}
   .art-card h3{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--text);font-weight:500;line-height:1.3;margin-bottom:.6rem}
   .art-card .ac-by{font-size:.78rem;color:var(--muted);letter-spacing:.05em}
+  .post .akick{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--green);margin-bottom:1rem}
+  .post .lead{font-size:1.1rem;color:var(--text);border-left:2px solid var(--green);padding-left:1.2rem;margin-bottom:1.6rem}
   .artview .btn{font-size:.72rem;letter-spacing:.15em;padding:.55rem 1rem;margin-top:2rem;cursor:pointer;background:none;font-family:var(--sans)}
 
   /* ---------- flamingo submenu ---------- */
@@ -542,6 +546,41 @@
             <div class="ac-by">Erjon Vorfa</div>
           </div>
         </div>
+        <div class="art-card noimg" data-art="2">
+          <div class="ac-body">
+            <div class="ac-kick">Korrupsion</div>
+            <h3>Kasta që vjedh shtetin: nga Ballshi te Partizani</h3>
+            <div class="ac-by">h8db0y</div>
+          </div>
+        </div>
+        <div class="art-card noimg" data-art="3">
+          <div class="ac-body">
+            <div class="ac-kick">Sovraniteti</div>
+            <h3>Evropa që shikon gjetiu: prioritetet e gabuara të Brukselit</h3>
+            <div class="ac-by">h8db0y</div>
+          </div>
+        </div>
+        <div class="art-card noimg" data-art="4">
+          <div class="ac-body">
+            <div class="ac-kick">Migracioni</div>
+            <h3>Depoja e Evropës: qendrat italiane në Shëngjin e Gjadër</h3>
+            <div class="ac-by">h8db0y</div>
+          </div>
+        </div>
+        <div class="art-card noimg" data-art="5">
+          <div class="ac-body">
+            <div class="ac-kick">Gjeopolitika</div>
+            <h3>Muxhahedinët në Durrës: strehë për problemet e të tjerëve</h3>
+            <div class="ac-by">h8db0y</div>
+          </div>
+        </div>
+        <div class="art-card noimg" data-art="6">
+          <div class="ac-body">
+            <div class="ac-kick">Krimi</div>
+            <h3>Droga që lan paratë te betoni i shtetit</h3>
+            <div class="ac-by">h8db0y</div>
+          </div>
+        </div>
       </div>
       <div class="artview" id="art-1" style="display:none">
         <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
@@ -596,6 +635,79 @@
           <p>Te dy popujt shohin sesi borgjezia vendase, vjedh pronat publike ne bashkepunim me borgjezine perendimore. Dhe te dy popujt, si shqiptaret ashtu edhe tunizianet arratisen nga vendet e tyre dhe perfundojne si refugjate rrugeve te Evropes.</p>
           <p>Por tunizianet e cliruan veten e tyre gjate Pranveres Arabe. Shqiptaret, akoma!</p>
           <p class="byline">Erjon Vorfa</p>
+        </article>
+      </div>
+
+      <div class="artview" id="art-2" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
+          <div class="akick">Korrupsion</div>
+          <h4>Kasta që vjedh shtetin: nga Ballshi te Partizani</h4>
+          <p class="lead">Reforma në drejtësi dhe SPAK-u zbuluan një vazo Pandore. Lista e emrave të prekur — mes arrestimesh, arratisjesh e sekuestrosh — është e gjatë dhe prek të dyja anët politike. Sepse nuk janë dy botë: është një kastë e vetme, me dy ngjyra.</p>
+          <p>Në krahun e Edi Ramës, goditja ka qenë e rëndë. <strong>Belinda Balluku</strong>, dora e djathtë e kryeministrit, u akuzua nga SPAK për manipulim tenderësh milionësh dhe u largua nga qeveria në shkurt 2026. Kur në mars shumica socialiste në Kuvend bllokoi kërkesën për t'i hequr imunitetin dhe për ta arrestuar, sheshet u mbushën: kjo ishte shkëndija e Revolucionit Flamingo.</p>
+          <p><strong>Erion Veliaj</strong>, kryebashkiaku i Tiranës, hetohet për dosjen "5D Construction" — një shoqëri e fshehtë private, sipas akuzës, e krijuar për t'i vetëdhënë tenderë bashkiakë. <strong>Arben Ahmetaj</strong>, ish-zëvendëskryeministër, u arratis nga vendi para heqjes së imunitetit në aferën e inceneratorëve, ku dhjetëra milionë euro publike u paguan për impiante që s'u përfunduan kurrë. <strong>Saimir Tahiri</strong> u dënua për shpërdorim detyre pas hetimit italian ndaj klanit Habilaj.</p>
+          <p>Por krahu tjetër nuk është më i pastër. <strong>Sali Berisha</strong> është nën masë sigurie për privatizimin e tokës së "Partizanit"; dhëndri i tij <strong>Jamarbër Malltezi</strong> u arrestua si përfituesi faktik, me mbi 5,4 milionë euro fitim të pretenduar. <strong>Fatmir Mediu</strong> gjykohet për tragjedinë e Gërdecit (2008), me 26 të vdekur. <strong>Ilir Meta</strong>, ish-President, u arrestua për korrupsion dhe pastrim parash.</p>
+          <p>Ndërkohë, vetting-u largoi gati 47% të gjyqtarëve dhe prokurorëve — figura që s'i shpjegonin dot vilat, apartamentet dhe llogaritë jashtë. Kjo është përmasa e vjedhjes: jo disa mollë të kalbura, por një sistem.</p>
+          <p>Të jemi të saktë: pjesa më e madhe janë akuza, jo vendime të formës së prerë. Por emrat, datat dhe firmat janë në dokumente publike. Ne i mbledhim, i emërtojmë dhe i lidhim mes tyre te <strong>Piramida</strong> — që kushdo t'i verifikojë. Prezumimi i pafajësisë vlen për secilin deri në fund.</p>
+          <div class="srcnote">Burime: SPAK · Reporter.al / BIRN · BalkanWeb · dosjet e Piramidës në këtë faqe.</div>
+          <p class="byline">h8db0y</p>
+        </article>
+      </div>
+
+      <div class="artview" id="art-3" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
+          <div class="akick">Sovraniteti</div>
+          <h4>Evropa që shikon gjetiu: prioritetet e gabuara të Brukselit</h4>
+          <p class="lead">Brukseli flet për "vlera" dhe "shtet ligjor". Por kur bregdeti shqiptar shitet me copa, kur drejtësia kapet nga politika dhe kur 40–50 mijë të rinj ikin çdo vit, zëri i Evropës bëhet pëshpëritje. Ka energji për disa dosje; për një demokraci që zbrazet nga brenda, vetëm shqetësim retorik.</p>
+          <p>Kushtëzimi europian di të jetë këmbëngulës kur do. Ai ngul këmbë te dosje të caktuara sociale — për shembull ligji për njohjen dhe ndryshimin ligjor të gjinisë — dhe i kthen në kusht integrimi. Por një bregdet i mbrojtur që kalon te resortet e huaja, një rafineri e shitur për skrap, një Kuvend që mbron ministrat nga arrestimi: këto nuk hyjnë me të njëjtën ngut në axhendë.</p>
+          <p>Le të jemi të qartë, që të mos na keqkuptojnë: nuk jemi kundër të drejtave të askujt. Pyetja jonë nuk është "kush", por "çfarë vjen e para". Kur një popull po grabitet dhe po ikën, radha e urgjencave ka rëndësi. Një dosje mund të presë; një shtet që kapet nga oligarkët dhe kartelet, jo. Kjo është çështje prioritetesh, jo armiqësie.</p>
+          <p>Pse ndodh kjo? Sepse Evropa e do Edi Ramën si "partner stabiliteti" — partner për ndalimin e migracionit, për siguri, për gjeopolitikë. Por stabiliteti i kujt? I një sistemi që prodhon pikërisht migracionin që Brukseli kërkon të ndalojë. Elita merr kredinë diplomatike; populli merr faturën.</p>
+          <p>Nderja nuk kërkon që Evropa të na shpëtojë. Kërkon vetëm që të mos na gënjejë: ose vlerat vlejnë për të gjithë e për gjithçka, ose janë thjesht një mjet për të mbajtur në këmbë atë që i intereson. Sovraniteti nuk dhurohet nga jashtë — ndërtohet nga brenda. Prandaj ne ndërtojmë.</p>
+          <div class="srcnote">Burime: dosja "Albania for Sale" (korrik 2026) · vendime të KKT/VKM · raportime Shqiptarja.com, Shteg.org.</div>
+          <p class="byline">h8db0y</p>
+        </article>
+      </div>
+
+      <div class="artview" id="art-4" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
+          <div class="akick">Migracioni</div>
+          <h4>Depoja e Evropës: qendrat italiane në Shëngjin e Gjadër</h4>
+          <p class="lead">Italia i eksportoi qendrat e saj të ndalimit të migrantëve në tokë shqiptare — në Shëngjin dhe Gjadër. Një shtet i Bashkimit Europian e zhvendos një problem të vetin përtej kufirit, te një vend që s'është as anëtar. Pse? Sepse Shqipëria pranon atë që të tjerët refuzojnë.</p>
+          <p>Skema është gjithmonë e njëjta: një ekzekutiv i centralizuar që vendos shpejt, tokë e lirë dhe një klasë politike që kërkon legjitimitet ndërkombëtar. Roma merr një zgjidhje politike të brendshme; Edi Rama merr një foto krah një kryeministreje europiane; njerëzit e mbajtur në ato qendra marrin një kufi juridik ku të drejtat janë të paqarta.</p>
+          <p>Kjo nuk është një ngjarje e izoluar. Është pjesë e një modeli. Të njëjtin vit, një zonë e mbrojtur pranë Vlorës — Zvërneci — u hap për një resort me kapital të huaj. Dhe prej vitesh, pranë Durrësit, strehohet një kamp i disidentëve iranianë të MEK-ut, i vendosur atje me kërkesë të Uashingtonit. Shqipëria po kthehet në depon ku Perëndimi lë atë që nuk do ta mbajë në shtëpinë e vet.</p>
+          <p>Territori jepet; krediti diplomatik mblidhet nga elita; populli merr shumë pak. Një komb që importon problemet e të tjerëve dhe eksporton bijtë e vet nuk po zhvillohet — po tregtohet. Sovraniteti nis me një fjalë të thjeshtë: jo.</p>
+          <div class="srcnote">Burime: dosja "Albania for Sale" (korrik 2026) · raportime mbi qendrat Shëngjin/Gjadër.</div>
+          <p class="byline">h8db0y</p>
+        </article>
+      </div>
+
+      <div class="artview" id="art-5" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
+          <div class="akick">Gjeopolitika</div>
+          <h4>Muxhahedinët në Durrës: strehë për problemet e të tjerëve</h4>
+          <p class="lead">Pranë Durrësit ndodhet një nga kampet më të mëdha të MEK-ut, organizatës së disidentëve iranianë. Ata u vendosën në tokë shqiptare me kërkesë të Uashingtonit — jo sepse Shqipëria kishte ndonjë interes, por sepse dikush tjetër kishte një problem për ta hequr qafe.</p>
+          <p>Kampi jeton i mbyllur, i izoluar nga vendi që e pret. Sjell me vete rreziqe sigurie, tensione diplomatike me Teheranin dhe një pyetje të thjeshtë që askush në pushtet nuk ia thotë popullit: pse ne? Përgjigjja është gjithnjë e njëjta — sepse elita jonë ofron territorin në këmbim të një përqafimi nga fuqitë e mëdha.</p>
+          <p>Ky është i njëjti mekanizëm që sheh bregdetin të shitet dhe qendrat e migrantëve të importohen: Shqipëria si terren, jo si komb. NATO-ja dhe aleatët gjejnë te ne fleksibilitetin që s'e gjejnë gjetiu; qeveria gjen legjitimitetin që s'e fiton dot te populli i vet.</p>
+          <p>Nderja nuk është kundër aleancave. Është kundër shitjes së vendit copë-copë në këmbën e tyre, pa e pyetur kurrë pronarin e vërtetë — qytetarin. Një popull sovran vendos vetë se çfarë strehon në shtëpinë e vet. Ne akoma nuk vendosim.</p>
+          <div class="srcnote">Burime: dosja "Albania for Sale" (korrik 2026) · dokumentim publik mbi rivendosjen e MEK-ut pranë Durrësit.</div>
+          <p class="byline">h8db0y</p>
+        </article>
+      </div>
+
+      <div class="artview" id="art-6" style="display:none">
+        <button class="btn" data-i="ar_back" onclick="closeArticle()">← Back to articles</button>
+        <article class="post" style="border-top:none;padding-top:.5rem">
+          <div class="akick">Krimi</div>
+          <h4>Droga që lan paratë te betoni i shtetit</h4>
+          <p class="lead">Deshifrimi i telefonave të koduar — SKY ECC dhe EncroChat — shkaktoi një tërmet. Doli se drejtues të lartë të Policisë së Shtetit dhe prokurorë ishin në listëpagesat e karteleve të drogës të Elbasanit, Shkodrës dhe Vlorës. Kjo nuk është krim organizuar përballë shtetit; është krim i organizuar brenda shtetit.</p>
+          <p>Sipas komunikimeve të deshifruara, të kaluara SPAK-ut nga prokuroritë belge, franceze e holandeze, këta zyrtarë rrjedhnin plane operacionesh, planifikonin prita bashkë me të arratisurit dhe ndihmonin që paratë e drogës të laheshin te ndërtimi. Pikërisht te betoni — sektori ku derdhet edhe paraja publike, te kompanitë e lidhura me pushtetin.</p>
+          <p>Kështu mbyllet rrethi. Nga njëra anë, paraja e pistë e narkotrafikut hyn e pastruar te kullat e reja. Nga tjetra, paraja publike shkon te po ata ndërtues. Në mes rri një klasë zyrtarësh që mbron trafikun në këmbë të një pjese. Rasti i Saimir Tahirit — makina private e të cilit përdorej nga klani Habilaj — nuk ishte përjashtim; ishte simptomë.</p>
+          <p>Narko-aristokracia nuk është nëntokë. Është e integruar: makina diplomatike, biznese ligjore, njerëz "të respektuar". Ndaj te Piramida ne e vendosim aty ku e ka vendin — jo poshtë shoqërisë, por brenda saj, të lidhur me pushtetin. Ku mbaron shteti dhe nis krimi? Shpesh, në të njëjtën zyrë.</p>
+          <div class="srcnote">Burime: hetimet SKY ECC / EncroChat · SPAK · raportime mbi klanin Habilaj dhe çështjen Tahiri.</div>
+          <p class="byline">h8db0y</p>
         </article>
       </div>
     </div>
