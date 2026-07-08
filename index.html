@@ -89,13 +89,20 @@
   /* ---------- map (Harta) ---------- */
   #map{height:min(66vh,560px);border:1px solid var(--line);margin-top:1.6rem;background:var(--panel)}
   .leaflet-container{background:var(--panel);font-family:var(--sans)}
+  .mapstep{font-size:.72rem;letter-spacing:.28em;color:var(--green);text-transform:uppercase;margin-top:2.2rem;display:flex;align-items:baseline;gap:.6rem}
+  .mapstep b{display:inline-flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border:1px solid var(--green);border-radius:50%;font-size:.8rem;flex:none}
+  .stephint{font-size:.85rem;color:var(--muted);margin-top:.5rem;letter-spacing:0;text-transform:none}
   .mapwho{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-top:2.2rem}
   .figs{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
   .fig{display:flex;align-items:center;gap:.8rem;background:var(--panel);border:1px solid var(--line);padding:.6rem .9rem;cursor:pointer;transition:.25s}
   .fig:hover{border-color:var(--green-dim)}
   .fig.sel{border-color:var(--green)}
-  .fig img,.fig .fava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);flex:none}
+  .fig .favawrap{position:relative;flex:none;width:44px;height:44px}
+  .fig img,.fig .fava{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--line);display:block}
   .fig .fava{display:flex;align-items:center;justify-content:center;color:var(--green);font-weight:700;font-size:1.1rem}
+  .fig .addphoto{position:absolute;right:-4px;bottom:-4px;width:20px;height:20px;border-radius:50%;background:var(--green);
+    color:var(--bg);border:none;cursor:pointer;font-size:.7rem;line-height:20px;text-align:center;padding:0;box-shadow:0 0 0 2px var(--panel)}
+  .fig .addphoto:hover{filter:brightness(1.15)}
   .fig .fname{font-size:.9rem;color:var(--text)}
   .fig .fth{display:flex;gap:.4rem;margin-top:.3rem}
   .fig button.th{background:none;border:1px solid var(--line);color:var(--muted);font-family:var(--sans);
@@ -821,20 +828,27 @@
       <div class="eyebrow" data-i="nw_eyebrow">The fight</div>
       <h2 data-i="mp_t">Map</h2>
       <p data-i="mp_intro">The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.</p>
-      <p class="mapnote" data-i="mp_note">1. Choose a figure · 2. Write your city · 3. Click your spot on the map.</p>
-      <div class="mapwho" data-i="mp_who">Who do you want?</div>
+
+      <div class="mapstep"><b>1</b><span data-i="mp_step1">Give a thumb — up if you love them, down if you hate them</span></div>
+      <p class="stephint" data-i="mp_step1h">Tap 👍 or 👎 on a person. The map will colour that person's zones green or red.</p>
       <div class="figs" id="figs"></div>
+      <div class="mapform" style="margin-top:1rem">
+        <input id="mp-newfig" maxlength="40" placeholder="Add someone else…" data-i-ph="mp_newfig">
+        <button class="btn" id="mp-addfig" data-i="mp_addfig">Add</button>
+      </div>
+
+      <div class="mapstep"><b>2</b><span data-i="mp_step2">Find your city or area</span></div>
+      <p class="stephint" data-i="mp_step2h">Search and pick it from the list, or click your spot on the map.</p>
       <div class="mapform">
         <span class="searchwrap">
           <input id="mp-city" maxlength="40" placeholder="Search your city or area" data-i-ph="mp_city" autocomplete="off">
           <div class="sugg" id="mp-sugg"></div>
         </span>
-        <input id="mp-newfig" maxlength="40" placeholder="Another name…" data-i-ph="mp_newfig">
-        <button class="btn" id="mp-addfig" data-i="mp_addfig">Add</button>
       </div>
       <div id="map"></div>
       <p class="mapnote" data-i="mp_leg">Green = loved · Red = hated.</p>
       <p class="mapnote" id="mp-status"></p>
+      <input type="file" id="mp-photofile" accept="image/*" style="display:none">
     </div>
   </section>
   </div>
@@ -912,8 +926,15 @@ const T = {
     mp_note:'1. Thumb a figure up or down · 2. Search your city or area and pick it from the list · 3. Or click your spot on the map.',
     mp_who:'Who do you want?',
     mp_city:'Search your city or area',
-    mp_newfig:'Another name…',
+    mp_newfig:'Add someone else…',
     mp_addfig:'Add',
+    mp_step1:'Give a thumb — up if you love them, down if you hate them',
+    mp_step1h:'Tap 👍 or 👎 on a person. The map colours that person\u2019s zones green or red.',
+    mp_step2:'Find your city or area',
+    mp_step2h:'Search and pick it from the list, or click your spot on the map.',
+    mp_photo:'Add a photo',
+    mp_photoup:'Uploading photo…',
+    mp_photoerr:'Could not add the photo.',
     ar_back:'← Back to articles',
     mp_offline:'The shared map is not active yet — pins cannot be saved right now.',
     mp_pick:'First give a figure a thumb up or down.',
@@ -1035,8 +1056,15 @@ const T = {
     mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Kërko qytetin a zonën tënde dhe zgjidhe nga lista · 3. Ose kliko vendin tënd në hartë.',
     mp_who:'Kë do ti?',
     mp_city:'Kërko qytetin a zonën tënde',
-    mp_newfig:'Një emër tjetër…',
+    mp_newfig:'Shto dikë tjetër…',
     mp_addfig:'Shto',
+    mp_step1:'Jep një gisht — lart nëse e do, poshtë nëse e urren',
+    mp_step1h:'Prek 👍 ose 👎 te një person. Harta i ngjyros zonat e tij jeshile ose të kuqe.',
+    mp_step2:'Gjej qytetin a zonën tënde',
+    mp_step2h:'Kërko dhe zgjidhe nga lista, ose kliko vendin tënd në hartë.',
+    mp_photo:'Shto një foto',
+    mp_photoup:'Po ngarkohet fotoja…',
+    mp_photoerr:'Fotoja nuk u shtua.',
     ar_back:'← Kthehu te artikujt',
     mp_offline:'Harta e përbashkët nuk është ende aktive — gjilpërat nuk mund të ruhen tani.',
     mp_pick:'Jepi më parë një figure pëlqim ose mospëlqim.',
@@ -1158,8 +1186,15 @@ const T = {
     mp_note:'1. Metti pollice su o giù a una figura · 2. Cerca la tua città o zona e scegli dalla lista · 3. Oppure clicca il tuo punto sulla mappa.',
     mp_who:'Chi vuoi?',
     mp_city:'Cerca la tua città o zona',
-    mp_newfig:'Un altro nome…',
+    mp_newfig:'Aggiungi qualcun altro…',
     mp_addfig:'Aggiungi',
+    mp_step1:'Metti un pollice — su se lo ami, giù se lo odi',
+    mp_step1h:'Tocca 👍 o 👎 su una persona. La mappa colora le sue zone di verde o rosso.',
+    mp_step2:'Trova la tua città o zona',
+    mp_step2h:'Cerca e scegli dalla lista, oppure clicca il tuo punto sulla mappa.',
+    mp_photo:'Aggiungi una foto',
+    mp_photoup:'Caricamento foto…',
+    mp_photoerr:'Non è stato possibile aggiungere la foto.',
     ar_back:'← Torna agli articoli',
     mp_offline:'La mappa condivisa non è ancora attiva — per ora i pin non vengono salvati.',
     mp_pick:'Prima metti un pollice a una figura.',
@@ -1281,8 +1316,15 @@ const T = {
     mp_note:'1. Pouce haut ou bas pour une figure · 2. Cherche ta ville ou ta zone et choisis dans la liste · 3. Ou clique ton endroit sur la carte.',
     mp_who:'Qui veux-tu ?',
     mp_city:'Cherche ta ville ou ta zone',
-    mp_newfig:'Un autre nom…',
+    mp_newfig:'Ajouter quelqu\u2019un…',
     mp_addfig:'Ajouter',
+    mp_step1:'Donne un pouce — haut si tu l\u2019aimes, bas si tu le détestes',
+    mp_step1h:'Touche 👍 ou 👎 sur une personne. La carte colore ses zones en vert ou rouge.',
+    mp_step2:'Trouve ta ville ou ta zone',
+    mp_step2h:'Cherche et choisis dans la liste, ou clique ton endroit sur la carte.',
+    mp_photo:'Ajouter une photo',
+    mp_photoup:'Envoi de la photo…',
+    mp_photoerr:'Impossible d\u2019ajouter la photo.',
     ar_back:'← Retour aux articles',
     mp_offline:'La carte partagée n’est pas encore active — les épingles ne peuvent pas être enregistrées pour l’instant.',
     mp_pick:'Donne d’abord un pouce à une figure.',
@@ -1404,8 +1446,15 @@ const T = {
     mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Such deine Stadt oder Gegend und wähl aus der Liste · 3. Oder klicke deinen Ort auf der Karte.',
     mp_who:'Wen willst du?',
     mp_city:'Such deine Stadt oder Gegend',
-    mp_newfig:'Ein anderer Name…',
+    mp_newfig:'Jemanden hinzufügen…',
     mp_addfig:'Hinzufügen',
+    mp_step1:'Gib einen Daumen — hoch wenn du sie liebst, runter wenn du sie hasst',
+    mp_step1h:'Tippe 👍 oder 👎 auf eine Person. Die Karte färbt ihre Zonen grün oder rot.',
+    mp_step2:'Finde deine Stadt oder Gegend',
+    mp_step2h:'Suche und wähl aus der Liste, oder klicke deinen Ort auf der Karte.',
+    mp_photo:'Ein Foto hinzufügen',
+    mp_photoup:'Foto wird hochgeladen…',
+    mp_photoerr:'Foto konnte nicht hinzugefügt werden.',
     ar_back:'← Zurück zu den Artikeln',
     mp_offline:'Die gemeinsame Karte ist noch nicht aktiv — Pins können gerade nicht gespeichert werden.',
     mp_pick:'Gib zuerst einer Figur einen Daumen.',
@@ -1527,8 +1576,15 @@ const T = {
     mp_note:'1. Tumme upp eller ner för en figur · 2. Sök din stad eller ditt område och välj från listan · 3. Eller klicka på din plats på kartan.',
     mp_who:'Vem vill du ha?',
     mp_city:'Sök din stad eller ditt område',
-    mp_newfig:'Ett annat namn…',
+    mp_newfig:'Lägg till någon annan…',
     mp_addfig:'Lägg till',
+    mp_step1:'Ge en tumme — upp om du älskar dem, ner om du hatar dem',
+    mp_step1h:'Tryck 👍 eller 👎 på en person. Kartan färgar deras områden gröna eller röda.',
+    mp_step2:'Hitta din stad eller ditt område',
+    mp_step2h:'Sök och välj från listan, eller klicka på din plats på kartan.',
+    mp_photo:'Lägg till ett foto',
+    mp_photoup:'Laddar upp foto…',
+    mp_photoerr:'Kunde inte lägga till fotot.',
     ar_back:'← Tillbaka till artiklarna',
     mp_offline:'Den delade kartan är inte aktiv ännu — nålar kan inte sparas just nu.',
     mp_pick:'Ge först en figur en tumme.',
@@ -1650,8 +1706,15 @@ const T = {
     mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Αναζήτησε την πόλη σου και διάλεξε από τη λίστα · 3. Ή κάνε κλικ στο σημείο σου στον χάρτη.',
     mp_who:'Ποιον θέλεις;',
     mp_city:'Αναζήτησε την πόλη ή την περιοχή σου',
-    mp_newfig:'Άλλο όνομα…',
+    mp_newfig:'Πρόσθεσε κάποιον άλλον…',
     mp_addfig:'Πρόσθεσε',
+    mp_step1:'Δώσε αντίχειρα — πάνω αν τον αγαπάς, κάτω αν τον μισείς',
+    mp_step1h:'Πάτα 👍 ή 👎 σε ένα πρόσωπο. Ο χάρτης χρωματίζει τις ζώνες του πράσινες ή κόκκινες.',
+    mp_step2:'Βρες την πόλη ή την περιοχή σου',
+    mp_step2h:'Αναζήτησε και διάλεξε από τη λίστα, ή κάνε κλικ στο σημείο σου στον χάρτη.',
+    mp_photo:'Πρόσθεσε φωτογραφία',
+    mp_photoup:'Μεταφόρτωση φωτογραφίας…',
+    mp_photoerr:'Δεν μπόρεσε να προστεθεί η φωτογραφία.',
     ar_back:'← Πίσω στα άρθρα',
     mp_offline:'Ο κοινός χάρτης δεν είναι ακόμη ενεργός — οι πινέζες δεν αποθηκεύονται προς το παρόν.',
     mp_pick:'Δώσε πρώτα αντίχειρα σε μια φιγούρα.',
@@ -1833,8 +1896,15 @@ const T = {
     mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Zoek je stad of streek en kies uit de lijst · 3. Of klik op jouw plek op de kaart.',
     mp_who:'Wie wil je?',
     mp_city:'Zoek je stad of streek',
-    mp_newfig:'Een andere naam…',
+    mp_newfig:'Voeg iemand anders toe…',
     mp_addfig:'Toevoegen',
+    mp_step1:'Geef een duim — omhoog als je van ze houdt, omlaag als je ze haat',
+    mp_step1h:'Tik 👍 of 👎 op een persoon. De kaart kleurt hun zones groen of rood.',
+    mp_step2:'Zoek je stad of streek',
+    mp_step2h:'Zoek en kies uit de lijst, of klik op jouw plek op de kaart.',
+    mp_photo:'Voeg een foto toe',
+    mp_photoup:'Foto uploaden…',
+    mp_photoerr:'Kon de foto niet toevoegen.',
     ar_back:'← Terug naar artikelen',
     mp_offline:'De gedeelde kaart is nog niet actief — spelden kunnen nu niet worden opgeslagen.',
     mp_pick:'Geef eerst een figuur een duim.',
@@ -1968,8 +2038,15 @@ const T = {
     mp_note:'1. Pulgar arriba o abajo a una figura · 2. Busca tu ciudad o zona y elígela de la lista · 3. O haz clic en tu lugar del mapa.',
     mp_who:'¿A quién quieres?',
     mp_city:'Busca tu ciudad o zona',
-    mp_newfig:'Otro nombre…',
+    mp_newfig:'Añade a alguien más…',
     mp_addfig:'Añadir',
+    mp_step1:'Da un pulgar — arriba si lo amas, abajo si lo odias',
+    mp_step1h:'Toca 👍 o 👎 en una persona. El mapa colorea sus zonas de verde o rojo.',
+    mp_step2:'Busca tu ciudad o zona',
+    mp_step2h:'Busca y elígela de la lista, o haz clic en tu lugar del mapa.',
+    mp_photo:'Añade una foto',
+    mp_photoup:'Subiendo foto…',
+    mp_photoerr:'No se pudo añadir la foto.',
     ar_back:'← Volver a los artículos',
     mp_offline:'El mapa compartido aún no está activo — por ahora los pines no se guardan.',
     mp_pick:'Primero dale un pulgar a una figura.',
@@ -2911,7 +2988,9 @@ function renderFigs(){
     const dn=MPINS.filter(p=>p.figure_id===f.id&&p.vote<0).length;
     const d=document.createElement('div');
     d.className='fig'+(selFig===f.id?' sel':'');
-    d.innerHTML=(f.photo?'<img src="'+esc(f.photo)+'" alt="">':'<span class="fava">'+esc((f.name.trim()[0]||'?').toUpperCase())+'</span>')
+    const avatar=f.photo?'<img src="'+esc(f.photo)+'" alt="">':'<span class="fava">'+esc((f.name.trim()[0]||'?').toUpperCase())+'</span>';
+    const badge=f.photo?'':'<button class="addphoto" title="'+esc(tr('mp_photo'))+'" aria-label="'+esc(tr('mp_photo'))+'">&#43;</button>';
+    d.innerHTML='<span class="favawrap">'+avatar+badge+'</span>'
       +'<span><span class="fname">'+esc(f.name)+'</span><span class="fth">'
       +'<button class="th'+(selFig===f.id&&selVote>0?' sel-up':'')+'" data-v="1">&#128077; '+up+'</button>'
       +'<button class="th'+(selFig===f.id&&selVote<0?' sel-dn':'')+'" data-v="-1">&#128078; '+dn+'</button>'
@@ -2921,6 +3000,8 @@ function renderFigs(){
       selFig=f.id; selVote=Number(b.dataset.v);
       renderFigs(); renderPins(); mpStatus('');
     }));
+    const ap=d.querySelector('.addphoto');
+    if(ap) ap.addEventListener('click',ev=>{ ev.stopPropagation(); photoTarget=f.id; document.getElementById('mp-photofile').click(); });
     box.appendChild(d);
   });
 }
@@ -2983,6 +3064,39 @@ document.getElementById('mp-addfig').addEventListener('click',async()=>{
     if(!MFIGS.find(x=>x.id===f.id)) MFIGS.push(f);
     selFig=f.id; selVote=0; inp.value=''; renderFigs(); renderPins();
   }catch(e){ mpStatus(tr('mp_offline')); }
+});
+
+/* photo upload for a figure that has none — anyone can add it */
+let photoTarget=null;
+function resizePhoto(file){
+  return new Promise((res,rej)=>{
+    const img=new Image();
+    img.onload=()=>{
+      const S=200, c=document.createElement('canvas'); c.width=S; c.height=S;
+      const g=c.getContext('2d');
+      const side=Math.min(img.width,img.height);
+      g.drawImage(img,(img.width-side)/2,(img.height-side)/2,side,side,0,0,S,S);
+      res(c.toDataURL('image/jpeg',0.72));
+    };
+    img.onerror=rej;
+    img.src=URL.createObjectURL(file);
+  });
+}
+document.getElementById('mp-photofile').addEventListener('change',async ev=>{
+  const file=ev.target.files&&ev.target.files[0]; ev.target.value='';
+  if(!file||photoTarget==null) return;
+  if(!apiOK){ mpStatus(tr('mp_offline')); return; }
+  mpStatus(tr('mp_photoup'));
+  try{
+    const dataUrl=await resizePhoto(file);
+    const r=await fetch('/api/figures/photo',{method:'POST',headers:{'content-type':'application/json'},
+      body:JSON.stringify({id:photoTarget,photo:dataUrl})});
+    if(!r.ok) throw 0;
+    const f=await r.json();
+    const t=MFIGS.find(x=>x.id===f.id); if(t) t.photo=f.photo;
+    renderFigs(); mpStatus('');
+  }catch(e){ mpStatus(tr('mp_photoerr')); }
+  photoTarget=null;
 });
 
 /* article cards */

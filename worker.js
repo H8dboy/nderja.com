@@ -54,5 +54,19 @@ async function api(req, env, url) {
     return ok({ id: r.meta.last_row_id, name, photo: null });
   }
 
+  if (url.pathname === '/api/figures/photo' && req.method === 'POST') {
+    const b = await req.json().catch(() => null);
+    if (!b) return bad('bad json');
+    const fid = Number(b.id);
+    const photo = String(b.photo || '');
+    if (!/^data:image\/(png|jpeg|webp);base64,/.test(photo)) return bad('photo must be an image data url');
+    if (photo.length > 90000) return bad('image too large');
+    const fig = await db.prepare('SELECT id,name,photo FROM figures WHERE id=?').bind(fid).first();
+    if (!fig) return bad('unknown figure');
+    if (fig.photo) return bad('figure already has a photo', 409);
+    await db.prepare('UPDATE figures SET photo=? WHERE id=?').bind(photo, fid).run();
+    return ok({ id: fid, name: fig.name, photo });
+  }
+
   return bad('not found', 404);
 }
