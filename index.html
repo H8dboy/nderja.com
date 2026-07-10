@@ -386,6 +386,11 @@
       <p data-i="or_p1">Nderja did not begin as a manifesto. It began as work — years of building, alone, with no one watching.</p>
       <div class="timeline">
         <div class="step reveal">
+          <div class="when" data-i="s0_w">Day one</div>
+          <h3 data-i="s0_t">The Unfiltered Eye</h3>
+          <p data-i="s0_p">It began on a single laptop in the winter of 2026, as one field tool for people documenting the truth on the street: strip the GPS and identity from a video, pass it hand to hand over a local mesh when the towers go down, and archive it where no one can pull it offline. No company, no funding, no name — just code to keep a witness safe. Everything M4TR1X is today grew from that first seed.</p>
+        </div>
+        <div class="step reveal">
           <div class="when" data-i="s1_w">The beginning</div>
           <h3 data-i="s1_t">Documentation as resistance</h3>
           <p data-i="s1_p">The project was born from activist documentation — the belief that recording the truth, and keeping it beyond anyone's reach, is itself a political act.</p>
@@ -399,6 +404,11 @@
           <div class="when" data-i="s3_w">The ground</div>
           <h3 data-i="s3_t">From screens to streets</h3>
           <p data-i="s3_p">Philosophy that stays digital is a hobby. The movement stepped into the physical world — real machines, real places, real people — proving that sovereignty is built with hands, not only with keyboards.</p>
+        </div>
+        <div class="step reveal">
+          <div class="when" data-i="scc_w">The threat</div>
+          <h3 data-i="scc_t">Chat Control</h3>
+          <p data-i="scc_p">Brussels calls it the CSA Regulation; everyone else calls it Chat Control. In the name of fighting illegal material, the European proposal would force every app to scan your private messages before they are even encrypted — mass surveillance made routine. It is the exact future nderja was built to make impossible: there is no central chokepoint to scan, and no backdoor to force into an app whose keys never leave the user.</p>
         </div>
         <div class="step reveal">
           <div class="when" data-i="s4_w">Now</div>
@@ -471,6 +481,14 @@
       </div>
       <p style="margin-top:2.5rem" data-i="mx_stat">Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.</p>
       <p data-i="mx_p2">The network is young. It grows one node at a time — and every node is a citizen's house, not a company's tower. If you can run a computer, you can hold a piece of the network.</p>
+      <div class="card2 reveal">
+        <h3 data-i="mx_arch_t">How your device carries the content</h3>
+        <p data-i="mx_arch_p">There is no data center behind M4TR1X. When someone publishes a film, a song or a video, a powerful node transcodes it once into small streaming segments. From there, every device that is watching also passes those segments on to the next viewer, and your player reassembles them into the finished content. The heavy work happens once, on the few strong machines; the rest is carried by the crowd — which is why an ordinary home computer, even on a modest connection, is enough to take part.</p>
+      </div>
+      <div class="card2 reveal">
+        <h3 data-i="mx_pub_t">Public by design — no private channels</h3>
+        <p data-i="mx_pub_p">Everything you publish on M4TR1X is public. There are no private groups and no closed channels — the walled, many-to-many rooms where illegal material usually circulates simply do not exist here. Direct messages are strictly one-to-one and end-to-end encrypted, never a broadcast channel; only your profile can be private. It is a structural answer: nothing to mass-scan, and nowhere to hide a distribution ring — without breaking the encryption of a private conversation between two people.</p>
+      </div>
       <p style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
         <a href="#download" class="btn" data-i="mx_cta2">Get the app</a>
         <a href="https://github.com/H8dboy/m4tr1x-node" class="btn" data-i="mx_cta">Run a node</a>
@@ -993,6 +1011,16 @@ const T = {
     cd_launch:'Public launch — 8 August 2026',
     cd_days:'days', cd_hrs:'hours', cd_min:'min', cd_sec:'sec',
     cd_live:'The network is live — welcome home',
+    mx_arch_t:'How your device carries the content',
+    mx_arch_p:'There is no data center behind M4TR1X. When someone publishes a film, a song or a video, a powerful node transcodes it once into small streaming segments. From there, every device that is watching also passes those segments on to the next viewer, and your player reassembles them into the finished content. The heavy work happens once, on the few strong machines; the rest is carried by the crowd — which is why an ordinary home computer, even on a modest connection, is enough to take part.',
+    mx_pub_t:'Public by design — no private channels',
+    mx_pub_p:'Everything you publish on M4TR1X is public. There are no private groups and no closed channels — the walled, many-to-many rooms where illegal material usually circulates simply do not exist here. Direct messages are strictly one-to-one and end-to-end encrypted, never a broadcast channel; only your profile can be private. It is a structural answer: nothing to mass-scan, and nowhere to hide a distribution ring — without breaking the encryption of a private conversation between two people.',
+    scc_w:'The threat',
+    scc_t:'Chat Control',
+    scc_p:'Brussels calls it the CSA Regulation; everyone else calls it Chat Control. In the name of fighting illegal material, the European proposal would force every app to scan your private messages before they are even encrypted — mass surveillance made routine. It is the exact future nderja was built to make impossible: there is no central chokepoint to scan, and no backdoor to force into an app whose keys never leave the user.',
+    s0_w:'Day one',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'It began on a single laptop in Minneapolis, in the winter of 2026 — an evidence-preservation protocol for the people documenting the truth on the street: strip the GPS and identity from a video, pass it hand to hand over a local mesh when the towers go down, and archive it where no one can pull it offline. No company, no funding, no permission asked — just code to keep a witness safe. We named it for Alex Pretti. Everything M4TR1X is today grew from that first seed.',
     mx_code:'All code is public — MIT license',
     dl_eyebrow:'Download',
     dl_title:'Get <em>M4TR1X</em>',
@@ -1127,6 +1155,16 @@ const T = {
     cd_launch:'Hapja publike — 8 gusht 2026',
     cd_days:'ditë', cd_hrs:'orë', cd_min:'min', cd_sec:'sek',
     cd_live:'Rrjeti është online — mirë se erdhe në shtëpi',
+    mx_arch_t:'Si e mban pajisja jote përmbajtjen',
+    mx_arch_p:'Prapa M4TR1X nuk ka asnjë qendër të dhënash. Kur dikush publikon një film, një këngë ose një video, një nyjë e fuqishme e transkodon një herë të vetme në segmente të vogla transmetimi. Që andej, çdo pajisje që po shikon ia kalon ato segmente shikuesit tjetër, dhe playeri yt i rimonton në përmbajtjen e përfunduar. Puna e rëndë bëhet një herë, në pak makina të fuqishme; pjesën tjetër e mban turma — prandaj një kompjuter i zakonshëm shtëpie, edhe me një lidhje modeste, mjafton për të marrë pjesë.',
+    mx_pub_t:'Publik nga natyra — asnjë kanal privat',
+    mx_pub_p:'Gjithçka që publikon në M4TR1X është publike. Nuk ekzistojnë grupe private as kanale të mbyllura — dhomat e rrethuara, nga shumë te shumë, ku zakonisht qarkullon materiali i paligjshëm këtu thjesht nuk janë. Mesazhet direkte janë rreptësisht një-me-një dhe të kriptuara end-to-end, kurrë kanal shpërndarjeje; vetëm profili yt mund të jetë privat. Është një përgjigje strukturore: asgjë për t\'u skanuar në masë dhe asnjë vend për të fshehur një rrjet shpërndarjeje — pa thyer kriptimin e një bisede private mes dy personave.',
+    scc_w:'Kërcënimi',
+    scc_t:'Chat Control',
+    scc_p:'Brukseli e quan Rregullorja CSA; të gjithë të tjerët e quajnë Chat Control. Në emër të luftës kundër materialit të paligjshëm, propozimi evropian do të detyronte çdo aplikacion të skanonte mesazhet e tua private para se ato të kriptohen — mbikëqyrje masive e bërë rutinë. Është pikërisht e ardhmja që nderja u ndërtua për ta bërë të pamundur: nuk ka një pikë qendrore për t\'u skanuar, as një derë të pasme për t\'i imponuar një aplikacioni, çelësat e të cilit nuk e lënë kurrë përdoruesin.',
+    s0_w:'Dita e parë',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Nisi mbi një laptop të vetëm në Minneapolis, në dimrin e 2026-ës — një protokoll për ruajtjen e provave për ata që dokumentojnë të vërtetën në rrugë: hiqi GPS-in dhe identitetin nga një video, kaloje dorë më dorë përmes një rrjeti lokal kur bien antenat, dhe ruaje aty ku askush nuk mund ta heqë. Pa kompani, pa financim, pa kërkuar leje — vetëm kod për të mbajtur të sigurt një dëshmitar. E pagëzuam për nder të Alex Pretti-t. Gjithçka që M4TR1X është sot u rrit nga ajo farë e parë.',
     mx_code:'I gjithë kodi është publik — licencë MIT',
     dl_eyebrow:'Shkarko',
     dl_title:'Merr <em>M4TR1X</em>',
@@ -1261,6 +1299,16 @@ const T = {
     cd_launch:'Apertura pubblica — 8 agosto 2026',
     cd_days:'giorni', cd_hrs:'ore', cd_min:'min', cd_sec:'sec',
     cd_live:'La rete è online — bentornato a casa',
+    mx_arch_t:'Come il tuo dispositivo regge i contenuti',
+    mx_arch_p:'Dietro M4TR1X non c\'è nessun data center. Quando qualcuno pubblica un film, una canzone o un video, un nodo potente lo transcodifica una volta sola in piccoli segmenti di streaming. Da lì, ogni dispositivo che sta guardando passa quei segmenti allo spettatore successivo, e il tuo player li rimonta nel contenuto finito. Il lavoro pesante avviene una volta, sulle poche macchine forti; il resto lo porta la folla — ed è per questo che un normale computer di casa, anche con una connessione modesta, basta per partecipare.',
+    mx_pub_t:'Pubblico per scelta — nessun canale privato',
+    mx_pub_p:'Tutto ciò che pubblichi su M4TR1X è pubblico. Non esistono gruppi privati né canali chiusi — le stanze recintate, da molti a molti, dove di solito circola il materiale illecito qui semplicemente non ci sono. I messaggi diretti sono rigorosamente uno-a-uno e cifrati end-to-end, mai un canale di diffusione; solo il tuo profilo può essere privato. È una risposta strutturale: niente da scansionare in massa e nessun posto dove nascondere una rete di distribuzione — senza rompere la cifratura di una conversazione privata tra due persone.',
+    scc_w:'La minaccia',
+    scc_t:'Chat Control',
+    scc_p:'Bruxelles la chiama Regolamento CSA; tutti gli altri la chiamano Chat Control. In nome della lotta al materiale illecito, la proposta europea costringerebbe ogni app a scansionare i tuoi messaggi privati prima ancora che vengano cifrati — sorveglianza di massa resa ordinaria. È esattamente il futuro che nderja è stata costruita per rendere impossibile: non c\'è un punto di strozzatura centrale da scansionare, né una backdoor da imporre a un\'app le cui chiavi non lasciano mai l\'utente.',
+    s0_w:'Il primo giorno',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Cominciò su un solo laptop a Minneapolis, nell\'inverno del 2026 — un protocollo di preservazione delle prove per chi documenta la verità in strada: togli il GPS e l\'identità da un video, passalo di mano in mano su una rete locale quando cadono le antenne, e archivialo dove nessuno può toglierlo. Nessuna azienda, nessun finanziamento, nessun permesso chiesto — solo codice per tenere al sicuro un testimone. Lo abbiamo intitolato ad Alex Pretti. Tutto ciò che M4TR1X è oggi è cresciuto da quel primo seme.',
     mx_code:'Tutto il codice è pubblico — licenza MIT',
     dl_eyebrow:'Download',
     dl_title:'Scarica <em>M4TR1X</em>',
@@ -1395,6 +1443,16 @@ const T = {
     cd_launch:'Lancement public — 8 août 2026',
     cd_days:'jours', cd_hrs:'heures', cd_min:'min', cd_sec:'sec',
     cd_live:'Le réseau est en ligne — bienvenue chez toi',
+    mx_arch_t:'Comment ton appareil porte les contenus',
+    mx_arch_p:'Il n\'y a aucun centre de données derrière M4TR1X. Quand quelqu\'un publie un film, une chanson ou une vidéo, un nœud puissant le transcode une seule fois en petits segments de diffusion. À partir de là, chaque appareil en train de regarder transmet ces segments au spectateur suivant, et ton lecteur les réassemble en contenu fini. Le travail lourd se fait une fois, sur les quelques machines puissantes ; le reste est porté par la foule — c\'est pourquoi un ordinateur familial ordinaire, même sur une connexion modeste, suffit pour participer.',
+    mx_pub_t:'Public par conception — aucun canal privé',
+    mx_pub_p:'Tout ce que tu publies sur M4TR1X est public. Il n\'existe ni groupes privés ni canaux fermés — les salles cloisonnées, de plusieurs à plusieurs, où circule d\'ordinaire le matériel illégal n\'existent tout simplement pas ici. Les messages directs sont strictement de personne à personne et chiffrés de bout en bout, jamais un canal de diffusion ; seul ton profil peut être privé. C\'est une réponse structurelle : rien à scanner en masse et nulle part où cacher un réseau de distribution — sans briser le chiffrement d\'une conversation privée entre deux personnes.',
+    scc_w:'La menace',
+    scc_t:'Chat Control',
+    scc_p:'Bruxelles l\'appelle le Règlement CSA ; tous les autres l\'appellent Chat Control. Au nom de la lutte contre le matériel illégal, la proposition européenne obligerait chaque application à scanner tes messages privés avant même qu\'ils soient chiffrés — une surveillance de masse rendue ordinaire. C\'est exactement l\'avenir que nderja a été bâtie pour rendre impossible : il n\'y a pas de point de contrôle central à scanner, ni de porte dérobée à imposer à une application dont les clés ne quittent jamais l\'utilisateur.',
+    s0_w:'Le premier jour',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Tout a commencé sur un seul ordinateur portable à Minneapolis, à l\'hiver 2026 — un protocole de préservation des preuves pour ceux qui documentent la vérité dans la rue : retirer le GPS et l\'identité d\'une vidéo, la faire passer de main en main sur un réseau local quand les antennes tombent, et l\'archiver là où personne ne peut la retirer. Aucune entreprise, aucun financement, aucune permission demandée — juste du code pour protéger un témoin. Nous l\'avons nommé en hommage à Alex Pretti. Tout ce que M4TR1X est aujourd\'hui a grandi à partir de cette première graine.',
     mx_code:'Tout le code est public — licence MIT',
     dl_eyebrow:'Télécharger',
     dl_title:'Obtenir <em>M4TR1X</em>',
@@ -1529,6 +1587,16 @@ const T = {
     cd_launch:'Öffentlicher Start — 8. August 2026',
     cd_days:'Tage', cd_hrs:'Std', cd_min:'Min', cd_sec:'Sek',
     cd_live:'Das Netzwerk ist online — willkommen zu Hause',
+    mx_arch_t:'Wie dein Gerät die Inhalte trägt',
+    mx_arch_p:'Hinter M4TR1X steht kein Rechenzentrum. Wenn jemand einen Film, ein Lied oder ein Video veröffentlicht, transkodiert ein starker Knoten es einmalig in kleine Streaming-Segmente. Von dort reicht jedes zuschauende Gerät diese Segmente an den nächsten Betrachter weiter, und dein Player setzt sie zum fertigen Inhalt zusammen. Die schwere Arbeit geschieht einmal, auf den wenigen starken Maschinen; den Rest trägt die Menge — deshalb genügt ein gewöhnlicher Heimcomputer, selbst mit bescheidener Verbindung, um mitzumachen.',
+    mx_pub_t:'Öffentlich by design — keine privaten Kanäle',
+    mx_pub_p:'Alles, was du auf M4TR1X veröffentlichst, ist öffentlich. Es gibt keine privaten Gruppen und keine geschlossenen Kanäle — die abgeschotteten Viele-zu-viele-Räume, in denen illegales Material üblicherweise zirkuliert, existieren hier schlicht nicht. Direktnachrichten sind streng eins-zu-eins und Ende-zu-Ende-verschlüsselt, niemals ein Verteilkanal; nur dein Profil kann privat sein. Es ist eine strukturelle Antwort: nichts, was man massenhaft scannen könnte, und kein Ort, um einen Verteilerring zu verstecken — ohne die Verschlüsselung eines privaten Gesprächs zwischen zwei Menschen zu brechen.',
+    scc_w:'Die Bedrohung',
+    scc_t:'Chat Control',
+    scc_p:'Brüssel nennt es CSA-Verordnung; alle anderen nennen es Chat Control. Im Namen des Kampfes gegen illegales Material würde der europäische Vorschlag jede App zwingen, deine privaten Nachrichten zu scannen, noch bevor sie verschlüsselt werden — Massenüberwachung als Normalzustand. Es ist genau die Zukunft, die nderja unmöglich machen soll: Es gibt keinen zentralen Engpass zum Scannen und keine Hintertür, die man einer App aufzwingen könnte, deren Schlüssel den Nutzer nie verlassen.',
+    s0_w:'Tag eins',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Es begann auf einem einzigen Laptop in Minneapolis, im Winter 2026 — ein Protokoll zur Beweissicherung für die Menschen, die die Wahrheit auf der Straße dokumentieren: GPS und Identität aus einem Video entfernen, es von Hand zu Hand über ein lokales Mesh weitergeben, wenn die Funkmasten ausfallen, und es dort archivieren, wo niemand es offline nehmen kann. Keine Firma, keine Förderung, keine Erlaubnis erbeten — nur Code, um einen Zeugen zu schützen. Wir benannten es nach Alex Pretti. Alles, was M4TR1X heute ist, wuchs aus diesem ersten Samen.',
     mx_code:'Der gesamte Code ist öffentlich — MIT-Lizenz',
     dl_eyebrow:'Download',
     dl_title:'Hol dir <em>M4TR1X</em>',
@@ -1663,6 +1731,16 @@ const T = {
     cd_launch:'Offentlig lansering — 8 augusti 2026',
     cd_days:'dagar', cd_hrs:'tim', cd_min:'min', cd_sec:'sek',
     cd_live:'Nätverket är online — välkommen hem',
+    mx_arch_t:'Hur din enhet bär innehållet',
+    mx_arch_p:'Det finns inget datacenter bakom M4TR1X. När någon publicerar en film, en låt eller en video transkodar en kraftfull nod den en enda gång till små strömningssegment. Därifrån skickar varje enhet som tittar dessa segment vidare till nästa tittare, och din spelare sätter ihop dem till det färdiga innehållet. Det tunga arbetet sker en gång, på de få starka maskinerna; resten bärs av mängden — därför räcker en vanlig hemdator, även med en blygsam uppkoppling, för att delta.',
+    mx_pub_t:'Offentligt av design — inga privata kanaler',
+    mx_pub_p:'Allt du publicerar på M4TR1X är offentligt. Det finns inga privata grupper och inga slutna kanaler — de inmurade många-till-många-rummen där olagligt material vanligtvis cirkulerar finns helt enkelt inte här. Direktmeddelanden är strikt en-till-en och totalsträckskrypterade, aldrig en sändningskanal; bara din profil kan vara privat. Det är ett strukturellt svar: inget att massskanna och ingenstans att gömma en distributionsring — utan att bryta krypteringen i ett privat samtal mellan två personer.',
+    scc_w:'Hotet',
+    scc_t:'Chat Control',
+    scc_p:'Bryssel kallar det CSA-förordningen; alla andra kallar det Chat Control. I kampen mot olagligt material skulle det europeiska förslaget tvinga varje app att skanna dina privata meddelanden innan de ens krypteras — massövervakning satt i system. Det är precis den framtid som nderja byggdes för att göra omöjlig: det finns ingen central flaskhals att skanna, och ingen bakdörr att tvinga på en app vars nycklar aldrig lämnar användaren.',
+    s0_w:'Dag ett',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Det började på en enda laptop i Minneapolis, vintern 2026 — ett protokoll för bevisbevarande för dem som dokumenterar sanningen på gatan: ta bort GPS och identitet från en video, skicka den hand till hand över ett lokalt mesh när masterna faller, och arkivera den där ingen kan ta den offline. Inget företag, ingen finansiering, ingen begärd tillåtelse — bara kod för att hålla ett vittne säkert. Vi uppkallade det efter Alex Pretti. Allt som M4TR1X är idag växte ur det första fröet.',
     mx_code:'All kod är offentlig — MIT-licens',
     dl_eyebrow:'Ladda ner',
     dl_title:'Hämta <em>M4TR1X</em>',
@@ -1797,6 +1875,16 @@ const T = {
     cd_launch:'Δημόσια έναρξη — 8 Αυγούστου 2026',
     cd_days:'ημέρες', cd_hrs:'ώρες', cd_min:'λεπ', cd_sec:'δευτ',
     cd_live:'Το δίκτυο είναι online — καλώς όρισες στο σπίτι',
+    mx_arch_t:'Πώς η συσκευή σου κουβαλά το περιεχόμενο',
+    mx_arch_p:'Πίσω από το M4TR1X δεν υπάρχει κανένα κέντρο δεδομένων. Όταν κάποιος δημοσιεύει μια ταινία, ένα τραγούδι ή ένα βίντεο, ένας ισχυρός κόμβος το μετακωδικοποιεί μία μόνο φορά σε μικρά τμήματα ροής. Από εκεί, κάθε συσκευή που παρακολουθεί περνά αυτά τα τμήματα στον επόμενο θεατή, και ο player σου τα ξανασυναρμολογεί στο ολοκληρωμένο περιεχόμενο. Η βαριά δουλειά γίνεται μία φορά, στις λίγες ισχυρές μηχανές· τα υπόλοιπα τα κουβαλά το πλήθος — γι\' αυτό ένας συνηθισμένος οικιακός υπολογιστής, ακόμη και με μέτρια σύνδεση, αρκεί για να συμμετάσχεις.',
+    mx_pub_t:'Δημόσιο εκ σχεδιασμού — κανένα ιδιωτικό κανάλι',
+    mx_pub_p:'Ό,τι δημοσιεύεις στο M4TR1X είναι δημόσιο. Δεν υπάρχουν ιδιωτικές ομάδες ούτε κλειστά κανάλια — τα περιφραγμένα δωμάτια, από πολλούς προς πολλούς, όπου συνήθως κυκλοφορεί το παράνομο υλικό απλώς δεν υπάρχουν εδώ. Τα άμεσα μηνύματα είναι αυστηρά ένας-προς-έναν και κρυπτογραφημένα από άκρο σε άκρο, ποτέ κανάλι διανομής· μόνο το προφίλ σου μπορεί να είναι ιδιωτικό. Είναι μια δομική απάντηση: τίποτα για μαζική σάρωση και πουθενά να κρυφτεί ένα δίκτυο διανομής — χωρίς να σπάσει η κρυπτογράφηση μιας ιδιωτικής συνομιλίας μεταξύ δύο ανθρώπων.',
+    scc_w:'Η απειλή',
+    scc_t:'Chat Control',
+    scc_p:'Οι Βρυξέλλες τον λένε Κανονισμό CSA· όλοι οι άλλοι τον λένε Chat Control. Στο όνομα της καταπολέμησης του παράνομου υλικού, η ευρωπαϊκή πρόταση θα ανάγκαζε κάθε εφαρμογή να σαρώνει τα ιδιωτικά σου μηνύματα προτού καν κρυπτογραφηθούν — μαζική παρακολούθηση ως ρουτίνα. Είναι ακριβώς το μέλλον που η nderja χτίστηκε για να το κάνει αδύνατο: δεν υπάρχει κεντρικό σημείο συμφόρησης για σάρωση, ούτε κερκόπορτα για να επιβληθεί σε μια εφαρμογή της οποίας τα κλειδιά δεν φεύγουν ποτέ από τον χρήστη.',
+    s0_w:'Ημέρα μηδέν',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Ξεκίνησε σε έναν μόνο φορητό υπολογιστή στη Μινεάπολη, τον χειμώνα του 2026 — ένα πρωτόκολλο διατήρησης αποδείξεων για όσους καταγράφουν την αλήθεια στον δρόμο: αφαίρεσε το GPS και την ταυτότητα από ένα βίντεο, πέρασέ το χέρι με χέρι μέσα από ένα τοπικό mesh όταν πέφτουν οι κεραίες, και αρχειοθέτησέ το εκεί που κανείς δεν μπορεί να το κατεβάσει. Καμία εταιρεία, καμία χρηματοδότηση, καμία άδεια ζητημένη — μόνο κώδικας για να κρατήσει έναν μάρτυρα ασφαλή. Το ονομάσαμε προς τιμήν του Alex Pretti. Ό,τι είναι το M4TR1X σήμερα μεγάλωσε από εκείνον τον πρώτο σπόρο.',
     mx_code:'Όλος ο κώδικας είναι δημόσιος — άδεια MIT',
     dl_eyebrow:'Λήψη',
     dl_title:'Πάρε το <em>M4TR1X</em>',
@@ -1928,6 +2016,16 @@ const T = {
     cd_launch:'Publieke lancering — 8 augustus 2026',
     cd_days:'dagen', cd_hrs:'uur', cd_min:'min', cd_sec:'sec',
     cd_live:'Het netwerk is online — welkom thuis',
+    mx_arch_t:'Hoe jouw apparaat de inhoud draagt',
+    mx_arch_p:'Achter M4TR1X zit geen datacenter. Wanneer iemand een film, een lied of een video publiceert, transcodeert een krachtige node die eenmalig tot kleine streamingsegmenten. Vanaf daar geeft elk kijkend apparaat die segmenten door aan de volgende kijker, en jouw speler zet ze weer samen tot de voltooide inhoud. Het zware werk gebeurt één keer, op de weinige sterke machines; de rest wordt door de menigte gedragen — daarom is een gewone thuiscomputer, zelfs met een bescheiden verbinding, genoeg om mee te doen.',
+    mx_pub_t:'Publiek van opzet — geen privékanalen',
+    mx_pub_p:'Alles wat je op M4TR1X publiceert is openbaar. Er bestaan geen privégroepen en geen gesloten kanalen — de ommuurde veel-op-veel-ruimtes waar illegaal materiaal doorgaans circuleert, bestaan hier simpelweg niet. Directe berichten zijn strikt één-op-één en end-to-end versleuteld, nooit een verspreidingskanaal; alleen je profiel kan privé zijn. Het is een structureel antwoord: niets om massaal te scannen en nergens om een distributiering te verbergen — zonder de versleuteling van een privégesprek tussen twee mensen te breken.',
+    scc_w:'De dreiging',
+    scc_t:'Chat Control',
+    scc_p:'Brussel noemt het de CSA-verordening; alle anderen noemen het Chat Control. In naam van de strijd tegen illegaal materiaal zou het Europese voorstel elke app dwingen je privéberichten te scannen nog voordat ze versleuteld zijn — massasurveillance als routine. Het is precies de toekomst die nderja is gebouwd om onmogelijk te maken: er is geen centraal knelpunt om te scannen, en geen achterdeur om op te leggen aan een app waarvan de sleutels de gebruiker nooit verlaten.',
+    s0_w:'Dag één',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Het begon op één enkele laptop in Minneapolis, in de winter van 2026 — een protocol voor bewijsbehoud voor de mensen die de waarheid op straat vastleggen: verwijder de GPS en identiteit uit een video, geef hem hand in hand door over een lokaal mesh wanneer de zendmasten uitvallen, en archiveer hem waar niemand hem offline kan halen. Geen bedrijf, geen financiering, geen toestemming gevraagd — enkel code om een getuige veilig te houden. We noemden het naar Alex Pretti. Alles wat M4TR1X vandaag is, groeide uit dat eerste zaadje.',
     mx_code:'Alle code is openbaar — MIT-licentie',
     dl_eyebrow:'Download',
     dl_title:'Haal <em>M4TR1X</em>',
@@ -2074,6 +2172,16 @@ const T = {
     cd_launch:'Apertura pública — 8 de agosto de 2026',
     cd_days:'días', cd_hrs:'horas', cd_min:'min', cd_sec:'seg',
     cd_live:'La red está en línea — bienvenido a casa',
+    mx_arch_t:'Cómo tu dispositivo sostiene los contenidos',
+    mx_arch_p:'Detrás de M4TR1X no hay ningún centro de datos. Cuando alguien publica una película, una canción o un vídeo, un nodo potente lo transcodifica una sola vez en pequeños segmentos de streaming. Desde ahí, cada dispositivo que está mirando pasa esos segmentos al siguiente espectador, y tu reproductor los vuelve a montar en el contenido terminado. El trabajo pesado ocurre una vez, en las pocas máquinas fuertes; el resto lo lleva la multitud — por eso un ordenador doméstico corriente, incluso con una conexión modesta, basta para participar.',
+    mx_pub_t:'Público por diseño — sin canales privados',
+    mx_pub_p:'Todo lo que publicas en M4TR1X es público. No existen grupos privados ni canales cerrados — las salas amuralladas, de muchos a muchos, donde suele circular el material ilícito simplemente no existen aquí. Los mensajes directos son estrictamente uno a uno y cifrados de extremo a extremo, nunca un canal de difusión; solo tu perfil puede ser privado. Es una respuesta estructural: nada que escanear en masa y ningún lugar donde esconder una red de distribución — sin romper el cifrado de una conversación privada entre dos personas.',
+    scc_w:'La amenaza',
+    scc_t:'Chat Control',
+    scc_p:'Bruselas lo llama Reglamento CSA; todos los demás lo llaman Chat Control. En nombre de la lucha contra el material ilícito, la propuesta europea obligaría a cada aplicación a escanear tus mensajes privados antes incluso de que se cifren — vigilancia masiva vuelta rutina. Es exactamente el futuro que nderja se construyó para hacer imposible: no hay un punto de estrangulamiento central que escanear, ni una puerta trasera que imponer a una aplicación cuyas claves nunca abandonan al usuario.',
+    s0_w:'El primer día',
+    s0_t:'The Unfiltered Eye',
+    s0_p:'Empezó en un solo portátil en Minneapolis, en el invierno de 2026 — un protocolo de preservación de pruebas para quienes documentan la verdad en la calle: quita el GPS y la identidad de un vídeo, pásalo de mano en mano por una red local cuando caen las antenas, y archívalo donde nadie pueda retirarlo. Ninguna empresa, ninguna financiación, ningún permiso pedido — solo código para mantener a salvo a un testigo. Lo nombramos en honor a Alex Pretti. Todo lo que M4TR1X es hoy creció de aquella primera semilla.',
     mx_code:'Todo el código es público — licencia MIT',
     dl_eyebrow:'Descargas',
     dl_title:'Consigue <em>M4TR1X</em>',
