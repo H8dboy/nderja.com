@@ -65,6 +65,10 @@
   .cd-live{display:none;font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--green)}
   .mx-countdown.live .cd-launch,.mx-countdown.live .cd-timer{display:none}
   .mx-countdown.live .cd-live{display:block}
+  /* app screenshots gallery */
+  .app-shots{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin:2rem 0;max-width:920px}
+  .app-shots img{width:100%;height:auto;border:1px solid var(--line);border-radius:3px;display:block}
+  @media(max-width:640px){.app-shots{grid-template-columns:1fr}}
   .srcnote{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1.2rem;margin-top:2.5rem;max-width:680px}
   .srcnote a{color:var(--green);text-decoration:none}
   .post{margin-top:2rem;border-top:1px solid var(--line);padding-top:2rem}
@@ -528,6 +532,12 @@
           <p data-i="dl_ios">No App Store: download the IPA and sign it yourself with your own Apple ID, via AltStore or Sideloadly — the permission lives on your device, not in someone else's rented certificate. With a free Apple ID the signature renews every 7 days; AltStore automates it.</p>
           <a class="btn" id="dl-ipa" href="https://github.com/H8dboy/m4tr1x-android/releases/latest/download/M4TR1X-unsigned.ipa">.ipa (unsigned)</a>
         </div>
+      </div>
+      <h3 data-i="dl_under_t" style="font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--green);font-weight:500;margin:3.5rem 0 1rem">Underground by design</h3>
+      <p data-i="dl_under_p" style="max-width:720px">Film and Music aren't an afterthought — they're for the emerging artists who don't want, or don't fit, the mainstream: a place to share the work on their own terms. Especially now, when so many are weaving AI into their craft, the network doesn't gatekeep. The AI detector doesn't ban — it labels, honestly — so that those who work by hand and those who work with new tools both have room. M4TR1X is underground the way rap, punk and more than one film and music movement began: outside the gate, before the world caught up.</p>
+      <div class="app-shots reveal">
+        <img src="img/app-feed.png" alt="M4TR1X — feed and profile" loading="lazy">
+        <img src="img/app-tabs.png" alt="M4TR1X — Signal, Film, Music, Forum, Shop, DM" loading="lazy">
       </div>
       <div class="srcnote"><span data-i="dl_verify">Checksums &amp; release notes</span>: <a href="https://github.com/H8dboy/m4tr1x-electron/releases/latest" target="_blank" rel="noopener">desktop</a> · <a href="https://github.com/H8dboy/m4tr1x-android/releases/latest" target="_blank" rel="noopener">android</a></div>
     </div>
@@ -1027,6 +1037,8 @@ const T = {
     dl_p1:'No store, no account, no middleman. These buttons always point to the latest official build — download, install, connect to a node you trust.',
     dl_ios:"No App Store: download the IPA and sign it yourself with your own Apple ID, via AltStore or Sideloadly — the permission lives on your device, not in someone else's rented certificate. With a free Apple ID the signature renews every 7 days; AltStore automates it.",
     dl_verify:'Checksums & release notes',
+    dl_under_t:'Underground by design',
+    dl_under_p:'Film and Music aren\'t an afterthought — they\'re for the emerging artists who don\'t want, or don\'t fit, the mainstream: a place to share the work on their own terms. Especially now, when so many are weaving AI into their craft, the network doesn\'t gatekeep. The AI detector doesn\'t ban — it labels, honestly — so that those who work by hand and those who work with new tools both have room. M4TR1X is underground the way rap, punk and more than one film and music movement began: outside the gate, before the world caught up.',
     hero_kicker:"The movement",
     hero_sub:"Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.",
     hero_def:"— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.",
@@ -1171,6 +1183,8 @@ const T = {
     dl_p1:'Pa store, pa llogari, pa ndërmjetës. Këta butona çojnë gjithmonë te build-i i fundit zyrtar — shkarko, instalo, lidhu me një nyjë që i beson.',
     dl_ios:'Pa App Store: shkarko IPA-n dhe firmose vetë me Apple ID-në tënde, përmes AltStore ose Sideloadly — leja jeton në pajisjen tënde, jo në certifikatën me qira të dikujt tjetër. Me një Apple ID falas firma rinovohet çdo 7 ditë; AltStore e bën vetë.',
     dl_verify:'Checksum-et dhe shënimet e versionit',
+    dl_under_t:'Underground me zgjedhje',
+    dl_under_p:'Filmi dhe Muzika nuk janë një mendim i mëvonshëm — janë për artistët në ngjitje që nuk duan, ose nuk hyjnë, në mainstream: një hapësirë për të ndarë punën me kushtet e veta. Sidomos tani, kur kaq shumë po integrojnë AI-në në rrugën e tyre, rrjeti nuk bën roje. Detektori i AI-së nuk ndalon — etiketon, me ndershmëri — që si ata që punojnë në mënyrë tradicionale, si ata që përdorin mjetet e reja, të kenë vend. M4TR1X është underground ashtu si ishin rap-i, punk-u dhe më shumë se një rrymë kinematografike e muzikore: jashtë portës, para se bota t\'i arrinte.',
     hero_kicker:"Lëvizja",
     hero_sub:"Aftësia është parakushti i qytetarisë. Nuk je i lirë nëse çdo mjet thelbësor i jetës tënde — identiteti, zëri, paraja, dija — i përket dikujt tjetër.",
     hero_def:"— nderi. Në traditën shqiptare, e vetmja pasuri që nuk dhurohet: fitohet dhe mbrohet.",
@@ -1315,6 +1329,8 @@ const T = {
     dl_p1:"Niente store, niente account, niente intermediari. Questi pulsanti puntano sempre all'ultima build ufficiale — scarichi, installi, ti colleghi a un nodo di cui ti fidi.",
     dl_ios:'Niente App Store: scarichi la IPA e la firmi tu, col tuo Apple ID, via AltStore o Sideloadly — il permesso vive sul tuo dispositivo, non nel certificato affittato di qualcun altro. Con un Apple ID gratuito la firma si rinnova ogni 7 giorni; AltStore lo fa da solo.',
     dl_verify:'Checksum e note di rilascio',
+    dl_under_t:'Underground per scelta',
+    dl_under_p:'Film e Musica non sono un ripensamento — sono per gli artisti emergenti che non vogliono, o non rientrano, nel mainstream: uno spazio per condividere il proprio lavoro alle proprie condizioni. Soprattutto ora, quando in tanti stanno integrando l\'AI nel proprio percorso, la rete non fa da guardiano. Il rilevatore AI non vieta — etichetta, con onestà — così che chi lavora in modo tradizionale e chi usa i nuovi strumenti abbiano entrambi spazio. M4TR1X è underground come lo furono il rap, il punk e più di una corrente cinematografica e musicale: fuori dal cancello, prima che il mondo li raggiungesse.',
     hero_kicker:"Il movimento",
     hero_sub:"La capacità è il prerequisito della cittadinanza. Non sei libero se ogni strumento essenziale della tua vita — identità, voce, denaro, conoscenza — appartiene a qualcun altro.",
     hero_def:"— onore. Nella tradizione albanese, l'unico bene che non si concede: si conquista e si difende.",
@@ -1459,6 +1475,8 @@ const T = {
     dl_p1:"Pas de store, pas de compte, pas d'intermédiaire. Ces boutons pointent toujours vers la dernière version officielle — télécharge, installe, connecte-toi à un nœud de confiance.",
     dl_ios:"Pas d'App Store : télécharge l'IPA et signe-la toi-même avec ton propre identifiant Apple, via AltStore ou Sideloadly — la permission vit sur ton appareil, pas dans le certificat loué de quelqu'un d'autre. Avec un identifiant Apple gratuit, la signature se renouvelle tous les 7 jours ; AltStore l'automatise.",
     dl_verify:'Checksums et notes de version',
+    dl_under_t:'Underground par choix',
+    dl_under_p:'Film et Musique ne sont pas un ajout tardif — ils sont pour les artistes émergents qui ne veulent pas, ou n\'entrent pas, dans le mainstream : un lieu pour partager leur travail à leurs conditions. Surtout maintenant, quand tant de gens intègrent l\'IA à leur démarche, le réseau ne fait pas le gardien. Le détecteur d\'IA n\'interdit pas — il étiquette, honnêtement — pour que ceux qui travaillent à la main et ceux qui emploient les nouveaux outils aient tous leur place. M4TR1X est underground comme le furent le rap, le punk et plus d\'un courant cinématographique et musical : hors des portes, avant que le monde ne les rattrape.',
     hero_kicker:"Le mouvement",
     hero_sub:"La capacité est le prérequis de la citoyenneté. Tu n'es pas libre si chaque outil essentiel de ta vie — identité, voix, argent, savoir — appartient à quelqu'un d'autre.",
     hero_def:"— l'honneur. Dans la tradition albanaise, le seul bien qui ne s'accorde pas : il se conquiert et se défend.",
@@ -1603,6 +1621,8 @@ const T = {
     dl_p1:'Kein Store, kein Konto, kein Mittelsmann. Diese Buttons zeigen immer auf den neuesten offiziellen Build — herunterladen, installieren, mit einem vertrauten Knoten verbinden.',
     dl_ios:'Kein App Store: Lade die IPA herunter und signiere sie selbst mit deiner eigenen Apple-ID, über AltStore oder Sideloadly — die Erlaubnis lebt auf deinem Gerät, nicht in einem gemieteten Zertifikat von jemand anderem. Mit einer kostenlosen Apple-ID erneuert sich die Signatur alle 7 Tage; AltStore erledigt das automatisch.',
     dl_verify:'Checksummen & Release Notes',
+    dl_under_t:'Underground aus Prinzip',
+    dl_under_p:'Film und Musik sind kein Nachgedanke — sie sind für die aufstrebenden Künstler, die den Mainstream nicht wollen oder nicht in ihn passen: ein Ort, um die Arbeit zu den eigenen Bedingungen zu teilen. Gerade jetzt, wo so viele KI in ihr Schaffen einweben, spielt das Netzwerk nicht den Türsteher. Der KI-Detektor verbietet nicht — er kennzeichnet, ehrlich — damit jene, die von Hand arbeiten, und jene, die die neuen Werkzeuge nutzen, beide Raum haben. M4TR1X ist Underground, so wie Rap, Punk und mehr als eine Film- und Musikströmung begannen: außerhalb des Tors, bevor die Welt sie einholte.',
     hero_kicker:"Die Bewegung",
     hero_sub:"Fähigkeit ist die Voraussetzung der Bürgerschaft. Du bist nicht frei, wenn jedes wesentliche Werkzeug deines Lebens — Identität, Stimme, Geld, Wissen — jemand anderem gehört.",
     hero_def:"— die Ehre. In der albanischen Tradition das einzige Gut, das nicht verliehen wird: Man erwirbt und verteidigt es.",
@@ -1747,6 +1767,8 @@ const T = {
     dl_p1:'Ingen butik, inget konto, ingen mellanhand. Knapparna pekar alltid på den senaste officiella versionen — ladda ner, installera, anslut till en nod du litar på.',
     dl_ios:'Ingen App Store: ladda ner IPA-filen och signera den själv med ditt eget Apple-ID, via AltStore eller Sideloadly — tillståndet bor på din enhet, inte i någon annans hyrda certifikat. Med ett gratis Apple-ID förnyas signaturen var sjunde dag; AltStore sköter det automatiskt.',
     dl_verify:'Kontrollsummor & versionsinfo',
+    dl_under_t:'Underground med avsikt',
+    dl_under_p:'Film och Musik är ingen eftertanke — de är för de framväxande konstnärer som inte vill, eller inte passar in i, mainstream: en plats att dela sitt verk på egna villkor. Särskilt nu, när så många väver in AI i sitt skapande, spelar nätverket inte grindvakt. AI-detektorn förbjuder inte — den märker, ärligt — så att både de som arbetar för hand och de som använder de nya verktygen får plats. M4TR1X är underground på samma sätt som rap, punk och mer än en film- och musikrörelse började: utanför grinden, innan världen hann ikapp.',
     hero_kicker:"Rörelsen",
     hero_sub:"Förmåga är medborgarskapets förutsättning. Du är inte fri om varje väsentligt verktyg i ditt liv — identitet, röst, pengar, kunskap — tillhör någon annan.",
     hero_def:"— hedern. I den albanska traditionen den enda egendom som inte skänks: den förtjänas och försvaras.",
@@ -1891,6 +1913,8 @@ const T = {
     dl_p1:'Χωρίς store, χωρίς λογαριασμό, χωρίς μεσάζοντες. Αυτά τα κουμπιά δείχνουν πάντα στην τελευταία επίσημη έκδοση — κατέβασε, εγκατάστησε, συνδέσου σε έναν κόμβο που εμπιστεύεσαι.',
     dl_ios:'Χωρίς App Store: κατέβασε το IPA και υπόγραψέ το εσύ με το δικό σου Apple ID, μέσω AltStore ή Sideloadly — η άδεια ζει στη συσκευή σου, όχι σε νοικιασμένο πιστοποιητικό κάποιου άλλου. Με δωρεάν Apple ID η υπογραφή ανανεώνεται κάθε 7 μέρες· το AltStore το κάνει αυτόματα.',
     dl_verify:'Checksums & σημειώσεις έκδοσης',
+    dl_under_t:'Underground από επιλογή',
+    dl_under_p:'Το Film και η Music δεν είναι δευτερεύον στοιχείο — είναι για τους ανερχόμενους καλλιτέχνες που δεν θέλουν, ή δεν χωρούν, στο mainstream: ένας χώρος να μοιραστούν το έργο τους με τους δικούς τους όρους. Ειδικά τώρα, που τόσοι ενσωματώνουν το AI στην πορεία τους, το δίκτυο δεν κάνει τον φύλακα. Ο ανιχνευτής AI δεν απαγορεύει — επισημαίνει, με ειλικρίνεια — ώστε και όσοι δουλεύουν παραδοσιακά και όσοι χρησιμοποιούν τα νέα εργαλεία να έχουν χώρο. Το M4TR1X είναι underground όπως ξεκίνησαν το ραπ, το πανκ και περισσότερα από ένα κινηματογραφικά και μουσικά ρεύματα: έξω από την πύλη, πριν τα προλάβει ο κόσμος.',
     hero_kicker:"Το κίνημα",
     hero_sub:"Η ικανότητα είναι η προϋπόθεση της ιδιότητας του πολίτη. Δεν είσαι ελεύθερος αν κάθε βασικό εργαλείο της ζωής σου — ταυτότητα, φωνή, χρήμα, γνώση — ανήκει σε κάποιον άλλον.",
     hero_def:"— η τιμή. Στην αλβανική παράδοση, το μόνο αγαθό που δεν χαρίζεται: κατακτιέται και υπερασπίζεται.",
@@ -2032,6 +2056,8 @@ const T = {
     dl_p1:'Geen store, geen account, geen tussenpersoon. Deze knoppen wijzen altijd naar de nieuwste officiële build — downloaden, installeren, verbinden met een node die je vertrouwt.',
     dl_ios:'Geen App Store: download de IPA en onderteken hem zelf met je eigen Apple ID, via AltStore of Sideloadly — de toestemming leeft op jouw apparaat, niet in andermans gehuurde certificaat. Met een gratis Apple ID vernieuwt de handtekening elke 7 dagen; AltStore doet dat automatisch.',
     dl_verify:'Checksums & release notes',
+    dl_under_t:'Underground uit principe',
+    dl_under_p:'Film en Music zijn geen bijzaak — ze zijn voor de opkomende artiesten die de mainstream niet willen, of er niet in passen: een plek om het werk op eigen voorwaarden te delen. Juist nu, nu zovelen AI in hun werk verweven, speelt het netwerk geen poortwachter. De AI-detector verbiedt niet — hij labelt, eerlijk — zodat wie met de hand werkt én wie de nieuwe gereedschappen gebruikt allebei ruimte hebben. M4TR1X is underground zoals rap, punk en meer dan één film- en muziekstroming begonnen: buiten de poort, voordat de wereld hen inhaalde.',
     el_eyebrow:'De grond',
     el_title:'Elea <em>Vending</em>',
     elea_p1:'De fysieke arm van H8-Group: onafhankelijke verkoopautomaten die de rekeningen betalen en de filosofie op straat bewijzen. Geen investeerders, geen franchise — machines tweedehands gekocht, met de hand herbouwd en geplaatst waar mensen echt werken.',
@@ -2188,6 +2214,8 @@ const T = {
     dl_p1:'Sin tienda, sin cuenta, sin intermediarios. Estos botones apuntan siempre a la última versión oficial — descarga, instala, conéctate a un nodo de confianza.',
     dl_ios:'Sin App Store: descarga la IPA y fírmala tú mismo con tu propio Apple ID, vía AltStore o Sideloadly — el permiso vive en tu dispositivo, no en el certificado alquilado de otro. Con un Apple ID gratuito la firma se renueva cada 7 días; AltStore lo automatiza.',
     dl_verify:'Checksums y notas de versión',
+    dl_under_t:'Underground por elección',
+    dl_under_p:'Film y Music no son un añadido — son para los artistas emergentes que no quieren, o no encajan, en el mainstream: un lugar para compartir su obra en sus propios términos. Sobre todo ahora, cuando tantos integran la IA en su camino, la red no hace de guardián. El detector de IA no prohíbe — etiqueta, con honestidad — para que quienes trabajan de forma tradicional y quienes usan las nuevas herramientas tengan ambos sitio. M4TR1X es underground como lo fueron el rap, el punk y más de una corriente cinematográfica y musical: fuera de la puerta, antes de que el mundo los alcanzara.',
     el_eyebrow:'El terreno',
     el_title:'Elea <em>Vending</em>',
     elea_p1:'El brazo físico de H8-Group: máquinas expendedoras independientes que pagan las facturas y prueban la filosofía en la calle. Sin inversores, sin franquicia — máquinas compradas de segunda mano, reconstruidas a mano y colocadas donde la gente realmente trabaja.',
