@@ -52,6 +52,19 @@
   .btn{display:inline-block;border:1px solid var(--green);color:var(--green);text-decoration:none;padding:.8rem 1.6rem;
     font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
   .btn:hover{background:var(--green);color:var(--bg)}
+  /* M4TR1X launch countdown */
+  .mx-countdown{border:1px solid var(--green-dim);background:linear-gradient(180deg,rgba(46,232,122,.06),transparent);padding:2rem 1.5rem;margin:2rem 0 .5rem;text-align:center;border-radius:2px}
+  .mx-countdown .cd-status{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--green);margin-bottom:.7rem}
+  .mx-countdown .cd-status::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:.6rem;vertical-align:middle;box-shadow:0 0 0 0 rgba(46,232,122,.5);animation:cdpulse 2s infinite}
+  @keyframes cdpulse{0%{box-shadow:0 0 0 0 rgba(46,232,122,.5)}70%{box-shadow:0 0 0 8px rgba(46,232,122,0)}100%{box-shadow:0 0 0 0 rgba(46,232,122,0)}}
+  .mx-countdown .cd-launch{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--text);margin-bottom:1.5rem}
+  .cd-timer{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap}
+  .cd-unit{min-width:64px}
+  .cd-num{display:block;font-family:var(--sans);font-size:2.6rem;font-weight:500;color:var(--green);line-height:1;font-variant-numeric:tabular-nums}
+  .cd-lbl{display:block;font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-top:.5rem}
+  .cd-live{display:none;font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--green)}
+  .mx-countdown.live .cd-launch,.mx-countdown.live .cd-timer{display:none}
+  .mx-countdown.live .cd-live{display:block}
   .srcnote{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:1.2rem;margin-top:2.5rem;max-width:680px}
   .srcnote a{color:var(--green);text-decoration:none}
   .post{margin-top:2rem;border-top:1px solid var(--line);padding-top:2rem}
@@ -424,6 +437,17 @@
     <div class="frame">
       <div class="eyebrow" data-i="mx_eyebrow">The tool</div>
       <h2 data-i-html="mx_title">M4TR<em>1X</em></h2>
+      <div class="mx-countdown reveal" id="mx-countdown" data-launch="2026-08-08T00:00:00+02:00">
+        <div class="cd-status" data-i="cd_notyet">Not online yet</div>
+        <div class="cd-launch" data-i="cd_launch">Public launch — 8 August 2026</div>
+        <div class="cd-timer" role="timer" aria-live="off">
+          <div class="cd-unit"><span class="cd-num" id="cd-d">–</span><span class="cd-lbl" data-i="cd_days">days</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-h">–</span><span class="cd-lbl" data-i="cd_hrs">hours</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-m">–</span><span class="cd-lbl" data-i="cd_min">min</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-s">–</span><span class="cd-lbl" data-i="cd_sec">sec</span></div>
+        </div>
+        <div class="cd-live" data-i="cd_live">The network is live — welcome home</div>
+      </div>
       <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
       <p data-i="mx_p3">Inside it is everything a social network is supposed to be: a feed, stories, photos, video, music, forums, encrypted messages. Built on open protocols — Nostr, PeerTube, Mastodon, Funkwhale — so that no single company, including us, can own the conversation.</p>
       <p data-i="mx_p4">Identity is a cryptographic key pair signed with ML-DSA-65, the post-quantum standard (NIST FIPS-204): what you publish today cannot be forged tomorrow. On censored networks, traffic moves through Tor first. And all of it is open source, MIT licensed — verify us, don't take our word.</p>
@@ -965,6 +989,10 @@ const T = {
     mx_f3_t:'Node', mx_f3_p:'The self-hosted heart: relay, media storage and video streaming in a single server. An ordinary home computer is enough to turn a citizen into infrastructure.',
     mx_f4_t:'AI Detector', mx_f4_p:'An open detector for AI-generated video, trained collectively through the network itself. A network built for truth must be able to recognize a fake.',
     mx_stat:"Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.",
+    cd_notyet:'Not online yet',
+    cd_launch:'Public launch — 8 August 2026',
+    cd_days:'days', cd_hrs:'hours', cd_min:'min', cd_sec:'sec',
+    cd_live:'The network is live — welcome home',
     mx_code:'All code is public — MIT license',
     dl_eyebrow:'Download',
     dl_title:'Get <em>M4TR1X</em>',
@@ -1095,6 +1123,10 @@ const T = {
     mx_f3_t:'Nyja', mx_f3_p:'Zemra e vetë-strehuar: rele, arkiv mediash dhe transmetim videosh në një server të vetëm. Mjafton një kompjuter i zakonshëm shtëpie që një qytetar të bëhet infrastrukturë.',
     mx_f4_t:'Detektori i IA-së', mx_f4_p:'Një detektor i hapur për video të krijuara nga IA, i stërvitur kolektivisht përmes vetë rrjetit. Një rrjet i ndërtuar për të vërtetën duhet të dijë të njohë një falsifikim.',
     mx_stat:'Ku jemi, me ndershmëri: developer preview. Nyja e parë publike është online; softueri është mjaft i qëndrueshëm për ta vetë-strehuar dhe për të ndërtuar mbi të, ende jo për përdorime me rrezik të lartë. Të thuash çfarë punon e çfarë jo — edhe kjo është nder.',
+    cd_notyet:'Ende jo online',
+    cd_launch:'Hapja publike — 8 gusht 2026',
+    cd_days:'ditë', cd_hrs:'orë', cd_min:'min', cd_sec:'sek',
+    cd_live:'Rrjeti është online — mirë se erdhe në shtëpi',
     mx_code:'I gjithë kodi është publik — licencë MIT',
     dl_eyebrow:'Shkarko',
     dl_title:'Merr <em>M4TR1X</em>',
@@ -1225,6 +1257,10 @@ const T = {
     mx_f3_t:'Nodo', mx_f3_p:'Il cuore self-hosted: relay, archivio media e streaming video in un solo server. Basta un normale computer di casa per trasformare un cittadino in infrastruttura.',
     mx_f4_t:'AI Detector', mx_f4_p:"Un rilevatore aperto di video generati dall'IA, addestrato collettivamente attraverso la rete stessa. Una rete costruita per la verità deve saper riconoscere un falso.",
     mx_stat:'Dove siamo, onestamente: developer preview. Il primo nodo pubblico è online; il software è abbastanza stabile da essere self-hostato e da costruirci sopra, non ancora pensato per usi ad alto rischio. Dire cosa funziona e cosa no — anche questo è onore.',
+    cd_notyet:'Non ancora online',
+    cd_launch:'Apertura pubblica — 8 agosto 2026',
+    cd_days:'giorni', cd_hrs:'ore', cd_min:'min', cd_sec:'sec',
+    cd_live:'La rete è online — bentornato a casa',
     mx_code:'Tutto il codice è pubblico — licenza MIT',
     dl_eyebrow:'Download',
     dl_title:'Scarica <em>M4TR1X</em>',
@@ -1355,6 +1391,10 @@ const T = {
     mx_f3_t:'Nœud', mx_f3_p:'Le cœur auto-hébergé : relais, stockage des médias et streaming vidéo dans un seul serveur. Un simple ordinateur domestique suffit pour transformer un citoyen en infrastructure.',
     mx_f4_t:'Détecteur IA', mx_f4_p:'Un détecteur ouvert de vidéos générées par IA, entraîné collectivement à travers le réseau lui-même. Un réseau construit pour la vérité doit savoir reconnaître un faux.',
     mx_stat:"Où nous en sommes, honnêtement : developer preview. Le premier nœud public est en ligne ; le logiciel est assez stable pour être auto-hébergé et servir de base, pas encore pensé pour des usages à haut risque. Dire ce qui marche et ce qui ne marche pas — c'est aussi cela, l'honneur.",
+    cd_notyet:'Pas encore en ligne',
+    cd_launch:'Lancement public — 8 août 2026',
+    cd_days:'jours', cd_hrs:'heures', cd_min:'min', cd_sec:'sec',
+    cd_live:'Le réseau est en ligne — bienvenue chez toi',
     mx_code:'Tout le code est public — licence MIT',
     dl_eyebrow:'Télécharger',
     dl_title:'Obtenir <em>M4TR1X</em>',
@@ -1485,6 +1525,10 @@ const T = {
     mx_f3_t:'Knoten', mx_f3_p:'Das selbstgehostete Herz: Relais, Medienspeicher und Video-Streaming in einem Server. Ein gewöhnlicher Heimcomputer genügt, um aus einem Bürger Infrastruktur zu machen.',
     mx_f4_t:'KI-Detektor', mx_f4_p:'Ein offener Detektor für KI-generierte Videos, kollektiv trainiert über das Netzwerk selbst. Ein Netzwerk, das für die Wahrheit gebaut ist, muss eine Fälschung erkennen können.',
     mx_stat:'Wo wir stehen, ehrlich: Developer Preview. Der erste öffentliche Knoten ist online; die Software ist stabil genug zum Selbsthosten und Weiterbauen, noch nicht für Hochrisiko-Anwendungen gedacht. Zu sagen, was funktioniert und was nicht — auch das ist Ehre.',
+    cd_notyet:'Noch nicht online',
+    cd_launch:'Öffentlicher Start — 8. August 2026',
+    cd_days:'Tage', cd_hrs:'Std', cd_min:'Min', cd_sec:'Sek',
+    cd_live:'Das Netzwerk ist online — willkommen zu Hause',
     mx_code:'Der gesamte Code ist öffentlich — MIT-Lizenz',
     dl_eyebrow:'Download',
     dl_title:'Hol dir <em>M4TR1X</em>',
@@ -1615,6 +1659,10 @@ const T = {
     mx_f3_t:'Nod', mx_f3_p:'Det självhostade hjärtat: relä, medielagring och videoströmning i en enda server. En vanlig hemdator räcker för att göra en medborgare till infrastruktur.',
     mx_f4_t:'AI-detektor', mx_f4_p:'En öppen detektor för AI-genererad video, kollektivt tränad genom nätverket självt. Ett nätverk byggt för sanning måste kunna känna igen en förfalskning.',
     mx_stat:'Var vi står, ärligt: developer preview. Den första publika noden är online; mjukvaran är stabil nog att självhosta och bygga vidare på, ännu inte tänkt för högriskanvändning. Att säga vad som fungerar och vad som inte gör det — också det är heder.',
+    cd_notyet:'Inte online än',
+    cd_launch:'Offentlig lansering — 8 augusti 2026',
+    cd_days:'dagar', cd_hrs:'tim', cd_min:'min', cd_sec:'sek',
+    cd_live:'Nätverket är online — välkommen hem',
     mx_code:'All kod är offentlig — MIT-licens',
     dl_eyebrow:'Ladda ner',
     dl_title:'Hämta <em>M4TR1X</em>',
@@ -1745,6 +1793,10 @@ const T = {
     mx_f3_t:'Κόμβος', mx_f3_p:'Η αυτο-φιλοξενούμενη καρδιά: αναμεταδότης, αποθήκη πολυμέσων και ροή βίντεο σε έναν διακομιστή. Ένας συνηθισμένος οικιακός υπολογιστής αρκεί για να γίνει ένας πολίτης υποδομή.',
     mx_f4_t:'Ανιχνευτής ΤΝ', mx_f4_p:'Ένας ανοιχτός ανιχνευτής βίντεο παραγμένων από ΤΝ, εκπαιδευμένος συλλογικά μέσα από το ίδιο το δίκτυο. Ένα δίκτυο χτισμένο για την αλήθεια πρέπει να ξέρει να αναγνωρίζει το ψεύτικο.',
     mx_stat:'Πού βρισκόμαστε, ειλικρινά: developer preview. Ο πρώτος δημόσιος κόμβος είναι online· το λογισμικό είναι αρκετά σταθερό για αυτο-φιλοξενία και για να χτίσεις πάνω του, όχι ακόμη για χρήσεις υψηλού κινδύνου. Το να λες τι δουλεύει και τι όχι — κι αυτό είναι τιμή.',
+    cd_notyet:'Όχι ακόμη online',
+    cd_launch:'Δημόσια έναρξη — 8 Αυγούστου 2026',
+    cd_days:'ημέρες', cd_hrs:'ώρες', cd_min:'λεπ', cd_sec:'δευτ',
+    cd_live:'Το δίκτυο είναι online — καλώς όρισες στο σπίτι',
     mx_code:'Όλος ο κώδικας είναι δημόσιος — άδεια MIT',
     dl_eyebrow:'Λήψη',
     dl_title:'Πάρε το <em>M4TR1X</em>',
@@ -1872,6 +1924,10 @@ const T = {
     mx_f3_t:'Node', mx_f3_p:'Het zelfgehoste hart: relais, mediaopslag en videostreaming in één server. Een gewone thuiscomputer volstaat om van een burger infrastructuur te maken.',
     mx_f4_t:'AI-detector', mx_f4_p:'Een open detector voor AI-gegenereerde video, collectief getraind via het netwerk zelf. Een netwerk gebouwd voor waarheid moet een vervalsing kunnen herkennen.',
     mx_stat:'Waar we staan, eerlijk: developer preview. De eerste publieke node is online; de software is stabiel genoeg om zelf te hosten en op voort te bouwen, nog niet bedoeld voor gebruik met hoog risico. Zeggen wat werkt en wat niet — ook dat is eer.',
+    cd_notyet:'Nog niet online',
+    cd_launch:'Publieke lancering — 8 augustus 2026',
+    cd_days:'dagen', cd_hrs:'uur', cd_min:'min', cd_sec:'sec',
+    cd_live:'Het netwerk is online — welkom thuis',
     mx_code:'Alle code is openbaar — MIT-licentie',
     dl_eyebrow:'Download',
     dl_title:'Haal <em>M4TR1X</em>',
@@ -2014,6 +2070,10 @@ const T = {
     mx_f3_t:'Nodo', mx_f3_p:'El corazón autoalojado: relé, almacenamiento de medios y streaming de vídeo en un solo servidor. Un ordenador doméstico corriente basta para convertir a un ciudadano en infraestructura.',
     mx_f4_t:'Detector de IA', mx_f4_p:'Un detector abierto de vídeo generado por IA, entrenado colectivamente a través de la propia red. Una red construida para la verdad debe saber reconocer una falsificación.',
     mx_stat:'Dónde estamos, honestamente: developer preview. El primer nodo público está en línea; el software es lo bastante estable para autoalojarlo y construir encima, aún no pensado para usos de alto riesgo. Decir qué funciona y qué no — también eso es honor.',
+    cd_notyet:'Aún no en línea',
+    cd_launch:'Apertura pública — 8 de agosto de 2026',
+    cd_days:'días', cd_hrs:'horas', cd_min:'min', cd_sec:'seg',
+    cd_live:'La red está en línea — bienvenido a casa',
     mx_code:'Todo el código es público — licencia MIT',
     dl_eyebrow:'Descargas',
     dl_title:'Consigue <em>M4TR1X</em>',
@@ -3221,6 +3281,27 @@ if(fab){ fab.classList.add('show'); setTimeout(()=>fab.classList.remove('show'),
     const v=[]; if(des&&des.tag_name) v.push('Desktop '+des.tag_name); if(and&&and.tag_name) v.push('Android '+and.tag_name);
     if(v.length) document.getElementById('dl-ver').textContent=v.join(' · ');
   }catch(e){/* fallback hrefs stay */}
+})();
+
+/* M4TR1X launch countdown */
+(function(){
+  const box=document.getElementById('mx-countdown');
+  if(!box) return;
+  const target=new Date(box.dataset.launch).getTime();
+  const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),
+        mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s');
+  const pad=n=>String(n).padStart(2,'0');
+  let iv;
+  function tick(){
+    const diff=target-Date.now();
+    if(diff<=0){ box.classList.add('live'); if(iv) clearInterval(iv); return; }
+    const s=Math.floor(diff/1000);
+    dEl.textContent=Math.floor(s/86400);
+    hEl.textContent=pad(Math.floor(s%86400/3600));
+    mEl.textContent=pad(Math.floor(s%3600/60));
+    sEl.textContent=pad(s%60);
+  }
+  tick(); iv=setInterval(tick,1000);
 })();
 
 /* scroll reveal */
