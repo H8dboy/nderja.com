@@ -54,6 +54,19 @@ async function api(req, env, url) {
     return ok({ id: r.meta.last_row_id, name, photo: null });
   }
 
+  if (url.pathname === '/api/figures/delete' && req.method === 'POST') {
+    const b = await req.json().catch(() => null);
+    if (!b) return bad('bad json');
+    const fid = Number(b.id);
+    const fig = await db.prepare('SELECT id,name FROM figures WHERE id=?').bind(fid).first();
+    if (!fig) return bad('unknown figure');
+    const protectedNames = ['edi rama', 'sali berisha'];
+    if (protectedNames.includes(fig.name.trim().toLowerCase())) return bad('figure is protected', 403);
+    await db.prepare('DELETE FROM pins WHERE figure_id=?').bind(fid).run();
+    await db.prepare('DELETE FROM figures WHERE id=?').bind(fid).run();
+    return ok({ id: fid, deleted: true });
+  }
+
   if (url.pathname === '/api/figures/photo' && req.method === 'POST') {
     const b = await req.json().catch(() => null);
     if (!b) return bad('bad json');

@@ -111,7 +111,13 @@
   .stephint{font-size:.85rem;color:var(--muted);margin-top:.5rem;letter-spacing:0;text-transform:none}
   .mapwho{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-top:2.2rem}
   .figs{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1rem}
-  .fig{display:flex;align-items:center;gap:.8rem;background:var(--panel);border:1px solid var(--line);padding:.6rem .9rem;cursor:pointer;transition:.25s}
+  .fig{position:relative;display:flex;align-items:center;gap:.8rem;background:var(--panel);border:1px solid var(--line);padding:.6rem .9rem;cursor:pointer;transition:.25s}
+  .fig .figdel{position:absolute;top:.25rem;right:.3rem;background:none;border:none;cursor:pointer;color:var(--muted);
+    opacity:.45;line-height:1;padding:.15rem;transition:.25s}
+  .fig .figdel svg{display:block}
+  .fig .figdel:hover{color:#FF5C5C;opacity:1;filter:drop-shadow(0 0 5px rgba(255,92,92,.85))}
+  .fig .figdel.arm{color:#FF5C5C;opacity:1;filter:drop-shadow(0 0 5px rgba(255,92,92,.85));animation:delblink .7s infinite}
+  @keyframes delblink{50%{opacity:.35}}
   .fig:hover{border-color:var(--green-dim)}
   .fig.sel{border-color:var(--green)}
   .fig .favawrap{position:relative;flex:none;width:44px;height:44px}
@@ -1000,6 +1006,8 @@ const T = {
     mp_city:'Search your city or area',
     mp_newfig:'Add someone else…',
     mp_addfig:'Add',
+    mp_del:'Remove this figure',
+    mp_del2:'Click again to confirm',
     mp_step1:'Give a thumb — up if you love them, down if you hate them',
     mp_step1h:'Tap 👍 or 👎 on a person. The map colours that person\u2019s zones green or red.',
     mp_step2:'Find your city or area',
@@ -1154,6 +1162,8 @@ const T = {
     mp_city:'Kërko qytetin a zonën tënde',
     mp_newfig:'Shto dikë tjetër…',
     mp_addfig:'Shto',
+    mp_del:'Hiqe këtë figurë',
+    mp_del2:'Kliko sërish për të konfirmuar',
     mp_step1:'Jep një gisht — lart nëse e do, poshtë nëse e urren',
     mp_step1h:'Prek 👍 ose 👎 te një person. Harta i ngjyros zonat e tij jeshile ose të kuqe.',
     mp_step2:'Gjej qytetin a zonën tënde',
@@ -1308,6 +1318,8 @@ const T = {
     mp_city:'Cerca la tua città o zona',
     mp_newfig:'Aggiungi qualcun altro…',
     mp_addfig:'Aggiungi',
+    mp_del:'Rimuovi questa figura',
+    mp_del2:'Clicca di nuovo per confermare',
     mp_step1:'Metti un pollice — su se lo ami, giù se lo odi',
     mp_step1h:'Tocca 👍 o 👎 su una persona. La mappa colora le sue zone di verde o rosso.',
     mp_step2:'Trova la tua città o zona',
@@ -1462,6 +1474,8 @@ const T = {
     mp_city:'Cherche ta ville ou ta zone',
     mp_newfig:'Ajouter quelqu\u2019un…',
     mp_addfig:'Ajouter',
+    mp_del:'Supprimer cette figure',
+    mp_del2:'Clique encore pour confirmer',
     mp_step1:'Donne un pouce — haut si tu l\u2019aimes, bas si tu le détestes',
     mp_step1h:'Touche 👍 ou 👎 sur une personne. La carte colore ses zones en vert ou rouge.',
     mp_step2:'Trouve ta ville ou ta zone',
@@ -1616,6 +1630,8 @@ const T = {
     mp_city:'Such deine Stadt oder Gegend',
     mp_newfig:'Jemanden hinzufügen…',
     mp_addfig:'Hinzufügen',
+    mp_del:'Diese Figur entfernen',
+    mp_del2:'Zum Bestätigen erneut klicken',
     mp_step1:'Gib einen Daumen — hoch wenn du sie liebst, runter wenn du sie hasst',
     mp_step1h:'Tippe 👍 oder 👎 auf eine Person. Die Karte färbt ihre Zonen grün oder rot.',
     mp_step2:'Finde deine Stadt oder Gegend',
@@ -1770,6 +1786,8 @@ const T = {
     mp_city:'Sök din stad eller ditt område',
     mp_newfig:'Lägg till någon annan…',
     mp_addfig:'Lägg till',
+    mp_del:'Ta bort denna figur',
+    mp_del2:'Klicka igen för att bekräfta',
     mp_step1:'Ge en tumme — upp om du älskar dem, ner om du hatar dem',
     mp_step1h:'Tryck 👍 eller 👎 på en person. Kartan färgar deras områden gröna eller röda.',
     mp_step2:'Hitta din stad eller ditt område',
@@ -1924,6 +1942,8 @@ const T = {
     mp_city:'Αναζήτησε την πόλη ή την περιοχή σου',
     mp_newfig:'Πρόσθεσε κάποιον άλλον…',
     mp_addfig:'Πρόσθεσε',
+    mp_del:'Αφαίρεσε αυτή τη φιγούρα',
+    mp_del2:'Κάνε ξανά κλικ για επιβεβαίωση',
     mp_step1:'Δώσε αντίχειρα — πάνω αν τον αγαπάς, κάτω αν τον μισείς',
     mp_step1h:'Πάτα 👍 ή 👎 σε ένα πρόσωπο. Ο χάρτης χρωματίζει τις ζώνες του πράσινες ή κόκκινες.',
     mp_step2:'Βρες την πόλη ή την περιοχή σου',
@@ -2160,6 +2180,8 @@ const T = {
     mp_city:'Zoek je stad of streek',
     mp_newfig:'Voeg iemand anders toe…',
     mp_addfig:'Toevoegen',
+    mp_del:'Deze figuur verwijderen',
+    mp_del2:'Klik nogmaals om te bevestigen',
     mp_step1:'Geef een duim — omhoog als je van ze houdt, omlaag als je ze haat',
     mp_step1h:'Tik 👍 of 👎 op een persoon. De kaart kleurt hun zones groen of rood.',
     mp_step2:'Zoek je stad of streek',
@@ -2326,6 +2348,8 @@ const T = {
     mp_city:'Busca tu ciudad o zona',
     mp_newfig:'Añade a alguien más…',
     mp_addfig:'Añadir',
+    mp_del:'Eliminar esta figura',
+    mp_del2:'Haz clic de nuevo para confirmar',
     mp_step1:'Da un pulgar — arriba si lo amas, abajo si lo odias',
     mp_step1h:'Toca 👍 o 👎 en una persona. El mapa colorea sus zonas de verde o rojo.',
     mp_step2:'Busca tu ciudad o zona',
@@ -3290,11 +3314,16 @@ function renderFigs(){
     d.className='fig'+(selFig===f.id?' sel':'');
     const avatar=f.photo?'<img src="'+esc(f.photo)+'" alt="">':'<span class="fava">'+esc((f.name.trim()[0]||'?').toUpperCase())+'</span>';
     const badge=f.photo?'':'<button class="addphoto" title="'+esc(tr('mp_photo'))+'" aria-label="'+esc(tr('mp_photo'))+'">&#43;</button>';
+    /* seed figures cannot be removed; everything added later can */
+    const canDel=!['edi rama','sali berisha'].includes(f.name.trim().toLowerCase());
+    const delBtn=canDel?'<button class="figdel" title="'+esc(tr('mp_del'))+'" aria-label="'+esc(tr('mp_del'))+'">'
+      +'<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+      +'<path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6"/></svg></button>':'';
     d.innerHTML='<span class="favawrap">'+avatar+badge+'</span>'
       +'<span><span class="fname">'+esc(f.name)+'</span><span class="fth">'
       +'<button class="th'+(selFig===f.id&&selVote>0?' sel-up':'')+'" data-v="1">&#128077; '+up+'</button>'
       +'<button class="th'+(selFig===f.id&&selVote<0?' sel-dn':'')+'" data-v="-1">&#128078; '+dn+'</button>'
-      +'</span></span>';
+      +'</span></span>'+delBtn;
     d.querySelectorAll('.th').forEach(b=>b.addEventListener('click',ev=>{
       ev.stopPropagation();
       selFig=f.id; selVote=Number(b.dataset.v);
@@ -3302,6 +3331,25 @@ function renderFigs(){
     }));
     const ap=d.querySelector('.addphoto');
     if(ap) ap.addEventListener('click',ev=>{ ev.stopPropagation(); photoTarget=f.id; document.getElementById('mp-photofile').click(); });
+    /* delete: first click arms (blinks red), second click within 3.5s confirms */
+    const del=d.querySelector('.figdel');
+    if(del) del.addEventListener('click',async ev=>{
+      ev.stopPropagation();
+      if(!del.classList.contains('arm')){
+        del.classList.add('arm'); del.title=tr('mp_del2'); mpStatus(tr('mp_del2'));
+        setTimeout(()=>{ del.classList.remove('arm'); del.title=tr('mp_del'); },3500);
+        return;
+      }
+      if(!apiOK){ mpStatus(tr('mp_offline')); return; }
+      try{
+        const r=await fetch('/api/figures/delete',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({id:f.id})});
+        if(!r.ok) throw 0;
+        MFIGS=MFIGS.filter(x=>x.id!==f.id);
+        MPINS=MPINS.filter(p=>p.figure_id!==f.id);
+        if(selFig===f.id){ selFig=null; selVote=0; }
+        renderFigs(); renderPins(); mpStatus('');
+      }catch(e){ mpStatus(tr('mp_offline')); }
+    });
     box.appendChild(d);
   });
 }
