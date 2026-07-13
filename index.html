@@ -103,6 +103,33 @@
   .sub{display:none}
   .sub.active{display:block}
 
+  /* ---------- The End countdown ---------- */
+  .te-hero{position:relative;text-align:center;padding:3rem 1rem 4rem;overflow:hidden}
+  .te-glow{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:0}
+  .te-eagle{width:min(78vw,520px);color:var(--green);opacity:.06;filter:drop-shadow(0 0 40px rgba(46,232,122,.5))}
+  .te-hero>*:not(.te-glow){position:relative;z-index:1}
+  .te-eyebrow{font-size:.72rem;letter-spacing:.32em;text-transform:uppercase;color:var(--green)}
+  .te-title{font-family:var(--serif);font-size:clamp(2.6rem,9vw,5.4rem);line-height:1;margin:.4rem 0 .2rem;font-weight:400}
+  .te-title em{color:var(--green);font-style:italic}
+  .te-subline{color:var(--muted);font-size:1rem;max-width:520px;margin:.4rem auto 0}
+  .te-clock{display:flex;align-items:flex-start;justify-content:center;gap:clamp(.3rem,2vw,1.4rem);margin:2.6rem 0 1.4rem}
+  .te-clock[hidden]{display:none}
+  .te-unit{display:flex;flex-direction:column;align-items:center;min-width:clamp(56px,17vw,110px)}
+  .te-num{font-family:var(--sans);font-weight:700;font-size:clamp(2.4rem,11vw,5rem);line-height:1;color:var(--text);
+    font-variant-numeric:tabular-nums;text-shadow:0 0 22px rgba(46,232,122,.28)}
+  .te-lab{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
+  .te-sep{font-family:var(--sans);font-weight:700;font-size:clamp(1.6rem,7vw,3.2rem);line-height:1;color:var(--green);opacity:.5;
+    margin-top:clamp(.2rem,1.5vw,.7rem)}
+  .te-live{display:inline-block;font-family:var(--serif);font-size:clamp(1.8rem,6vw,3rem);color:var(--green);
+    margin:2rem 0 1.4rem;text-shadow:0 0 30px rgba(46,232,122,.55)}
+  .te-live[hidden]{display:none}
+  .te-meta{margin-top:1.6rem;display:flex;flex-direction:column;align-items:center;gap:.7rem}
+  .te-date{font-family:var(--sans);letter-spacing:.28em;font-size:1.05rem;color:var(--text)}
+  .te-loc{display:inline-flex;align-items:center;gap:.5rem;border:1px solid var(--line);border-radius:2px;
+    padding:.55rem 1rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .te-pin{color:var(--green)}
+  @media(max-width:560px){.te-sep{display:none}.te-clock{gap:.6rem 1.1rem;flex-wrap:wrap}.te-unit{min-width:64px}}
+
   /* ---------- map (Harta) ---------- */
   #map{height:min(66vh,560px);border:1px solid var(--line);margin-top:1.6rem;background:var(--panel)}
   .leaflet-container{background:var(--panel);font-family:var(--sans)}
@@ -342,6 +369,7 @@
     <button data-sub="articles" data-i="ar_t">Articles</button>
     <button data-sub="pyramid" data-i="py_t">Pyramid</button>
     <button data-sub="map" data-i="mp_t">Map</button>
+    <button data-sub="theend" data-i="te_t">The End</button>
   </nav>
   <nav class="submenu" id="h8-sub" aria-label="H8-Group">
     <button data-sub="digital" data-i="h8s_dig">Digital</button>
@@ -937,6 +965,38 @@
     </div>
   </section>
   </div>
+
+  <!-- THE END -->
+  <div class="sub" id="sub-theend">
+  <section style="border-top:none">
+    <div class="frame">
+      <div class="te-hero">
+        <div class="te-glow" aria-hidden="true">
+          <svg viewBox="0 0 100 100" class="te-eagle" aria-hidden="true"><path fill="currentColor" d="M50 20c-4 0-7 3-9 6-3-2-7-3-11-2 3 2 5 5 6 8-4 1-8 4-10 8 4-2 8-2 12-1-2 3-3 7-2 11 2-3 5-6 9-7v25c-3 1-6 3-8 6 3-1 6-1 8 0v4c-4 1-7 3-9 7 4-2 8-2 12-1 1 3 3 5 3 5s2-2 3-5c4-1 8-1 12 1-2-4-5-6-9-7v-4c2-1 5-1 8 0-2-3-5-5-8-6V51c4 1 7 4 9 7 1-4 0-8-2-11 4-1 8-1 12 1-2-4-6-7-10-8 1-3 3-6 6-8-4-1-8 0-11 2-2-3-5-6-9-6z"/></svg>
+        </div>
+        <div class="te-eyebrow" data-i="te_eyebrow">The countdown</div>
+        <h2 class="te-title" data-i-html="te_title">The <em>End</em></h2>
+        <p class="te-subline" data-i="te_sub">Of the old system. Launch of the new one.</p>
+
+        <div class="te-clock" id="te-clock" role="timer" aria-live="off">
+          <div class="te-unit"><span class="te-num" id="te-d">00</span><span class="te-lab" data-i="te_d">Days</span></div>
+          <div class="te-sep">:</div>
+          <div class="te-unit"><span class="te-num" id="te-h">00</span><span class="te-lab" data-i="te_h">Hours</span></div>
+          <div class="te-sep">:</div>
+          <div class="te-unit"><span class="te-num" id="te-m">00</span><span class="te-lab" data-i="te_m">Minutes</span></div>
+          <div class="te-sep">:</div>
+          <div class="te-unit"><span class="te-num" id="te-s">00</span><span class="te-lab" data-i="te_s">Seconds</span></div>
+        </div>
+        <div class="te-live" id="te-live" data-i="te_live" hidden>The new system is live.</div>
+
+        <div class="te-meta">
+          <div class="te-date" id="te-date">14 · 09 · 2026 — 08:00</div>
+          <div class="te-loc"><span class="te-pin" aria-hidden="true">◈</span> <span data-i="te_loc">Tirana · Kryeministria · 08:00</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </div>
 </div>
 
 <div class="dov" id="dov" role="dialog" aria-modal="true" aria-label="Dossier">
@@ -1026,6 +1086,13 @@ const T = {
     ar_t:'Articles',
     py_t:'Pyramid',
     mp_t:'Map',
+    te_t:'The End',
+    te_eyebrow:'The countdown',
+    te_title:'The <em>End</em>',
+    te_sub:'Of the old system. Launch of the new one.',
+    te_d:'Days', te_h:'Hours', te_m:'Minutes', te_s:'Seconds',
+    te_live:'The new system is live.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Physical',
     mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
@@ -1182,6 +1249,13 @@ const T = {
     ar_t:'Artikuj',
     py_t:'Piramida',
     mp_t:'Harta',
+    te_t:'Fundi',
+    te_eyebrow:'Numërimi mbrapsht',
+    te_title:'<em>Fundi</em>',
+    te_sub:'I sistemit të vjetër. Nisja e të riut.',
+    te_d:'Ditë', te_h:'Orë', te_m:'Minuta', te_s:'Sekonda',
+    te_live:'Sistemi i ri është online.',
+    te_loc:'Tiranë · Kryeministria · 08:00',
     h8s_dig:'Digjitale',
     h8s_phy:'Fizike',
     mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
@@ -1338,6 +1412,13 @@ const T = {
     ar_t:'Articoli',
     py_t:'Piramide',
     mp_t:'Mappa',
+    te_t:'La Fine',
+    te_eyebrow:'Il conto alla rovescia',
+    te_title:'La <em>Fine</em>',
+    te_sub:'Del vecchio sistema. Lancio del nuovo.',
+    te_d:'Giorni', te_h:'Ore', te_m:'Minuti', te_s:'Secondi',
+    te_live:'Il nuovo sistema è online.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitale',
     h8s_phy:'Fisico',
     mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
@@ -1494,6 +1575,13 @@ const T = {
     ar_t:'Articles',
     py_t:'Pyramide',
     mp_t:'Carte',
+    te_t:'La Fin',
+    te_eyebrow:'Le compte à rebours',
+    te_title:'La <em>Fin</em>',
+    te_sub:'De l’ancien système. Lancement du nouveau.',
+    te_d:'Jours', te_h:'Heures', te_m:'Minutes', te_s:'Secondes',
+    te_live:'Le nouveau système est en ligne.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Numérique',
     h8s_phy:'Physique',
     mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
@@ -1650,6 +1738,13 @@ const T = {
     ar_t:'Artikel',
     py_t:'Pyramide',
     mp_t:'Karte',
+    te_t:'Das Ende',
+    te_eyebrow:'Der Countdown',
+    te_title:'Das <em>Ende</em>',
+    te_sub:'Des alten Systems. Start des neuen.',
+    te_d:'Tage', te_h:'Stunden', te_m:'Minuten', te_s:'Sekunden',
+    te_live:'Das neue System ist online.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Physisch',
     mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
@@ -1806,6 +1901,13 @@ const T = {
     ar_t:'Artiklar',
     py_t:'Pyramiden',
     mp_t:'Kartan',
+    te_t:'Slutet',
+    te_eyebrow:'Nedräkningen',
+    te_title:'<em>Slutet</em>',
+    te_sub:'På det gamla systemet. Lansering av det nya.',
+    te_d:'Dagar', te_h:'Timmar', te_m:'Minuter', te_s:'Sekunder',
+    te_live:'Det nya systemet är igång.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitalt',
     h8s_phy:'Fysiskt',
     mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
@@ -1962,6 +2064,13 @@ const T = {
     ar_t:'Άρθρα',
     py_t:'Πυραμίδα',
     mp_t:'Χάρτης',
+    te_t:'Το Τέλος',
+    te_eyebrow:'Η αντίστροφη μέτρηση',
+    te_title:'Το <em>Τέλος</em>',
+    te_sub:'Του παλιού συστήματος. Έναρξη του νέου.',
+    te_d:'Ημέρες', te_h:'Ώρες', te_m:'Λεπτά', te_s:'Δευτερόλεπτα',
+    te_live:'Το νέο σύστημα είναι ενεργό.',
+    te_loc:'Τίρανα · Kryeministria · 08:00',
     h8s_dig:'Ψηφιακό',
     h8s_phy:'Φυσικό',
     mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
@@ -2200,6 +2309,13 @@ const T = {
     ar_t:'Artikelen',
     py_t:'Piramide',
     mp_t:'Kaart',
+    te_t:'Het Einde',
+    te_eyebrow:'De aftelling',
+    te_title:'Het <em>Einde</em>',
+    te_sub:'Van het oude systeem. Lancering van het nieuwe.',
+    te_d:'Dagen', te_h:'Uren', te_m:'Minuten', te_s:'Seconden',
+    te_live:'Het nieuwe systeem is live.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitaal',
     h8s_phy:'Fysiek',
     mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
@@ -2368,6 +2484,13 @@ const T = {
     ar_t:'Artículos',
     py_t:'Pirámide',
     mp_t:'Mapa',
+    te_t:'El Fin',
+    te_eyebrow:'La cuenta atrás',
+    te_title:'El <em>Fin</em>',
+    te_sub:'Del viejo sistema. Lanzamiento del nuevo.',
+    te_d:'Días', te_h:'Horas', te_m:'Minutos', te_s:'Segundos',
+    te_live:'El nuevo sistema está en marcha.',
+    te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Físico',
     mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
@@ -3262,6 +3385,33 @@ function showSub(name){
 document.querySelectorAll('#fr-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSub(b.dataset.sub));
 });
+
+/* ---------- The End countdown ---------- */
+/* Target: 14 Sep 2026, 08:00 Tirana time (CEST, UTC+2) — fixed instant, independent of the viewer's timezone */
+const CD_TARGET = new Date('2026-09-14T08:00:00+02:00').getTime();
+(function(){
+  const dEl=document.getElementById('te-d'), hEl=document.getElementById('te-h'),
+        mEl=document.getElementById('te-m'), sEl=document.getElementById('te-s'),
+        clock=document.getElementById('te-clock'), live=document.getElementById('te-live');
+  if(!dEl) return;
+  const p2=n=>String(n).padStart(2,'0');
+  function tick(){
+    const diff=CD_TARGET-Date.now();
+    if(diff<=0){
+      clock.hidden=true; live.hidden=false;
+      dEl.textContent=hEl.textContent=mEl.textContent=sEl.textContent='00';
+      clearInterval(iv);
+      return;
+    }
+    const s=Math.floor(diff/1000);
+    dEl.textContent=p2(Math.floor(s/86400));
+    hEl.textContent=p2(Math.floor(s%86400/3600));
+    mEl.textContent=p2(Math.floor(s%3600/60));
+    sEl.textContent=p2(s%60);
+  }
+  tick();
+  const iv=setInterval(tick,1000);
+})();
 
 /* h8-group submenu */
 function showSubH8(name){
