@@ -3331,13 +3331,13 @@ function renderFigs(){
     }));
     const ap=d.querySelector('.addphoto');
     if(ap) ap.addEventListener('click',ev=>{ ev.stopPropagation(); photoTarget=f.id; document.getElementById('mp-photofile').click(); });
-    /* delete: first click arms (blinks red), second click within 3.5s confirms */
+    /* delete: first click arms (blinks red), second click within 5s confirms */
     const del=d.querySelector('.figdel');
     if(del) del.addEventListener('click',async ev=>{
       ev.stopPropagation();
       if(!del.classList.contains('arm')){
         del.classList.add('arm'); del.title=tr('mp_del2'); mpStatus(tr('mp_del2'));
-        setTimeout(()=>{ del.classList.remove('arm'); del.title=tr('mp_del'); },3500);
+        setTimeout(()=>{ del.classList.remove('arm'); del.title=tr('mp_del'); },5000);
         return;
       }
       if(!apiOK){ mpStatus(tr('mp_offline')); return; }
