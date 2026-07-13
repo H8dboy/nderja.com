@@ -167,6 +167,10 @@
   .pillar{background:var(--panel);padding:2.2rem 1.8rem}
   .pillar h3{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--green);font-weight:500;margin-bottom:.8rem}
   .pillar p{font-size:.95rem;margin:0}
+  .pillar blockquote.pq{border-left:2px solid var(--green-dim);padding:.3rem 0 .3rem 1.1rem;margin:1.6rem 0 0;
+    font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.55;color:var(--text);max-width:none}
+  .pillar .pq cite{display:block;margin-top:.8rem;font-family:var(--sans);font-style:normal;font-size:.68rem;
+    letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
   .pillar .btn{font-size:.72rem;letter-spacing:.15em;padding:.55rem .9rem;margin:.9rem .5rem 0 0}
 
   blockquote{border-left:2px solid var(--green);padding:.4rem 0 .4rem 1.6rem;margin:3rem 0;
@@ -324,6 +328,10 @@
     <button data-sub="pyramid" data-i="py_t">Pyramid</button>
     <button data-sub="map" data-i="mp_t">Map</button>
   </nav>
+  <nav class="submenu" id="h8-sub" aria-label="H8-Group">
+    <button data-sub="digital" data-i="h8s_dig">Digital</button>
+    <button data-sub="physical" data-i="h8s_phy">Physical</button>
+  </nav>
 </header>
 
 <main id="top">
@@ -368,14 +376,20 @@
         <div class="pillar reveal">
           <h3 data-i="pil1_t">Realism</h3>
           <p data-i="pil1_p">See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.</p>
+          <blockquote class="pq"><span data-i="pil1_q">Whoever wishes to found a state and give it laws must presume that all men are bad, and that they will always act on the wickedness of their spirit whenever they have the occasion.</span>
+            <cite data-i="pil1_qa">Niccolò Machiavelli — Discourses, 1531</cite></blockquote>
         </div>
         <div class="pillar reveal">
           <h3 data-i="pil2_t">Ethics</h3>
           <p data-i="pil2_p">Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?</p>
+          <blockquote class="pq"><span data-i="pil2_q">Every morning when you wake, remind yourself: today I shall meet men who are meddling, ungrateful, arrogant, disloyal, malicious and rude. All these vices come from ignorance of good and evil. But I have seen the beauty of good and the ugliness of evil, and I have recognized that the wrongdoer has a nature akin to my own.</span>
+            <cite data-i="pil2_qa">Marcus Aurelius — Meditations, c. 170 AD</cite></blockquote>
         </div>
         <div class="pillar reveal">
           <h3 data-i="pil3_t">Sovereignty</h3>
           <p data-i="pil3_p">Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.</p>
+          <blockquote class="pq"><span data-i="pil3_q">A man who does not know the sword cannot be truly peaceful. Peace belongs to those who are capable of war yet choose not to wage it.</span>
+            <cite data-i="pil3_qa">Miyamoto Musashi — The Book of Five Rings, c. 1645</cite></blockquote>
         </div>
       </div>
       <blockquote data-i="ph_quote">Others sell you a room inside their house. We build houses, hand over the keys, and pave the road out — and none of the three belongs to them.</blockquote>
@@ -446,6 +460,7 @@
     </div>
   </section>
 
+  <div class="sub active" id="sub-digital">
   <!-- M4TR1X -->
   <section id="m4tr1x">
     <div class="frame">
@@ -542,7 +557,9 @@
       <div class="srcnote"><span data-i="dl_verify">Checksums &amp; release notes</span>: <a href="https://github.com/H8dboy/m4tr1x-electron/releases/latest" target="_blank" rel="noopener">desktop</a> · <a href="https://github.com/H8dboy/m4tr1x-android/releases/latest" target="_blank" rel="noopener">android</a></div>
     </div>
   </section>
+  </div>
 
+  <div class="sub" id="sub-physical">
   <!-- ELEA -->
   <section id="elea">
     <div class="frame">
@@ -566,6 +583,7 @@
       <p style="margin-top:2.5rem" data-i="elea_p2">And every machine leads a double life. Above, it serves coffee and pays the bills that keep the movement independent; below, it can host a relay of the M4TR1X network. Sovereignty, one street corner at a time.</p>
     </div>
   </section>
+  </div>
 </div>
 
 <div class="panel" id="panel-news">
@@ -974,6 +992,8 @@ const T = {
     ar_t:'Articles',
     py_t:'Pyramid',
     mp_t:'Map',
+    h8s_dig:'Digital',
+    h8s_phy:'Physical',
     mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
     mp_note:'1. Thumb a figure up or down · 2. Search your city or area and pick it from the list · 3. Or click your spot on the map.',
     mp_who:'Who do you want?',
@@ -1050,6 +1070,12 @@ const T = {
     pil1_t:"Realism", pil1_p:"See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.",
     pil2_t:"Ethics", pil2_p:"Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?",
     pil3_t:"Sovereignty", pil3_p:"Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.",
+    pil1_q:"Whoever wishes to found a state and give it laws must presume that all men are bad, and that they will always act on the wickedness of their spirit whenever they have the occasion.",
+    pil1_qa:"Niccolò Machiavelli — Discourses, 1531",
+    pil2_q:"Every morning when you wake, remind yourself: today I shall meet men who are meddling, ungrateful, arrogant, disloyal, malicious and rude. All these vices come from ignorance of good and evil. But I have seen the beauty of good and the ugliness of evil, and I have recognized that the wrongdoer has a nature akin to my own.",
+    pil2_qa:"Marcus Aurelius — Meditations, c. 170 AD",
+    pil3_q:"A man who does not know the sword cannot be truly peaceful. Peace belongs to those who are capable of war yet choose not to wage it.",
+    pil3_qa:"Miyamoto Musashi — The Book of Five Rings, c. 1645",
     ph_quote:"Others sell you a room inside their house. We build houses, hand over the keys, and pave the road out — and none of the three belongs to them.",
     or_eyebrow:"Origin", or_title:'From the <em>digital</em> to the <em>physical</em>',
     or_p1:"Nderja did not begin as a manifesto. It began as work — years of building, alone, with no one watching.",
@@ -1120,6 +1146,8 @@ const T = {
     ar_t:'Artikuj',
     py_t:'Piramida',
     mp_t:'Harta',
+    h8s_dig:'Digjitale',
+    h8s_phy:'Fizike',
     mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
     mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Kërko qytetin a zonën tënde dhe zgjidhe nga lista · 3. Ose kliko vendin tënd në hartë.',
     mp_who:'Kë do ti?',
@@ -1196,6 +1224,12 @@ const T = {
     pil1_t:"Realizëm", pil1_p:"Shihe botën ashtu siç është — raportet e forcës, interesat, makinerinë — pa iluzione dhe pa cinizëm. Iluzioni është forma e parë e varësisë.",
     pil2_t:"Etikë", pil2_p:"Ndërto mbi parime, jo vetëm për fitim. Nderi është përgjigjja e lashtë shqiptare ndaj një pyetjeje moderne: çfarë refuzon të shesësh?",
     pil3_t:"Sovranitet", pil3_p:"Zotëro mjetet e tua, mos i merr me qira. Fillimisht fito aftësi të vërteta — teknike, ekonomike, kulturore — pastaj ushtro qytetarinë e plotë. Në këtë radhë.",
+    pil1_q:"Kush do të themelojë një shtet dhe t'i japë ligje, duhet të presupozojë se të gjithë njerëzit janë të këqij dhe se do ta përdorin gjithmonë ligësinë e shpirtit sa herë që t'u jepet rasti.",
+    pil1_qa:"Niccolò Machiavelli — Diskurset, 1531",
+    pil2_q:"Çdo mëngjes kur zgjohesh, kujtoje: sot do të takosh njerëz ngacmues, mosmirënjohës, arrogantë, të pabesë, dashakeqë dhe të pasjellshëm. Të gjitha këto vese burojnë nga padija e së mirës dhe e së keqes. Por unë e kam parë bukurinë e së mirës dhe shëmtinë e së keqes, dhe kam njohur se fajtori ka një natyrë të ngjashme me timen.",
+    pil2_qa:"Mark Aureli — Meditimet, rreth 170 e.s.",
+    pil3_q:"Një njeri që nuk e njeh shpatën nuk mund të jetë vërtet paqësor. Paqja u përket atyre që janë të aftë për luftë, por zgjedhin të mos e bëjnë.",
+    pil3_qa:"Miyamoto Musashi — Libri i pesë unazave, rreth 1645",
     ph_quote:"Të tjerët të shesin një dhomë brenda shtëpisë së tyre. Ne ndërtojmë shtëpi, dorëzojmë çelësat dhe hapim rrugën për të dalë — dhe asnjëra nga të treja nuk u përket atyre.",
     or_eyebrow:"Origjina", or_title:'Nga <em>dixhitalja</em> te <em>fizikja</em>',
     or_p1:"Nderja nuk nisi si manifest. Nisi si punë — vite ndërtimi, vetëm, pa asnjë spektator.",
@@ -1266,6 +1300,8 @@ const T = {
     ar_t:'Articoli',
     py_t:'Piramide',
     mp_t:'Mappa',
+    h8s_dig:'Digitale',
+    h8s_phy:'Fisico',
     mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
     mp_note:'1. Metti pollice su o giù a una figura · 2. Cerca la tua città o zona e scegli dalla lista · 3. Oppure clicca il tuo punto sulla mappa.',
     mp_who:'Chi vuoi?',
@@ -1342,6 +1378,12 @@ const T = {
     pil1_t:"Realismo", pil1_p:"Vedere il mondo com'è — i rapporti di forza, gli interessi, la macchina — senza illusioni e senza cinismo. L'illusione è la prima forma di dipendenza.",
     pil2_t:"Etica", pil2_p:"Costruire con principi, non solo per profitto. L'onore — nder — è l'antica risposta albanese a una domanda moderna: cosa ti rifiuti di vendere?",
     pil3_t:"Sovranità", pil3_p:"Possedere i propri strumenti, non affittarli. Prima si acquisiscono capacità reali — tecniche, economiche, culturali — poi si esercita la cittadinanza piena. In quest'ordine.",
+    pil1_q:"Chi vuole fondare uno stato e dargli leggi, deve presumere che tutti gli uomini sono cattivi e che useranno sempre la malvagità dell'animo tutte le volte che ne avranno l'occasione.",
+    pil1_qa:"Niccolò Machiavelli — Discorsi, 1531",
+    pil2_q:"Ogni mattina quando ti svegli, ricordati: oggi incontrerai uomini invadenti, ingrati, arroganti, sleali, malevoli e scortesi. Tutti questi vizi derivano dall'ignoranza del bene e del male. Ma io ho visto la bellezza del bene e la bruttezza del male, e ho riconosciuto che il colpevole ha una natura simile alla mia.",
+    pil2_qa:"Marco Aurelio — Pensieri, 170 d.C. ca.",
+    pil3_q:"Un uomo che non conosce la spada non può essere veramente pacifico. La pace appartiene a chi è capace di guerra ma sceglie di non farla.",
+    pil3_qa:"Miyamoto Musashi — Il libro dei cinque anelli, 1645 ca.",
     ph_quote:"Gli altri ti vendono una stanza dentro casa loro. Noi costruiamo case, consegniamo le chiavi e apriamo la strada per uscire — e nessuna delle tre appartiene a loro.",
     or_eyebrow:"Origine", or_title:'Dal <em>digitale</em> al <em>fisico</em>',
     or_p1:"Nderja non è nata come manifesto. È nata come lavoro — anni di costruzione, da soli, senza nessuno a guardare.",
@@ -1412,6 +1454,8 @@ const T = {
     ar_t:'Articles',
     py_t:'Pyramide',
     mp_t:'Carte',
+    h8s_dig:'Numérique',
+    h8s_phy:'Physique',
     mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
     mp_note:'1. Pouce haut ou bas pour une figure · 2. Cherche ta ville ou ta zone et choisis dans la liste · 3. Ou clique ton endroit sur la carte.',
     mp_who:'Qui veux-tu ?',
@@ -1488,6 +1532,12 @@ const T = {
     pil1_t:"Réalisme", pil1_p:"Voir le monde tel qu'il est — ses rapports de force, ses intérêts, sa machinerie — sans illusions et sans cynisme. L'illusion est la première forme de dépendance.",
     pil2_t:"Éthique", pil2_p:"Construire sur des principes, pas seulement pour le profit. L'honneur — nder — est l'antique réponse albanaise à une question moderne : que refuses-tu de vendre ?",
     pil3_t:"Souveraineté", pil3_p:"Posséder ses outils, ne pas les louer. D'abord acquérir des capacités réelles — techniques, économiques, culturelles — puis exercer une citoyenneté pleine. Dans cet ordre.",
+    pil1_q:"Quiconque veut fonder un État et lui donner des lois doit présumer que tous les hommes sont méchants, et qu'ils useront toujours de la malignité de leur âme chaque fois qu'ils en auront l'occasion.",
+    pil1_qa:"Nicolas Machiavel — Discours, 1531",
+    pil2_q:"Chaque matin au réveil, rappelle-toi : aujourd'hui je rencontrerai des hommes indiscrets, ingrats, arrogants, déloyaux, malveillants et grossiers. Tous ces vices viennent de l'ignorance du bien et du mal. Mais moi, j'ai vu la beauté du bien et la laideur du mal, et j'ai reconnu que le coupable a une nature semblable à la mienne.",
+    pil2_qa:"Marc Aurèle — Pensées, v. 170 ap. J.-C.",
+    pil3_q:"Un homme qui ne connaît pas l'épée ne peut être véritablement pacifique. La paix appartient à ceux qui sont capables de guerre mais choisissent de ne pas la faire.",
+    pil3_qa:"Miyamoto Musashi — Le Traité des cinq roues, v. 1645",
     ph_quote:"Les autres te vendent une chambre dans leur maison. Nous construisons des maisons, remettons les clés et ouvrons la route pour sortir — et aucune des trois ne leur appartient.",
     or_eyebrow:"Origine", or_title:'Du <em>numérique</em> au <em>physique</em>',
     or_p1:"Nderja n'est pas née comme un manifeste. Elle est née comme un travail — des années de construction, seul, sans personne pour regarder.",
@@ -1558,6 +1608,8 @@ const T = {
     ar_t:'Artikel',
     py_t:'Pyramide',
     mp_t:'Karte',
+    h8s_dig:'Digital',
+    h8s_phy:'Physisch',
     mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
     mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Such deine Stadt oder Gegend und wähl aus der Liste · 3. Oder klicke deinen Ort auf der Karte.',
     mp_who:'Wen willst du?',
@@ -1634,6 +1686,12 @@ const T = {
     pil1_t:"Realismus", pil1_p:"Die Welt sehen, wie sie ist — ihre Machtverhältnisse, ihre Interessen, ihre Maschinerie — ohne Illusionen und ohne Zynismus. Die Illusion ist die erste Form der Abhängigkeit.",
     pil2_t:"Ethik", pil2_p:"Auf Prinzipien bauen, nicht nur für Profit. Die Ehre — nder — ist die alte albanische Antwort auf eine moderne Frage: Was weigerst du dich zu verkaufen?",
     pil3_t:"Souveränität", pil3_p:"Die eigenen Werkzeuge besitzen, nicht mieten. Zuerst echte Fähigkeiten erwerben — technisch, wirtschaftlich, kulturell — dann volle Bürgerschaft ausüben. In dieser Reihenfolge.",
+    pil1_q:"Wer einen Staat gründen und ihm Gesetze geben will, muss voraussetzen, dass alle Menschen böse sind und dass sie die Bosheit ihres Gemüts stets ausleben werden, sobald sich ihnen die Gelegenheit bietet.",
+    pil1_qa:"Niccolò Machiavelli — Discorsi, 1531",
+    pil2_q:"Jeden Morgen, wenn du erwachst, erinnere dich: Heute wirst du aufdringlichen, undankbaren, arroganten, treulosen, böswilligen und unhöflichen Menschen begegnen. All diese Laster entspringen der Unkenntnis von Gut und Böse. Ich aber habe die Schönheit des Guten und die Hässlichkeit des Bösen gesehen und erkannt, dass der Schuldige eine Natur hat, die der meinen gleicht.",
+    pil2_qa:"Mark Aurel — Selbstbetrachtungen, ca. 170 n. Chr.",
+    pil3_q:"Ein Mann, der das Schwert nicht kennt, kann nicht wahrhaft friedlich sein. Der Friede gehört dem, der zum Krieg fähig ist, aber sich entscheidet, ihn nicht zu führen.",
+    pil3_qa:"Miyamoto Musashi — Das Buch der fünf Ringe, ca. 1645",
     ph_quote:"Andere verkaufen dir ein Zimmer in ihrem Haus. Wir bauen Häuser, übergeben die Schlüssel und ebnen den Weg hinaus — und nichts davon gehört ihnen.",
     or_eyebrow:"Ursprung", or_title:'Vom <em>Digitalen</em> zum <em>Physischen</em>',
     or_p1:"Nderja begann nicht als Manifest. Sie begann als Arbeit — Jahre des Bauens, allein, ohne Zuschauer.",
@@ -1704,6 +1762,8 @@ const T = {
     ar_t:'Artiklar',
     py_t:'Pyramiden',
     mp_t:'Kartan',
+    h8s_dig:'Digitalt',
+    h8s_phy:'Fysiskt',
     mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
     mp_note:'1. Tumme upp eller ner för en figur · 2. Sök din stad eller ditt område och välj från listan · 3. Eller klicka på din plats på kartan.',
     mp_who:'Vem vill du ha?',
@@ -1780,6 +1840,12 @@ const T = {
     pil1_t:"Realism", pil1_p:"Se världen som den är — dess maktförhållanden, dess intressen, dess maskineri — utan illusioner och utan cynism. Illusionen är beroendets första form.",
     pil2_t:"Etik", pil2_p:"Bygga på principer, inte bara för vinst. Hedern — nder — är det uråldriga albanska svaret på en modern fråga: vad vägrar du sälja?",
     pil3_t:"Suveränitet", pil3_p:"Äga sina verktyg, inte hyra dem. Först förvärva verklig förmåga — teknisk, ekonomisk, kulturell — sedan utöva fullt medborgarskap. I den ordningen.",
+    pil1_q:"Den som vill grunda en stat och ge den lagar måste förutsätta att alla människor är onda, och att de alltid kommer att bruka sin själs ondska så snart tillfället ges.",
+    pil1_qa:"Niccolò Machiavelli — Discorsi, 1531",
+    pil2_q:"Varje morgon när du vaknar, påminn dig: i dag kommer jag att möta människor som är påträngande, otacksamma, arroganta, trolösa, illvilliga och ohövliga. Alla dessa laster kommer av okunnighet om gott och ont. Men jag har sett det godas skönhet och det ondas fulhet, och jag har insett att den skyldige har en natur lik min egen.",
+    pil2_qa:"Marcus Aurelius — Självbetraktelser, ca 170 e.Kr.",
+    pil3_q:"En man som inte känner svärdet kan inte vara verkligt fredlig. Freden tillhör den som är kapabel till krig men väljer att inte föra det.",
+    pil3_qa:"Miyamoto Musashi — De fem ringarnas bok, ca 1645",
     ph_quote:"Andra säljer dig ett rum i deras hus. Vi bygger hus, lämnar över nycklarna och banar vägen ut — och inget av de tre tillhör dem.",
     or_eyebrow:"Ursprung", or_title:'Från det <em>digitala</em> till det <em>fysiska</em>',
     or_p1:"Nderja började inte som ett manifest. Den började som arbete — år av byggande, ensam, utan någon som såg på.",
@@ -1850,6 +1916,8 @@ const T = {
     ar_t:'Άρθρα',
     py_t:'Πυραμίδα',
     mp_t:'Χάρτης',
+    h8s_dig:'Ψηφιακό',
+    h8s_phy:'Φυσικό',
     mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
     mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Αναζήτησε την πόλη σου και διάλεξε από τη λίστα · 3. Ή κάνε κλικ στο σημείο σου στον χάρτη.',
     mp_who:'Ποιον θέλεις;',
@@ -1926,6 +1994,12 @@ const T = {
     pil1_t:"Ρεαλισμός", pil1_p:"Να βλέπεις τον κόσμο όπως είναι — τις σχέσεις ισχύος, τα συμφέροντα, τον μηχανισμό του — χωρίς αυταπάτες και χωρίς κυνισμό. Η αυταπάτη είναι η πρώτη μορφή εξάρτησης.",
     pil2_t:"Ηθική", pil2_p:"Να χτίζεις με αρχές, όχι μόνο για κέρδος. Η τιμή — nder — είναι η αρχαία αλβανική απάντηση σε ένα σύγχρονο ερώτημα: τι αρνείσαι να πουλήσεις;",
     pil3_t:"Κυριαρχία", pil3_p:"Να κατέχεις τα εργαλεία σου, όχι να τα νοικιάζεις. Πρώτα αποκτάς πραγματικές ικανότητες — τεχνικές, οικονομικές, πολιτισμικές — μετά ασκείς πλήρη ιδιότητα πολίτη. Με αυτή τη σειρά.",
+    pil1_q:"Όποιος θέλει να ιδρύσει ένα κράτος και να του δώσει νόμους, πρέπει να προϋποθέσει ότι όλοι οι άνθρωποι είναι κακοί και ότι θα χρησιμοποιούν πάντα την κακία της ψυχής τους όποτε τους δοθεί η ευκαιρία.",
+    pil1_qa:"Νικολό Μακιαβέλι — Διατριβές, 1531",
+    pil2_q:"Κάθε πρωί όταν ξυπνάς, θυμήσου: σήμερα θα συναντήσεις ανθρώπους αδιάκριτους, αχάριστους, αλαζόνες, άπιστους, κακόβουλους και αγενείς. Όλα αυτά τα ελαττώματα πηγάζουν από την άγνοια του καλού και του κακού. Εγώ όμως έχω δει την ομορφιά του καλού και την ασχήμια του κακού, και έχω αναγνωρίσει ότι ο φταίχτης έχει φύση όμοια με τη δική μου.",
+    pil2_qa:"Μάρκος Αυρήλιος — Τα εις εαυτόν, περ. 170 μ.Χ.",
+    pil3_q:"Ένας άνθρωπος που δεν γνωρίζει το σπαθί δεν μπορεί να είναι αληθινά ειρηνικός. Η ειρήνη ανήκει σε όποιον είναι ικανός για πόλεμο αλλά επιλέγει να μην τον κάνει.",
+    pil3_qa:"Μιγιαμότο Μουσάσι — Το βιβλίο των πέντε δαχτυλιδιών, περ. 1645",
     ph_quote:"Οι άλλοι σού πουλούν ένα δωμάτιο μέσα στο σπίτι τους. Εμείς χτίζουμε σπίτια, παραδίδουμε τα κλειδιά και ανοίγουμε τον δρόμο προς τα έξω — και τίποτα από τα τρία δεν τους ανήκει.",
     or_eyebrow:"Καταγωγή", or_title:'Από το <em>ψηφιακό</em> στο <em>φυσικό</em>',
     or_p1:"Η Nderja δεν ξεκίνησε ως μανιφέστο. Ξεκίνησε ως δουλειά — χρόνια οικοδόμησης, μόνος, χωρίς κανέναν να βλέπει.",
@@ -1993,6 +2067,12 @@ const T = {
     pil2_p:'Bouwen op principes, niet alleen voor winst. De eer — nder — is het oude Albanese antwoord op een moderne vraag: wat weiger je te verkopen?',
     pil3_t:'Soevereiniteit',
     pil3_p:'Je eigen gereedschap bezitten, niet huren. Eerst echte bekwaamheid verwerven — technisch, economisch, cultureel — dan volledig burgerschap uitoefenen. In die volgorde.',
+    pil1_q:"Wie een staat wil stichten en haar wetten wil geven, moet ervan uitgaan dat alle mensen slecht zijn en dat zij de boosaardigheid van hun geest altijd zullen gebruiken zodra de gelegenheid zich voordoet.",
+    pil1_qa:"Niccolò Machiavelli — Discorsi, 1531",
+    pil2_q:"Elke ochtend als je wakker wordt, houd jezelf voor: vandaag zal ik opdringerige, ondankbare, arrogante, trouweloze, kwaadwillige en onbeleefde mensen ontmoeten. Al deze ondeugden komen voort uit onwetendheid over goed en kwaad. Maar ik heb de schoonheid van het goede en de lelijkheid van het kwade gezien, en ik heb erkend dat de schuldige een natuur heeft die op de mijne lijkt.",
+    pil2_qa:"Marcus Aurelius — Overpeinzingen, ca. 170 n.Chr.",
+    pil3_q:"Een man die het zwaard niet kent, kan niet werkelijk vreedzaam zijn. De vrede behoort toe aan wie tot oorlog in staat is maar ervoor kiest die niet te voeren.",
+    pil3_qa:"Miyamoto Musashi — Het boek van de vijf ringen, ca. 1645",
     ph_quote:'Anderen verkopen je een kamer in hun huis. Wij bouwen huizen, overhandigen de sleutels en banen de weg naar buiten — en geen van de drie behoort hun toe.',
     or_eyebrow:'Oorsprong',
     or_title:'Van het <em>digitale</em> naar het <em>fysieke</em>',
@@ -2072,6 +2152,8 @@ const T = {
     ar_t:'Artikelen',
     py_t:'Piramide',
     mp_t:'Kaart',
+    h8s_dig:'Digitaal',
+    h8s_phy:'Fysiek',
     mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
     mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Zoek je stad of streek en kies uit de lijst · 3. Of klik op jouw plek op de kaart.',
     mp_who:'Wie wil je?',
@@ -2151,6 +2233,12 @@ const T = {
     pil2_p:'Construir sobre principios, no solo por lucro. El honor — nder — es la antigua respuesta albanesa a una pregunta moderna: ¿qué te niegas a vender?',
     pil3_t:'Soberanía',
     pil3_p:'Poseer tus herramientas, no alquilarlas. Primero adquirir capacidades reales — técnicas, económicas, culturales — luego ejercer la ciudadanía plena. En ese orden.',
+    pil1_q:"Quien quiera fundar un estado y darle leyes debe presuponer que todos los hombres son malos, y que usarán siempre la maldad de su ánimo cada vez que tengan la ocasión.",
+    pil1_qa:"Nicolás Maquiavelo — Discursos, 1531",
+    pil2_q:"Cada mañana al despertar, recuérdate: hoy encontraré hombres entrometidos, ingratos, arrogantes, desleales, malévolos y groseros. Todos estos vicios nacen de la ignorancia del bien y del mal. Pero yo he visto la belleza del bien y la fealdad del mal, y he reconocido que el culpable tiene una naturaleza semejante a la mía.",
+    pil2_qa:"Marco Aurelio — Meditaciones, ca. 170 d.C.",
+    pil3_q:"Un hombre que no conoce la espada no puede ser verdaderamente pacífico. La paz pertenece a quien es capaz de la guerra pero elige no hacerla.",
+    pil3_qa:"Miyamoto Musashi — El libro de los cinco anillos, ca. 1645",
     ph_quote:'Otros te venden una habitación dentro de su casa. Nosotros construimos casas, entregamos las llaves y abrimos el camino de salida — y ninguna de las tres les pertenece.',
     or_eyebrow:'Origen',
     or_title:'De lo <em>digital</em> a lo <em>físico</em>',
@@ -2230,6 +2318,8 @@ const T = {
     ar_t:'Artículos',
     py_t:'Pirámide',
     mp_t:'Mapa',
+    h8s_dig:'Digital',
+    h8s_phy:'Físico',
     mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
     mp_note:'1. Pulgar arriba o abajo a una figura · 2. Busca tu ciudad o zona y elígela de la lista · 3. O haz clic en tu lugar del mapa.',
     mp_who:'¿A quién quieres?',
@@ -3098,6 +3188,8 @@ function showPanel(name){
   document.querySelectorAll('.menu button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
   document.getElementById('fr-sub').classList.toggle('show', name==='news');
   if(name==='news') showSub('fight');
+  document.getElementById('h8-sub').classList.toggle('show', name==='h8');
+  if(name==='h8') showSubH8('digital');
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
@@ -3117,6 +3209,18 @@ function showSub(name){
 }
 document.querySelectorAll('#fr-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSub(b.dataset.sub));
+});
+
+/* h8-group submenu */
+function showSubH8(name){
+  document.querySelectorAll('#panel-h8 .sub').forEach(s=>s.classList.toggle('active', s.id==='sub-'+name));
+  document.querySelectorAll('#h8-sub button').forEach(b=>b.classList.toggle('active', b.dataset.sub===name));
+  window.scrollTo({top:0});
+  document.querySelectorAll('#panel-h8 .sub.active .reveal').forEach(el=>el.classList.add('in'));
+  setHeadH();
+}
+document.querySelectorAll('#h8-sub button').forEach(b=>{
+  b.addEventListener('click',()=>showSubH8(b.dataset.sub));
 });
 
 /* ---------- map (Harta) ---------- */
