@@ -102,6 +102,8 @@
   .submenu button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
   .sub{display:none}
   .sub.active{display:block}
+  .dsub{display:none}
+  .dsub.active{display:block}
 
   /* ---------- The End countdown ---------- */
   .te-hero{position:relative;text-align:center;padding:3rem 1rem 4rem;overflow:hidden}
@@ -375,6 +377,10 @@
     <button data-sub="digital" data-i="h8s_dig">Digital</button>
     <button data-sub="physical" data-i="h8s_phy">Physical</button>
   </nav>
+  <nav class="submenu" id="dig-sub" aria-label="Digital">
+    <button data-dsub="app" data-i="dsub_app">App</button>
+    <button data-dsub="content" data-i="dsub_content">Content</button>
+  </nav>
 </header>
 
 <main id="top">
@@ -504,6 +510,7 @@
   </section>
 
   <div class="sub active" id="sub-digital">
+  <div class="dsub active" id="dsub-app">
   <!-- M4TR1X -->
   <section id="m4tr1x">
     <div class="frame">
@@ -600,6 +607,30 @@
       <div class="srcnote"><span data-i="dl_verify">Checksums &amp; release notes</span>: <a href="https://github.com/H8dboy/m4tr1x-electron/releases/latest" target="_blank" rel="noopener">desktop</a> · <a href="https://github.com/H8dboy/m4tr1x-android/releases/latest" target="_blank" rel="noopener">android</a></div>
     </div>
   </section>
+
+  <!-- KALENDAE -->
+  <section id="kalendae">
+    <div class="frame">
+      <div class="eyebrow" data-i="ka_eyebrow">The agenda</div>
+      <h2 data-i-html="ka_title">Kal<em>endae</em></h2>
+      <p data-i="ka_p1">A personal agenda that lives entirely on your phone — calendar, tasks, notes, work hours, fitness and instalment payments in one local database. No account, no cloud, no tracking.</p>
+      <p style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
+        <a href="https://github.com/H8dboy/kalendae/releases/latest/download/Kalendae.apk" class="btn" data-i="ka_dl">Download APK</a>
+        <a href="https://github.com/H8dboy/kalendae" class="btn" target="_blank" rel="noopener" data-i="ka_src">Source code</a>
+      </p>
+      <div class="srcnote"><a href="https://github.com/H8dboy/kalendae" target="_blank" rel="noopener">github.com/H8dboy/kalendae</a></div>
+    </div>
+  </section>
+  </div><!-- /dsub-app -->
+
+  <div class="dsub" id="dsub-content">
+  <section id="content-soon">
+    <div class="frame">
+      <div class="eyebrow" data-i="dsub_content">Content</div>
+      <p data-i="content_soon">Coming soon.</p>
+    </div>
+  </section>
+  </div><!-- /dsub-content -->
   </div>
 
   <div class="sub" id="sub-physical">
@@ -1095,6 +1126,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Physical',
+    dsub_app:'App', dsub_content:'Content', content_soon:'Coming soon.',
+    ka_eyebrow:'The agenda', ka_title:'Kal<em>endae</em>', ka_p1:'A personal agenda that lives entirely on your phone — calendar, tasks, notes, work hours, fitness and instalment payments in one local database. No account, no cloud, no tracking.', ka_dl:'Download APK', ka_src:'Source code',
     mp_intro:'The map of ethnic Albania. Drop a pin on your home town and declare who you stand with — so everyone can see how close we are to each other, and who the people actually want.',
     mp_note:'1. Thumb a figure up or down · 2. Search your city or area and pick it from the list · 3. Or click your spot on the map.',
     mp_who:'Who do you want?',
@@ -1258,6 +1291,8 @@ const T = {
     te_loc:'Tiranë · Kryeministria · 08:00',
     h8s_dig:'Digjitale',
     h8s_phy:'Fizike',
+    dsub_app:'App', dsub_content:'Përmbajtje', content_soon:'Së shpejti.',
+    ka_eyebrow:'Agjenda', ka_title:'Kal<em>endae</em>', ka_p1:'Një agjendë personale që rron tërësisht në telefonin tënd — kalendar, detyra, shënime, orë pune, fitnes dhe pagesa me këste në një bazë të dhënash lokale. Pa llogari, pa re, pa gjurmim.', ka_dl:'Shkarko APK', ka_src:'Kodi burimor',
     mp_intro:'Harta e Shqipërisë etnike. Vendos një gjilpërë mbi qytetin tënd dhe thuaj me kë qëndron — që të gjithë të shohin sa afër jemi me njëri-tjetrin, dhe kë do populli me të vërtetë.',
     mp_note:'1. Jepi një figure pëlqim ose mospëlqim · 2. Kërko qytetin a zonën tënde dhe zgjidhe nga lista · 3. Ose kliko vendin tënd në hartë.',
     mp_who:'Kë do ti?',
@@ -1421,6 +1456,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitale',
     h8s_phy:'Fisico',
+    dsub_app:'App', dsub_content:'Contenuti', content_soon:'Prossimamente.',
+    ka_eyebrow:'L\'agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Un\'agenda personale che vive interamente sul tuo telefono — calendario, attività, note, ore di lavoro, fitness e pagamenti a rate in un unico database locale. Nessun account, nessun cloud, nessun tracciamento.', ka_dl:'Scarica APK', ka_src:'Codice sorgente',
     mp_intro:'La mappa dell’Albania etnica. Metti un pin sulla tua città d’origine e dichiara con chi stai — così tutti vedono quanto siamo vicini l’uno all’altro, e chi vuole davvero il popolo.',
     mp_note:'1. Metti pollice su o giù a una figura · 2. Cerca la tua città o zona e scegli dalla lista · 3. Oppure clicca il tuo punto sulla mappa.',
     mp_who:'Chi vuoi?',
@@ -1584,6 +1621,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Numérique',
     h8s_phy:'Physique',
+    dsub_app:'App', dsub_content:'Contenu', content_soon:'Bientôt disponible.',
+    ka_eyebrow:'L\'agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Un agenda personnel qui vit entièrement sur votre téléphone — calendrier, tâches, notes, heures de travail, fitness et paiements en plusieurs fois dans une seule base de données locale. Pas de compte, pas de cloud, pas de pistage.', ka_dl:'Télécharger l\'APK', ka_src:'Code source',
     mp_intro:'La carte de l’Albanie ethnique. Place une épingle sur ta ville d’origine et dis avec qui tu te tiens — pour que chacun voie à quel point nous sommes proches les uns des autres, et qui le peuple veut vraiment.',
     mp_note:'1. Pouce haut ou bas pour une figure · 2. Cherche ta ville ou ta zone et choisis dans la liste · 3. Ou clique ton endroit sur la carte.',
     mp_who:'Qui veux-tu ?',
@@ -1747,6 +1786,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Physisch',
+    dsub_app:'App', dsub_content:'Inhalte', content_soon:'Demnächst.',
+    ka_eyebrow:'Die Agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Eine persönliche Agenda, die vollständig auf deinem Telefon lebt — Kalender, Aufgaben, Notizen, Arbeitszeiten, Fitness und Ratenzahlungen in einer einzigen lokalen Datenbank. Kein Konto, keine Cloud, kein Tracking.', ka_dl:'APK herunterladen', ka_src:'Quellcode',
     mp_intro:'Die Karte des ethnischen Albanien. Setze einen Pin auf deine Heimatstadt und erkläre, zu wem du stehst — damit alle sehen, wie nah wir einander sind und wen das Volk wirklich will.',
     mp_note:'1. Daumen hoch oder runter für eine Figur · 2. Such deine Stadt oder Gegend und wähl aus der Liste · 3. Oder klicke deinen Ort auf der Karte.',
     mp_who:'Wen willst du?',
@@ -1910,6 +1951,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitalt',
     h8s_phy:'Fysiskt',
+    dsub_app:'App', dsub_content:'Innehåll', content_soon:'Kommer snart.',
+    ka_eyebrow:'Agendan', ka_title:'Kal<em>endae</em>', ka_p1:'En personlig agenda som lever helt på din telefon — kalender, uppgifter, anteckningar, arbetstimmar, träning och delbetalningar i en enda lokal databas. Inget konto, inget moln, ingen spårning.', ka_dl:'Ladda ner APK', ka_src:'Källkod',
     mp_intro:'Kartan över det etniska Albanien. Sätt en nål på din hemstad och säg vem du står bakom — så att alla ser hur nära varandra vi är, och vem folket verkligen vill ha.',
     mp_note:'1. Tumme upp eller ner för en figur · 2. Sök din stad eller ditt område och välj från listan · 3. Eller klicka på din plats på kartan.',
     mp_who:'Vem vill du ha?',
@@ -2073,6 +2116,8 @@ const T = {
     te_loc:'Τίρανα · Kryeministria · 08:00',
     h8s_dig:'Ψηφιακό',
     h8s_phy:'Φυσικό',
+    dsub_app:'App', dsub_content:'Περιεχόμενο', content_soon:'Σύντομα.',
+    ka_eyebrow:'Η ατζέντα', ka_title:'Kal<em>endae</em>', ka_p1:'Μια προσωπική ατζέντα που ζει εξ ολοκλήρου στο τηλέφωνό σου — ημερολόγιο, εργασίες, σημειώσεις, ώρες εργασίας, γυμναστική και πληρωμές με δόσεις σε μία τοπική βάση δεδομένων. Χωρίς λογαριασμό, χωρίς σύννεφο, χωρίς παρακολούθηση.', ka_dl:'Λήψη APK', ka_src:'Πηγαίος κώδικας',
     mp_intro:'Ο χάρτης της εθνικής Αλβανίας. Βάλε μια πινέζα στην πόλη καταγωγής σου και δήλωσε με ποιον στέκεσαι — για να βλέπουν όλοι πόσο κοντά είμαστε ο ένας στον άλλον, και ποιον θέλει πραγματικά ο λαός.',
     mp_note:'1. Αντίχειρας πάνω ή κάτω σε μια φιγούρα · 2. Αναζήτησε την πόλη σου και διάλεξε από τη λίστα · 3. Ή κάνε κλικ στο σημείο σου στον χάρτη.',
     mp_who:'Ποιον θέλεις;',
@@ -2318,6 +2363,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digitaal',
     h8s_phy:'Fysiek',
+    dsub_app:'App', dsub_content:'Inhoud', content_soon:'Binnenkort.',
+    ka_eyebrow:'De agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Een persoonlijke agenda die volledig op je telefoon leeft — kalender, taken, notities, werkuren, fitness en betalingen in termijnen in één lokale database. Geen account, geen cloud, geen tracking.', ka_dl:'APK downloaden', ka_src:'Broncode',
     mp_intro:'De kaart van etnisch Albanië. Zet een speld op je geboortestad en zeg achter wie je staat — zodat iedereen ziet hoe dicht we bij elkaar staan, en wie het volk echt wil.',
     mp_note:'1. Duim omhoog of omlaag voor een figuur · 2. Zoek je stad of streek en kies uit de lijst · 3. Of klik op jouw plek op de kaart.',
     mp_who:'Wie wil je?',
@@ -2493,6 +2540,8 @@ const T = {
     te_loc:'Tirana · Kryeministria · 08:00',
     h8s_dig:'Digital',
     h8s_phy:'Físico',
+    dsub_app:'App', dsub_content:'Contenido', content_soon:'Próximamente.',
+    ka_eyebrow:'La agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Una agenda personal que vive por completo en tu teléfono — calendario, tareas, notas, horas de trabajo, fitness y pagos a plazos en una única base de datos local. Sin cuenta, sin nube, sin rastreo.', ka_dl:'Descargar APK', ka_src:'Código fuente',
     mp_intro:'El mapa de la Albania étnica. Pon un pin en tu ciudad de origen y declara con quién estás — para que todos vean lo cerca que estamos unos de otros, y a quién quiere de verdad el pueblo.',
     mp_note:'1. Pulgar arriba o abajo a una figura · 2. Busca tu ciudad o zona y elígela de la lista · 3. O haz clic en tu lugar del mapa.',
     mp_who:'¿A quién quieres?',
@@ -3364,6 +3413,7 @@ function showPanel(name){
   document.getElementById('fr-sub').classList.toggle('show', name==='news');
   if(name==='news') showSub('fight');
   document.getElementById('h8-sub').classList.toggle('show', name==='h8');
+  if(name!=='h8') document.getElementById('dig-sub').classList.remove('show');
   if(name==='h8') showSubH8('digital');
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
@@ -3417,12 +3467,26 @@ const CD_TARGET = new Date('2026-09-14T08:00:00+02:00').getTime();
 function showSubH8(name){
   document.querySelectorAll('#panel-h8 .sub').forEach(s=>s.classList.toggle('active', s.id==='sub-'+name));
   document.querySelectorAll('#h8-sub button').forEach(b=>b.classList.toggle('active', b.dataset.sub===name));
+  document.getElementById('dig-sub').classList.toggle('show', name==='digital');
+  if(name==='digital') showSubDig('app');
   window.scrollTo({top:0});
   document.querySelectorAll('#panel-h8 .sub.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
 }
 document.querySelectorAll('#h8-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSubH8(b.dataset.sub));
+});
+
+/* digital sub-submenu (App / Content) */
+function showSubDig(name){
+  document.querySelectorAll('#sub-digital .dsub').forEach(s=>s.classList.toggle('active', s.id==='dsub-'+name));
+  document.querySelectorAll('#dig-sub button').forEach(b=>b.classList.toggle('active', b.dataset.dsub===name));
+  window.scrollTo({top:0});
+  document.querySelectorAll('#sub-digital .dsub.active .reveal').forEach(el=>el.classList.add('in'));
+  setHeadH();
+}
+document.querySelectorAll('#dig-sub button').forEach(b=>{
+  b.addEventListener('click',()=>showSubDig(b.dataset.dsub));
 });
 
 /* ---------- map (Harta) ---------- */
