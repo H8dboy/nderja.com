@@ -151,8 +151,9 @@
   }
 
   /* ---------- H8 coin ---------- */
-  .coinwrap{display:flex;justify-content:center;margin:.5rem 0 3.2rem;perspective:1100px}
-  .coin{--cs:clamp(190px,42vw,290px);--ct:16px;width:var(--cs);height:var(--cs);position:relative;transform-style:preserve-3d;
+  .coinwrap{display:flex;justify-content:center;margin:.5rem 0 3.2rem;perspective:1200px}
+  .cointilt{transform-style:preserve-3d;transform:rotateX(-11deg)}
+  .coin{--cs:clamp(190px,42vw,290px);--ct:34px;width:var(--cs);height:var(--cs);position:relative;transform-style:preserve-3d;
     animation:coinspin 11s linear infinite}
   @keyframes coinspin{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
   .coinwrap:hover .coin{animation-play-state:paused}
@@ -160,14 +161,15 @@
     display:flex;flex-direction:column;align-items:center;justify-content:center;
     background:radial-gradient(circle at 50% 38%,#0d1a11,#040805 70%);border:2px solid var(--green);
     box-shadow:0 0 34px rgba(46,232,122,.25),inset 0 0 34px rgba(46,232,122,.14)}
-  .cfront{transform:translateZ(calc(var(--ct)/2))}
+  .cfront{transform:translateZ(calc(var(--ct)/2));box-shadow:0 0 34px rgba(46,232,122,.25),inset 0 0 34px rgba(46,232,122,.14),inset 0 0 0 6px #071009}
   .cfront img{width:88%;height:88%;object-fit:contain;display:block}
   .cback{transform:rotateY(180deg) translateZ(calc(var(--ct)/2));gap:.5rem}
   .cb-h8{font-family:var(--serif);font-style:italic;font-size:calc(var(--cs)*.34);line-height:1;color:var(--green);
     text-shadow:0 0 18px rgba(46,232,122,.5)}
   .cb-lbl{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
   .cb-ring{position:absolute;inset:9%;border-radius:50%;border:1px dashed var(--green-dim)}
-  .cseg{position:absolute;left:50%;top:50%;background:linear-gradient(90deg,#0a140d,var(--green-dim),#0a140d)}
+  .cseg{position:absolute;left:50%;top:50%;background:linear-gradient(90deg,#04070500,#0c1a11 12%,var(--green-dim) 50%,#0c1a11 88%,#04070500)}
+  .cseg:nth-child(odd){background:linear-gradient(90deg,#04070500,#081109 12%,#1f7a45 50%,#081109 88%,#04070500)}
   .cnote{text-align:center;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:-2.2rem 0 3rem}
   .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.6rem}
   .cgrid .card2{margin:0}
@@ -194,7 +196,7 @@
     .stance{padding:2rem 1.2rem}
     blockquote{margin:2rem 0;font-size:1.25rem}
     footer{flex-direction:column;text-align:center;gap:1rem;padding:2.4rem 6vw}
-    .coin{--ct:12px}
+    .coin{--ct:26px}
     .cnote{margin:-1.4rem 0 2.2rem}
   }
 </style>
@@ -514,9 +516,11 @@
   <section id="h8coin" style="border-top:none">
     <div class="frame">
       <div class="coinwrap">
+        <div class="cointilt">
         <div class="coin" id="h8coin-3d">
           <div class="cface cfront"><img src="img/h8-coin.webp" alt="H8" width="640" height="640"></div>
           <div class="cface cback"><span class="cb-ring" aria-hidden="true"></span><span class="cb-h8">H8</span><span class="cb-lbl" data-i="hc_back">Utility credit</span></div>
+        </div>
         </div>
       </div>
       <div class="cnote" data-i="hc_spin">One coin, two faces: the eagle and the credit</div>
@@ -1633,7 +1637,7 @@ document.querySelectorAll('#dig-sub button').forEach(b=>{
 (function(){
   const coin=document.getElementById('h8coin-3d');
   if(!coin) return;
-  const N=44;
+  const N=72;
   function build(){
     coin.querySelectorAll('.cseg').forEach(e=>e.remove());
     const r=coin.offsetWidth/2; if(!r) return;
