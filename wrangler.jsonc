@@ -13,12 +13,5 @@
     // Esegue il worker PRIMA di servire gli asset statici, così il redirect
     // HTTP→HTTPS in worker.js scatta anche sulle pagine (index.html ecc.).
     "run_worker_first": true
-  },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "nderja-map",
-      "database_id": "3e83c255-566f-4afa-9283-7b16d26a2097"
-    }
-  ]
+  }
 }
