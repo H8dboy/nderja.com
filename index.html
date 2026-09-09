@@ -228,7 +228,19 @@
     text-shadow:0 0 10px rgba(46,232,122,.8)}
   .cseg{position:absolute;left:50%;top:50%;background:linear-gradient(90deg,#060d08,#0e1b12 18%,var(--green-dim) 50%,#0e1b12 82%,#060d08)}
   .cseg:nth-child(odd){background:linear-gradient(90deg,#060d08,#0a140d 18%,#2a9a58 50%,#0a140d 82%,#060d08)}
-  .cnote{text-align:center;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:-2.2rem 0 3rem}
+  /* moneta e introduzione affiancate: la moneta non occupa una schermata da sola */
+  .chero{display:grid;grid-template-columns:auto minmax(min(300px,100%),1fr);gap:clamp(1.6rem,4vw,3.8rem);
+    align-items:center;margin-bottom:.5rem}
+  .chero-coin{display:flex;flex-direction:column;align-items:center}
+  .chero .coinwrap{margin:0}
+  .chero-txt>h2{margin-bottom:1.4rem}
+  .chero-txt>p{max-width:52ch}
+  .cnote{text-align:center;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);
+    margin:1.4rem 0 0;max-width:var(--cd,260px)}
+  @media (max-width:820px){
+    .chero{grid-template-columns:1fr;gap:1.8rem}
+    .chero-coin{margin-bottom:.4rem}
+  }
   .cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;margin-top:2.6rem}
   .cgrid .card2{margin:0}
   @media (prefers-reduced-motion:reduce){.coin{animation:none;transform:rotateY(-18deg)}}
@@ -258,7 +270,7 @@
     blockquote{margin:2rem 0;font-size:1.25rem}
     footer{flex-direction:column;text-align:center;gap:1rem;padding:2.4rem 6vw}
     .coin{--ct:52px}
-    .cnote{margin:-1.4rem 0 2.2rem}
+    .cnote{margin:1rem 0 0}
   }
 </style>
 </head>
@@ -570,6 +582,8 @@
   <!-- H8 COIN -->
   <section id="h8coin" style="border-top:none">
     <div class="frame">
+      <div class="chero">
+        <div class="chero-coin">
       <div class="coinwrap">
         <div class="cointilt">
         <div class="coin" id="h8coin-3d">
@@ -610,9 +624,13 @@
         </div>
       </div>
       <div class="cnote" data-i="hc_spin">One coin, two faces: the eagle and the credit</div>
+        </div>
+        <div class="chero-txt">
       <div class="eyebrow" data-i="hc_eyebrow">The credit</div>
       <h2 data-i-html="hc_title">H8-<em>Coin</em></h2>
       <p data-i="hc_lead">H8 is the credit that circulates inside M4TR1X: it pays creators, rewards whoever keeps a node running, and never leaves the network. It is deliberately not a cryptocurrency.</p>
+        </div>
+      </div>
       <h3 class="ch3" data-i="hc_price_t">What it costs</h3>
       <div class="splitrow">
         <div><b>€ 1.25</b><span data-i="pr_k1">Price of one H8</span></div>
