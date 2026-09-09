@@ -128,7 +128,7 @@
   .step p{font-size:.95rem;margin:0}
 
   /* stance */
-  .stance{background:var(--panel);border:1px solid var(--line);padding:3rem clamp(1.5rem,4vw,3.5rem);max-width:820px;margin:3rem auto 0}
+  .stance{background:var(--panel);border:1px solid var(--line);padding:3rem clamp(1.5rem,4vw,3.5rem);max-width:820px;margin:1.6rem 0 0}
   .stance .seal{font-size:.72rem;letter-spacing:.4em;color:var(--green);text-transform:uppercase;margin-bottom:1.4rem}
   .stance p{max-width:none}
   .stance .oath{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,2.6vw,1.9rem);line-height:1.5;color:var(--text);margin-bottom:1.4rem}
@@ -320,19 +320,6 @@
     <div><b>0</b><span data-i="pf_k4">Accounts required</span></div>
   </div>
 
-  <!-- STANCE -->
-  <section id="stance">
-    <div class="frame">
-      <div class="eyebrow" data-i="st_eyebrow">Our position</div>
-      <h2 data-i-html="st_title">A <em>vow</em>, not a strategy</h2>
-      <div class="stance reveal">
-        <div class="seal" data-i="st_seal">Besa</div>
-        <p class="oath" data-i="st_oath">We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.</p>
-        <p data-i="st_p1">Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.</p>
-        <p data-i="st_p2">The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.</p>
-      </div>
-    </div>
-  </section>
 </div>
 
 <div class="panel" id="panel-philosophy">
@@ -416,6 +403,13 @@
       <p data-i="mo_p1">For weeks, citizens have filled the squares of Albania demanding transparency, accountability and the end of a system where the future of the country is decided without its people. We stand with them — not above them, not behind them.</p>
       <p data-i="mo_p2">This is not our revolution to own. It belongs to those in the squares. What we offer is what we know how to build: tools that no power can switch off, words in three languages, and the patience of people who think in decades.</p>
       <p data-i="mo_p3">A new Albania — sovereign, honest, belonging to all — is not a slogan. It is the exact political form of what nderja has always meant: honor as public infrastructure.</p>
+      <h3 data-i-html="st_title" style="font-family:var(--serif);font-style:italic;font-size:1.8rem;color:var(--green);font-weight:500;margin:3.2rem 0 0">A <em>vow</em>, not a strategy</h3>
+      <div class="stance reveal">
+        <div class="seal" data-i="st_seal">Besa</div>
+        <p class="oath" data-i="st_oath">We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.</p>
+        <p data-i="st_p1">Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.</p>
+        <p data-i="st_p2">The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.</p>
+      </div>
     </div>
   </section>
 
@@ -751,8 +745,7 @@ const T = {
     mo_eyebrow:"The moment", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"For weeks, citizens have filled the squares of Albania demanding transparency, accountability and the end of a system where the future of the country is decided without its people. We stand with them — not above them, not behind them.",
     mo_p2:"This is not our revolution to own. It belongs to those in the squares. What we offer is what we know how to build: tools that no power can switch off, words in three languages, and the patience of people who think in decades.",
-    mo_p3:"A new Albania — sovereign, honest, belonging to all — is not a slogan. It is the exact political form of what nderja has always meant: honor as public infrastructure.",
-    st_eyebrow:"Our position", st_title:'A <em>vow</em>, not a strategy', st_seal:"Besa",
+    mo_p3:"A new Albania — sovereign, honest, belonging to all — is not a slogan. It is the exact political form of what nderja has always meant: honor as public infrastructure.", st_title:'A <em>vow</em>, not a strategy', st_seal:"Besa",
     st_oath:"We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.",
     st_p1:"Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.",
     st_p2:"The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.",
@@ -865,8 +858,7 @@ const T = {
     mo_eyebrow:"Momenti", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"Prej javësh, qytetarët kanë mbushur sheshet e Shqipërisë duke kërkuar transparencë, llogaridhënie dhe fundin e një sistemi ku e ardhmja e vendit vendoset pa popullin e tij. Ne qëndrojmë me ta — jo mbi ta, jo pas tyre.",
     mo_p2:"Kjo nuk është revolucioni ynë për ta zotëruar. U përket atyre në sheshe. Ajo që ofrojmë është ajo që dimë të ndërtojmë: mjete që asnjë pushtet s'i fik dot, fjalë në tri gjuhë, dhe durimi i njerëzve që mendojnë në dekada.",
-    mo_p3:"Një Shqipëri e re — sovrane, e ndershme, e të gjithëve — nuk është slogan. Është forma e saktë politike e asaj që nderja ka nënkuptuar gjithmonë: nderi si infrastrukturë publike.",
-    st_eyebrow:"Qëndrimi ynë", st_title:'Një <em>besë</em>, jo një strategji', st_seal:"Besa",
+    mo_p3:"Një Shqipëri e re — sovrane, e ndershme, e të gjithëve — nuk është slogan. Është forma e saktë politike e asaj që nderja ka nënkuptuar gjithmonë: nderi si infrastrukturë publike.", st_title:'Një <em>besë</em>, jo një strategji', st_seal:"Besa",
     st_oath:"Nuk do ta vendosim shtëpinë tonë operative në Shqipëri për sa kohë sistemi aktual qëndron në këmbë. Nuk do të kërkojmë lejet e tij, favoret e tij, as bekimet e tij.",
     st_p1:"Jo nga distanca — nga respekti. Të hyje tani do të thoshte të negocioje me po atë makineri që populli po e konteston. Refuzojmë ta ndërtojmë të renë brenda së vjetrës.",
     st_p2:"Ditën që sistemi bie — ditën që institucionet u përgjigjen qytetarëve dhe jo e kundërta — ne kthehemi në shtëpi, me gjithçka që kemi ndërtuar. Kjo është besa jonë: fjalë e dhënë publikisht, e mbajtur absolutisht.",
@@ -979,8 +971,7 @@ const T = {
     mo_eyebrow:"Il momento", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"Da settimane i cittadini riempiono le piazze d'Albania chiedendo trasparenza, responsabilità e la fine di un sistema in cui il futuro del Paese si decide senza il suo popolo. Noi stiamo con loro — non sopra di loro, non dietro di loro.",
     mo_p2:"Questa rivoluzione non è nostra da possedere. Appartiene a chi è nelle piazze. Ciò che offriamo è ciò che sappiamo costruire: strumenti che nessun potere può spegnere, parole in tre lingue, e la pazienza di chi ragiona in decenni.",
-    mo_p3:"Un'Albania nuova — sovrana, onesta, di tutti — non è uno slogan. È l'esatta forma politica di ciò che nderja ha sempre significato: l'onore come infrastruttura pubblica.",
-    st_eyebrow:"La nostra posizione", st_title:'Un <em>giuramento</em>, non una strategia', st_seal:"Besa",
+    mo_p3:"Un'Albania nuova — sovrana, onesta, di tutti — non è uno slogan. È l'esatta forma politica di ciò che nderja ha sempre significato: l'onore come infrastruttura pubblica.", st_title:'Un <em>giuramento</em>, non una strategia', st_seal:"Besa",
     st_oath:"Non stabiliremo la nostra sede operativa in Albania finché l'attuale sistema resterà in piedi. Non chiederemo i suoi permessi, i suoi favori, le sue benedizioni.",
     st_p1:"Non per distanza — per rispetto. Entrare ora significherebbe negoziare con la stessa macchina che il popolo sta contestando. Ci rifiutiamo di costruire il nuovo dentro il vecchio.",
     st_p2:"Il giorno in cui il sistema cadrà — il giorno in cui le istituzioni risponderanno ai cittadini e non il contrario — torneremo a casa, portando con noi tutto ciò che abbiamo costruito. Questa è la nostra besa: una parola data pubblicamente, mantenuta assolutamente.",
@@ -1093,8 +1084,7 @@ const T = {
     mo_eyebrow:"Le moment", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"Depuis des semaines, les citoyens remplissent les places d'Albanie pour exiger transparence, responsabilité et la fin d'un système où l'avenir du pays se décide sans son peuple. Nous sommes avec eux — ni au-dessus, ni derrière.",
     mo_p2:"Cette révolution ne nous appartient pas. Elle appartient à ceux qui sont sur les places. Ce que nous offrons, c'est ce que nous savons construire : des outils qu'aucun pouvoir ne peut éteindre, des mots en plusieurs langues, et la patience de ceux qui pensent en décennies.",
-    mo_p3:"Une Albanie nouvelle — souveraine, honnête, appartenant à tous — n'est pas un slogan. C'est la forme politique exacte de ce que nderja a toujours signifié : l'honneur comme infrastructure publique.",
-    st_eyebrow:"Notre position", st_title:'Un <em>serment</em>, pas une stratégie', st_seal:"Besa",
+    mo_p3:"Une Albanie nouvelle — souveraine, honnête, appartenant à tous — n'est pas un slogan. C'est la forme politique exacte de ce que nderja a toujours signifié : l'honneur comme infrastructure publique.", st_title:'Un <em>serment</em>, pas une stratégie', st_seal:"Besa",
     st_oath:"Nous n'établirons pas notre siège opérationnel en Albanie tant que le système actuel restera debout. Nous ne demanderons ni ses permis, ni ses faveurs, ni ses bénédictions.",
     st_p1:"Non par distance — par respect. Entrer maintenant signifierait négocier avec la machinerie même que le peuple conteste. Nous refusons de construire le neuf dans le vieux.",
     st_p2:"Le jour où le système tombera — le jour où les institutions répondront aux citoyens et non l'inverse — nous rentrerons à la maison, avec tout ce que nous avons construit. C'est notre besa : une parole donnée publiquement, tenue absolument.",
@@ -1207,8 +1197,7 @@ const T = {
     mo_eyebrow:"Der Moment", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"Seit Wochen füllen Bürger die Plätze Albaniens und fordern Transparenz, Rechenschaft und das Ende eines Systems, in dem über die Zukunft des Landes ohne sein Volk entschieden wird. Wir stehen bei ihnen — nicht über ihnen, nicht hinter ihnen.",
     mo_p2:"Diese Revolution gehört nicht uns. Sie gehört denen auf den Plätzen. Was wir anbieten, ist das, was wir zu bauen wissen: Werkzeuge, die keine Macht abschalten kann, Worte in mehreren Sprachen und die Geduld von Menschen, die in Jahrzehnten denken.",
-    mo_p3:"Ein neues Albanien — souverän, ehrlich, allen gehörend — ist kein Slogan. Es ist die exakte politische Form dessen, was nderja immer bedeutet hat: Ehre als öffentliche Infrastruktur.",
-    st_eyebrow:"Unsere Position", st_title:'Ein <em>Schwur</em>, keine Strategie', st_seal:"Besa",
+    mo_p3:"Ein neues Albanien — souverän, ehrlich, allen gehörend — ist kein Slogan. Es ist die exakte politische Form dessen, was nderja immer bedeutet hat: Ehre als öffentliche Infrastruktur.", st_title:'Ein <em>Schwur</em>, keine Strategie', st_seal:"Besa",
     st_oath:"Wir werden unseren operativen Sitz nicht in Albanien errichten, solange das gegenwärtige System steht. Wir werden weder seine Genehmigungen noch seine Gefälligkeiten noch seinen Segen erbitten.",
     st_p1:"Nicht aus Distanz — aus Respekt. Jetzt einzutreten hieße, mit genau der Maschinerie zu verhandeln, die das Volk anficht. Wir weigern uns, das Neue im Alten zu bauen.",
     st_p2:"An dem Tag, an dem das System fällt — an dem Tag, an dem die Institutionen den Bürgern antworten und nicht umgekehrt — kehren wir heim, mit allem, was wir gebaut haben. Das ist unsere Besa: ein öffentlich gegebenes Wort, absolut gehalten.",
@@ -1321,8 +1310,7 @@ const T = {
     mo_eyebrow:"Ögonblicket", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"I veckor har medborgare fyllt Albaniens torg och krävt transparens, ansvarsskyldighet och slutet på ett system där landets framtid avgörs utan dess folk. Vi står med dem — inte över dem, inte bakom dem.",
     mo_p2:"Denna revolution är inte vår att äga. Den tillhör dem på torgen. Vad vi erbjuder är det vi kan bygga: verktyg som ingen makt kan stänga av, ord på flera språk, och tålamodet hos människor som tänker i decennier.",
-    mo_p3:"Ett nytt Albanien — suveränt, ärligt, allas — är inte en slogan. Det är den exakta politiska formen av vad nderja alltid har betytt: heder som offentlig infrastruktur.",
-    st_eyebrow:"Vår position", st_title:'En <em>ed</em>, inte en strategi', st_seal:"Besa",
+    mo_p3:"Ett nytt Albanien — suveränt, ärligt, allas — är inte en slogan. Det är den exakta politiska formen av vad nderja alltid har betytt: heder som offentlig infrastruktur.", st_title:'En <em>ed</em>, inte en strategi', st_seal:"Besa",
     st_oath:"Vi kommer inte att etablera vårt operativa hem i Albanien så länge det nuvarande systemet står. Vi kommer inte att söka dess tillstånd, dess tjänster eller dess välsignelser.",
     st_p1:"Inte av distans — av respekt. Att gå in nu vore att förhandla med just det maskineri som folket bestrider. Vi vägrar bygga det nya inuti det gamla.",
     st_p2:"Den dag systemet faller — den dag institutionerna svarar inför medborgarna och inte tvärtom — kommer vi hem, med allt vi har byggt. Detta är vår besa: ett offentligt givet ord, absolut hållet.",
@@ -1435,8 +1423,7 @@ const T = {
     mo_eyebrow:"Η στιγμή", mo_title:'Shqipëria <em>e Re</em>',
     mo_p1:"Εδώ και εβδομάδες, πολίτες γεμίζουν τις πλατείες της Αλβανίας απαιτώντας διαφάνεια, λογοδοσία και το τέλος ενός συστήματος όπου το μέλλον της χώρας αποφασίζεται χωρίς τον λαό της. Στεκόμαστε μαζί τους — όχι πάνω τους, όχι πίσω τους.",
     mo_p2:"Αυτή η επανάσταση δεν μας ανήκει. Ανήκει σε όσους είναι στις πλατείες. Αυτό που προσφέρουμε είναι ό,τι ξέρουμε να χτίζουμε: εργαλεία που καμία εξουσία δεν μπορεί να σβήσει, λόγια σε πολλές γλώσσες, και την υπομονή ανθρώπων που σκέφτονται σε δεκαετίες.",
-    mo_p3:"Μια νέα Αλβανία — κυρίαρχη, έντιμη, όλων — δεν είναι σύνθημα. Είναι η ακριβής πολιτική μορφή αυτού που πάντα σήμαινε η nderja: η τιμή ως δημόσια υποδομή.",
-    st_eyebrow:"Η θέση μας", st_title:'Ένας <em>όρκος</em>, όχι μια στρατηγική', st_seal:"Besa",
+    mo_p3:"Μια νέα Αλβανία — κυρίαρχη, έντιμη, όλων — δεν είναι σύνθημα. Είναι η ακριβής πολιτική μορφή αυτού που πάντα σήμαινε η nderja: η τιμή ως δημόσια υποδομή.", st_title:'Ένας <em>όρκος</em>, όχι μια στρατηγική', st_seal:"Besa",
     st_oath:"Δεν θα εγκαταστήσουμε την επιχειρησιακή μας έδρα στην Αλβανία όσο το σημερινό σύστημα παραμένει όρθιο. Δεν θα ζητήσουμε τις άδειές του, τις χάρες του, τις ευλογίες του.",
     st_p1:"Όχι από απόσταση — από σεβασμό. Το να μπούμε τώρα θα σήμαινε διαπραγμάτευση με τον ίδιο μηχανισμό που ο λαός αμφισβητεί. Αρνούμαστε να χτίσουμε το καινούργιο μέσα στο παλιό.",
     st_p2:"Τη μέρα που το σύστημα θα πέσει — τη μέρα που οι θεσμοί θα λογοδοτούν στους πολίτες και όχι το αντίστροφο — θα γυρίσουμε σπίτι, με όλα όσα έχουμε χτίσει. Αυτή είναι η besa μας: λόγος δοσμένος δημόσια, τηρημένος απόλυτα.",
@@ -1518,7 +1505,6 @@ const T = {
     mo_p1:'Al weken vullen burgers de pleinen van Albanië met eisen om transparantie, verantwoording en het einde van een systeem waarin de toekomst van het land zonder zijn volk wordt beslist. Wij staan naast hen — niet boven hen, niet achter hen.',
     mo_p2:'Deze revolutie is niet van ons. Ze behoort toe aan wie op de pleinen staat. Wat wij bieden is wat wij kunnen bouwen: instrumenten die geen macht kan uitschakelen, woorden in meerdere talen, en het geduld van mensen die in decennia denken.',
     mo_p3:'Een nieuw Albanië — soeverein, eerlijk, van iedereen — is geen slogan. Het is de exacte politieke vorm van wat nderja altijd heeft betekend: eer als publieke infrastructuur.',
-    st_eyebrow:'Ons standpunt',
     st_title:'Een <em>eed</em>, geen strategie',
     st_seal:'Besa',
     st_oath:'Wij vestigen ons operationele thuis niet in Albanië zolang het huidige systeem overeind staat. Wij zullen zijn vergunningen, gunsten of zegeningen niet vragen.',
@@ -1644,7 +1630,6 @@ const T = {
     mo_p1:'Desde hace semanas, los ciudadanos llenan las plazas de Albania exigiendo transparencia, rendición de cuentas y el fin de un sistema donde el futuro del país se decide sin su pueblo. Estamos con ellos — ni por encima, ni por detrás.',
     mo_p2:'Esta revolución no es nuestra. Pertenece a quienes están en las plazas. Lo que ofrecemos es lo que sabemos construir: herramientas que ningún poder puede apagar, palabras en varios idiomas, y la paciencia de quienes piensan en décadas.',
     mo_p3:'Una Albania nueva — soberana, honesta, de todos — no es un eslogan. Es la forma política exacta de lo que nderja siempre ha significado: el honor como infraestructura pública.',
-    st_eyebrow:'Nuestra posición',
     st_title:'Un <em>juramento</em>, no una estrategia',
     st_seal:'Besa',
     st_oath:'No estableceremos nuestra sede operativa en Albania mientras el sistema actual siga en pie. No pediremos sus permisos, sus favores ni sus bendiciones.',
