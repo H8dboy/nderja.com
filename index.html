@@ -148,6 +148,39 @@
     .reveal.in{opacity:1;transform:none}
   }
 
+  /* ---------- download CTA in testata ---------- */
+  .hdl{background:var(--green);color:#050805;border:1px solid var(--green);font-family:var(--sans);
+    font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;padding:.55rem 1.1rem;
+    cursor:pointer;transition:.25s;box-shadow:0 0 22px rgba(46,232,122,.28);white-space:nowrap}
+  .hdl:hover{background:#5bff9a;box-shadow:0 0 30px rgba(46,232,122,.45)}
+  .hdl:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  /* ---------- hero: azioni ---------- */
+  .hero-cta{display:flex;gap:.9rem;flex-wrap:wrap;justify-content:center;align-items:center;margin-top:2.4rem}
+  .hero-cta .btn.primary{background:var(--green);color:#050805;border-color:var(--green);box-shadow:0 0 26px rgba(46,232,122,.3)}
+  .hero-cta .btn.primary:hover{background:#5bff9a}
+  .hero-cta .cta-note{font-size:.78rem;color:var(--muted);letter-spacing:.05em}
+  /* ---------- striscia delle prove ---------- */
+  .proof{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));gap:1px;
+    background:var(--green-dim);border-top:1px solid var(--green-dim);border-bottom:1px solid var(--green-dim)}
+  .proof div{background:var(--bg);padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.35rem}
+  .proof b{font-family:var(--sans);font-weight:500;font-size:1.6rem;line-height:1;color:var(--green)}
+  .proof span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+  /* ---------- stato del nodo (ex countdown) ---------- */
+  .mx-countdown .cd-since{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--text)}
+  /* ---------- ripartizione della mancia ---------- */
+  .splitrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:1.4rem;margin-top:2.4rem}
+  .splitrow div{display:flex;flex-direction:column;gap:.3rem}
+  .splitrow b{font-family:var(--sans);font-weight:500;font-size:1.9rem;line-height:1;color:var(--green)}
+  .splitrow span{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  /* ---------- download: build per il sistema rilevato ---------- */
+  .dlnow{border:1px solid var(--green-dim);background:linear-gradient(180deg,rgba(46,232,122,.06),transparent);
+    padding:1.6rem 1.5rem;margin:2rem 0 .5rem;display:flex;flex-wrap:wrap;align-items:center;gap:1.2rem}
+  .dlnow .dl-os{margin-right:auto;display:flex;flex-direction:column;gap:.3rem}
+  .dlnow .dl-os b{font-family:var(--serif);font-style:italic;font-size:1.6rem;font-weight:500;color:var(--text)}
+  .dlnow .dl-os span{font-size:.78rem;color:var(--muted);letter-spacing:.05em}
+  .dlnow .btn{background:var(--green);color:#050805;border-color:var(--green);box-shadow:0 0 26px rgba(46,232,122,.3)}
+  .dlnow .btn:hover{background:#5bff9a}
+
   /* ---------- H8 coin ---------- */
   /* la moneta e' disegnata al doppio della dimensione e rimpicciolita a meta':
      il browser rasterizza il layer 3D una volta sola, quindi il doppio dei pixel
@@ -210,6 +243,9 @@
     .langs button{padding:.28rem .5rem;font-size:.64rem;letter-spacing:.1em}
     .menu{padding:0 2vw}
     .menu button{padding:.6rem .65rem;font-size:.68rem;letter-spacing:.1em}
+    .hero-cta{gap:.6rem}
+    .proof div{padding:1.2rem 1.1rem}
+    .dlnow{padding:1.3rem 1.1rem}
     .submenu{padding:0 2vw}
     .submenu button{padding:.5rem .65rem;font-size:.64rem;letter-spacing:.12em}
     .hero{min-height:72vh;padding:0 6vw}
@@ -241,6 +277,7 @@
       <button data-lang="nl">NL</button>
       <button data-lang="es">ES</button>
     </nav>
+    <button class="hdl" type="button" onclick="goDownload()" data-i="nav_dl">Download</button>
   </div>
   <nav class="menu" aria-label="Sections">
     <button data-panel="home" class="active" data-i="nav_home">Home</button>
@@ -267,7 +304,20 @@
       <span class="term">nder</span>
       <span class="def" data-i="hero_def">— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.</span>
     </div>
+    <div class="hero-cta">
+      <button class="btn primary" type="button" onclick="goDownload()" data-i="hero_cta1">Download M4TR1X</button>
+      <a class="btn" href="https://github.com/H8dboy/m4tr1x-node#readme" target="_blank" rel="noopener" data-i="hero_cta2">Run a node</a>
+      <span class="cta-note" data-i="hero_note">MIT · no account · no store</span>
+    </div>
     <div class="scroll-hint" data-i="hero_scroll">Scroll</div>
+  </div>
+
+  <!-- PROVE -->
+  <div class="proof reveal">
+    <div><b>MIT</b><span data-i="pf_k1">Public code, 4 repos</span></div>
+    <div><b>ML-DSA-65</b><span data-i="pf_k2">Post-quantum signature</span></div>
+    <div><b>Tor</b><span data-i="pf_k3">Censored networks</span></div>
+    <div><b>0</b><span data-i="pf_k4">Accounts required</span></div>
   </div>
 
   <!-- STANCE -->
@@ -387,16 +437,9 @@
     <div class="frame">
       <div class="eyebrow" data-i="mx_eyebrow">The tool</div>
       <h2 data-i-html="mx_title">M4TR<em>1X</em></h2>
-      <div class="mx-countdown reveal" id="mx-countdown" data-launch="2026-08-08T00:00:00+02:00">
-        <div class="cd-status" data-i="cd_notyet">Not online yet</div>
-        <div class="cd-launch" data-i="cd_launch">Public launch — 8 August 2026</div>
-        <div class="cd-timer" role="timer" aria-live="off">
-          <div class="cd-unit"><span class="cd-num" id="cd-d">–</span><span class="cd-lbl" data-i="cd_days">days</span></div>
-          <div class="cd-unit"><span class="cd-num" id="cd-h">–</span><span class="cd-lbl" data-i="cd_hrs">hours</span></div>
-          <div class="cd-unit"><span class="cd-num" id="cd-m">–</span><span class="cd-lbl" data-i="cd_min">min</span></div>
-          <div class="cd-unit"><span class="cd-num" id="cd-s">–</span><span class="cd-lbl" data-i="cd_sec">sec</span></div>
-        </div>
-        <div class="cd-live" data-i="cd_live">The network is live — welcome home</div>
+      <div class="mx-countdown reveal">
+        <div class="cd-status" data-i="cd_status">Network live</div>
+        <div class="cd-since" data-i="cd_since">First node online — 8 August 2026</div>
       </div>
       <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
       <p data-i="mx_p3">Inside it is everything a social network is supposed to be: a feed, stories, photos, video, music, forums, encrypted messages. Built on open protocols — Nostr, PeerTube, Mastodon, Funkwhale — so that no single company, including us, can own the conversation.</p>
@@ -444,6 +487,10 @@
       <h2 data-i-html="dl_title">Get <em>M4TR1X</em></h2>
       <p data-i="dl_p1">No store, no account, no middleman. These buttons always point to the latest official build — download, install, connect to a node you trust.</p>
       <p id="dl-ver" style="font-size:.85rem;letter-spacing:.1em;color:var(--muted)"></p>
+      <div class="dlnow">
+        <span class="dl-os"><b id="dl-osname">Windows</b><span data-i="dl_detected">Detected on your device · latest official build</span></span>
+        <a class="btn" id="dl-primary" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest"><span data-i="dl_get">Download for</span> <span id="dl-osname2">Windows</span></a>
+      </div>
       <div class="pillars">
         <div class="pillar reveal">
           <h3>Windows</h3>
@@ -571,6 +618,11 @@
       <div class="eyebrow" data-i="hc_eyebrow">The credit</div>
       <h2 data-i-html="hc_title">H8 <em>Coin</em></h2>
       <p data-i="hc_lead">H8 is the credit that circulates inside M4TR1X: it pays creators, rewards whoever keeps a node running, and never leaves the network. It is deliberately not a cryptocurrency.</p>
+      <div class="splitrow">
+        <div><b>50%</b><span data-i="sp_k1">To the creator</span></div>
+        <div><b>30%</b><span data-i="sp_k2">To the node that carried it</span></div>
+        <div><b>20%</b><span data-i="sp_k3">To the platform</span></div>
+      </div>
       <div class="cgrid">
         <div class="card2 reveal"><h3 data-i="hc_c1_t">What it is</h3><p data-i="hc_c1_p">A closed-loop utility credit — the same shape as arcade tokens or Twitch Bits. One H8 splits into 100 units, so the smallest tip is 0.01 H8. Every transaction is signed with post-quantum cryptography (ML-DSA-65) and chained with SHA3-256.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c2_t">What it is not</h3><p data-i="hc_c2_p">Not a cryptocurrency, not an investment, not on any blockchain, not pegged to anything, not withdrawable to an exchange. There is no token sale and no promise of future value: H8 buys things inside M4TR1X, nothing else.</p></div>
@@ -593,6 +645,21 @@
 <script>
 const T = {
   en: {
+    nav_dl:'Download',
+    hero_cta1:'Download M4TR1X',
+    hero_cta2:'Run a node',
+    hero_note:'MIT · no account · no store',
+    pf_k1:'Public code, 4 repos',
+    pf_k2:'Post-quantum signature',
+    pf_k3:'Censored networks',
+    pf_k4:'Accounts required',
+    cd_status:'Network live',
+    cd_since:'First node online — 8 August 2026',
+    sp_k1:'To the creator',
+    sp_k2:'To the node that carried it',
+    sp_k3:'To the platform',
+    dl_detected:'Detected on your device · latest official build',
+    dl_get:'Download for',
     nav_coin:'H8 Coin',
     hc_spin:'One coin, two faces: the eagle and the credit',
     hc_eyebrow:'The credit',
@@ -635,10 +702,6 @@ const T = {
     mx_f3_t:'Node', mx_f3_p:'The self-hosted heart: relay, media storage and video streaming in a single server. An ordinary home computer is enough to turn a citizen into infrastructure.',
     mx_f4_t:'AI Detector', mx_f4_p:'An open detector for AI-generated video, trained collectively through the network itself. A network built for truth must be able to recognize a fake.',
     mx_stat:"Where we stand, honestly: developer preview. The first public node is online; the software is stable enough to self-host and build on, not yet meant for high-risk use. Saying what works and what doesn't — that too is honor.",
-    cd_notyet:'Not online yet',
-    cd_launch:'Public launch — 8 August 2026',
-    cd_days:'days', cd_hrs:'hours', cd_min:'min', cd_sec:'sec',
-    cd_live:'The network is live — welcome home',
     mx_arch_t:'How your device carries the content',
     mx_arch_p:'There is no data center behind M4TR1X. When someone publishes a film, a song or a video, a powerful node transcodes it once into small streaming segments. From there, every device that is watching also passes those segments on to the next viewer, and your player reassembles them into the finished content. The heavy work happens once, on the few strong machines; the rest is carried by the crowd — which is why an ordinary home computer, even on a modest connection, is enough to take part.',
     mx_pub_t:'Public by design — no private channels',
@@ -696,6 +759,21 @@ const T = {
     ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
   },
   sq: {
+    nav_dl:'Shkarko',
+    hero_cta1:'Shkarko M4TR1X',
+    hero_cta2:'Nis një nyje',
+    hero_note:'MIT · asnjë llogari · asnjë dyqan',
+    pf_k1:'Kod publik, 4 repo',
+    pf_k2:'Firmë post-kuantike',
+    pf_k3:'Rrjete të censuruara',
+    pf_k4:'Llogari të nevojshme',
+    cd_status:'Rrjeti aktiv',
+    cd_since:'Nyja e parë online — 8 gusht 2026',
+    sp_k1:'Te krijuesi',
+    sp_k2:'Te nyja që e transportoi',
+    sp_k3:'Te platforma',
+    dl_detected:'Zbuluar në pajisjen tënde · ndertimi i fundit zyrtar',
+    dl_get:'Shkarko për',
     nav_coin:'H8 Coin',
     hc_spin:'Një monedhë, dy faqe: shqiponja dhe krediti',
     hc_eyebrow:'Krediti',
@@ -738,10 +816,6 @@ const T = {
     mx_f3_t:'Nyja', mx_f3_p:'Zemra e vetë-strehuar: rele, arkiv mediash dhe transmetim videosh në një server të vetëm. Mjafton një kompjuter i zakonshëm shtëpie që një qytetar të bëhet infrastrukturë.',
     mx_f4_t:'Detektori i IA-së', mx_f4_p:'Një detektor i hapur për video të krijuara nga IA, i stërvitur kolektivisht përmes vetë rrjetit. Një rrjet i ndërtuar për të vërtetën duhet të dijë të njohë një falsifikim.',
     mx_stat:'Ku jemi, me ndershmëri: developer preview. Nyja e parë publike është online; softueri është mjaft i qëndrueshëm për ta vetë-strehuar dhe për të ndërtuar mbi të, ende jo për përdorime me rrezik të lartë. Të thuash çfarë punon e çfarë jo — edhe kjo është nder.',
-    cd_notyet:'Ende jo online',
-    cd_launch:'Hapja publike — 8 gusht 2026',
-    cd_days:'ditë', cd_hrs:'orë', cd_min:'min', cd_sec:'sek',
-    cd_live:'Rrjeti është online — mirë se erdhe në shtëpi',
     mx_arch_t:'Si e mban pajisja jote përmbajtjen',
     mx_arch_p:'Prapa M4TR1X nuk ka asnjë qendër të dhënash. Kur dikush publikon një film, një këngë ose një video, një nyjë e fuqishme e transkodon një herë të vetme në segmente të vogla transmetimi. Që andej, çdo pajisje që po shikon ia kalon ato segmente shikuesit tjetër, dhe playeri yt i rimonton në përmbajtjen e përfunduar. Puna e rëndë bëhet një herë, në pak makina të fuqishme; pjesën tjetër e mban turma — prandaj një kompjuter i zakonshëm shtëpie, edhe me një lidhje modeste, mjafton për të marrë pjesë.',
     mx_pub_t:'Publik nga natyra — asnjë kanal privat',
@@ -799,6 +873,21 @@ const T = {
     ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
   },
   it: {
+    nav_dl:'Scarica',
+    hero_cta1:'Scarica M4TR1X',
+    hero_cta2:'Avvia un nodo',
+    hero_note:'MIT · nessun account · nessuno store',
+    pf_k1:'Codice pubblico, 4 repo',
+    pf_k2:'Firma post-quantistica',
+    pf_k3:'Reti censurate',
+    pf_k4:'Account richiesti',
+    cd_status:'Rete attiva',
+    cd_since:'Primo nodo online — 8 agosto 2026',
+    sp_k1:'Al creatore',
+    sp_k2:"Al nodo che l'ha trasportata",
+    sp_k3:'Alla piattaforma',
+    dl_detected:'Rilevato sul tuo dispositivo · ultima build ufficiale',
+    dl_get:'Scarica per',
     nav_coin:'H8 Coin',
     hc_spin:"Una moneta, due facce: l'aquila e il credito",
     hc_eyebrow:'Il credito',
@@ -841,10 +930,6 @@ const T = {
     mx_f3_t:'Nodo', mx_f3_p:'Il cuore self-hosted: relay, archivio media e streaming video in un solo server. Basta un normale computer di casa per trasformare un cittadino in infrastruttura.',
     mx_f4_t:'AI Detector', mx_f4_p:"Un rilevatore aperto di video generati dall'IA, addestrato collettivamente attraverso la rete stessa. Una rete costruita per la verità deve saper riconoscere un falso.",
     mx_stat:'Dove siamo, onestamente: developer preview. Il primo nodo pubblico è online; il software è abbastanza stabile da essere self-hostato e da costruirci sopra, non ancora pensato per usi ad alto rischio. Dire cosa funziona e cosa no — anche questo è onore.',
-    cd_notyet:'Non ancora online',
-    cd_launch:'Apertura pubblica — 8 agosto 2026',
-    cd_days:'giorni', cd_hrs:'ore', cd_min:'min', cd_sec:'sec',
-    cd_live:'La rete è online — bentornato a casa',
     mx_arch_t:'Come il tuo dispositivo regge i contenuti',
     mx_arch_p:'Dietro M4TR1X non c\'è nessun data center. Quando qualcuno pubblica un film, una canzone o un video, un nodo potente lo transcodifica una volta sola in piccoli segmenti di streaming. Da lì, ogni dispositivo che sta guardando passa quei segmenti allo spettatore successivo, e il tuo player li rimonta nel contenuto finito. Il lavoro pesante avviene una volta, sulle poche macchine forti; il resto lo porta la folla — ed è per questo che un normale computer di casa, anche con una connessione modesta, basta per partecipare.',
     mx_pub_t:'Pubblico per scelta — nessun canale privato',
@@ -902,6 +987,21 @@ const T = {
     ft_note:"Un movimento indipendente. Nessuna affiliazione partitica, nessun finanziamento estero, nessun permesso chiesto. © 2026 nderja.com"
   },
   fr: {
+    nav_dl:'Télécharger',
+    hero_cta1:'Télécharger M4TR1X',
+    hero_cta2:'Lancer un nœud',
+    hero_note:'MIT · aucun compte · aucun store',
+    pf_k1:'Code public, 4 dépôts',
+    pf_k2:'Signature post-quantique',
+    pf_k3:'Réseaux censurés',
+    pf_k4:'Comptes requis',
+    cd_status:'Réseau actif',
+    cd_since:'Premier nœud en ligne — 8 août 2026',
+    sp_k1:'Au créateur',
+    sp_k2:"Au nœud qui l'a transporté",
+    sp_k3:'À la plateforme',
+    dl_detected:'Détecté sur votre appareil · dernière build officielle',
+    dl_get:'Télécharger pour',
     nav_coin:'H8 Coin',
     hc_spin:"Une pièce, deux faces : l'aigle et le crédit",
     hc_eyebrow:'Le crédit',
@@ -944,10 +1044,6 @@ const T = {
     mx_f3_t:'Nœud', mx_f3_p:'Le cœur auto-hébergé : relais, stockage des médias et streaming vidéo dans un seul serveur. Un simple ordinateur domestique suffit pour transformer un citoyen en infrastructure.',
     mx_f4_t:'Détecteur IA', mx_f4_p:'Un détecteur ouvert de vidéos générées par IA, entraîné collectivement à travers le réseau lui-même. Un réseau construit pour la vérité doit savoir reconnaître un faux.',
     mx_stat:"Où nous en sommes, honnêtement : developer preview. Le premier nœud public est en ligne ; le logiciel est assez stable pour être auto-hébergé et servir de base, pas encore pensé pour des usages à haut risque. Dire ce qui marche et ce qui ne marche pas — c'est aussi cela, l'honneur.",
-    cd_notyet:'Pas encore en ligne',
-    cd_launch:'Lancement public — 8 août 2026',
-    cd_days:'jours', cd_hrs:'heures', cd_min:'min', cd_sec:'sec',
-    cd_live:'Le réseau est en ligne — bienvenue chez toi',
     mx_arch_t:'Comment ton appareil porte les contenus',
     mx_arch_p:'Il n\'y a aucun centre de données derrière M4TR1X. Quand quelqu\'un publie un film, une chanson ou une vidéo, un nœud puissant le transcode une seule fois en petits segments de diffusion. À partir de là, chaque appareil en train de regarder transmet ces segments au spectateur suivant, et ton lecteur les réassemble en contenu fini. Le travail lourd se fait une fois, sur les quelques machines puissantes ; le reste est porté par la foule — c\'est pourquoi un ordinateur familial ordinaire, même sur une connexion modeste, suffit pour participer.',
     mx_pub_t:'Public par conception — aucun canal privé',
@@ -1005,6 +1101,21 @@ const T = {
     ft_note:"Un mouvement indépendant. Aucune affiliation partisane, aucun financement étranger, aucune permission demandée. © 2026 nderja.com"
   },
   de: {
+    nav_dl:'Herunterladen',
+    hero_cta1:'M4TR1X herunterladen',
+    hero_cta2:'Node betreiben',
+    hero_note:'MIT · kein Konto · kein Store',
+    pf_k1:'Offener Code, 4 Repos',
+    pf_k2:'Post-Quanten-Signatur',
+    pf_k3:'Zensierte Netze',
+    pf_k4:'Konten nötig',
+    cd_status:'Netz aktiv',
+    cd_since:'Erster Node online — 8. August 2026',
+    sp_k1:'An die Kreativen',
+    sp_k2:'An den Node, der es trug',
+    sp_k3:'An die Plattform',
+    dl_detected:'Auf deinem Gerät erkannt · neuester offizieller Build',
+    dl_get:'Herunterladen für',
     nav_coin:'H8 Coin',
     hc_spin:'Eine Münze, zwei Seiten: der Adler und das Guthaben',
     hc_eyebrow:'Das Guthaben',
@@ -1047,10 +1158,6 @@ const T = {
     mx_f3_t:'Knoten', mx_f3_p:'Das selbstgehostete Herz: Relais, Medienspeicher und Video-Streaming in einem Server. Ein gewöhnlicher Heimcomputer genügt, um aus einem Bürger Infrastruktur zu machen.',
     mx_f4_t:'KI-Detektor', mx_f4_p:'Ein offener Detektor für KI-generierte Videos, kollektiv trainiert über das Netzwerk selbst. Ein Netzwerk, das für die Wahrheit gebaut ist, muss eine Fälschung erkennen können.',
     mx_stat:'Wo wir stehen, ehrlich: Developer Preview. Der erste öffentliche Knoten ist online; die Software ist stabil genug zum Selbsthosten und Weiterbauen, noch nicht für Hochrisiko-Anwendungen gedacht. Zu sagen, was funktioniert und was nicht — auch das ist Ehre.',
-    cd_notyet:'Noch nicht online',
-    cd_launch:'Öffentlicher Start — 8. August 2026',
-    cd_days:'Tage', cd_hrs:'Std', cd_min:'Min', cd_sec:'Sek',
-    cd_live:'Das Netzwerk ist online — willkommen zu Hause',
     mx_arch_t:'Wie dein Gerät die Inhalte trägt',
     mx_arch_p:'Hinter M4TR1X steht kein Rechenzentrum. Wenn jemand einen Film, ein Lied oder ein Video veröffentlicht, transkodiert ein starker Knoten es einmalig in kleine Streaming-Segmente. Von dort reicht jedes zuschauende Gerät diese Segmente an den nächsten Betrachter weiter, und dein Player setzt sie zum fertigen Inhalt zusammen. Die schwere Arbeit geschieht einmal, auf den wenigen starken Maschinen; den Rest trägt die Menge — deshalb genügt ein gewöhnlicher Heimcomputer, selbst mit bescheidener Verbindung, um mitzumachen.',
     mx_pub_t:'Öffentlich by design — keine privaten Kanäle',
@@ -1108,6 +1215,21 @@ const T = {
     ft_note:"Eine unabhängige Bewegung. Keine Parteizugehörigkeit, keine ausländische Finanzierung, keine erbetene Erlaubnis. © 2026 nderja.com"
   },
   sv: {
+    nav_dl:'Ladda ner',
+    hero_cta1:'Ladda ner M4TR1X',
+    hero_cta2:'Kör en nod',
+    hero_note:'MIT · inget konto · ingen butik',
+    pf_k1:'Öppen kod, 4 repon',
+    pf_k2:'Postkvantsignatur',
+    pf_k3:'Censurerade nät',
+    pf_k4:'Konton som krävs',
+    cd_status:'Nätet aktivt',
+    cd_since:'Första noden online — 8 augusti 2026',
+    sp_k1:'Till kreatören',
+    sp_k2:'Till noden som bar den',
+    sp_k3:'Till plattformen',
+    dl_detected:'Identifierad på din enhet · senaste officiella bygget',
+    dl_get:'Ladda ner för',
     nav_coin:'H8 Coin',
     hc_spin:'Ett mynt, två sidor: örnen och krediten',
     hc_eyebrow:'Krediten',
@@ -1150,10 +1272,6 @@ const T = {
     mx_f3_t:'Nod', mx_f3_p:'Det självhostade hjärtat: relä, medielagring och videoströmning i en enda server. En vanlig hemdator räcker för att göra en medborgare till infrastruktur.',
     mx_f4_t:'AI-detektor', mx_f4_p:'En öppen detektor för AI-genererad video, kollektivt tränad genom nätverket självt. Ett nätverk byggt för sanning måste kunna känna igen en förfalskning.',
     mx_stat:'Var vi står, ärligt: developer preview. Den första publika noden är online; mjukvaran är stabil nog att självhosta och bygga vidare på, ännu inte tänkt för högriskanvändning. Att säga vad som fungerar och vad som inte gör det — också det är heder.',
-    cd_notyet:'Inte online än',
-    cd_launch:'Offentlig lansering — 8 augusti 2026',
-    cd_days:'dagar', cd_hrs:'tim', cd_min:'min', cd_sec:'sek',
-    cd_live:'Nätverket är online — välkommen hem',
     mx_arch_t:'Hur din enhet bär innehållet',
     mx_arch_p:'Det finns inget datacenter bakom M4TR1X. När någon publicerar en film, en låt eller en video transkodar en kraftfull nod den en enda gång till små strömningssegment. Därifrån skickar varje enhet som tittar dessa segment vidare till nästa tittare, och din spelare sätter ihop dem till det färdiga innehållet. Det tunga arbetet sker en gång, på de få starka maskinerna; resten bärs av mängden — därför räcker en vanlig hemdator, även med en blygsam uppkoppling, för att delta.',
     mx_pub_t:'Offentligt av design — inga privata kanaler',
@@ -1211,6 +1329,21 @@ const T = {
     ft_note:"En oberoende rörelse. Ingen partitillhörighet, ingen utländsk finansiering, inget tillstånd begärt. © 2026 nderja.com"
   },
   el: {
+    nav_dl:'Λήψη',
+    hero_cta1:'Λήψη M4TR1X',
+    hero_cta2:'Τρέξε έναν κόμβο',
+    hero_note:'MIT · κανένας λογαριασμός · κανένα store',
+    pf_k1:'Δημόσιος κώδικας, 4 repo',
+    pf_k2:'Μετακβαντική υπογραφή',
+    pf_k3:'Λογοκριμένα δίκτυα',
+    pf_k4:'Λογαριασμοί που απαιτούνται',
+    cd_status:'Το δίκτυο ενεργό',
+    cd_since:'Πρώτος κόμβος online — 8 Αυγούστου 2026',
+    sp_k1:'Στον δημιουργό',
+    sp_k2:'Στον κόμβο που το μετέφερε',
+    sp_k3:'Στην πλατφόρμα',
+    dl_detected:'Εντοπίστηκε στη συσκευή σου · τελευταία επίσημη έκδοση',
+    dl_get:'Λήψη για',
     nav_coin:'H8 Coin',
     hc_spin:'Ένα νόμισμα, δύο όψεις: ο αετός και η πίστωση',
     hc_eyebrow:'Η πίστωση',
@@ -1253,10 +1386,6 @@ const T = {
     mx_f3_t:'Κόμβος', mx_f3_p:'Η αυτο-φιλοξενούμενη καρδιά: αναμεταδότης, αποθήκη πολυμέσων και ροή βίντεο σε έναν διακομιστή. Ένας συνηθισμένος οικιακός υπολογιστής αρκεί για να γίνει ένας πολίτης υποδομή.',
     mx_f4_t:'Ανιχνευτής ΤΝ', mx_f4_p:'Ένας ανοιχτός ανιχνευτής βίντεο παραγμένων από ΤΝ, εκπαιδευμένος συλλογικά μέσα από το ίδιο το δίκτυο. Ένα δίκτυο χτισμένο για την αλήθεια πρέπει να ξέρει να αναγνωρίζει το ψεύτικο.',
     mx_stat:'Πού βρισκόμαστε, ειλικρινά: developer preview. Ο πρώτος δημόσιος κόμβος είναι online· το λογισμικό είναι αρκετά σταθερό για αυτο-φιλοξενία και για να χτίσεις πάνω του, όχι ακόμη για χρήσεις υψηλού κινδύνου. Το να λες τι δουλεύει και τι όχι — κι αυτό είναι τιμή.',
-    cd_notyet:'Όχι ακόμη online',
-    cd_launch:'Δημόσια έναρξη — 8 Αυγούστου 2026',
-    cd_days:'ημέρες', cd_hrs:'ώρες', cd_min:'λεπ', cd_sec:'δευτ',
-    cd_live:'Το δίκτυο είναι online — καλώς όρισες στο σπίτι',
     mx_arch_t:'Πώς η συσκευή σου κουβαλά το περιεχόμενο',
     mx_arch_p:'Πίσω από το M4TR1X δεν υπάρχει κανένα κέντρο δεδομένων. Όταν κάποιος δημοσιεύει μια ταινία, ένα τραγούδι ή ένα βίντεο, ένας ισχυρός κόμβος το μετακωδικοποιεί μία μόνο φορά σε μικρά τμήματα ροής. Από εκεί, κάθε συσκευή που παρακολουθεί περνά αυτά τα τμήματα στον επόμενο θεατή, και ο player σου τα ξανασυναρμολογεί στο ολοκληρωμένο περιεχόμενο. Η βαριά δουλειά γίνεται μία φορά, στις λίγες ισχυρές μηχανές· τα υπόλοιπα τα κουβαλά το πλήθος — γι\' αυτό ένας συνηθισμένος οικιακός υπολογιστής, ακόμη και με μέτρια σύνδεση, αρκεί για να συμμετάσχεις.',
     mx_pub_t:'Δημόσιο εκ σχεδιασμού — κανένα ιδιωτικό κανάλι',
@@ -1314,6 +1443,21 @@ const T = {
     ft_note:"Ένα ανεξάρτητο κίνημα. Καμία κομματική ένταξη, καμία ξένη χρηματοδότηση, καμία άδεια ζητημένη. © 2026 nderja.com"
   },
   nl: {
+    nav_dl:'Downloaden',
+    hero_cta1:'M4TR1X downloaden',
+    hero_cta2:'Draai een node',
+    hero_note:'MIT · geen account · geen store',
+    pf_k1:'Publieke code, 4 repos',
+    pf_k2:'Post-kwantumhandtekening',
+    pf_k3:'Gecensureerde netwerken',
+    pf_k4:'Accounts nodig',
+    cd_status:'Netwerk actief',
+    cd_since:'Eerste node online — 8 augustus 2026',
+    sp_k1:'Naar de maker',
+    sp_k2:'Naar de node die het vervoerde',
+    sp_k3:'Naar het platform',
+    dl_detected:'Herkend op je apparaat · nieuwste officiële build',
+    dl_get:'Download voor',
     nav_coin:'H8 Coin',
     hc_spin:'Eén munt, twee zijden: de adelaar en het tegoed',
     hc_eyebrow:'Het tegoed',
@@ -1396,10 +1540,6 @@ const T = {
     mx_f3_t:'Node', mx_f3_p:'Het zelfgehoste hart: relais, mediaopslag en videostreaming in één server. Een gewone thuiscomputer volstaat om van een burger infrastructuur te maken.',
     mx_f4_t:'AI-detector', mx_f4_p:'Een open detector voor AI-gegenereerde video, collectief getraind via het netwerk zelf. Een netwerk gebouwd voor waarheid moet een vervalsing kunnen herkennen.',
     mx_stat:'Waar we staan, eerlijk: developer preview. De eerste publieke node is online; de software is stabiel genoeg om zelf te hosten en op voort te bouwen, nog niet bedoeld voor gebruik met hoog risico. Zeggen wat werkt en wat niet — ook dat is eer.',
-    cd_notyet:'Nog niet online',
-    cd_launch:'Publieke lancering — 8 augustus 2026',
-    cd_days:'dagen', cd_hrs:'uur', cd_min:'min', cd_sec:'sec',
-    cd_live:'Het netwerk is online — welkom thuis',
     mx_arch_t:'Hoe jouw apparaat de inhoud draagt',
     mx_arch_p:'Achter M4TR1X zit geen datacenter. Wanneer iemand een film, een lied of een video publiceert, transcodeert een krachtige node die eenmalig tot kleine streamingsegmenten. Vanaf daar geeft elk kijkend apparaat die segmenten door aan de volgende kijker, en jouw speler zet ze weer samen tot de voltooide inhoud. Het zware werk gebeurt één keer, op de weinige sterke machines; de rest wordt door de menigte gedragen — daarom is een gewone thuiscomputer, zelfs met een bescheiden verbinding, genoeg om mee te doen.',
     mx_pub_t:'Publiek van opzet — geen privékanalen',
@@ -1429,6 +1569,21 @@ const T = {
     ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
   },
   es: {
+    nav_dl:'Descargar',
+    hero_cta1:'Descargar M4TR1X',
+    hero_cta2:'Levanta un nodo',
+    hero_note:'MIT · sin cuenta · sin store',
+    pf_k1:'Código público, 4 repos',
+    pf_k2:'Firma poscuántica',
+    pf_k3:'Redes censuradas',
+    pf_k4:'Cuentas necesarias',
+    cd_status:'Red activa',
+    cd_since:'Primer nodo en línea — 8 de agosto de 2026',
+    sp_k1:'Al creador',
+    sp_k2:'Al nodo que la transportó',
+    sp_k3:'A la plataforma',
+    dl_detected:'Detectado en tu dispositivo · última build oficial',
+    dl_get:'Descargar para',
     nav_coin:'H8 Coin',
     hc_spin:'Una moneda, dos caras: el águila y el crédito',
     hc_eyebrow:'El crédito',
@@ -1511,10 +1666,6 @@ const T = {
     mx_f3_t:'Nodo', mx_f3_p:'El corazón autoalojado: relé, almacenamiento de medios y streaming de vídeo en un solo servidor. Un ordenador doméstico corriente basta para convertir a un ciudadano en infraestructura.',
     mx_f4_t:'Detector de IA', mx_f4_p:'Un detector abierto de vídeo generado por IA, entrenado colectivamente a través de la propia red. Una red construida para la verdad debe saber reconocer una falsificación.',
     mx_stat:'Dónde estamos, honestamente: developer preview. El primer nodo público está en línea; el software es lo bastante estable para autoalojarlo y construir encima, aún no pensado para usos de alto riesgo. Decir qué funciona y qué no — también eso es honor.',
-    cd_notyet:'Aún no en línea',
-    cd_launch:'Apertura pública — 8 de agosto de 2026',
-    cd_days:'días', cd_hrs:'horas', cd_min:'min', cd_sec:'seg',
-    cd_live:'La red está en línea — bienvenido a casa',
     mx_arch_t:'Cómo tu dispositivo sostiene los contenidos',
     mx_arch_p:'Detrás de M4TR1X no hay ningún centro de datos. Cuando alguien publica una película, una canción o un vídeo, un nodo potente lo transcodifica una sola vez en pequeños segmentos de streaming. Desde ahí, cada dispositivo que está mirando pasa esos segmentos al siguiente espectador, y tu reproductor los vuelve a montar en el contenido terminado. El trabajo pesado ocurre una vez, en las pocas máquinas fuertes; el resto lo lleva la multitud — por eso un ordenador doméstico corriente, incluso con una conexión modesta, basta para participar.',
     mx_pub_t:'Público por diseño — sin canales privados',
@@ -1624,56 +1775,29 @@ document.querySelectorAll('#h8-sub button').forEach(b=>{
   }catch(e){/* fallback hrefs stay */}
 })();
 
-/* M4TR1X launch countdown */
-(function(){
-  const box=document.getElementById('mx-countdown');
-  if(!box) return;
-  const target=new Date(box.dataset.launch).getTime();
-  const dEl=document.getElementById('cd-d'),hEl=document.getElementById('cd-h'),
-        mEl=document.getElementById('cd-m'),sEl=document.getElementById('cd-s');
-  const pad=n=>String(n).padStart(2,'0');
-  let iv;
-  function tick(){
-    const diff=target-Date.now();
-    if(diff<=0){ box.classList.add('live'); if(iv) clearInterval(iv); return; }
-    const s=Math.floor(diff/1000);
-    dEl.textContent=Math.floor(s/86400);
-    hEl.textContent=pad(Math.floor(s%86400/3600));
-    mEl.textContent=pad(Math.floor(s%3600/60));
-    sEl.textContent=pad(s%60);
-  }
-  tick(); iv=setInterval(tick,1000);
-})();
+/* download CTA: porta al pannello H8-Group, voce M4TR1X, sezione Download */
+function goDownload(){
+  showPanel('h8');
+  showSubH8('m4tr1x');
+  const el=document.getElementById('download');
+  if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),60);
+}
 
-/* H8 coin: build the rim so the coin has thickness while it spins */
+/* build per il sistema rilevato: l'href definitivo lo mette il blocco qui sopra
+   quando l'API GitHub risponde; questi sono i fallback statici */
 (function(){
-  const coin=document.getElementById('h8coin-3d');
-  if(!coin) return;
-  const N=120;
-  function build(){
-    coin.querySelectorAll('.cseg').forEach(e=>e.remove());
-    const r=coin.offsetWidth/2; if(!r) return;
-    const t=parseFloat(getComputedStyle(coin).getPropertyValue('--ct'))||16;
-    const h=Math.ceil(2*Math.PI*r/N)+2;
-    const frag=document.createDocumentFragment();
-    for(let i=0;i<N;i++){
-      const d=document.createElement('span');
-      d.className='cseg';
-      d.style.width=t+'px'; d.style.height=h+'px';
-      d.style.marginLeft=(-t/2)+'px'; d.style.marginTop=(-h/2)+'px';
-      d.style.transform='rotateZ('+(i*360/N)+'deg) translateX('+r+'px) rotateY(90deg)';
-      frag.appendChild(d);
-    }
-    coin.appendChild(frag);
-  }
-  build();
-  window.addEventListener('resize',build);
-  /* il pannello parte nascosto: la moneta misura 0px e il bordo non si puo'
-     costruire finche' non diventa visibile — ricostruiscilo quando succede */
-  if(window.ResizeObserver){
-    let last=0;
-    new ResizeObserver(()=>{ const w=coin.offsetWidth; if(w && w!==last){ last=w; build(); } }).observe(coin);
-  }
+  const ua=navigator.userAgent||'';
+  let os='Windows', id='dl-win';
+  if(/Android/i.test(ua)){ os='Android'; id='dl-apk'; }
+  else if(/iPhone|iPad|iPod/i.test(ua)){ os='iOS'; id='dl-ipa'; }
+  else if(/Mac OS X/i.test(ua)){ os='macOS'; id='dl-mac-arm'; }
+  else if(/Linux/i.test(ua)){ os='Linux'; id='dl-linux'; }
+  const src=document.getElementById(id), btn=document.getElementById('dl-primary');
+  document.querySelectorAll('#dl-osname,#dl-osname2').forEach(el=>el.textContent=os);
+  if(!src||!btn) return;
+  const sync=()=>{ btn.href=src.href; };
+  sync();
+  new MutationObserver(sync).observe(src,{attributes:true,attributeFilter:['href']});
 })();
 
 /* scroll reveal */
