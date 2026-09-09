@@ -1656,6 +1656,12 @@ document.querySelectorAll('#dig-sub button').forEach(b=>{
   }
   build();
   window.addEventListener('resize',build);
+  /* il pannello parte nascosto: la moneta misura 0px e il bordo non si puo'
+     costruire finche' non diventa visibile — ricostruiscilo quando succede */
+  if(window.ResizeObserver){
+    let last=0;
+    new ResizeObserver(()=>{ const w=coin.offsetWidth; if(w && w!==last){ last=w; build(); } }).observe(coin);
+  }
 })();
 
 /* scroll reveal */
