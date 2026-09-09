@@ -81,8 +81,6 @@
   .submenu button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
   .sub{display:none}
   .sub.active{display:block}
-  .dsub{display:none}
-  .dsub.active{display:block}
 
   /* ---------- hero ---------- */
   .hero{min-height:100vh;padding-top:120px;display:flex;flex-direction:column;justify-content:center;padding:0 5vw;position:relative;overflow:hidden}
@@ -251,12 +249,9 @@
     <button data-panel="coin" data-i="nav_coin">H8 Coin</button>
   </nav>
   <nav class="submenu" id="h8-sub" aria-label="H8-Group">
-    <button data-sub="digital" data-i="h8s_dig">Digital</button>
-    <button data-sub="physical" data-i="h8s_phy">Physical</button>
-  </nav>
-  <nav class="submenu" id="dig-sub" aria-label="Digital">
-    <button data-dsub="app" data-i="dsub_app">App</button>
-    <button data-dsub="content" data-i="dsub_content">Content</button>
+    <button data-sub="m4tr1x">M4TR1X</button>
+    <button data-sub="kalendae">Kalendae</button>
+    <button data-sub="elea">Elea Vending</button>
   </nav>
 </header>
 
@@ -386,8 +381,7 @@
     </div>
   </section>
 
-  <div class="sub active" id="sub-digital">
-  <div class="dsub active" id="dsub-app">
+  <div class="sub active" id="sub-m4tr1x">
   <!-- M4TR1X -->
   <section id="m4tr1x">
     <div class="frame">
@@ -485,6 +479,9 @@
     </div>
   </section>
 
+  </div>
+
+  <div class="sub" id="sub-kalendae">
   <!-- KALENDAE -->
   <section id="kalendae">
     <div class="frame">
@@ -498,19 +495,9 @@
       <div class="srcnote"><a href="https://github.com/H8dboy/kalendae" target="_blank" rel="noopener">github.com/H8dboy/kalendae</a></div>
     </div>
   </section>
-  </div><!-- /dsub-app -->
-
-  <div class="dsub" id="dsub-content">
-  <section id="content-soon">
-    <div class="frame">
-      <div class="eyebrow" data-i="dsub_content">Content</div>
-      <p data-i="content_soon">Coming soon.</p>
-    </div>
-  </section>
-  </div><!-- /dsub-content -->
   </div>
 
-  <div class="sub" id="sub-physical">
+  <div class="sub" id="sub-elea">
   <!-- ELEA -->
   <section id="elea">
     <div class="frame">
@@ -635,9 +622,6 @@ const T = {
     el_f2_t:'An honest cash box', el_f2_p:'An AI layer counts every coin, follows every product lot from loading to expiry date, and rearranges the shelves around real demand. Almost zero waste, almost zero counting errors — trust you can audit.',
     el_f3_t:'One Shot', el_f3_p:'Our own coffee: a dense, low-acid espresso blend — Brazil for body, India for crema, Ethiopia for aroma. Roasted in Italy today; Albanian roasteries as we grow. One shot: a single sip, taken seriously.',
     elea_p2:'And every machine leads a double life. Above, it serves coffee and pays the bills that keep the movement independent; below, it can host a relay of the M4TR1X network. Sovereignty, one street corner at a time.',
-    h8s_dig:'Digital',
-    h8s_phy:'Physical',
-    dsub_app:'App', dsub_content:'Content', content_soon:'Coming soon.',
     ka_eyebrow:'The agenda', ka_title:'Kal<em>endae</em>', ka_p1:'A personal agenda that lives entirely on your phone — calendar, tasks, notes, work hours, fitness and instalment payments in one local database. No account, no cloud, no tracking.', ka_dl:'Download APK', ka_src:'Source code',
     mx_eyebrow:'The tool', mx_title:'M4TR<em>1X</em>',
     mx_p1:'Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.',
@@ -741,9 +725,6 @@ const T = {
     el_f2_t:'Një arkë e ndershme', el_f2_p:'Një shtresë IA numëron çdo monedhë, ndjek çdo parti produkti nga ngarkimi te data e skadencës dhe i rirendit raftet sipas kërkesës reale. Pothuajse zero mbetje, pothuajse zero gabime numërimi — besim që mund të verifikohet.',
     el_f3_t:'One Shot', el_f3_p:'Kafja jonë: një përzierje espresso e dendur, me aciditet të ulët — Brazili për trupin, India për kremën, Etiopia për aromën. Sot pjekur në Itali; torrefaksione shqiptare teksa rritemi. One shot: një gllënjkë e vetme, e marrë seriozisht.',
     elea_p2:'Dhe çdo makinë jeton një jetë të dyfishtë. Sipër shërben kafe dhe paguan faturat që e mbajnë lëvizjen të pavarur; poshtë mund të mbajë një rele të rrjetit M4TR1X. Sovranitet, një cep rruge në herë.',
-    h8s_dig:'Digjitale',
-    h8s_phy:'Fizike',
-    dsub_app:'App', dsub_content:'Përmbajtje', content_soon:'Së shpejti.',
     ka_eyebrow:'Agjenda', ka_title:'Kal<em>endae</em>', ka_p1:'Një agjendë personale që rron tërësisht në telefonin tënd — kalendar, detyra, shënime, orë pune, fitnes dhe pagesa me këste në një bazë të dhënash lokale. Pa llogari, pa re, pa gjurmim.', ka_dl:'Shkarko APK', ka_src:'Kodi burimor',
     mx_eyebrow:'Mjeti', mx_title:'M4TR<em>1X</em>',
     mx_p1:"Instrumenti ynë i parë: një rrjet social i decentralizuar pa server qendror, pa llogari, pa mbikëqyrje. Kriptografi post-kuantike, rrugëtim Tor, identitet i vetë-strehuar. Nuk ka ndërtesë për t'u bastisur, as çelës për t'u fikur.",
@@ -847,9 +828,6 @@ const T = {
     el_f2_t:'Una cassa onesta', el_f2_p:'Un livello di IA conta ogni moneta, segue ogni lotto dal carico alla scadenza e riorganizza gli scaffali sulla domanda reale. Quasi zero sprechi, quasi zero errori di conteggio — fiducia che si può verificare.',
     el_f3_t:'One Shot', el_f3_p:'Il nostro caffè: una miscela espresso densa e a bassa acidità — Brasile per il corpo, India per la crema, Etiopia per l\'aroma. Oggi tostato in Italia; torrefazioni albanesi man mano che cresciamo. One shot: un solo sorso, preso sul serio.',
     elea_p2:'E ogni macchina vive una doppia vita. Sopra serve il caffè e paga le bollette che tengono il movimento indipendente; sotto può ospitare un relay della rete M4TR1X. Sovranità, un angolo di strada alla volta.',
-    h8s_dig:'Digitale',
-    h8s_phy:'Fisico',
-    dsub_app:'App', dsub_content:'Contenuti', content_soon:'Prossimamente.',
     ka_eyebrow:'L\'agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Un\'agenda personale che vive interamente sul tuo telefono — calendario, attività, note, ore di lavoro, fitness e pagamenti a rate in un unico database locale. Nessun account, nessun cloud, nessun tracciamento.', ka_dl:'Scarica APK', ka_src:'Codice sorgente',
     mx_eyebrow:'Lo strumento', mx_title:'M4TR<em>1X</em>',
     mx_p1:"Il nostro primo strumento: un social network decentralizzato senza server centrale, senza account, senza sorveglianza. Crittografia post-quantum, routing Tor, identità self-hosted. Non c'è un palazzo da perquisire, né un interruttore da spegnere.",
@@ -953,9 +931,6 @@ const T = {
     el_f2_t:'Une caisse honnête', el_f2_p:'Une couche d\'IA compte chaque pièce, suit chaque lot du chargement à la date de péremption et réorganise les rayons selon la demande réelle. Presque zéro gaspillage, presque zéro erreur de comptage — une confiance vérifiable.',
     el_f3_t:'One Shot', el_f3_p:"Notre café : un espresso dense, à faible acidité — Brésil pour le corps, Inde pour la crème, Éthiopie pour l'arôme. Torréfié en Italie aujourd'hui ; des torréfacteurs albanais à mesure que nous grandissons. One shot : une seule gorgée, prise au sérieux.",
     elea_p2:'Et chaque machine mène une double vie. En haut, elle sert le café et paie les factures qui gardent le mouvement indépendant ; en bas, elle peut héberger un relais du réseau M4TR1X. La souveraineté, un coin de rue à la fois.',
-    h8s_dig:'Numérique',
-    h8s_phy:'Physique',
-    dsub_app:'App', dsub_content:'Contenu', content_soon:'Bientôt disponible.',
     ka_eyebrow:'L\'agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Un agenda personnel qui vit entièrement sur votre téléphone — calendrier, tâches, notes, heures de travail, fitness et paiements en plusieurs fois dans une seule base de données locale. Pas de compte, pas de cloud, pas de pistage.', ka_dl:'Télécharger l\'APK', ka_src:'Code source',
     mx_eyebrow:"L'outil", mx_title:'M4TR<em>1X</em>',
     mx_p1:"Notre premier instrument : un réseau social décentralisé sans serveur central, sans comptes, sans surveillance. Cryptographie post-quantique, routage Tor, identité auto-hébergée. Il n'y a pas d'immeuble à perquisitionner, pas d'interrupteur à couper.",
@@ -1059,9 +1034,6 @@ const T = {
     el_f2_t:'Eine ehrliche Kasse', el_f2_p:'Eine KI-Schicht zählt jede Münze, verfolgt jede Charge vom Befüllen bis zum Ablaufdatum und ordnet die Fächer nach der echten Nachfrage. Fast null Verschwendung, fast null Zählfehler — überprüfbares Vertrauen.',
     el_f3_t:'One Shot', el_f3_p:'Unser eigener Kaffee: eine dichte Espressomischung mit wenig Säure — Brasilien für den Körper, Indien für die Crema, Äthiopien für das Aroma. Heute in Italien geröstet; albanische Röstereien, wenn wir wachsen. One Shot: ein einziger Schluck, ernst genommen.',
     elea_p2:'Und jede Maschine führt ein Doppelleben. Oben serviert sie Kaffee und bezahlt die Rechnungen, die die Bewegung unabhängig halten; unten kann sie ein Relais des M4TR1X-Netzwerks tragen. Souveränität, eine Straßenecke nach der anderen.',
-    h8s_dig:'Digital',
-    h8s_phy:'Physisch',
-    dsub_app:'App', dsub_content:'Inhalte', content_soon:'Demnächst.',
     ka_eyebrow:'Die Agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Eine persönliche Agenda, die vollständig auf deinem Telefon lebt — Kalender, Aufgaben, Notizen, Arbeitszeiten, Fitness und Ratenzahlungen in einer einzigen lokalen Datenbank. Kein Konto, keine Cloud, kein Tracking.', ka_dl:'APK herunterladen', ka_src:'Quellcode',
     mx_eyebrow:'Das Werkzeug', mx_title:'M4TR<em>1X</em>',
     mx_p1:'Unser erstes Instrument: ein dezentrales soziales Netzwerk ohne zentralen Server, ohne Konten, ohne Überwachung. Post-Quanten-Kryptographie, Tor-Routing, selbstgehostete Identität. Es gibt kein Gebäude zu durchsuchen, keinen Schalter umzulegen.',
@@ -1165,9 +1137,6 @@ const T = {
     el_f2_t:'En ärlig kassa', el_f2_p:'Ett AI-lager räknar varje mynt, följer varje varuparti från påfyllning till utgångsdatum och ordnar om hyllorna efter verklig efterfrågan. Nästan noll svinn, nästan noll räknefel — förtroende som går att granska.',
     el_f3_t:'One Shot', el_f3_p:'Vårt eget kaffe: en tät espressoblandning med låg syra — Brasilien för kroppen, Indien för creman, Etiopien för aromen. Rostat i Italien i dag; albanska rosterier när vi växer. One shot: en enda klunk, tagen på allvar.',
     elea_p2:'Och varje maskin lever ett dubbelliv. Ovanpå serverar den kaffe och betalar räkningarna som håller rörelsen oberoende; under kan den bära ett relä i M4TR1X-nätverket. Suveränitet, ett gathörn i taget.',
-    h8s_dig:'Digitalt',
-    h8s_phy:'Fysiskt',
-    dsub_app:'App', dsub_content:'Innehåll', content_soon:'Kommer snart.',
     ka_eyebrow:'Agendan', ka_title:'Kal<em>endae</em>', ka_p1:'En personlig agenda som lever helt på din telefon — kalender, uppgifter, anteckningar, arbetstimmar, träning och delbetalningar i en enda lokal databas. Inget konto, inget moln, ingen spårning.', ka_dl:'Ladda ner APK', ka_src:'Källkod',
     mx_eyebrow:'Verktyget', mx_title:'M4TR<em>1X</em>',
     mx_p1:'Vårt första instrument: ett decentraliserat socialt nätverk utan central server, utan konton, utan övervakning. Postkvantkryptografi, Tor-routing, självhostad identitet. Det finns ingen byggnad att razzia, ingen strömbrytare att slå av.',
@@ -1271,9 +1240,6 @@ const T = {
     el_f2_t:'Ένα τίμιο ταμείο', el_f2_p:'Ένα στρώμα ΤΝ μετρά κάθε κέρμα, παρακολουθεί κάθε παρτίδα από τη φόρτωση ως την ημερομηνία λήξης και αναδιατάσσει τα ράφια κατά την πραγματική ζήτηση. Σχεδόν μηδέν σπατάλη, σχεδόν μηδέν λάθη μέτρησης — εμπιστοσύνη που ελέγχεται.',
     el_f3_t:'One Shot', el_f3_p:'Ο δικός μας καφές: ένα πυκνό χαρμάνι espresso με χαμηλή οξύτητα — Βραζιλία για το σώμα, Ινδία για την κρέμα, Αιθιοπία για το άρωμα. Σήμερα καβουρδίζεται στην Ιταλία· αλβανικά καβουρδιστήρια καθώς μεγαλώνουμε. One shot: μία μόνο γουλιά, παρμένη στα σοβαρά.',
     elea_p2:'Και κάθε μηχανή ζει διπλή ζωή. Από πάνω σερβίρει καφέ και πληρώνει τους λογαριασμούς που κρατούν το κίνημα ανεξάρτητο· από κάτω μπορεί να φιλοξενεί έναν αναμεταδότη του δικτύου M4TR1X. Κυριαρχία, μια γωνιά δρόμου τη φορά.',
-    h8s_dig:'Ψηφιακό',
-    h8s_phy:'Φυσικό',
-    dsub_app:'App', dsub_content:'Περιεχόμενο', content_soon:'Σύντομα.',
     ka_eyebrow:'Η ατζέντα', ka_title:'Kal<em>endae</em>', ka_p1:'Μια προσωπική ατζέντα που ζει εξ ολοκλήρου στο τηλέφωνό σου — ημερολόγιο, εργασίες, σημειώσεις, ώρες εργασίας, γυμναστική και πληρωμές με δόσεις σε μία τοπική βάση δεδομένων. Χωρίς λογαριασμό, χωρίς σύννεφο, χωρίς παρακολούθηση.', ka_dl:'Λήψη APK', ka_src:'Πηγαίος κώδικας',
     mx_eyebrow:'Το εργαλείο', mx_title:'M4TR<em>1X</em>',
     mx_p1:'Το πρώτο μας όργανο: ένα αποκεντρωμένο κοινωνικό δίκτυο χωρίς κεντρικό διακομιστή, χωρίς λογαριασμούς, χωρίς παρακολούθηση. Μετα-κβαντική κρυπτογραφία, δρομολόγηση Tor, αυτο-φιλοξενούμενη ταυτότητα. Δεν υπάρχει κτίριο για έφοδο, ούτε διακόπτης για κλείσιμο.',
@@ -1459,9 +1425,6 @@ const T = {
     el_f2_t:'Een eerlijke kassa', el_f2_p:'Een AI-laag telt elke munt, volgt elke partij van het laden tot de vervaldatum en herschikt de schappen naar echte vraag. Bijna nul verspilling, bijna nul telfouten — vertrouwen dat je kunt controleren.',
     el_f3_t:'One Shot', el_f3_p:'Onze eigen koffie: een dichte espressomelange met lage zuurgraad — Brazilië voor de body, India voor de crema, Ethiopië voor het aroma. Vandaag gebrand in Italië; Albanese branderijen naarmate we groeien. One shot: één slok, serieus genomen.',
     elea_p2:'En elke machine leidt een dubbelleven. Boven schenkt ze koffie en betaalt ze de rekeningen die de beweging onafhankelijk houden; onder kan ze een relais van het M4TR1X-netwerk dragen. Soevereiniteit, één straathoek tegelijk.',
-    h8s_dig:'Digitaal',
-    h8s_phy:'Fysiek',
-    dsub_app:'App', dsub_content:'Inhoud', content_soon:'Binnenkort.',
     ka_eyebrow:'De agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Een persoonlijke agenda die volledig op je telefoon leeft — kalender, taken, notities, werkuren, fitness en betalingen in termijnen in één lokale database. Geen account, geen cloud, geen tracking.', ka_dl:'APK downloaden', ka_src:'Broncode',
     ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
   },
@@ -1577,9 +1540,6 @@ const T = {
     el_f2_t:'Una caja honesta', el_f2_p:'Una capa de IA cuenta cada moneda, sigue cada lote desde la carga hasta la fecha de caducidad y reordena los estantes según la demanda real. Casi cero desperdicio, casi cero errores de conteo — confianza que se puede auditar.',
     el_f3_t:'One Shot', el_f3_p:'Nuestro propio café: una mezcla de espresso densa y de baja acidez — Brasil para el cuerpo, India para la crema, Etiopía para el aroma. Hoy tostado en Italia; tostadores albaneses a medida que crecemos. One shot: un solo sorbo, tomado en serio.',
     elea_p2:'Y cada máquina lleva una doble vida. Arriba sirve café y paga las facturas que mantienen el movimiento independiente; abajo puede alojar un relé de la red M4TR1X. Soberanía, una esquina a la vez.',
-    h8s_dig:'Digital',
-    h8s_phy:'Físico',
-    dsub_app:'App', dsub_content:'Contenido', content_soon:'Próximamente.',
     ka_eyebrow:'La agenda', ka_title:'Kal<em>endae</em>', ka_p1:'Una agenda personal que vive por completo en tu teléfono — calendario, tareas, notas, horas de trabajo, fitness y pagos a plazos en una única base de datos local. Sin cuenta, sin nube, sin rastreo.', ka_dl:'Descargar APK', ka_src:'Código fuente',
     ft_note:'Un movimiento independiente. Sin afiliación partidista, sin financiación extranjera, sin permiso pedido. © 2026 nderja.com',
   },
@@ -1624,8 +1584,7 @@ function showPanel(name){
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+name));
   document.querySelectorAll('.menu button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
   document.getElementById('h8-sub').classList.toggle('show', name==='h8');
-  if(name!=='h8') document.getElementById('dig-sub').classList.remove('show');
-  if(name==='h8') showSubH8('digital');
+  if(name==='h8') showSubH8('m4tr1x');
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
@@ -1638,26 +1597,12 @@ document.querySelectorAll('.menu button').forEach(b=>{
 function showSubH8(name){
   document.querySelectorAll('#panel-h8 .sub').forEach(s=>s.classList.toggle('active', s.id==='sub-'+name));
   document.querySelectorAll('#h8-sub button').forEach(b=>b.classList.toggle('active', b.dataset.sub===name));
-  document.getElementById('dig-sub').classList.toggle('show', name==='digital');
-  if(name==='digital') showSubDig('app');
   window.scrollTo({top:0});
   document.querySelectorAll('#panel-h8 .sub.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
 }
 document.querySelectorAll('#h8-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSubH8(b.dataset.sub));
-});
-
-/* digital sub-submenu (App / Content) */
-function showSubDig(name){
-  document.querySelectorAll('#sub-digital .dsub').forEach(s=>s.classList.toggle('active', s.id==='dsub-'+name));
-  document.querySelectorAll('#dig-sub button').forEach(b=>b.classList.toggle('active', b.dataset.dsub===name));
-  window.scrollTo({top:0});
-  document.querySelectorAll('#sub-digital .dsub.active .reveal').forEach(el=>el.classList.add('in'));
-  setHeadH();
-}
-document.querySelectorAll('#dig-sub button').forEach(b=>{
-  b.addEventListener('click',()=>showSubDig(b.dataset.dsub));
 });
 
 /* download links — resolve latest release assets (static hrefs are the fallback) */
