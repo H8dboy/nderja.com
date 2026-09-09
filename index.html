@@ -168,6 +168,7 @@
   /* ---------- stato del nodo (ex countdown) ---------- */
   .mx-countdown .cd-since{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--text)}
   /* ---------- ripartizione della mancia ---------- */
+  .ch3{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--green);font-weight:500;margin:3rem 0 0}
   .splitrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:1.4rem;margin-top:2.4rem}
   .splitrow div{display:flex;flex-direction:column;gap:.3rem}
   .splitrow b{font-family:var(--sans);font-weight:500;font-size:1.9rem;line-height:1;color:var(--green)}
@@ -283,7 +284,7 @@
     <button data-panel="home" class="active" data-i="nav_home">Home</button>
     <button data-panel="philosophy" data-i="nav_ph">Philosophy</button>
     <button data-panel="h8" data-i="nav_h8">H8-Group</button>
-    <button data-panel="coin" data-i="nav_coin">H8 Coin</button>
+    <button data-panel="coin" data-i="nav_coin">H8-Coin</button>
   </nav>
   <nav class="submenu" id="h8-sub" aria-label="H8-Group">
     <button data-sub="m4tr1x">M4TR1X</button>
@@ -610,21 +611,29 @@
       </div>
       <div class="cnote" data-i="hc_spin">One coin, two faces: the eagle and the credit</div>
       <div class="eyebrow" data-i="hc_eyebrow">The credit</div>
-      <h2 data-i-html="hc_title">H8 <em>Coin</em></h2>
+      <h2 data-i-html="hc_title">H8-<em>Coin</em></h2>
       <p data-i="hc_lead">H8 is the credit that circulates inside M4TR1X: it pays creators, rewards whoever keeps a node running, and never leaves the network. It is deliberately not a cryptocurrency.</p>
+      <h3 class="ch3" data-i="hc_price_t">What it costs</h3>
+      <div class="splitrow">
+        <div><b>€ 1.25</b><span data-i="pr_k1">Price of one H8</span></div>
+        <div><b>€ 1.00</b><span data-i="pr_k2">Reserve behind every H8</span></div>
+        <div><b>25%</b><span data-i="pr_k3">Infrastructure and development</span></div>
+      </div>
+      <h3 class="ch3" data-i="hc_split_t">How a tip splits</h3>
       <div class="splitrow">
         <div><b>50%</b><span data-i="sp_k1">To the creator</span></div>
         <div><b>30%</b><span data-i="sp_k2">To the node that carried it</span></div>
         <div><b>20%</b><span data-i="sp_k3">To the platform</span></div>
       </div>
       <div class="cgrid">
+        <div class="card2 reveal"><h3 data-i="hc_c6_t">Backed, not printed</h3><p data-i="hc_c6_p">Every H8 sold is covered by one euro held in reserve; the 25% on top is what pays for development and infrastructure. The reserve is not income and is not spent as such — it exists so the credit in circulation has something behind it. It is a backing commitment, not a peg and not a right of redemption: H8 stays inside M4TR1X.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c1_t">What it is</h3><p data-i="hc_c1_p">A closed-loop utility credit — the same shape as arcade tokens or Twitch Bits. One H8 splits into 100 units, so the smallest tip is 0.01 H8. Every transaction is signed with post-quantum cryptography (ML-DSA-65) and chained with SHA3-256.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c2_t">What it is not</h3><p data-i="hc_c2_p">Not a cryptocurrency, not an investment, not on any blockchain, not pegged to anything, not withdrawable to an exchange. There is no token sale and no promise of future value: H8 buys things inside M4TR1X, nothing else.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c3_t">How it moves</h3><p data-i="hc_c3_p">Every tip splits automatically, hard-coded in the source: 50% to the creator, 30% to whoever runs the node that carried it, 20% to the platform — which pays for development, compliance and infrastructure. A boost goes entirely to the platform.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c5_t">Not only digital</h3><p data-i="hc_c5_p">H8 is a token, but the loop it closes is the whole group — not a screen. It is built to be spent in the physical world too: at Elea machines, and in the M4TR1X shop for real objects that ship to your door. The same balance pays for a coffee and for a piece of hardware. The ledger and the internal payments already work; the physical leg arrives with the first machines on the street.</p></div>
         <div class="card2 reveal"><h3 data-i="hc_c4_t">Why you can check it</h3><p data-i="hc_c4_p">The ledger opens on a genesis block with zero pre-allocation, and anyone running a node can verify the whole chain themselves. The mint key is held by the founder, and we say so openly: an honest closed loop is worth more than decentralisation theatre while the network is being built.</p></div>
       </div>
-      <div class="srcnote"><span data-i="hc_note">Developer preview: H8 is not on sale and nobody is being asked for money. Full tokenomics, in the open:</span> <a href="https://github.com/H8dboy/m4tr1x-node/blob/main/docs/TOKENOMICS.md" target="_blank" rel="noopener">TOKENOMICS.md</a></div>
+      <div class="srcnote"><span data-i="hc_note">Developer preview: the price is public, the payment gateway is not switched on yet — nobody is being asked for money today. Full tokenomics, in the open:</span> <a href="https://github.com/H8dboy/m4tr1x-node/blob/main/docs/TOKENOMICS.md" target="_blank" rel="noopener">TOKENOMICS.md</a></div>
     </div>
   </section>
 </div>
@@ -639,6 +648,13 @@
 <script>
 const T = {
   en: {
+    hc_price_t:'What it costs',
+    pr_k1:'Price of one H8',
+    pr_k2:'Reserve behind every H8',
+    pr_k3:'Infrastructure and development',
+    hc_split_t:'How a tip splits',
+    hc_c6_t:'Backed, not printed',
+    hc_c6_p:'Every H8 sold is covered by one euro held in reserve; the 25% on top is what pays for development and infrastructure. The reserve is not income and is not spent as such — it exists so the credit in circulation has something behind it. It is a backing commitment, not a peg and not a right of redemption: H8 stays inside M4TR1X.',
     nav_dl:'Download',
     hero_cta1:'Download M4TR1X',
     hero_cta2:'Run a node',
@@ -654,10 +670,10 @@ const T = {
     sp_k3:'To the platform',
     dl_detected:'Detected on your device · latest official build',
     dl_get:'Download for',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'One coin, two faces: the eagle and the credit',
     hc_eyebrow:'The credit',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 is the credit that circulates inside M4TR1X: it pays creators, rewards whoever keeps a node running, and never leaves the network. It is deliberately not a cryptocurrency.',
     hc_c1_t:'What it is',
     hc_c1_p:'A closed-loop utility credit — the same shape as arcade tokens or Twitch Bits. One H8 splits into 100 units, so the smallest tip is 0.01 H8. Every transaction is signed with post-quantum cryptography (ML-DSA-65) and chained with SHA3-256.',
@@ -669,7 +685,7 @@ const T = {
     hc_c5_p:'H8 is a token, but the loop it closes is the whole group — not a screen. It is built to be spent in the physical world too: at Elea machines, and in the M4TR1X shop for real objects that ship to your door. The same balance pays for a coffee and for a piece of hardware. The ledger and the internal payments already work; the physical leg arrives with the first machines on the street.',
     hc_c4_t:'Why you can check it',
     hc_c4_p:'The ledger opens on a genesis block with zero pre-allocation, and anyone running a node can verify the whole chain themselves. The mint key is held by the founder, and we say so openly: an honest closed loop is worth more than decentralisation theatre while the network is being built.',
-    hc_note:'Developer preview: H8 is not on sale and nobody is being asked for money. Full tokenomics, in the open:',
+    hc_note:'Developer preview: the price is public, the payment gateway is not switched on yet — nobody is being asked for money today. Full tokenomics, in the open:',
     nav_home:'Home',
     nav_ph:'Philosophy',
     nav_h8:'H8-Group',
@@ -752,6 +768,13 @@ const T = {
     ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
   },
   sq: {
+    hc_price_t:'Sa kushton',
+    pr_k1:'Çmimi i një H8',
+    pr_k2:'Rezerva pas çdo H8',
+    pr_k3:'Infrastrukturë dhe zhvillim',
+    hc_split_t:'Si ndahet një bakshish',
+    hc_c6_t:'I mbuluar, jo i shtypur',
+    hc_c6_p:'Çdo H8 i shitur mbulohet nga një euro e mbajtur në rezervë; 25% mbi të është ajo që paguan zhvillimin dhe infrastrukturën. Rezerva nuk është fitim dhe nuk shpenzohet si e tillë — rri aty që krediti në qarkullim të ketë diçka pas. Është një angazhim mbulimi, jo një lidhje kursi dhe jo një e drejtë rimbursimi: H8 mbetet brenda M4TR1X.',
     nav_dl:'Shkarko',
     hero_cta1:'Shkarko M4TR1X',
     hero_cta2:'Nis një nyje',
@@ -767,10 +790,10 @@ const T = {
     sp_k3:'Te platforma',
     dl_detected:'Zbuluar në pajisjen tënde · ndertimi i fundit zyrtar',
     dl_get:'Shkarko për',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Një monedhë, dy faqe: shqiponja dhe krediti',
     hc_eyebrow:'Krediti',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 është krediti që qarkullon brenda M4TR1X: paguan krijuesit, shërblen këdo që mban ndezur një nyje dhe nuk del kurrë nga rrjeti. Nuk është kriptovalutë, dhe kjo është zgjedhje.',
     hc_c1_t:'Çfarë është',
     hc_c1_p:'Një kredit përdorimi në qark të mbyllur — e njëjta formë si zhetonat e lojërave ose Bits e Twitch-it. Një H8 ndahet në 100 njësi, pra bakshishi më i vogël është 0,01 H8. Çdo transaksion firmoset me kriptografi post-kuantike (ML-DSA-65) dhe lidhet në zinxhir me SHA3-256.',
@@ -782,7 +805,7 @@ const T = {
     hc_c5_p:'H8 është token, por qarku që mbyll është i gjithë grupi — jo një ekran. Është bërë që të shpenzohet edhe në botën fizike: te makinat Elea dhe në dyqanin e M4TR1X, për objekte të vërteta që të vijnë në shtëpi. I njëjti bilanc paguan një kafe dhe një pajisje. Regjistri dhe pagesat e brendshme tashmë funksionojnë; pjesa fizike vjen me makinat e para në rrugë.',
     hc_c4_t:'Pse mund ta verifikosh',
     hc_c4_p:'Regjistri nis nga një bllok gjeneze me zero paranadarje, dhe kushdo që mban një nyje mund ta verifikojë vetë të gjithë zinxhirin. Çelësi i prerjes është i themeluesit, dhe e themi hapur: një qark i mbyllur i ndershëm vlen më shumë se teatri i decentralizimit ndërsa rrjeti po ndërtohet.',
-    hc_note:'Developer preview: H8 nuk është në shitje dhe askujt nuk i kërkohen para. Tokenomika e plotë, e hapur:',
+    hc_note:'Developer preview: çmimi është publik, portali i pageses ende nuk është aktiv — askujt nuk i kërkohen para sot. Tokenomika e plotë, e hapur:',
     nav_home:'Kreu',
     nav_ph:'Filozofia',
     nav_h8:'H8-Group',
@@ -865,6 +888,13 @@ const T = {
     ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
   },
   it: {
+    hc_price_t:'Quanto costa',
+    pr_k1:'Prezzo di un H8',
+    pr_k2:'Riserva dietro ogni H8',
+    pr_k3:'Infrastruttura e sviluppo',
+    hc_split_t:'Come si divide una mancia',
+    hc_c6_t:'Coperto, non stampato',
+    hc_c6_p:'Ogni H8 venduto è coperto da un euro tenuto in riserva; il 25% che sta sopra è quello che paga sviluppo e infrastruttura. La riserva non è ricavo e non viene spesa come tale — sta lì perché il credito in circolazione abbia qualcosa dietro. È un impegno di copertura, non un aggancio e non un diritto di rimborso: H8 resta dentro M4TR1X.',
     nav_dl:'Scarica',
     hero_cta1:'Scarica M4TR1X',
     hero_cta2:'Avvia un nodo',
@@ -880,10 +910,10 @@ const T = {
     sp_k3:'Alla piattaforma',
     dl_detected:'Rilevato sul tuo dispositivo · ultima build ufficiale',
     dl_get:'Scarica per',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:"Una moneta, due facce: l'aquila e il credito",
     hc_eyebrow:'Il credito',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 è il credito che circola dentro M4TR1X: paga i creatori, premia chi tiene acceso un nodo e non esce mai dalla rete. Non è una criptovaluta, e non lo è per scelta.',
     hc_c1_t:"Cos'è",
     hc_c1_p:"Un credito d'uso a circuito chiuso — la stessa forma dei gettoni da sala giochi o dei Bits di Twitch. Un H8 si divide in 100 unità, quindi la mancia più piccola è 0,01 H8. Ogni transazione è firmata con crittografia post-quantistica (ML-DSA-65) e concatenata con SHA3-256.",
@@ -895,7 +925,7 @@ const T = {
     hc_c5_p:'H8 è un token, ma il circuito che chiude è tutto il gruppo — non uno schermo. È fatto per essere speso anche nel mondo fisico: alle macchine Elea e nello shop di M4TR1X, per oggetti veri che ti arrivano a casa. Lo stesso saldo paga un caffè e un pezzo di hardware. Il registro e i pagamenti interni già funzionano; la gamba fisica arriva con le prime macchine in strada.',
     hc_c4_t:'Perché puoi verificarlo',
     hc_c4_p:"Il registro parte da un blocco di genesi con zero preallocazione, e chiunque abbia un nodo può verificare l'intera catena da sé. La chiave di conio è del fondatore, e lo diciamo apertamente: un circuito chiuso onesto vale più del teatrino della decentralizzazione mentre la rete si sta costruendo.",
-    hc_note:'Developer preview: H8 non è in vendita e a nessuno viene chiesto denaro. La tokenomics completa, in chiaro:',
+    hc_note:'Developer preview: il prezzo è pubblico, il gateway di pagamento non è ancora attivo — a nessuno viene chiesto denaro oggi. La tokenomics completa, in chiaro:',
     nav_home:'Home',
     nav_ph:'Filosofia',
     nav_h8:'H8-Group',
@@ -978,6 +1008,13 @@ const T = {
     ft_note:"Un movimento indipendente. Nessuna affiliazione partitica, nessun finanziamento estero, nessun permesso chiesto. © 2026 nderja.com"
   },
   fr: {
+    hc_price_t:'Ce que ça coûte',
+    pr_k1:"Prix d'un H8",
+    pr_k2:'Réserve derrière chaque H8',
+    pr_k3:'Infrastructure et développement',
+    hc_split_t:'Comment se partage un pourboire',
+    hc_c6_t:'Adossé, pas imprimé',
+    hc_c6_p:"Chaque H8 vendu est couvert par un euro gardé en réserve ; les 25% au-dessus paient le développement et l'infrastructure. La réserve n'est pas un revenu et n'est pas dépensée comme tel — elle existe pour que le crédit en circulation ait quelque chose derrière lui. C'est un engagement d'adossement, pas une parité ni un droit de remboursement : H8 reste dans M4TR1X.",
     nav_dl:'Télécharger',
     hero_cta1:'Télécharger M4TR1X',
     hero_cta2:'Lancer un nœud',
@@ -993,10 +1030,10 @@ const T = {
     sp_k3:'À la plateforme',
     dl_detected:'Détecté sur votre appareil · dernière build officielle',
     dl_get:'Télécharger pour',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:"Une pièce, deux faces : l'aigle et le crédit",
     hc_eyebrow:'Le crédit',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:"H8 est le crédit qui circule à l'intérieur de M4TR1X : il paie les créateurs, récompense celles et ceux qui font tourner un nœud, et ne quitte jamais le réseau. Ce n'est pas une cryptomonnaie, et c'est délibéré.",
     hc_c1_t:"Ce que c'est",
     hc_c1_p:"Un crédit d'usage en circuit fermé — la même forme qu'un jeton d'arcade ou les Bits de Twitch. Un H8 se divise en 100 unités, le plus petit pourboire est donc de 0,01 H8. Chaque transaction est signée en cryptographie post-quantique (ML-DSA-65) et chaînée en SHA3-256.",
@@ -1008,7 +1045,7 @@ const T = {
     hc_c5_p:"H8 est un jeton, mais le circuit qu'il ferme, c'est tout le groupe — pas un écran. Il est fait pour être dépensé aussi dans le monde physique : aux machines Elea, et dans la boutique M4TR1X, pour de vrais objets livrés chez vous. Le même solde paie un café et une pièce de matériel. Le registre et les paiements internes fonctionnent déjà ; le volet physique arrive avec les premières machines dans la rue.",
     hc_c4_t:"Pourquoi c'est vérifiable",
     hc_c4_p:"Le registre part d'un bloc de genèse sans pré-allocation, et quiconque fait tourner un nœud peut vérifier toute la chaîne lui-même. La clé de frappe est détenue par le fondateur, et nous le disons ouvertement : un circuit fermé honnête vaut mieux que le théâtre de la décentralisation pendant que le réseau se construit.",
-    hc_note:"Developer preview : H8 n'est pas en vente et on ne demande d'argent à personne. La tokenomique complète, en clair :",
+    hc_note:"Developer preview : le prix est public, la passerelle de paiement n'est pas encore activée — on ne demande d'argent à personne aujourd'hui. La tokenomique complète, en clair :",
     nav_home:'Accueil',
     nav_ph:'Philosophie',
     nav_h8:'H8-Group',
@@ -1091,6 +1128,13 @@ const T = {
     ft_note:"Un mouvement indépendant. Aucune affiliation partisane, aucun financement étranger, aucune permission demandée. © 2026 nderja.com"
   },
   de: {
+    hc_price_t:'Was es kostet',
+    pr_k1:'Preis eines H8',
+    pr_k2:'Reserve hinter jedem H8',
+    pr_k3:'Infrastruktur und Entwicklung',
+    hc_split_t:'Wie sich ein Trinkgeld teilt',
+    hc_c6_t:'Gedeckt, nicht gedruckt',
+    hc_c6_p:'Jeder verkaufte H8 ist durch einen Euro in Reserve gedeckt; die 25% obendrauf bezahlen Entwicklung und Infrastruktur. Die Reserve ist kein Ertrag und wird nicht als solcher ausgegeben — es gibt sie, damit hinter dem umlaufenden Guthaben etwas steht. Das ist eine Deckungszusage, keine Bindung und kein Einlöserecht: H8 bleibt innerhalb von M4TR1X.',
     nav_dl:'Herunterladen',
     hero_cta1:'M4TR1X herunterladen',
     hero_cta2:'Node betreiben',
@@ -1106,10 +1150,10 @@ const T = {
     sp_k3:'An die Plattform',
     dl_detected:'Auf deinem Gerät erkannt · neuester offizieller Build',
     dl_get:'Herunterladen für',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Eine Münze, zwei Seiten: der Adler und das Guthaben',
     hc_eyebrow:'Das Guthaben',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 ist das Guthaben, das innerhalb von M4TR1X zirkuliert: Es bezahlt Kreative, belohnt alle, die einen Node betreiben, und verlässt das Netz nie. Es ist bewusst keine Kryptowährung.',
     hc_c1_t:'Was es ist',
     hc_c1_p:'Ein Nutzungsguthaben im geschlossenen Kreislauf — dieselbe Form wie Spielhallen-Token oder Twitch Bits. Ein H8 teilt sich in 100 Einheiten, das kleinste Trinkgeld ist also 0,01 H8. Jede Transaktion wird post-quantensicher signiert (ML-DSA-65) und mit SHA3-256 verkettet.',
@@ -1121,7 +1165,7 @@ const T = {
     hc_c5_p:'H8 ist ein Token, aber der Kreis, den es schließt, ist die ganze Gruppe — kein Bildschirm. Es ist dafür gemacht, auch in der physischen Welt ausgegeben zu werden: an Elea-Automaten und im M4TR1X-Shop, für echte Dinge, die nach Hause geliefert werden. Dasselbe Guthaben bezahlt einen Kaffee und ein Stück Hardware. Kassenbuch und interne Zahlungen laufen bereits; der physische Teil kommt mit den ersten Automaten auf der Straße.',
     hc_c4_t:'Warum man es prüfen kann',
     hc_c4_p:'Das Kassenbuch beginnt mit einem Genesis-Block ohne Vorabzuteilung, und wer einen Node betreibt, kann die gesamte Kette selbst prüfen. Der Prägeschlüssel liegt beim Gründer, und wir sagen das offen: Ein ehrlicher geschlossener Kreislauf ist mehr wert als Dezentralisierungstheater, solange das Netz erst aufgebaut wird.',
-    hc_note:'Developer Preview: H8 ist nicht im Verkauf, und niemand wird um Geld gebeten. Die vollständige Tokenomics, offen einsehbar:',
+    hc_note:'Developer Preview: Der Preis ist öffentlich, das Zahlungs-Gateway ist noch nicht aktiv — heute wird niemand um Geld gebeten. Die vollständige Tokenomics, offen einsehbar:',
     nav_home:'Start',
     nav_ph:'Philosophie',
     nav_h8:'H8-Group',
@@ -1204,6 +1248,13 @@ const T = {
     ft_note:"Eine unabhängige Bewegung. Keine Parteizugehörigkeit, keine ausländische Finanzierung, keine erbetene Erlaubnis. © 2026 nderja.com"
   },
   sv: {
+    hc_price_t:'Vad det kostar',
+    pr_k1:'Priset för en H8',
+    pr_k2:'Reserv bakom varje H8',
+    pr_k3:'Infrastruktur och utveckling',
+    hc_split_t:'Hur en dricks delas',
+    hc_c6_t:'Täckt, inte tryckt',
+    hc_c6_p:'Varje såld H8 täcks av en euro i reserv; de 25% ovanpå betalar utveckling och infrastruktur. Reserven är ingen intäkt och spenderas inte som sådan — den finns för att krediten i omlopp ska ha något bakom sig. Det är ett täckningslöfte, ingen koppling och ingen inlösenrätt: H8 stannar inom M4TR1X.',
     nav_dl:'Ladda ner',
     hero_cta1:'Ladda ner M4TR1X',
     hero_cta2:'Kör en nod',
@@ -1219,10 +1270,10 @@ const T = {
     sp_k3:'Till plattformen',
     dl_detected:'Identifierad på din enhet · senaste officiella bygget',
     dl_get:'Ladda ner för',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Ett mynt, två sidor: örnen och krediten',
     hc_eyebrow:'Krediten',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 är krediten som cirkulerar inuti M4TR1X: den betalar kreatörer, belönar den som håller en nod igång och lämnar aldrig nätverket. Det är medvetet ingen kryptovaluta.',
     hc_c1_t:'Vad det är',
     hc_c1_p:'En sluten användningskredit — samma form som spelhallspolletter eller Twitch Bits. Ett H8 delas i 100 enheter, så minsta dricks är 0,01 H8. Varje transaktion signeras med postkvantkryptografi (ML-DSA-65) och kedjas med SHA3-256.',
@@ -1234,7 +1285,7 @@ const T = {
     hc_c5_p:'H8 är en token, men kretsen den sluter är hela gruppen — inte en skärm. Den är gjord för att spenderas också i den fysiska världen: vid Elea-maskinerna och i M4TR1X-shoppen, för riktiga saker som skickas hem till dig. Samma saldo betalar en kaffe och en hårdvarupryl. Liggaren och de interna betalningarna fungerar redan; den fysiska delen kommer med de första maskinerna på gatan.',
     hc_c4_t:'Varför du kan kontrollera det',
     hc_c4_p:'Liggaren börjar med ett genesisblock utan förhandstilldelning, och den som kör en nod kan verifiera hela kedjan själv. Präglingsnyckeln innehas av grundaren, och det säger vi öppet: en ärlig sluten krets är värd mer än decentraliseringsteater medan nätet byggs.',
-    hc_note:'Developer preview: H8 säljs inte och ingen ombeds om pengar. Fullständig tokenomi, öppet:',
+    hc_note:'Developer preview: priset är offentligt, betalningsgatewayen är ännu inte påslagen — ingen ombeds om pengar i dag. Fullständig tokenomi, öppet:',
     nav_home:'Hem',
     nav_ph:'Filosofi',
     nav_h8:'H8-Group',
@@ -1317,6 +1368,13 @@ const T = {
     ft_note:"En oberoende rörelse. Ingen partitillhörighet, ingen utländsk finansiering, inget tillstånd begärt. © 2026 nderja.com"
   },
   el: {
+    hc_price_t:'Πόσο κοστίζει',
+    pr_k1:'Τιμή ενός H8',
+    pr_k2:'Αποθεματικό πίσω από κάθε H8',
+    pr_k3:'Υποδομή και ανάπτυξη',
+    hc_split_t:'Πώς μοιράζεται ένα φιλοδώρημα',
+    hc_c6_t:'Καλυμμένο, όχι τυπωμένο',
+    hc_c6_p:'Κάθε H8 που πωλείται καλύπτεται από ένα ευρώ σε αποθεματικό· το 25% από πάνω πληρώνει ανάπτυξη και υποδομή. Το αποθεματικό δεν είναι έσοδο και δεν ξοδεύεται ως τέτοιο — υπάρχει ώστε η πίστωση σε κυκλοφορία να έχει κάτι πίσω της. Είναι δέσμευση κάλυψης, όχι σύνδεση ισοτιμίας και όχι δικαίωμα εξαργύρωσης: το H8 μένει μέσα στο M4TR1X.',
     nav_dl:'Λήψη',
     hero_cta1:'Λήψη M4TR1X',
     hero_cta2:'Τρέξε έναν κόμβο',
@@ -1332,10 +1390,10 @@ const T = {
     sp_k3:'Στην πλατφόρμα',
     dl_detected:'Εντοπίστηκε στη συσκευή σου · τελευταία επίσημη έκδοση',
     dl_get:'Λήψη για',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Ένα νόμισμα, δύο όψεις: ο αετός και η πίστωση',
     hc_eyebrow:'Η πίστωση',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'Το H8 είναι η πίστωση που κυκλοφορεί μέσα στο M4TR1X: πληρώνει τους δημιουργούς, ανταμείβει όποιον κρατά έναν κόμβο ανοιχτό και δεν βγαίνει ποτέ από το δίκτυο. Δεν είναι κρυπτονόμισμα, και αυτό είναι επιλογή.',
     hc_c1_t:'Τι είναι',
     hc_c1_p:'Μια πίστωση χρήσης κλειστού κυκλώματος — ίδια μορφή με τα κέρματα των αρκέιντ ή τα Twitch Bits. Ένα H8 χωρίζεται σε 100 μονάδες, άρα το μικρότερο φιλοδώρημα είναι 0,01 H8. Κάθε συναλλαγή υπογράφεται με μετακβαντική κρυπτογραφία (ML-DSA-65) και αλυσοδένεται με SHA3-256.',
@@ -1347,7 +1405,7 @@ const T = {
     hc_c5_p:'Το H8 είναι token, αλλά το κύκλωμα που κλείνει είναι όλος ο όμιλος — όχι μια οθόνη. Είναι φτιαγμένο να ξοδεύεται και στον φυσικό κόσμο: στα μηχανήματα Elea και στο κατάστημα του M4TR1X, για πραγματικά αντικείμενα που σου στέλνονται σπίτι. Το ίδιο υπόλοιπο πληρώνει έναν καφέ και ένα κομμάτι εξοπλισμού. Το κατάστιχο και οι εσωτερικές πληρωμές ήδη λειτουργούν· το φυσικό σκέλος έρχεται με τα πρώτα μηχανήματα στον δρόμο.',
     hc_c4_t:'Γιατί μπορείς να το ελέγξεις',
     hc_c4_p:'Το κατάστιχο ξεκινά από ένα μπλοκ γένεσης με μηδενική προκατανομή, και όποιος τρέχει κόμβο μπορεί να επαληθεύσει μόνος του όλη την αλυσίδα. Το κλειδί κοπής το κρατά ο ιδρυτής, και το λέμε ανοιχτά: ένα τίμιο κλειστό κύκλωμα αξίζει περισσότερο από το θέατρο της αποκέντρωσης όσο το δίκτυο χτίζεται.',
-    hc_note:'Developer preview: το H8 δεν πωλείται και δεν ζητούνται χρήματα από κανέναν. Πλήρης tokenomics, ανοιχτά:',
+    hc_note:'Developer preview: η τιμή είναι δημόσια, η πύλη πληρωμών δεν έχει ακόμη ενεργοποιηθεί — κανείς δεν πληρώνει σήμερα. Πλήρης tokenomics, ανοιχτά:',
     nav_home:'Αρχική',
     nav_ph:'Φιλοσοφία',
     nav_h8:'H8-Group',
@@ -1430,6 +1488,13 @@ const T = {
     ft_note:"Ένα ανεξάρτητο κίνημα. Καμία κομματική ένταξη, καμία ξένη χρηματοδότηση, καμία άδεια ζητημένη. © 2026 nderja.com"
   },
   nl: {
+    hc_price_t:'Wat het kost',
+    pr_k1:'Prijs van één H8',
+    pr_k2:'Reserve achter elke H8',
+    pr_k3:'Infrastructuur en ontwikkeling',
+    hc_split_t:'Hoe een fooi splitst',
+    hc_c6_t:'Gedekt, niet gedrukt',
+    hc_c6_p:'Elke verkochte H8 is gedekt door één euro in reserve; de 25% daarbovenop betaalt ontwikkeling en infrastructuur. De reserve is geen inkomen en wordt niet als zodanig uitgegeven — ze bestaat zodat het tegoed in omloop iets achter zich heeft. Het is een dekkingstoezegging, geen koppeling en geen recht op terugbetaling: H8 blijft binnen M4TR1X.',
     nav_dl:'Downloaden',
     hero_cta1:'M4TR1X downloaden',
     hero_cta2:'Draai een node',
@@ -1445,10 +1510,10 @@ const T = {
     sp_k3:'Naar het platform',
     dl_detected:'Herkend op je apparaat · nieuwste officiële build',
     dl_get:'Download voor',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Eén munt, twee zijden: de adelaar en het tegoed',
     hc_eyebrow:'Het tegoed',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 is het tegoed dat binnen M4TR1X circuleert: het betaalt makers, beloont wie een node draaiend houdt en verlaat het netwerk nooit. Het is bewust geen cryptomunt.',
     hc_c1_t:'Wat het is',
     hc_c1_p:'Een gesloten gebruikstegoed — dezelfde vorm als speelhalmunten of Twitch Bits. Eén H8 valt uiteen in 100 eenheden, de kleinste fooi is dus 0,01 H8. Elke transactie wordt post-kwantum ondertekend (ML-DSA-65) en geketend met SHA3-256.',
@@ -1460,7 +1525,7 @@ const T = {
     hc_c5_p:'H8 is een token, maar de kring die het sluit is de hele groep — geen scherm. Het is gemaakt om ook in de fysieke wereld uitgegeven te worden: bij de Elea-automaten en in de M4TR1X-shop, voor echte spullen die bij je thuis bezorgd worden. Hetzelfde saldo betaalt een koffie en een stuk hardware. Het grootboek en de interne betalingen werken al; het fysieke deel komt met de eerste automaten op straat.',
     hc_c4_t:'Waarom je het kunt controleren',
     hc_c4_p:'Het grootboek begint met een genesisblok zonder pre-allocatie, en wie een node draait kan de hele keten zelf verifiëren. De muntsleutel ligt bij de oprichter, en dat zeggen we openlijk: een eerlijk gesloten circuit is meer waard dan decentralisatietheater terwijl het netwerk wordt opgebouwd.',
-    hc_note:'Developer preview: H8 is niet te koop en niemand wordt om geld gevraagd. Volledige tokenomics, in de openbaarheid:',
+    hc_note:'Developer preview: de prijs is openbaar, de betaalgateway staat nog niet aan — vandaag wordt niemand om geld gevraagd. Volledige tokenomics, in de openbaarheid:',
     nav_home:'Home',
     nav_ph:'Filosofie',
     nav_h8:'H8-Group',
@@ -1555,6 +1620,13 @@ const T = {
     ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
   },
   es: {
+    hc_price_t:'Cuánto cuesta',
+    pr_k1:'Precio de un H8',
+    pr_k2:'Reserva detrás de cada H8',
+    pr_k3:'Infraestructura y desarrollo',
+    hc_split_t:'Cómo se reparte una propina',
+    hc_c6_t:'Respaldado, no impreso',
+    hc_c6_p:'Cada H8 vendido está cubierto por un euro guardado en reserva; el 25% que va encima paga desarrollo e infraestructura. La reserva no es ingreso y no se gasta como tal — existe para que el crédito en circulación tenga algo detrás. Es un compromiso de respaldo, no un anclaje ni un derecho de reembolso: H8 se queda dentro de M4TR1X.',
     nav_dl:'Descargar',
     hero_cta1:'Descargar M4TR1X',
     hero_cta2:'Levanta un nodo',
@@ -1570,10 +1642,10 @@ const T = {
     sp_k3:'A la plataforma',
     dl_detected:'Detectado en tu dispositivo · última build oficial',
     dl_get:'Descargar para',
-    nav_coin:'H8 Coin',
+    nav_coin:'H8-Coin',
     hc_spin:'Una moneda, dos caras: el águila y el crédito',
     hc_eyebrow:'El crédito',
-    hc_title:'H8 <em>Coin</em>',
+    hc_title:'H8-<em>Coin</em>',
     hc_lead:'H8 es el crédito que circula dentro de M4TR1X: paga a los creadores, recompensa a quien mantiene un nodo encendido y nunca sale de la red. No es una criptomoneda, y no lo es por decisión.',
     hc_c1_t:'Qué es',
     hc_c1_p:'Un crédito de uso en circuito cerrado — la misma forma que las fichas de arcade o los Bits de Twitch. Un H8 se divide en 100 unidades, así que la propina más pequeña es 0,01 H8. Cada transacción se firma con criptografía poscuántica (ML-DSA-65) y se encadena con SHA3-256.',
@@ -1585,7 +1657,7 @@ const T = {
     hc_c5_p:'H8 es un token, pero el circuito que cierra es todo el grupo — no una pantalla. Está hecho para gastarse también en el mundo físico: en las máquinas Elea y en la tienda de M4TR1X, para objetos reales que llegan a tu casa. El mismo saldo paga un café y una pieza de hardware. El registro y los pagos internos ya funcionan; la pata física llega con las primeras máquinas en la calle.',
     hc_c4_t:'Por qué puedes comprobarlo',
     hc_c4_p:'El registro arranca en un bloque génesis sin preasignación, y cualquiera con un nodo puede verificar toda la cadena por su cuenta. La clave de acuñación la tiene el fundador, y lo decimos abiertamente: un circuito cerrado honesto vale más que el teatro de la descentralización mientras la red se construye.',
-    hc_note:'Developer preview: H8 no está a la venta y no se pide dinero a nadie. La tokenomía completa, a la vista:',
+    hc_note:'Developer preview: el precio es público, la pasarela de pago aún no está activa — hoy no se pide dinero a nadie. La tokenomía completa, a la vista:',
     nav_home:'Inicio',
     nav_ph:'Filosofía',
     nav_h8:'H8-Group',
