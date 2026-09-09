@@ -162,17 +162,38 @@
     will-change:transform;animation:coinspin 11s linear infinite}
   @keyframes coinspin{from{transform:rotateY(0)}to{transform:rotateY(360deg)}}
   .coinwrap:hover .coin{animation-play-state:paused}
+  /* facce coniate: fondo nero, doppio anello, legende incise ad arco */
   .cface{position:absolute;inset:0;border-radius:50%;backface-visibility:hidden;overflow:hidden;
-    display:flex;flex-direction:column;align-items:center;justify-content:center;
-    background:radial-gradient(circle at 50% 38%,#0d1a11,#040805 70%);border:4px solid var(--green);
-    box-shadow:0 0 40px rgba(46,232,122,.16),inset 0 0 26px rgba(46,232,122,.10)}
-  .cfront{transform:translateZ(calc(var(--ct)/2));box-shadow:0 0 40px rgba(46,232,122,.16),inset 0 0 26px rgba(46,232,122,.10),inset 0 0 0 10px #071009}
-  .cfront img{width:88%;height:88%;object-fit:contain;display:block}
-  .cback{transform:rotateY(180deg) translateZ(calc(var(--ct)/2));gap:.5rem}
-  .cb-h8{font-family:var(--serif);font-style:italic;font-size:calc(var(--cs)*.34);line-height:1;color:var(--green);
-    text-shadow:0 0 18px rgba(46,232,122,.5)}
-  .cb-lbl{font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted)}
-  .cb-ring{position:absolute;inset:9%;border-radius:50%;border:1px dashed var(--green-dim)}
+    background:radial-gradient(circle at 50% 50%,#070907 0%,#040504 68%,#000 100%);
+    box-shadow:inset 0 0 0 7px rgba(46,232,122,.5),inset 0 0 0 9px #000,
+      0 16px 34px rgba(0,0,0,.7),0 0 30px rgba(46,232,122,.26),0 0 70px rgba(46,232,122,.13)}
+  .cface::before{content:'';position:absolute;inset:0;border-radius:50%;pointer-events:none;
+    background:radial-gradient(circle at 50% 50%,rgba(46,232,122,.06) 0%,rgba(0,0,0,0) 45%,rgba(0,0,0,.6) 100%)}
+  .cface::after{content:'';position:absolute;inset:18px;border-radius:50%;pointer-events:none;
+    box-shadow:inset 0 0 0 1px rgba(46,232,122,.55),inset 0 0 10px rgba(46,232,122,.22),0 0 0 1px #000}
+  .cfront{transform:translateZ(calc(var(--ct)/2))}
+  .cback{transform:rotateY(180deg) translateZ(calc(var(--ct)/2))}
+  .cglow{position:absolute;inset:14%;border-radius:50%;pointer-events:none;filter:blur(8px);
+    background:radial-gradient(circle at 50% 50%,rgba(46,232,122,.3) 0%,rgba(46,232,122,.1) 42%,rgba(46,232,122,0) 70%)}
+  .cemb{position:absolute;inset:17%}
+  .cemb img{width:100%;height:100%;object-fit:contain;display:block;mix-blend-mode:screen;filter:saturate(1.5) brightness(1.3)}
+  .carc{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+  .carc text{font-family:var(--sans);font-weight:600;font-size:23px;letter-spacing:4.4px}
+  .carc .sh{fill:#06210f}
+  .carc .fg{fill:#5bff5b;filter:drop-shadow(0 0 6px rgba(46,232,122,.85))}
+  /* verso: valore nominale */
+  .cval{position:absolute;inset:19% 20% 34%;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;gap:2px;text-align:center;font-family:var(--sans)}
+  .cv-one{font-size:calc(var(--cs)*.059);font-weight:500;letter-spacing:.3em;text-indent:.3em;color:#6bff6b;
+    text-shadow:0 0 10px rgba(46,232,122,.85),0 0 26px rgba(46,232,122,.5)}
+  .cv-h8{font-size:calc(var(--cs)*.30);font-weight:700;line-height:.86;letter-spacing:-.02em;color:#7dff7d;
+    text-shadow:0 0 14px rgba(46,232,122,.9),0 0 40px rgba(46,232,122,.55)}
+  .cv-rule{width:62%;height:2px;margin:calc(var(--cs)*.018) 0 calc(var(--cs)*.014);box-shadow:0 0 14px rgba(46,232,122,.8);
+    background:linear-gradient(90deg,rgba(46,232,122,0),rgba(46,232,122,.95) 20%,rgba(46,232,122,.95) 80%,rgba(46,232,122,0))}
+  .cv-unit{font-size:calc(var(--cs)*.065);font-weight:500;letter-spacing:.18em;text-indent:.18em;color:#6bff6b;
+    text-shadow:0 0 10px rgba(46,232,122,.85),0 0 26px rgba(46,232,122,.5)}
+  .cv-sig{font-size:calc(var(--cs)*.032);letter-spacing:.14em;margin-top:.2em;color:#9dff9d;
+    text-shadow:0 0 10px rgba(46,232,122,.8)}
   .cseg{position:absolute;left:50%;top:50%;background:linear-gradient(90deg,#060d08,#0e1b12 18%,var(--green-dim) 50%,#0e1b12 82%,#060d08)}
   .cseg:nth-child(odd){background:linear-gradient(90deg,#060d08,#0a140d 18%,#2a9a58 50%,#0a140d 82%,#060d08)}
   .cnote{text-align:center;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:-2.2rem 0 3rem}
@@ -523,8 +544,39 @@
       <div class="coinwrap">
         <div class="cointilt">
         <div class="coin" id="h8coin-3d">
-          <div class="cface cfront"><img src="img/h8-coin.webp" alt="H8" width="640" height="640"></div>
-          <div class="cface cback"><span class="cb-ring" aria-hidden="true"></span><span class="cb-h8">H8</span><span class="cb-lbl" data-i="hc_back">Utility credit</span></div>
+          <div class="cface cfront">
+            <span class="cglow" aria-hidden="true"></span>
+            <span class="cemb"><img src="img/h8-coin.webp" alt="H8" width="640" height="640"></span>
+            <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
+              <defs>
+                <path id="h8arcTopA" d="M 200 200 m -161 0 a 161 161 0 1 1 322 0"></path>
+                <path id="h8arcBotA" d="M 200 200 m -157 0 a 157 157 0 0 0 314 0"></path>
+              </defs>
+              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcTopA" startOffset="50%" text-anchor="middle">NDERJA · REALIZMI ETIK SOVRAN</textPath></text>
+              <text class="fg"><textPath href="#h8arcTopA" startOffset="50%" text-anchor="middle">NDERJA · REALIZMI ETIK SOVRAN</textPath></text>
+              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcBotA" startOffset="50%" text-anchor="middle">H8 · GROUP · BESA</textPath></text>
+              <text class="fg"><textPath href="#h8arcBotA" startOffset="50%" text-anchor="middle">H8 · GROUP · BESA</textPath></text>
+            </svg>
+          </div>
+          <div class="cface cback">
+            <div class="cval">
+              <span class="cv-one">NJË · ONE</span>
+              <span class="cv-h8">H8</span>
+              <span class="cv-rule" aria-hidden="true"></span>
+              <span class="cv-unit">100 UNITÀ</span>
+              <span class="cv-sig">ML-DSA-65 · SHA3-256</span>
+            </div>
+            <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
+              <defs>
+                <path id="h8arcTopB" d="M 200 200 m -161 0 a 161 161 0 1 1 322 0"></path>
+                <path id="h8arcBotB" d="M 200 200 m -157 0 a 157 157 0 0 0 314 0"></path>
+              </defs>
+              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcTopB" startOffset="50%" text-anchor="middle">M4TR1X NETWORK</textPath></text>
+              <text class="fg"><textPath href="#h8arcTopB" startOffset="50%" text-anchor="middle">M4TR1X NETWORK</textPath></text>
+              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcBotB" startOffset="50%" text-anchor="middle">CLOSED-LOOP UTILITY CREDIT</textPath></text>
+              <text class="fg"><textPath href="#h8arcBotB" startOffset="50%" text-anchor="middle">CLOSED-LOOP UTILITY CREDIT</textPath></text>
+            </svg>
+          </div>
         </div>
         </div>
       </div>
@@ -555,7 +607,6 @@
 const T = {
   en: {
     nav_coin:'H8 Coin',
-    hc_back:'Utility credit',
     hc_spin:'One coin, two faces: the eagle and the credit',
     hc_eyebrow:'The credit',
     hc_title:'H8 <em>Coin</em>',
@@ -662,7 +713,6 @@ const T = {
   },
   sq: {
     nav_coin:'H8 Coin',
-    hc_back:'Kredit përdorimi',
     hc_spin:'Një monedhë, dy faqe: shqiponja dhe krediti',
     hc_eyebrow:'Krediti',
     hc_title:'H8 <em>Coin</em>',
@@ -769,7 +819,6 @@ const T = {
   },
   it: {
     nav_coin:'H8 Coin',
-    hc_back:"Credito d'uso",
     hc_spin:"Una moneta, due facce: l'aquila e il credito",
     hc_eyebrow:'Il credito',
     hc_title:'H8 <em>Coin</em>',
@@ -876,7 +925,6 @@ const T = {
   },
   fr: {
     nav_coin:'H8 Coin',
-    hc_back:"Crédit d'usage",
     hc_spin:"Une pièce, deux faces : l'aigle et le crédit",
     hc_eyebrow:'Le crédit',
     hc_title:'H8 <em>Coin</em>',
@@ -983,7 +1031,6 @@ const T = {
   },
   de: {
     nav_coin:'H8 Coin',
-    hc_back:'Nutzungsguthaben',
     hc_spin:'Eine Münze, zwei Seiten: der Adler und das Guthaben',
     hc_eyebrow:'Das Guthaben',
     hc_title:'H8 <em>Coin</em>',
@@ -1090,7 +1137,6 @@ const T = {
   },
   sv: {
     nav_coin:'H8 Coin',
-    hc_back:'Användningskredit',
     hc_spin:'Ett mynt, två sidor: örnen och krediten',
     hc_eyebrow:'Krediten',
     hc_title:'H8 <em>Coin</em>',
@@ -1197,7 +1243,6 @@ const T = {
   },
   el: {
     nav_coin:'H8 Coin',
-    hc_back:'Πίστωση χρήσης',
     hc_spin:'Ένα νόμισμα, δύο όψεις: ο αετός και η πίστωση',
     hc_eyebrow:'Η πίστωση',
     hc_title:'H8 <em>Coin</em>',
@@ -1304,7 +1349,6 @@ const T = {
   },
   nl: {
     nav_coin:'H8 Coin',
-    hc_back:'Gebruikstegoed',
     hc_spin:'Eén munt, twee zijden: de adelaar en het tegoed',
     hc_eyebrow:'Het tegoed',
     hc_title:'H8 <em>Coin</em>',
@@ -1423,7 +1467,6 @@ const T = {
   },
   es: {
     nav_coin:'H8 Coin',
-    hc_back:'Crédito de uso',
     hc_spin:'Una moneda, dos caras: el águila y el crédito',
     hc_eyebrow:'El crédito',
     hc_title:'H8 <em>Coin</em>',
@@ -1661,7 +1704,7 @@ document.querySelectorAll('#dig-sub button').forEach(b=>{
 (function(){
   const coin=document.getElementById('h8coin-3d');
   if(!coin) return;
-  const N=72;
+  const N=120;
   function build(){
     coin.querySelectorAll('.cseg').forEach(e=>e.remove());
     const r=coin.offsetWidth/2; if(!r) return;
