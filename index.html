@@ -53,9 +53,9 @@
     font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;transition:.25s}
   .btn:hover{background:var(--green);color:var(--bg)}
   /* M4TR1X launch countdown */
-  .mx-countdown{border:1px solid var(--green-dim);background:linear-gradient(180deg,rgba(46,232,122,.06),transparent);padding:2rem 1.5rem;margin:2rem 0 .5rem;text-align:center;border-radius:2px}
-  .mx-countdown .cd-status{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--green);margin-bottom:.7rem}
-  .mx-countdown .cd-status::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:.6rem;vertical-align:middle;box-shadow:0 0 0 0 rgba(46,232,122,.5);animation:cdpulse 2s infinite}
+  .mx-countdown{border:1px solid var(--green-dim);background:linear-gradient(180deg,rgba(46,232,122,.06),transparent);padding:1rem 1.2rem;margin:2rem 0 .5rem;text-align:center;border-radius:2px}
+  .mx-countdown .cd-status{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
+  .mx-countdown .cd-status::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:.6rem;vertical-align:middle;box-shadow:0 0 0 0 rgba(46,232,122,.5);animation:cdpulse 2s infinite}
   @keyframes cdpulse{0%{box-shadow:0 0 0 0 rgba(46,232,122,.5)}70%{box-shadow:0 0 0 8px rgba(46,232,122,0)}100%{box-shadow:0 0 0 0 rgba(46,232,122,0)}}
   .mx-countdown .cd-launch{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--text);margin-bottom:1.5rem}
   .cd-timer{display:flex;gap:1.4rem;justify-content:center;flex-wrap:wrap}
@@ -166,7 +166,7 @@
   .proof b{font-family:var(--sans);font-weight:500;font-size:1.6rem;line-height:1;color:var(--green)}
   .proof span{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
   /* ---------- stato del nodo (ex countdown) ---------- */
-  .mx-countdown .cd-since{font-family:var(--serif);font-style:italic;font-size:1.7rem;color:var(--text)}
+  .mx-countdown .cd-since{font-family:var(--serif);font-style:italic;font-size:1.05rem;color:var(--text)}
   /* ---------- ripartizione della mancia ---------- */
   .ch3{font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--green);font-weight:500;margin:3rem 0 0}
   .splitrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(150px,100%),1fr));gap:1.4rem;margin-top:2.4rem}
@@ -234,8 +234,14 @@
   .duo>div>h2{margin-bottom:1.2rem}
   .duo>div>p{margin-bottom:0}
   .duo .mx-countdown{margin:0}
+  /* intro H8-Group: e' fissa sopra ogni progetto, quindi sta stretta */
+  #h8intro{padding-bottom:0}
+  #h8intro h2{font-size:clamp(1.5rem,2.6vw,2rem);margin-bottom:.9rem}
+  #h8intro .eyebrow{font-size:.64rem;letter-spacing:.32em;margin-bottom:.6rem}
+  #h8intro p{font-size:.92rem;max-width:74ch;color:var(--muted)}
   .brandmark{display:flex;justify-content:center}
   .brandmark img{width:100%;max-width:340px;height:auto;display:block;opacity:.92;border-radius:10px}
+  .brandmark.lg img{max-width:520px;opacity:1}
   @media (max-width:820px){.duo{grid-template-columns:1fr;gap:1.6rem}}
 
   /* moneta e introduzione affiancate: la moneta non occupa una schermata da sola */
@@ -459,7 +465,7 @@
           <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
         </div>
         <div>
-        <div class="brandmark reveal" style="margin-bottom:1.4rem"><img src="img/m4tr1x-logo.webp" alt="M4TR1X — decentralized signal" width="900" height="390" loading="lazy"></div>
+        <div class="brandmark lg reveal" style="margin-bottom:1rem"><img src="img/m4tr1x-logo.webp" alt="M4TR1X — decentralized signal" width="900" height="390" loading="lazy"></div>
         <div class="mx-countdown reveal" style="margin:0">
           <div class="cd-status" data-i="cd_status">Network live</div>
           <div class="cd-since" data-i="cd_since">First node online — 8 August 2026</div>
