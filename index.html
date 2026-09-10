@@ -38,6 +38,13 @@
   .langs button.active{border-color:var(--green);color:var(--green)}
   .langs button:focus-visible{outline:2px solid var(--green);outline-offset:2px}
 
+  /* ---------- outage notice ---------- */
+  .outage{display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;
+    background:rgba(255,176,32,.08);border-top:1px solid rgba(255,176,32,.35);
+    color:#F4D9A0;font-size:.82rem;line-height:1.5;padding:.7rem 5vw;text-align:center}
+  .outage .otag{border:1px solid rgba(255,176,32,.55);color:#FFB020;font-size:.66rem;letter-spacing:.2em;
+    text-transform:uppercase;padding:.2rem .55rem;white-space:nowrap}
+
   /* ---------- menu ---------- */
   .menu{display:flex;gap:.2rem;flex-wrap:wrap;justify-content:center;border-top:1px solid var(--line);padding:0 5vw}
   .menu button{background:none;border:none;color:var(--muted);font-family:var(--sans);font-size:.78rem;
@@ -319,6 +326,10 @@
     <button data-sub="kalendae">Kalendae</button>
     <button data-sub="elea">Elea Vending</button>
   </nav>
+  <div class="outage" id="outage" role="status">
+    <span class="otag" data-i="out_tag">Service notice</span>
+    <span data-i="out_p">M4TR1X is temporarily out of service: a weather event has left the site hosting the main infrastructure without an internet connection. The network will be back as soon as the line is restored.</span>
+  </div>
 </header>
 
 <main id="top">
@@ -710,6 +721,8 @@
 <script>
 const T = {
   en: {
+    out_tag:'Service notice',
+    out_p:'M4TR1X is temporarily out of service: a weather event has left the site hosting the main infrastructure without an internet connection. The network will be back as soon as the line is restored.',
     hc_c7_t:'Why a closed credit',
     hc_c7_p:"An old laptop worth €100 usually never gets sold: between the listing, the haggling and the shipping it isn't worth the trouble, so it stays in a drawer. The same laptop moves at once if what comes back is credit you actually want — tipping the film-makers and musicians you follow, or taking something else from the shop off someone who is clearing out their own shelves. Private people selling their own things, not businesses; the credit never leaves in cash. A pact that holds only inside the infrastructure.",
     hc_price_t:'What it costs',
@@ -832,6 +845,8 @@ const T = {
     ft_note:"An independent movement. No party affiliation, no foreign funding, no permission asked. © 2026 nderja.com"
   },
   sq: {
+    out_tag:'Njoftim shërbimi',
+    out_p:'M4TR1X është përkohësisht jashtë funksionit: një ngjarje moti e ka lënë pa lidhje interneti vendin ku ndodhet infrastruktura kryesore. Rrjeti kthehet sapo të riparohet linja.',
     hc_c7_t:'Pse një kredit i mbyllur',
     hc_c7_p:'Një laptop i vjetër prej 100 € zakonisht nuk shitet kurrë: mes njoftimit, pazarit dhe dërgimit nuk ia vlen, dhe mbetet në sirtar. I njëjti laptop lëviz menjëherë nese në këmbim vjen një kredit që ti vertët e do — për të shpërblyer regjisorët dhe muzikantët që ndjek, ose për të marrë diçka tjetër në dyqan nga dikush tjetër që po zbraz shtëpinë. Shesin privatë sendët e tyre, jo biznese; krediti nuk del kurrë në para. Një pakt që valon vetëm brenda infrastrukturës.',
     hc_price_t:'Sa kushton',
@@ -954,6 +969,8 @@ const T = {
     ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
   },
   it: {
+    out_tag:'Avviso di servizio',
+    out_p:"M4TR1X è temporaneamente fuori uso: un evento meteorologico ha lasciato senza connessione internet il luogo dove risiede l'infrastruttura principale. La rete tornerà appena la linea sarà ripristinata.",
     hc_c7_t:'Perché un credito chiuso',
     hc_c7_p:"Un vecchio portatile da 100 € di solito non lo vendi: tra annuncio, trattativa e spedizione non ne vale la pena, e resta in un cassetto. Lo stesso portatile si muove subito se in cambio arriva un credito che ti serve davvero — per premiare i registi e i musicisti che segui, o per prenderti qualcos'altro nello shop da un altro che sta svuotando casa. Vendono privati la propria roba, non aziende; il credito non esce mai in denaro. Un patto che vale solo dentro l'infrastruttura.",
     hc_price_t:'Quanto costa',
@@ -1076,6 +1093,8 @@ const T = {
     ft_note:"Un movimento indipendente. Nessuna affiliazione partitica, nessun finanziamento estero, nessun permesso chiesto. © 2026 nderja.com"
   },
   fr: {
+    out_tag:'Avis de service',
+    out_p:"M4TR1X est temporairement hors service : un événement météorologique a privé de connexion internet le lieu où réside l'infrastructure principale. Le réseau reviendra dès que la ligne sera rétablie.",
     hc_c7_t:'Pourquoi un crédit fermé',
     hc_c7_p:"Un vieux portable à 100 € ne se vend généralement jamais : entre l'annonce, le marchandage et l'expédition, ça n'en vaut pas la peine, et il reste dans un tiroir. Le même portable part immédiatement si ce qui revient est un crédit qu'on a envie d'utiliser — récompenser les cinéastes et les musiciens qu'on suit, ou prendre autre chose sur la boutique à quelqu'un qui vide ses étagères. Des particuliers qui vendent leurs propres affaires, pas des entreprises ; le crédit ne ressort jamais en argent. Un pacte qui ne vaut qu'à l'intérieur de l'infrastructure.",
     hc_price_t:'Ce que ça coûte',
@@ -1198,6 +1217,8 @@ const T = {
     ft_note:"Un mouvement indépendant. Aucune affiliation partisane, aucun financement étranger, aucune permission demandée. © 2026 nderja.com"
   },
   de: {
+    out_tag:'Service-Hinweis',
+    out_p:'M4TR1X ist vorübergehend außer Betrieb: Ein Unwetter hat den Standort der Hauptinfrastruktur ohne Internetverbindung zurückgelassen. Das Netz ist zurück, sobald die Leitung wiederhergestellt ist.',
     hc_c7_t:'Warum ein geschlossenes Guthaben',
     hc_c7_p:'Ein alter Laptop für 100 € wird meist nie verkauft: zwischen Anzeige, Feilschen und Versand lohnt es sich nicht, also bleibt er in der Schublade. Derselbe Laptop wechselt sofort den Besitzer, wenn dafür ein Guthaben zurückkommt, das man wirklich nutzen will — um die Filmemacher und Musiker zu belohnen, denen man folgt, oder um im Shop etwas anderes von jemandem zu nehmen, der gerade seine Regale leert. Privatleute verkaufen ihre eigenen Sachen, keine Firmen; das Guthaben verlässt das System nie als Geld. Ein Pakt, der nur innerhalb der Infrastruktur gilt.',
     hc_price_t:'Was es kostet',
@@ -1320,6 +1341,8 @@ const T = {
     ft_note:"Eine unabhängige Bewegung. Keine Parteizugehörigkeit, keine ausländische Finanzierung, keine erbetene Erlaubnis. © 2026 nderja.com"
   },
   sv: {
+    out_tag:'Driftmeddelande',
+    out_p:'M4TR1X är tillfälligt ur drift: en väderhändelse har lämnat platsen där huvudinfrastrukturen finns utan internetanslutning. Nätverket är tillbaka så snart förbindelsen är återställd.',
     hc_c7_t:'Varför en sluten kredit',
     hc_c7_p:'En gammal bärbar dator värd 100 € blir oftast aldrig såld: mellan annonsen, prutandet och frakten är det inte värt besväret, så den blir kvar i lådan. Samma dator byter ägare direkt om det som kommer tillbaka är en kredit man faktiskt vill använda — att belöna filmarna och musikerna man följer, eller ta något annat i shoppen av någon som röjer sina egna hyllor. Privatpersoner som säljer sina egna saker, inte företag; krediten lämnar aldrig systemet som pengar. En pakt som gäller bara inuti infrastrukturen.',
     hc_price_t:'Vad det kostar',
@@ -1442,6 +1465,8 @@ const T = {
     ft_note:"En oberoende rörelse. Ingen partitillhörighet, ingen utländsk finansiering, inget tillstånd begärt. © 2026 nderja.com"
   },
   el: {
+    out_tag:'Ειδοποίηση υπηρεσίας',
+    out_p:'Το M4TR1X είναι προσωρινά εκτός λειτουργίας: ένα καιρικό φαινόμενο άφησε χωρίς σύνδεση στο διαδίκτυο τον τόπο όπου βρίσκεται η κύρια υποδομή. Το δίκτυο θα επανέλθει μόλις αποκατασταθεί η γραμμή.',
     hc_c7_t:'Γιατί κλειστή πίστωση',
     hc_c7_p:'Ένα παλιό λαπτόπ των 100 € συνήθως δεν πουλιέται ποτέ: ανάμεσα σε αγγελία, παζάρι και αποστολή δεν αξίζει τον κόπο, κι έτσι μένει στο συρτάρι. Το ίδιο λαπτόπ φεύγει αμέσως αν αυτό που γυρίζει πίσω είναι πίστωση που θες πραγματικά να χρησιμοποιήσεις — για να ανταμείψεις τους σκηνοθέτες και τους μουσικούς που ακολουθείς, ή να πάρεις κάτι άλλο από το κατάστημα από κάποιον που αδειάζει τα ράφια του. Ιδιώτες που πουλάνε τα δικά τους πράγματα, όχι επιχειρήσεις· η πίστωση δεν βγαίνει ποτέ σε χρήμα. Ένα σύμφωνο που ισχύει μόνο μέσα στην υποδομή.',
     hc_price_t:'Πόσο κοστίζει',
@@ -1564,6 +1589,8 @@ const T = {
     ft_note:"Ένα ανεξάρτητο κίνημα. Καμία κομματική ένταξη, καμία ξένη χρηματοδότηση, καμία άδεια ζητημένη. © 2026 nderja.com"
   },
   nl: {
+    out_tag:'Servicemelding',
+    out_p:'M4TR1X is tijdelijk buiten gebruik: een weersgebeurtenis heeft de locatie van de hoofdinfrastructuur zonder internetverbinding achtergelaten. Het netwerk is terug zodra de lijn hersteld is.',
     hc_c7_t:'Waarom een gesloten tegoed',
     hc_c7_p:'Een oude laptop van €100 wordt meestal nooit verkocht: tussen de advertentie, het afdingen en het verzenden is het de moeite niet waard, dus blijft hij in een la liggen. Dezelfde laptop gaat meteen weg als er een tegoed voor terugkomt dat je echt wilt gebruiken — de filmmakers en muzikanten belonen die je volgt, of iets anders uit de shop halen bij iemand die zijn eigen kasten leegruimt. Particulieren die hun eigen spullen verkopen, geen bedrijven; het tegoed gaat er nooit als geld uit. Een pact dat alleen binnen de infrastructuur geldt.',
     hc_price_t:'Wat het kost',
@@ -1698,6 +1725,8 @@ const T = {
     ft_note:'Een onafhankelijke beweging. Geen partijbinding, geen buitenlandse financiering, geen toestemming gevraagd. © 2026 nderja.com',
   },
   es: {
+    out_tag:'Aviso de servicio',
+    out_p:'M4TR1X está temporalmente fuera de servicio: un evento meteorológico ha dejado sin conexión a internet el lugar donde reside la infraestructura principal. La red volverá en cuanto se restablezca la línea.',
     hc_c7_t:'Por qué un crédito cerrado',
     hc_c7_p:'Un portátil viejo de 100 € casi nunca se vende: entre el anuncio, el regateo y el envío no compensa, y acaba en un cajón. Ese mismo portátil se mueve enseguida si lo que vuelve es un crédito que de verdad quieres usar — premiar a los cineastas y músicos que sigues, o llevarte otra cosa de la tienda a alguien que está vaciando sus estanterías. Particulares vendiendo sus propias cosas, no empresas; el crédito nunca sale en dinero. Un pacto que solo vale dentro de la infraestructura.',
     hc_price_t:'Cuánto cuesta',
