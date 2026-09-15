@@ -21,6 +21,11 @@ export default {
     out.headers.set('X-Frame-Options', 'DENY');
     out.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
     out.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()');
+    // Cache: i font non cambiano mai; le immagini per un giorno (poi si rivalidano)
+    if (res.ok) {
+      if (url.pathname.startsWith('/fonts/')) out.headers.set('Cache-Control', 'public, max-age=31536000, immutable');
+      else if (url.pathname.startsWith('/img/') || url.pathname === '/favicon.ico') out.headers.set('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+    }
     return out;
   }
 };
