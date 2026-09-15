@@ -13,6 +13,14 @@ export default {
       return Response.redirect(url.toString(), 301);
     }
 
-    return env.ASSETS.fetch(req);
+    // Header di sicurezza su ogni risposta
+    const res = await env.ASSETS.fetch(req);
+    const out = new Response(res.body, res);
+    out.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+    out.headers.set('X-Content-Type-Options', 'nosniff');
+    out.headers.set('X-Frame-Options', 'DENY');
+    out.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    out.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=(), interest-cohort=()');
+    return out;
   }
 };
