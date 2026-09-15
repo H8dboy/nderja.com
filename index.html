@@ -325,7 +325,7 @@
 
 <header>
   <div class="hrow">
-    <a class="logo" href="#top" onclick="showPanel('home');return false"><img src="img/logo-h8.webp" alt="" width="120" height="96">NDER<span>JA</span></a>
+    <a class="logo" href="/" onclick="showPanel('home');return false"><img src="img/logo-h8.webp" alt="" width="120" height="96">NDER<span>JA</span></a>
     <nav class="langs" aria-label="Language">
       <button data-lang="en" class="active">EN</button>
       <button data-lang="sq">SQ</button>
@@ -559,17 +559,17 @@
       <div class="pillars">
         <div class="pillar reveal">
           <h3>Windows</h3>
-          <a class="btn" id="dl-win" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X.Setup.2.4.0.exe">.exe installer</a>
+          <a class="btn" id="dl-win" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest">.exe installer</a>
         </div>
         <div class="pillar reveal">
           <h3>macOS</h3>
-          <a class="btn" id="dl-mac-arm" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0-arm64.dmg">Apple Silicon .dmg</a>
-          <a class="btn" id="dl-mac" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0.dmg">Intel .dmg</a>
+          <a class="btn" id="dl-mac-arm" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest">Apple Silicon .dmg</a>
+          <a class="btn" id="dl-mac" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest">Intel .dmg</a>
         </div>
         <div class="pillar reveal">
           <h3>Linux</h3>
-          <a class="btn" id="dl-linux" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/M4TR1X-2.4.0.AppImage">.AppImage</a>
-          <a class="btn" id="dl-deb" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest/download/m4tr1x_2.4.0_amd64.deb">.deb</a>
+          <a class="btn" id="dl-linux" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest">.AppImage</a>
+          <a class="btn" id="dl-deb" href="https://github.com/H8dboy/m4tr1x-electron/releases/latest">.deb</a>
         </div>
         <div class="pillar reveal">
           <h3>Android</h3>
@@ -619,7 +619,7 @@
         <img src="img/kal-task.webp" alt="Kalendae — tasks" width="480" height="959" loading="lazy">
         <img src="img/kal-fitness.webp" alt="Kalendae — workout" width="480" height="959" loading="lazy">
       </div>
-      <div class="srcnote"><a href="https://github.com/H8dboy/kalendae" target="_blank" rel="noopener">github.com/H8dboy/kalendae</a></div>
+      <div class="srcnote"><span data-i="mx_code">All code is public — MIT license</span>: <a href="https://github.com/H8dboy/kalendae" target="_blank" rel="noopener">github.com/H8dboy/kalendae</a></div>
     </div>
   </section>
   </div>
@@ -1896,9 +1896,11 @@ window.addEventListener('load',setHeadH);
 setHeadH();
 
 let LANG = 'en';
+let ROUTING = false;
 function setLang(lang){
   LANG = lang;
   document.documentElement.lang = lang;
+  try{ localStorage.setItem('nderja-lang', lang); }catch(e){}
   if(T[lang].ph_title) document.title = 'NDERJA — ' + T[lang].ph_title.replace(/<[^>]+>/g,'');
   document.querySelectorAll('[data-i]').forEach(el=>{
     const k = el.getAttribute('data-i');
@@ -1930,6 +1932,7 @@ function showPanel(name){
   window.scrollTo({top:0});
   document.querySelectorAll('.panel.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
+  writeRoute();
 }
 document.querySelectorAll('.menu button').forEach(b=>{
   b.addEventListener('click',()=>showPanel(b.dataset.panel));
@@ -1942,6 +1945,7 @@ function showSubH8(name){
   window.scrollTo({top:0});
   document.querySelectorAll('#panel-h8 .sub.active .reveal').forEach(el=>el.classList.add('in'));
   setHeadH();
+  writeRoute();
 }
 document.querySelectorAll('#h8-sub button').forEach(b=>{
   b.addEventListener('click',()=>showSubH8(b.dataset.sub));
@@ -1972,7 +1976,52 @@ function goDownload(){
   showSubH8('m4tr1x');
   const el=document.getElementById('download');
   if(el) setTimeout(()=>el.scrollIntoView({behavior:'smooth',block:'start'}),60);
+  if(!ROUTING && location.hash!=='#download') history.replaceState(null,'','#download');
 }
+
+/* indirizzi delle sezioni: nderja.com/#philosophy, #m4tr1x, #kalendae, #elea, #h8-coin, #download
+   — tasto indietro, ricarica e link condivisi portano alla sezione giusta */
+function currentSlug(){
+  const p=document.querySelector('.panel.active'); if(!p) return '';
+  const name=p.id.replace('panel-','');
+  if(name==='h8'){ const sb=document.querySelector('#panel-h8 .sub.active'); return sb?sb.id.replace('sub-',''):'m4tr1x'; }
+  return {home:'',philosophy:'philosophy',coin:'h8-coin'}[name]||'';
+}
+function writeRoute(){
+  if(ROUTING) return;
+  const slug=currentSlug(), want=slug?'#'+slug:'';
+  if(location.hash===want) return;
+  history.pushState(null,'',want||location.pathname+location.search);
+}
+function applyRoute(){
+  const slug=decodeURIComponent(location.hash.slice(1)).toLowerCase();
+  ROUTING=true;
+  try{
+    if(!slug) showPanel('home');
+    else if(slug==='philosophy') showPanel('philosophy');
+    else if(slug==='h8-coin'||slug==='coin') showPanel('coin');
+    else if(slug==='h8'||slug==='h8-group') showPanel('h8');
+    else if(['m4tr1x','kalendae','elea'].includes(slug)){ showPanel('h8'); showSubH8(slug); }
+    else if(slug==='download') goDownload();
+  } finally { ROUTING=false; }
+}
+window.addEventListener('popstate',applyRoute);
+if(location.hash) applyRoute();
+
+/* lingua: ?lang=xx, poi quella scelta l'ultima volta, poi quella del browser */
+(function(){
+  let lang=null;
+  try{ lang=new URLSearchParams(location.search).get('lang'); }catch(e){}
+  if(!T[lang]){ try{ lang=localStorage.getItem('nderja-lang'); }catch(e){ lang=null; } }
+  if(!T[lang]){
+    lang=null;
+    for(const l of (navigator.languages||[navigator.language||''])){
+      const c=String(l).slice(0,2).toLowerCase();
+      if(T[c]){ lang=c; break; }
+    }
+  }
+  if(lang && lang!=='en') setLang(lang);
+})();
 
 /* build per il sistema rilevato: l'href definitivo lo mette il blocco qui sopra
    quando l'API GitHub risponde; questi sono i fallback statici */
