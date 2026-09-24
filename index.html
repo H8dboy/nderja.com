@@ -9,6 +9,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="/img/icon-192.png">
 <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 <meta name="theme-color" content="#000000">
+<script>try{if(localStorage.getItem('nderja-theme')==='light'){document.documentElement.setAttribute('data-theme','light');document.querySelector('meta[name=theme-color]').content='#ffffff'}}catch(e){}</script>
 <link rel="manifest" href="/site.webmanifest">
 <link rel="canonical" href="https://nderja.com/">
 <meta property="og:type" content="website">
@@ -320,13 +321,80 @@
     .coin{--ct:52px}
     .cnote{margin:1rem 0 0}
   }
+  /* ---------- tema chiaro: nero opaco su bianco, tipografia di sistema in stile Apple ---------- */
+  .hctl{display:flex;align-items:center;gap:.6rem}
+  .theme-t{background:none;border:1px solid var(--line);color:var(--muted);width:34px;height:34px;padding:0;
+    display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s;flex:none}
+  .theme-t:hover{color:var(--text);border-color:var(--green-dim)}
+  .theme-t:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+  .theme-t svg{width:16px;height:16px;display:block}
+  .theme-t .i-sun{display:none}
+  .only-light{display:none!important}
+  :root[data-theme="light"] .only-light{display:block!important}
+  :root[data-theme="light"] .only-dark{display:none!important}
+  :root[data-theme="light"] .theme-t .i-sun{display:block}
+  :root[data-theme="light"] .theme-t .i-moon{display:none}
+
+  :root[data-theme="light"]{
+    color-scheme:light;
+    --bg:#FFFFFF;
+    --panel:#F5F5F7;
+    --line:#D2D2D7;
+    --green:#1D1D1F;
+    --green-dim:#86868B;
+    --text:#1D1D1F;
+    --muted:#6E6E73;
+    --serif:-apple-system,BlinkMacSystemFont,'SF Pro Display','Helvetica Neue','Segoe UI',Roboto,Arial,sans-serif;
+    --sans:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue','Segoe UI',Roboto,Arial,sans-serif;
+  }
+  :root[data-theme="light"] body{font-weight:400;-webkit-font-smoothing:antialiased;letter-spacing:-.005em}
+  /* niente corsivo calligrafico: titoli puliti, peso pieno, spaziatura stretta */
+  :root[data-theme="light"] :is(.hero h1 em,h2 em,.card2 h3,.pillar h3,.pillar blockquote.pq,blockquote,.hero .word .term,
+    .stance .oath,.mx-countdown .cd-launch,.cd-live,.mx-countdown .cd-since,.ch3,.dlnow .dl-os b){font-style:normal;font-weight:600;letter-spacing:-.02em}
+  :root[data-theme="light"] :is(.pillar blockquote.pq,blockquote,.stance .oath){font-weight:500;letter-spacing:-.01em}
+  :root[data-theme="light"] .hero h1{letter-spacing:-.03em;font-weight:700}
+  :root[data-theme="light"] h2{font-weight:600;letter-spacing:-.025em}
+  :root[data-theme="light"] :is(.kicker,.eyebrow,.step .when,.stance .seal){letter-spacing:.14em;font-weight:500}
+  :root[data-theme="light"] :is(.menu button,.submenu button,.langs button){letter-spacing:.08em;font-weight:500}
+  :root[data-theme="light"] .btn{border-radius:980px;letter-spacing:.06em;font-weight:500}
+  :root[data-theme="light"] :is(.card2,.stance,.pillars,.dlnow,.mx-countdown){border-radius:18px;overflow:hidden}
+  :root[data-theme="light"] header{background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(20px)}
+  :root[data-theme="light"] .hero::after{display:none}
+  :root[data-theme="light"] .outage{background:#FFF8E6;border-top-color:#F0D48A;color:#5C4200}
+  :root[data-theme="light"] .outage .otag{border-color:#C98A00;color:#8A5E00}
+  /* pulsanti pieni: nero opaco, testo bianco, nessun bagliore */
+  :root[data-theme="light"] :is(.hdl,.hero-cta .btn.primary,.dlnow .btn){background:#1D1D1F;color:#fff;border-color:#1D1D1F;box-shadow:none}
+  :root[data-theme="light"] :is(.hdl,.hero-cta .btn.primary,.dlnow .btn):hover{background:#000}
+  :root[data-theme="light"] .hdl{border-radius:980px;letter-spacing:.08em}
+  :root[data-theme="light"] .btn:hover{color:#fff}
+  :root[data-theme="light"] :is(.mx-countdown,.dlnow){background:var(--panel);border-color:var(--line)}
+  :root[data-theme="light"] .mx-countdown .cd-status::before{animation:none;box-shadow:none}
+  :root[data-theme="light"] .proof{background:var(--line);border-color:var(--line)}
+  :root[data-theme="light"] .brandmark img{filter:grayscale(1) invert(1) contrast(1.15);opacity:1}
+  /* M4TR1X: l alone verde invertito diventerebbe una macchia grigia, va spinto nel bianco */
+  :root[data-theme="light"] .brandmark.lg img{filter:grayscale(1) invert(1) brightness(1.05) contrast(1.45)}
+  :root[data-theme="light"] .shots img{box-shadow:0 10px 30px rgba(0,0,0,.12)}
+  /* moneta: faccia bianca, incisioni nere */
+  :root[data-theme="light"] .cface{background:radial-gradient(circle at 50% 40%,#fff 0%,#f4f4f6 70%,#e6e6ea 100%);
+    box-shadow:inset 0 0 0 7px #1D1D1F,inset 0 0 0 9px #fff,0 18px 40px rgba(0,0,0,.18)}
+  :root[data-theme="light"] .cface::before{background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.7) 0%,rgba(255,255,255,0) 50%,rgba(0,0,0,.05) 100%)}
+  :root[data-theme="light"] .cface::after{box-shadow:inset 0 0 0 1px #1D1D1F}
+  :root[data-theme="light"] .cglow{display:none}
+  :root[data-theme="light"] .cemb img{mix-blend-mode:multiply;filter:none}
+  :root[data-theme="light"] .carc .sh{fill:none}
+  :root[data-theme="light"] .carc .fg{fill:#1D1D1F;filter:none}
+  :root[data-theme="light"] :is(.cv-one,.cv-h8,.cv-unit,.cv-sig){color:#1D1D1F;text-shadow:none}
+  :root[data-theme="light"] .cv-rule{box-shadow:none;background:linear-gradient(90deg,rgba(29,29,31,0),#1D1D1F 20%,#1D1D1F 80%,rgba(29,29,31,0))}
+  :root[data-theme="light"] .cseg{background:linear-gradient(90deg,#9a9aa0,#d8d8dc 18%,#8e8e93 50%,#d8d8dc 82%,#9a9aa0)}
+  :root[data-theme="light"] .cseg:nth-child(odd){background:linear-gradient(90deg,#9a9aa0,#e4e4e8 18%,#6e6e73 50%,#e4e4e8 82%,#9a9aa0)}
+  @media (max-width:700px){ :root[data-theme="light"] header{backdrop-filter:none} }
 </style>
 </head>
 <body>
 
 <header>
   <div class="hrow">
-    <a class="logo" href="/" onclick="showPanel('home');return false"><img src="img/logo-h8.webp" alt="" width="76" height="60">NDER<span>JA</span></a>
+    <a class="logo" href="/" onclick="showPanel('home');return false"><img class="only-dark" src="img/logo-h8.webp" alt="" width="76" height="60"><img class="only-light" src="img/logo-h8-light.webp" alt="" width="76" height="60">NDER<span>JA</span></a>
     <nav class="langs" aria-label="Language">
       <button data-lang="en" class="active">EN</button>
       <button data-lang="sq">SQ</button>
@@ -338,7 +406,10 @@
       <button data-lang="nl">NL</button>
       <button data-lang="es">ES</button>
     </nav>
-    <button class="hdl" type="button" onclick="goDownload()" data-i="nav_dl">Download</button>
+    <div class="hctl">
+    <button class="theme-t" type="button" onclick="toggleTheme()" aria-label="Light / dark" title="Light / dark"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg></button>
+      <button class="hdl" type="button" onclick="goDownload()" data-i="nav_dl">Download</button>
+    </div>
   </div>
   <nav class="menu" aria-label="Sections">
     <button data-panel="home" class="active" data-i="nav_home">Home</button>
@@ -668,7 +739,7 @@
         <div class="coin" id="h8coin-3d">
           <div class="cface cfront">
             <span class="cglow" aria-hidden="true"></span>
-            <span class="cemb"><img src="img/h8-coin-eagle.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"></span>
+            <span class="cemb"><img class="only-dark" src="img/h8-coin-eagle.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"><img class="only-light" src="img/h8-coin-eagle-light.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"></span>
             <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
               <defs>
                 <path id="h8arcTopA" d="M 200 200 m -161 0 a 161 161 0 1 1 322 0"></path>
@@ -1925,6 +1996,12 @@ document.querySelectorAll('.langs button').forEach(b=>{
 });
 
 /* panels */
+function toggleTheme(){
+  var r=document.documentElement, light=r.getAttribute('data-theme')!=='light';
+  if(light) r.setAttribute('data-theme','light'); else r.removeAttribute('data-theme');
+  var m=document.querySelector('meta[name=theme-color]'); if(m) m.content=light?'#ffffff':'#000000';
+  try{ localStorage.setItem('nderja-theme', light?'light':'dark'); }catch(e){}
+}
 function showPanel(name){
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id==='panel-'+name));
   document.querySelectorAll('.menu button').forEach(b=>b.classList.toggle('active', b.dataset.panel===name));
