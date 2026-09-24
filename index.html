@@ -370,9 +370,8 @@
   :root[data-theme="light"] :is(.mx-countdown,.dlnow){background:var(--panel);border-color:var(--line)}
   :root[data-theme="light"] .mx-countdown .cd-status::before{animation:none;box-shadow:none}
   :root[data-theme="light"] .proof{background:var(--line);border-color:var(--line)}
-  :root[data-theme="light"] .brandmark img{filter:grayscale(1) invert(1) contrast(1.15);opacity:1}
-  /* M4TR1X: l alone verde invertito diventerebbe una macchia grigia, va spinto nel bianco */
-  :root[data-theme="light"] .brandmark.lg img{filter:grayscale(1) invert(1) brightness(1.05) contrast(1.45)}
+  /* loghi prodotto: versioni "su chiaro" dei design (M4TR1X variante 05, Kalendae su chiaro, Elea originale verde) */
+  :root[data-theme="light"] .brandmark img{opacity:1;mix-blend-mode:multiply}
   :root[data-theme="light"] .shots img{box-shadow:0 10px 30px rgba(0,0,0,.12)}
   /* moneta: faccia bianca, incisioni nere */
   :root[data-theme="light"] .cface{background:radial-gradient(circle at 50% 40%,#fff 0%,#f4f4f6 70%,#e6e6ea 100%);
@@ -572,7 +571,7 @@
           <p data-i="mx_p1">Our first instrument: a decentralized social network with no central server, no accounts, no surveillance. Post-quantum cryptography, Tor routing, self-hosted identity. There is no building to raid, no switch to flip.</p>
         </div>
         <div>
-        <div class="brandmark lg reveal" style="margin-bottom:1rem"><img src="img/m4tr1x-logo.webp" alt="M4TR1X — decentralized signal" width="900" height="390" loading="lazy"></div>
+        <div class="brandmark lg reveal" style="margin-bottom:1rem"><img class="only-dark" src="img/m4tr1x-logo.webp" alt="M4TR1X — decentralized signal" width="900" height="390" loading="lazy"><img class="only-light" src="img/m4tr1x-logo-light.webp" alt="M4TR1X — decentralized signal" width="900" height="426" loading="lazy"></div>
         <div class="mx-countdown reveal" style="margin:0">
           <div class="cd-status" data-i="cd_status">Network live</div>
           <div class="cd-since" data-i="cd_since">First node online — 8 August 2026</div>
@@ -679,7 +678,7 @@
           <h2 data-i-html="ka_title">Kal<em>endae</em></h2>
           <p data-i="ka_p1">A personal agenda that lives entirely on your phone — calendar, tasks, notes, work hours, fitness and instalment payments in one local database. No account, no cloud, no tracking.</p>
         </div>
-        <div class="brandmark reveal"><img src="img/kalendae-logo.webp" alt="Kalendae" width="760" height="127" loading="lazy"></div>
+        <div class="brandmark reveal"><img class="only-dark" src="img/kalendae-logo.webp" alt="Kalendae" width="760" height="127" loading="lazy"><img class="only-light" src="img/kalendae-logo-light.webp" alt="Kalendae" width="1140" height="221" loading="lazy"></div>
       </div>
       <p style="margin-top:2rem;display:flex;gap:.8rem;flex-wrap:wrap">
         <a href="https://github.com/H8dboy/kalendae/releases/latest/download/Kalendae.apk" class="btn" data-i="ka_dl">Download APK</a>
@@ -706,7 +705,7 @@
           <h2 data-i-html="el_title">Elea <em>Vending</em></h2>
           <p data-i="elea_p1">The physical arm of H8-Group: independent vending machines that pay the bills and prove the philosophy on the street. No investors, no franchise — machines bought used, rebuilt by hand, and placed where people actually work.</p>
         </div>
-        <div class="brandmark reveal"><img src="img/elea-logo.webp" alt="Elea — Machines for people" width="600" height="217" loading="lazy"></div>
+        <div class="brandmark reveal"><img class="only-dark" src="img/elea-logo.webp" alt="Elea — Machines for people" width="600" height="217" loading="lazy"><img class="only-light" src="img/elea-logo-light.webp" alt="Elea — Machines for people" width="900" height="348" loading="lazy"></div>
       </div>
       <div class="pillars">
         <div class="pillar reveal">
