@@ -387,6 +387,103 @@
   :root[data-theme="light"] .cseg{background:linear-gradient(90deg,#9a9aa0,#d8d8dc 18%,#8e8e93 50%,#d8d8dc 82%,#9a9aa0)}
   :root[data-theme="light"] .cseg:nth-child(odd){background:linear-gradient(90deg,#9a9aa0,#e4e4e8 18%,#6e6e73 50%,#e4e4e8 82%,#9a9aa0)}
   @media (max-width:700px){ :root[data-theme="light"] header{backdrop-filter:none} }
+  /* ---------- viaggio: il racconto scorre e incontra i contenuti ---------- */
+  :root{--read:#C3CFC6}
+  :root[data-theme="light"]{--read:#3A3A3C}
+  section{scroll-margin-top:var(--headh,0px)}
+  button.btn{background:none;font-family:var(--sans);cursor:pointer}
+  .hero .hero-voice{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.45;
+    color:var(--text);max-width:640px;margin-top:2rem}
+  #panel-home .hero-cta{justify-content:flex-start}
+  .shop-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:2.4rem 0 0;max-width:1080px}
+  .shop-card{background:var(--panel);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;transition:background .25s}
+  a.shop-card:hover{background:var(--bg)}
+  .shop-card span{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--green)}
+  .shop-card b{font-weight:600;font-size:1.15rem;letter-spacing:.1em;color:var(--text)}
+  .shop-card p{font-size:.93rem;line-height:1.6;color:var(--muted);margin:0;flex:1;max-width:none}
+  .shop-card em{font-style:normal;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);margin-top:.4rem}
+  .shop-card.soon span{color:var(--muted)}
+  :root[data-theme="light"] .shop-cards{border-radius:18px;overflow:hidden}
+  .jr-body{max-width:720px}
+  .jr-body p{color:var(--read);font-size:1.08rem;line-height:1.8;max-width:none;margin-bottom:1.3rem}
+  .jr-body p strong,.jr-body p em{color:var(--text)}
+  .jr-body p.jr-lead{font-size:clamp(1.2rem,1.9vw,1.45rem);line-height:1.6;color:var(--text)}
+  .jr-body p.jr-pull{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.8vw,2.1rem);line-height:1.4;color:var(--text);
+    border-left:2px solid var(--green);padding:.2rem 0 .2rem 1.5rem;margin:2.4rem 0}
+  /* il ciclo: quattro passi, poi tre strade */
+  .cycle{list-style:none;margin:2.6rem 0 1.4rem;max-width:860px;display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cycle li{display:grid;grid-template-columns:4.2rem minmax(0,1fr);gap:1.1rem;background:var(--panel);padding:1.6rem 1.6rem 1.5rem}
+  .cy-n{font-family:var(--serif);font-style:italic;font-size:3.2rem;line-height:.9;color:var(--green)}
+  .cycle h3{font-weight:500;font-size:1.2rem;color:var(--text);margin-bottom:.45rem}
+  .cycle p{margin:0;font-size:.98rem;max-width:none}
+  .cycle p em{color:var(--text)}
+  .roads{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(250px,100%),1fr));gap:1rem;margin:0 0 3rem;max-width:1080px}
+  .road{border:1px solid var(--line);padding:1.6rem 1.5rem}
+  .rd-tag{font-size:.66rem;letter-spacing:.25em;text-transform:uppercase;color:var(--muted)}
+  .road h3{font-size:1.35rem;font-weight:500;color:var(--muted);margin:.6rem 0}
+  .road p{font-size:.95rem;margin:0;max-width:none}
+  .road.on{border-color:var(--green);background:linear-gradient(180deg,rgba(46,232,122,.08),transparent)}
+  .road.on .rd-tag,.road.on h3{color:var(--green)}
+  .road.on p{color:var(--read)}
+  /* i pezzi: cosa tengo, cosa butto */
+  .pieces{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:2.4rem 0;max-width:1080px}
+  .piece{background:var(--panel);padding:1.8rem 1.6rem}
+  .piece h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.65rem;color:var(--green);margin-bottom:.7rem}
+  .piece p{font-size:.96rem;max-width:none;margin-bottom:0}
+  .piece p em{color:var(--text)}
+  .piece dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:.5rem 1rem;margin-top:1.1rem;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.93rem}
+  .piece dt{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--green);padding-top:.3rem}
+  .piece dt:nth-of-type(2){color:var(--muted)}
+  .piece dd{color:var(--read);line-height:1.55}
+  #pezzi .pillars{margin:2rem 0 2.4rem}
+  .jr-rule{border:1px solid var(--green-dim);background:linear-gradient(180deg,rgba(46,232,122,.07),transparent);padding:1.5rem 1.7rem;
+    font-size:1.12rem;line-height:1.6;color:var(--text);margin:2.4rem 0 0}
+  .jr-rule span{display:block;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--green);margin-bottom:.7rem}
+  /* l'Europa: testo e moneta affiancati */
+  .jr-duo{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:clamp(2rem,5vw,4.5rem);align-items:center;max-width:1080px}
+  .jr-duo .coinwrap{margin:0}
+  .chero-solo{display:block}
+  .jr-cta{display:flex;gap:.8rem;flex-wrap:wrap;margin:2rem 0 1rem}
+  .jr-cta .btn.primary{background:var(--green);color:var(--bg)}
+  .jr-body p.jr-end{font-family:var(--serif);font-style:italic;font-size:clamp(1.5rem,2.6vw,2rem);color:var(--text);margin-top:2.8rem}
+  .jr-sign{font-family:var(--serif);font-style:italic;font-size:2.2rem;color:var(--green);margin-top:1rem}
+  .jr-sign b{font-family:var(--sans);font-style:normal;font-weight:600;font-size:1.4rem;letter-spacing:.2em;color:var(--text)}
+  /* moneta: retro con l'uroboro a forma di 8 */
+  .cfront .cemb{inset:12.5%}
+  .cfront .cglow{inset:16%}
+  .cyy{position:absolute;inset:0;width:100%;height:100%;opacity:.42}
+  .cyy line{stroke:#5bff5b;stroke-width:1}
+  .cyy .yy-line,.cyy .yy-dot{fill:none;stroke:#5bff5b;stroke-width:1.4;stroke-dasharray:3 5}
+  .cyy .yy-dot{fill:url(#yyh1)}
+  :root[data-theme="light"] .cyy{opacity:.28}
+  :root[data-theme="light"] .cyy line,:root[data-theme="light"] .cyy :is(.yy-line,.yy-dot){stroke:#1D1D1F}
+  .ch8{position:absolute;inset:26% 16%;display:flex;align-items:center;justify-content:center;gap:7%}
+  .ch8 b{font-family:var(--sans);font-weight:400;font-size:calc(var(--cs)*.69);line-height:.72;color:#7dff7d;
+    text-shadow:0 0 14px rgba(46,232,122,.9),0 0 40px rgba(46,232,122,.55)}
+  .ch8 .couro{position:relative;inset:auto;height:100%;aspect-ratio:569/1038}
+  :root[data-theme="light"] .ch8 b{color:#1D1D1F;text-shadow:none}
+  /* H gotica (UnifrakturMaguntia, OFL) disegnata come tracciato */
+  .chH{height:100%;width:auto;flex:none;overflow:visible;fill:#7dff7d;
+    filter:drop-shadow(0 0 7px rgba(46,232,122,.85)) drop-shadow(0 0 22px rgba(46,232,122,.45))}
+  :root[data-theme="light"] .chH{fill:#1D1D1F;filter:none}
+  .couro{position:absolute;inset:16% 31%;filter:drop-shadow(0 0 7px rgba(46,232,122,.85)) drop-shadow(0 0 22px rgba(46,232,122,.45))}
+  .couro i{display:block;width:100%;height:100%;background:#7dff7d;
+    -webkit-mask:url(img/ouroboros-8.png) center/contain no-repeat;mask:url(img/ouroboros-8.png) center/contain no-repeat}
+  .carc .stars polygon{stroke:none}
+  :root[data-theme="light"] .couro{filter:none}
+  :root[data-theme="light"] .couro i{background:#1D1D1F}
+  :root[data-theme="light"] :is(.hero .hero-voice,.jr-body p.jr-pull,.cy-n,.piece h3,.jr-body p.jr-end,.jr-sign){font-style:normal;font-weight:600;letter-spacing:-.02em}
+  :root[data-theme="light"] :is(.cycle,.pieces,.road,.jr-rule){border-radius:18px;overflow:hidden}
+  :root[data-theme="light"] :is(.road.on,.jr-rule){background:var(--panel)}
+  @media (max-width:900px){ .jr-duo{grid-template-columns:minmax(0,1fr)} }
+  @media (max-width:700px){
+    .cycle li{grid-template-columns:2.6rem minmax(0,1fr);gap:.8rem;padding:1.3rem 1.1rem}
+    .cy-n{font-size:2.4rem}
+    .piece{padding:1.5rem 1.2rem}
+    .jr-body p.jr-pull{padding-left:1.1rem}
+  }
 </style>
 </head>
 <body>
@@ -430,19 +527,18 @@
 <main id="top">
 
 <div class="panel active" id="panel-home">
-  <!-- HERO -->
+  <!-- VIAGGIO: il racconto scorre e incontra i contenuti del sito al momento giusto -->
   <div class="hero">
-    <div class="kicker" data-i="hero_kicker">The movement</div>
+    <div class="kicker">Rinascimento o Medioevo</div>
     <h1>NDER<em>ja</em></h1>
-    <p class="sub" data-i="hero_sub">Capability is the prerequisite of citizenship. You are not free if every essential tool of your life — identity, voice, money, knowledge — belongs to someone else.</p>
+    <p class="hero-voice">Abbiamo in mano gli strumenti più potenti della storia. Possono diventare la nostra stampa, o il nostro rogo.</p>
     <div class="word">
       <span class="term">nder</span>
       <span class="def" data-i="hero_def">— honor. In the Albanian tradition, the one possession that cannot be granted, only earned and defended.</span>
     </div>
     <div class="hero-cta">
-      <button class="btn primary" type="button" onclick="goDownload()" data-i="hero_cta1">Download M4TR1X</button>
-      <a class="btn" href="https://github.com/H8dboy/m4tr1x-node#readme" target="_blank" rel="noopener" data-i="hero_cta2">Run a node</a>
-      <span class="cta-note" data-i="hero_note">MIT · no account · no store</span>
+      <a class="btn primary" href="#philosophy" onclick="showPanel('philosophy');return false">Inizia il viaggio →</a>
+      <button class="btn" type="button" onclick="goDownload()" data-i="hero_cta1">Download M4TR1X</button>
     </div>
     <div class="scroll-hint" data-i="hero_scroll">Scroll</div>
   </div>
@@ -455,46 +551,12 @@
     <div><b>0</b><span data-i="pf_k4">Accounts required</span></div>
   </div>
 
-</div>
-
-<div class="panel" id="panel-philosophy">
-  <!-- PHILOSOPHY -->
-  <section id="philosophy">
-    <div class="frame">
-      <div class="eyebrow" data-i="ph_eyebrow">Philosophy</div>
-      <h2 data-i-html="ph_title">Sovereign <em>Ethical</em> Realism</h2>
-      <p data-i="ph_p1">Nderja was born from one conviction: freedom is not declared, it is built. Whoever depends on infrastructure owned by others — infrastructure that can be switched off, censored, or monetized against them — is a tenant, not a citizen.</p>
-      <p data-i="ph_p2">Our framework holds three ideas together. None of them works alone.</p>
-      <div class="pillars">
-        <div class="pillar reveal">
-          <h3 data-i="pil1_t">Realism</h3>
-          <p data-i="pil1_p">See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.</p>
-          <blockquote class="pq"><span data-i="pil1_q">Whoever wishes to found a state and give it laws must presume that all men are bad, and that they will always act on the wickedness of their spirit whenever they have the occasion.</span>
-            <cite data-i="pil1_qa">Niccolò Machiavelli — Discourses, 1531</cite></blockquote>
-        </div>
-        <div class="pillar reveal">
-          <h3 data-i="pil2_t">Ethics</h3>
-          <p data-i="pil2_p">Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?</p>
-          <blockquote class="pq"><span data-i="pil2_q">Every morning when you wake, remind yourself: today I shall meet men who are meddling, ungrateful, arrogant, disloyal, malicious and rude. All these vices come from ignorance of good and evil. But I have seen the beauty of good and the ugliness of evil, and I have recognized that the wrongdoer has a nature akin to my own.</span>
-            <cite data-i="pil2_qa">Marcus Aurelius — Meditations, c. 170 AD</cite></blockquote>
-        </div>
-        <div class="pillar reveal">
-          <h3 data-i="pil3_t">Sovereignty</h3>
-          <p data-i="pil3_p">Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.</p>
-          <blockquote class="pq"><span data-i="pil3_q">A man who does not know the sword cannot be truly peaceful. Peace belongs to those who are capable of war yet choose not to wage it.</span>
-            <cite data-i="pil3_qa">Miyamoto Musashi — The Book of Five Rings, c. 1645</cite></blockquote>
-        </div>
-      </div>
-      <blockquote data-i="ph_quote">Others sell you a room inside their house. We build houses, hand over the keys, and pave the road out — and none of the three belongs to them.</blockquote>
-    </div>
-  </section>
-
   <!-- ORIGIN -->
   <section id="origin">
     <div class="frame">
-      <div class="eyebrow" data-i="or_eyebrow">Origin</div>
-      <h2 data-i-html="or_title">From the <em>digital</em> to the <em>physical</em></h2>
-      <p data-i="or_p1">Nderja did not begin as a manifesto. It began as work — years of building, alone, with no one watching.</p>
+      <div class="eyebrow" data-i="or_eyebrow2">Where M4TR1X comes from</div>
+      <h2 data-i-html="or_title2">How <em>M4TR1X</em> was born</h2>
+      <p data-i="or_p1b">M4TR1X did not begin as a manifesto. It began as work — months of building, alone, with no one watching. Today it is the product Nderja is betting on to grow.</p>
       <div class="timeline">
         <div class="step reveal">
           <div class="when" data-i="s0_w">Day one</div>
@@ -529,7 +591,6 @@
       </div>
     </div>
   </section>
-
   <!-- THE MOMENT -->
   <section id="moment">
     <div class="frame">
@@ -544,6 +605,204 @@
         <p class="oath" data-i="st_oath">We will not establish our operational home in Albania as long as the current system stands. We will not seek its permits, its favors, or its blessings.</p>
         <p data-i="st_p1">Not out of distance — out of respect. Entering now would mean negotiating with the very machinery the people are contesting. We refuse to build the new inside the old.</p>
         <p data-i="st_p2">The day the system falls — the day institutions answer to citizens instead of the reverse — we will come home, and bring everything we have built with us. This is our besa: a word given publicly, kept absolutely.</p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<div class="panel" id="panel-philosophy">
+  <!-- 01 IL BIVIO -->
+  <section class="jr" id="bivio">
+    <div class="frame">
+      <div class="eyebrow">01 · Il bivio</div>
+      <h2>Rinascimento o <em>Medioevo</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Nel 2026 abbiamo in mano gli strumenti più potenti della storia umana. Un'intelligenza artificiale che chiunque può usare. Una rete che collega tutti con tutti. Tutto il sapere del mondo a un passo da ciascuno di noi.</p>
+        <p>Con gli stessi strumenti si possono fare due cose opposte. Si può distrarre, sorvegliare, rendere le persone più sole e più ignoranti. Oppure si può costruire, liberare, rimettere il sapere in mano a chi lo vuole.</p>
+        <p>Per ora sta vincendo la prima. La politica si vince a colpi di slogan, e vince chi grida più forte, non chi ha ragione. Il valore di una persona si misura in quanto esibisce, non in cosa costruisce. I ragazzi non sanno dove andare. E tutti lo vediamo, e tutti facciamo finta di niente.</p>
+        <p>Il mondo del 2026 ti chiede una cosa sola: vendere. Tutto dev'essere monetizzabile, e quello che non lo è viene lasciato morire. Così si sono perse passioni, capacità, cultura, arte: tutto ciò che non stava in un listino.</p>
+        <p class="jr-pull">Quest'epoca può diventare un Rinascimento o un nuovo Medioevo. Non è già deciso. Per capire come si sceglie, bisogna guardare come è sempre andata.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 IL CICLO -->
+  <section class="jr" id="ciclo">
+    <div class="frame">
+      <div class="eyebrow">02 · Il ciclo</div>
+      <h2>La stessa sequenza, <em>da sempre</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Se guardi la storia da vicino, in ogni secolo e in ogni campo, vedi sempre la stessa sequenza. Cambiano i nomi, i luoghi, gli strumenti. La sequenza no.</p>
+      </div>
+      <ol class="cycle">
+        <li class="reveal"><span class="cy-n">1</span><div><h3>Qualcuno dona</h3><p>Un uomo, o una generazione, costruisce qualcosa di buono e lo lascia a tutti. Il messaggio di Cristo. Il sapere dei classici. La corrente di Tesla. Il computer di Turing. Il web di Berners-Lee, regalato al mondo invece che brevettato. Le Costituzioni scritte dopo due guerre.</p></div></li>
+        <li class="reveal"><span class="cy-n">2</span><div><h3>Il dono viene catturato</h3><p>Col tempo, attorno a ciò che era di tutti si forma una crosta. Pochi se ne appropriano e lo piegano fino a trasformarlo nel suo contrario. Il messaggio dei poveri diventa potere e ricchezza. Il codice d'onore diventa vendetta. Internet, nata libera, diventa un sistema per sorvegliarci e per venderci. I diritti restano scritti sulla carta.</p></div></li>
+        <li class="reveal"><span class="cy-n">3</span><div><h3>Chi cattura difende la crosta con l'ignoranza</h3><p>Brucia i libri, caccia eretici e streghe, punisce chi continua a donare. Tesla muore povero. Turing viene distrutto per chi amava. Swartz viene schiacciato per aver provato a liberare la conoscenza. Oggi i roghi non bruciano più nessuno, ma ti tolgono la voce, il lavoro, la reputazione, da qualunque parte arrivi la gogna. E ti chiedono la libertà un pezzo alla volta, vendendotela come sicurezza: <em>se non hai niente da nascondere, non hai niente da temere</em>. Chi non ha niente da nascondere ha comunque tutto da perdere.</p></div></li>
+        <li class="reveal"><span class="cy-n">4</span><div><h3>A quel punto le strade sono tre</h3><p>E due portano al Medioevo.</p></div></li>
+      </ol>
+      <div class="roads">
+        <div class="road reveal"><span class="rd-tag">Medioevo lento</span><h3>Tenersi tutto</h3><p>Venerare il passato così com'è, crosta compresa, e restare fermi ad ammirarlo. Un Medioevo fatto di nostalgia.</p></div>
+        <div class="road reveal"><span class="rd-tag">Medioevo veloce</span><h3>Buttare tutto</h3><p>Distruggere il giusto insieme allo sbagliato. Un Medioevo fatto di macerie. L'Albania dopo il comunismo ha chiuso anche le fabbriche che si potevano salvare, e ne paga ancora il prezzo.</p></div>
+        <div class="road on reveal"><span class="rd-tag">Rinascimento</span><h3>Tornare alla fonte</h3><p>Separare il dono dalla crosta, tenere il nucleo intatto e rinnovarne la forma con gli strumenti del proprio tempo. Gli umanisti con i classici e la stampa. Francesco d'Assisi con il Vangelo, liberato da potere e ricchezza. I partigiani con la libertà, e da lì è nata la Costituzione. Torvalds con i sistemi chiusi, e ha dato a tutti Linux.</p></div>
+      </div>
+      <div class="jr-body">
+        <p><strong>E chi dona quasi mai vede il risultato.</strong> Leonardo non è mai riuscito a volare, eppure ci ha aiutato a volare. Il dono sopravvive a chi lo fa. Chi sceglie la terza strada deve accettarlo: lavora per un disegno più grande di sé.</p>
+        <p class="jr-pull">Nel 2026 non c'è niente da inventare. È già stato fatto tutto. Quello che serve è riconoscere a che punto del ciclo siamo, e scegliere la terza strada.</p>
+        <p>Internet e l'intelligenza artificiale sono doni catturati a metà: possono diventare la nostra stampa, o il nostro rogo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 I PEZZI -->
+  <section class="jr" id="pezzi">
+    <div class="frame">
+      <div class="eyebrow">03 · I pezzi</div>
+      <h2>Ogni dono <em>è un pezzo</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Nessuno ci ha lasciato il disegno finito. Io raccolgo i pezzi che ritengo giusti, li ripulisco dalla crosta e provo a comporli in un disegno che porti bene, come chi ce li ha lasciati. Eccoli, perché chi legge deve sapere con cosa sto costruendo.</p>
+      </div>
+      <div class="pieces">
+        <div class="piece reveal"><h3>La Costituzione italiana</h3><p>Scritta nel 1948, dopo la guerra e dalla Resistenza. Dice cosa un Paese vuole essere: il lavoro come fondamento, la dignità, la salute, l'istruzione per tutti.</p><dl><dt>Tengo</dt><dd>i principi.</dd><dt>Butto</dt><dd>l'idea che basti averli scritti: se non li difendi, diventano crosta anche loro.</dd></dl></div>
+        <div class="piece reveal"><h3>Il Kanun</h3><p>Il codice albanese dell'onore.</p><dl><dt>Tengo</dt><dd>la besa, la parola data e mantenuta; il nder, l'onore che non si riceve in regalo ma si guadagna e si difende; l'ospitalità come dovere.</dd><dt>Butto</dt><dd>la vendetta, e la caricatura che ne fanno i film.</dd></dl></div>
+        <div class="piece reveal"><h3>Tre libri</h3><p>Machiavelli, <em>Il Principe</em>: per vedere il mondo com'è, senza illusioni e senza cinismo. Marco Aurelio, <em>Meditazioni</em>: per restare giusto anche quando attorno non lo è nessuno. Musashi, <em>Il libro dei cinque anelli</em>: per padroneggiare un'arte fino in fondo, perché solo chi sa combattere può scegliere davvero la pace.</p></div>
+        <div class="piece reveal"><h3>Chi ha dato invece di trattenere</h3><p>Leonardo da Vinci. Nikola Tesla. Alan Turing, distrutto per chi amava. Linus Torvalds. Tim Berners-Lee. Aaron Swartz, schiacciato per aver provato a liberare la conoscenza. Martin Luther King, che ha preteso che i diritti scritti valessero per tutti. Tupac, che ha dato voce a chi non l'aveva.</p><dl><dt>Tengo</dt><dd>il gesto: donare.</dd><dt>Butto</dt><dd>il fatto che il mondo li abbia ripagati così.</dd></dl></div>
+      </div>
+      <div class="jr-body">
+        <p>I tre libri, insieme, fanno quello che chiamo <strong>Realismo Etico Sovrano</strong>: vedere le cose come stanno, costruire su principi, possedere i propri strumenti invece di affittarli.</p>
+      </div>
+      <div class="pillars">
+        <div class="pillar reveal">
+          <h3 data-i="pil1_t">Realism</h3>
+          <p data-i="pil1_p">See the world as it is — its power relations, its interests, its machinery — without illusions and without cynicism. Illusion is the first form of dependence.</p>
+          <blockquote class="pq"><span data-i="pil1_q">Whoever wishes to found a state and give it laws must presume that all men are bad, and that they will always act on the wickedness of their spirit whenever they have the occasion.</span>
+            <cite data-i="pil1_qa">Niccolò Machiavelli — Discourses, 1531</cite></blockquote>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="pil2_t">Ethics</h3>
+          <p data-i="pil2_p">Build on principles, not only for profit. Honor — nder — is the ancient Albanian answer to a modern question: what do you refuse to sell?</p>
+          <blockquote class="pq"><span data-i="pil2_q">Every morning when you wake, remind yourself: today I shall meet men who are meddling, ungrateful, arrogant, disloyal, malicious and rude. All these vices come from ignorance of good and evil. But I have seen the beauty of good and the ugliness of evil, and I have recognized that the wrongdoer has a nature akin to my own.</span>
+            <cite data-i="pil2_qa">Marcus Aurelius — Meditations, c. 170 AD</cite></blockquote>
+        </div>
+        <div class="pillar reveal">
+          <h3 data-i="pil3_t">Sovereignty</h3>
+          <p data-i="pil3_p">Own your tools, don't rent them. First acquire real capability — technical, economic, cultural — then exercise full citizenship. In that order.</p>
+          <blockquote class="pq"><span data-i="pil3_q">A man who does not know the sword cannot be truly peaceful. Peace belongs to those who are capable of war yet choose not to wage it.</span>
+            <cite data-i="pil3_qa">Miyamoto Musashi — The Book of Five Rings, c. 1645</cite></blockquote>
+        </div>
+      </div>
+      <div class="jr-body">
+        <p class="jr-pull">Se questi pezzi non ti piacciono, va bene. Almeno adesso sai quali sono.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 NDERJA -->
+  <section class="jr" id="nderja">
+    <div class="frame">
+      <div class="eyebrow">04 · Nderja</div>
+      <h2>L'onore è <em>responsabilità</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Nderja, in albanese, vuol dire l'onore. E l'onore, per come me l'ha insegnato il Kanun, non è orgoglio e non è vanto. È responsabilità: verso la famiglia, verso il Paese da cui vengo, verso il Paese che mi ha cresciuto.</p>
+        <p>Nderja è il nome che do alla terza strada, nel 2026. Non è un partito, non è un'associazione, non è una setta. È una scelta di campo: il Rinascimento invece del Medioevo.</p>
+        <p>Da qui nasce anche il nome H8, odio. Non per le persone, ma per un sistema sbagliato. Un odio che non distrugge: costruisce, alla luce del sole, con quello che ha.</p>
+        <p class="jr-pull">Il sistema è marcio, e Nderja è il bug nel sistema.</p>
+        <p>Sovvertire, per me, non vuol dire distruggere. Vuol dire rimettere il sistema sulla strada che ci era stata promessa. In modo pacifico, con l'unica infrastruttura che ci è stata consegnata libera: internet.</p>
+        <div class="jr-rule"><span>Una regola che non si discute</span>Dentro Nderja non c'è posto per nessuna discriminazione: né per il colore della pelle, né per l'origine, né per chi ami.</div>
+      </div>
+    </div>
+  </section>
+  <!-- 05 L'EUROPA, E IL MONDO -->
+  <section class="jr" id="mondo">
+    <div class="frame">
+      <div class="eyebrow">05 · L'Europa, e il mondo</div>
+      <h2>La cosa più <em>europea</em> che esista</h2>
+      <div class="jr-duo">
+        <div class="jr-body">
+          <p class="jr-lead">Questo ciclo, e la terza strada, sono la cosa più europea che esista. Il Rinascimento è nato qui. Qui sono nati i diritti scritti, le Costituzioni, il metodo scientifico, il web. Il mondo oggi corre su basi che abbiamo posto noi.</p>
+          <p>E proprio per questo non accetto che l'Europa stia a guardare. Oggi sta prendendo la prima strada, quella della nostalgia: ferma al 2010, senza veri incentivi alla tecnologia, intenta a celebrare il proprio passato mentre la Cina costruisce robot, l'America le intelligenze artificiali più potenti, e tutti costruiscono il futuro sulle fondamenta che abbiamo gettato noi.</p>
+          <p>Il mio obiettivo è portare in alto i miei due Paesi, l'Italia e l'Albania. Il mio sogno è il rilancio europeo. Non con la nostalgia del vecchio, ma con la terza strada, quella che l'Europa ha inventato.</p>
+        </div>
+        <div class="chero-coin">
+      <div class="coinwrap">
+        <div class="cointilt">
+        <div class="coin">
+          <div class="cface cfront">
+            <span class="cglow" aria-hidden="true"></span>
+            <span class="cemb"><img class="only-dark" src="img/h8-coin-eagle.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"><img class="only-light" src="img/h8-coin-eagle-light.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"></span>
+            <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
+              <g class="sh stars" transform="translate(1.6,1.6)"><polygon points="200.0,20.4 202.1,26.2 208.2,26.3 203.3,30.1 205.1,36.0 200.0,32.5 194.9,36.0 196.7,30.1 191.8,26.3 197.9,26.2"/><polygon points="285.5,43.3 287.6,49.1 293.7,49.3 288.8,53.0 290.6,58.9 285.5,55.4 280.4,58.9 282.2,53.0 277.3,49.3 283.4,49.1"/><polygon points="348.1,105.9 350.1,111.7 356.3,111.8 351.4,115.6 353.1,121.5 348.1,118.0 343.0,121.5 344.8,115.6 339.9,111.8 346.0,111.7"/><polygon points="371.0,191.4 373.1,197.2 379.2,197.3 374.3,201.1 376.1,207.0 371.0,203.5 365.9,207.0 367.7,201.1 362.8,197.3 368.9,197.2"/><polygon points="348.1,276.9 350.1,282.7 356.3,282.8 351.4,286.6 353.1,292.5 348.1,289.0 343.0,292.5 344.8,286.6 339.9,282.8 346.0,282.7"/><polygon points="285.5,339.5 287.6,345.3 293.7,345.4 288.8,349.2 290.6,355.0 285.5,351.6 280.4,355.0 282.2,349.2 277.3,345.4 283.4,345.3"/><polygon points="200.0,362.4 202.1,368.2 208.2,368.3 203.3,372.1 205.1,378.0 200.0,374.5 194.9,378.0 196.7,372.1 191.8,368.3 197.9,368.2"/><polygon points="114.5,339.5 116.6,345.3 122.7,345.4 117.8,349.2 119.6,355.0 114.5,351.6 109.4,355.0 111.2,349.2 106.3,345.4 112.4,345.3"/><polygon points="51.9,276.9 54.0,282.7 60.1,282.8 55.2,286.6 57.0,292.5 51.9,289.0 46.9,292.5 48.6,286.6 43.7,282.8 49.9,282.7"/><polygon points="29.0,191.4 31.1,197.2 37.2,197.3 32.3,201.1 34.1,207.0 29.0,203.5 23.9,207.0 25.7,201.1 20.8,197.3 26.9,197.2"/><polygon points="51.9,105.9 54.0,111.7 60.1,111.8 55.2,115.6 57.0,121.5 51.9,118.0 46.9,121.5 48.6,115.6 43.7,111.8 49.9,111.7"/><polygon points="114.5,43.3 116.6,49.1 122.7,49.3 117.8,53.0 119.6,58.9 114.5,55.4 109.4,58.9 111.2,53.0 106.3,49.3 112.4,49.1"/></g>
+              <g class="fg stars"><polygon points="200.0,20.4 202.1,26.2 208.2,26.3 203.3,30.1 205.1,36.0 200.0,32.5 194.9,36.0 196.7,30.1 191.8,26.3 197.9,26.2"/><polygon points="285.5,43.3 287.6,49.1 293.7,49.3 288.8,53.0 290.6,58.9 285.5,55.4 280.4,58.9 282.2,53.0 277.3,49.3 283.4,49.1"/><polygon points="348.1,105.9 350.1,111.7 356.3,111.8 351.4,115.6 353.1,121.5 348.1,118.0 343.0,121.5 344.8,115.6 339.9,111.8 346.0,111.7"/><polygon points="371.0,191.4 373.1,197.2 379.2,197.3 374.3,201.1 376.1,207.0 371.0,203.5 365.9,207.0 367.7,201.1 362.8,197.3 368.9,197.2"/><polygon points="348.1,276.9 350.1,282.7 356.3,282.8 351.4,286.6 353.1,292.5 348.1,289.0 343.0,292.5 344.8,286.6 339.9,282.8 346.0,282.7"/><polygon points="285.5,339.5 287.6,345.3 293.7,345.4 288.8,349.2 290.6,355.0 285.5,351.6 280.4,355.0 282.2,349.2 277.3,345.4 283.4,345.3"/><polygon points="200.0,362.4 202.1,368.2 208.2,368.3 203.3,372.1 205.1,378.0 200.0,374.5 194.9,378.0 196.7,372.1 191.8,368.3 197.9,368.2"/><polygon points="114.5,339.5 116.6,345.3 122.7,345.4 117.8,349.2 119.6,355.0 114.5,351.6 109.4,355.0 111.2,349.2 106.3,345.4 112.4,345.3"/><polygon points="51.9,276.9 54.0,282.7 60.1,282.8 55.2,286.6 57.0,292.5 51.9,289.0 46.9,292.5 48.6,286.6 43.7,282.8 49.9,282.7"/><polygon points="29.0,191.4 31.1,197.2 37.2,197.3 32.3,201.1 34.1,207.0 29.0,203.5 23.9,207.0 25.7,201.1 20.8,197.3 26.9,197.2"/><polygon points="51.9,105.9 54.0,111.7 60.1,111.8 55.2,115.6 57.0,121.5 51.9,118.0 46.9,121.5 48.6,115.6 43.7,111.8 49.9,111.7"/><polygon points="114.5,43.3 116.6,49.1 122.7,49.3 117.8,53.0 119.6,58.9 114.5,55.4 109.4,58.9 111.2,53.0 106.3,49.3 112.4,49.1"/></g>
+            </svg>
+          </div>
+          <div class="cface cback">
+            <svg class="cyy" viewBox="0 0 400 400" aria-hidden="true"><defs><pattern id="yyh1" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7"/></pattern></defs><path class="yy-fill" fill="url(#yyh1)" d="M200,32 A168,168 0 0 1 200,368 A84,84 0 0 1 200,200 A84,84 0 0 0 200,32 Z"/><circle class="yy-line" cx="200" cy="200" r="168"/><path class="yy-line" d="M200,32 A84,84 0 0 0 200,200 A84,84 0 0 1 200,368"/><circle class="yy-line" cx="200" cy="116" r="17"/><circle class="yy-dot" cx="200" cy="284" r="17"/></svg>
+            <span class="ch8" aria-hidden="true"><svg class="chH" viewBox="0 0 516 618" aria-hidden="true"><path d="M63.66656494140625 56.66741943359375 0.0 45.66717529296875V14.00006103515625Q9.66680908203125 12.3333740234375 26.00030517578125 10.000030517578125Q42.33380126953125 7.66668701171875 60.0006103515625 5.333343505859375Q77.66741943359375 3.0 91.0008544921875 1.5Q104.33428955078125 0.0 107.33428955078125 0.0Q110.0009765625 0.0 117.00103759765625 6.166717529296875Q124.0010986328125 12.33343505859375 129.83447265625 19.83349609375Q135.6678466796875 27.33355712890625 135.6678466796875 30.000244140625V562.9993896484375L217.6680908203125 573.9996337890625L200.33465576171875 604.3333740234375Q190.66796875 605.3333740234375 173.33444213867188 607.8334045410156Q156.00091552734375 610.3334350585938 138.50070190429688 612.5001220703125Q121.00048828125 614.6668090820312 108.00033569335938 616.1668395996094Q95.00018310546875 617.6668701171875 93.00018310546875 617.6668701171875Q90.66680908203125 617.6668701171875 83.666748046875 611.5001525878906Q76.66668701171875 605.3334350585938 70.1666259765625 598.1667175292969Q63.66656494140625 591.0 63.66656494140625 588.3333129882812ZM379.33349609375 56.66741943359375 315.66693115234375 45.66717529296875V14.00006103515625Q328.33380126953125 11.66668701171875 352.3340148925781 8.333343505859375Q376.334228515625 5.0 397.8343811035156 2.5Q419.33453369140625 0.0 423.001220703125 0.0Q425.66790771484375 0.0 432.66796875 6.166717529296875Q439.66802978515625 12.33343505859375 445.50140380859375 19.83349609375Q451.33477783203125 27.33355712890625 451.33477783203125 30.000244140625V560.9994506835938L515.0013427734375 571.9996948242188V603.6668090820312Q505.6678466796875 605.33349609375 489.1676940917969 607.6668395996094Q472.66754150390625 610.0001831054688 455.000732421875 612.3335266113281Q437.33392333984375 614.6668701171875 424.00048828125 616.1668701171875Q410.66705322265625 617.6668701171875 407.66705322265625 617.6668701171875Q405.33367919921875 617.6668701171875 398.1669616699219 611.1668090820312Q391.000244140625 604.666748046875 385.1668701171875 597.5000305175781Q379.33349609375 590.3333129882812 379.33349609375 587.6666259765625ZM200.334228515625 279.66656494140625 401.33367919921875 273.66644287109375V325.33380126953125L200.334228515625 319.33367919921875ZM213.6680908203125 9.33331298828125H236.33489990234375V524.9991455078125Q236.33489990234375 531.665771484375 232.50149536132812 543.6659851074219Q228.6680908203125 555.6661987304688 217.6680908203125 573.9996337890625H191.66778564453125V87.33380126953125Q191.66778564453125 77.333740234375 198.16790771484375 55.66693115234375Q204.66802978515625 34.0001220703125 213.6680908203125 9.33331298828125Z"/></svg><span class="couro"><i></i></span></span>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="cnote" data-i="hc_spin2">One coin, two faces: the eagle among the stars of Europe, and the serpent of the cycle</div>
+        </div>
+      </div>
+      <div class="jr-body">
+        <p class="jr-pull">Ma non ci fermeremo all'Europa.</p>
+        <p>Il ciclo è lo stesso ovunque: nel Kanun delle montagne albanesi come nel codice dei samurai di Musashi, nel Vangelo come nell'equilibrio dello yin e dello yang. Ogni civiltà ha lasciato i suoi doni, e ognuna ha avuto la sua crosta. Le generazioni prima di noi potevano vedere solo il proprio pezzo di mondo. La nostra è la prima che può vederlo tutto insieme e collegarlo.</p>
+        <p class="jr-lead">Siamo la generazione che raccoglierà i pezzi dal mondo intero.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 LA BOTTEGA -->
+  <section class="jr" id="bottega">
+    <div class="frame">
+      <div class="eyebrow">06 · La bottega</div>
+      <h2>Dove l'artigiano <em>è anche un pensatore</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Il Rinascimento si faceva nelle botteghe. Questa è la mia: i pezzi nuovi che provo a lasciare a chi verrà dopo.</p>
+        <p>Tutto sta sotto <strong>H8-Group</strong>, il motore economico che tiene in piedi il resto, senza soldi di partito e senza finanziamenti esterni. È uno schema aperto: si aggiunge un progetto senza cambiare la base.</p>
+      </div>
+      <div class="shop-cards">
+        <a class="shop-card reveal" href="#m4tr1x" onclick="showPanel('h8');showSubH8('m4tr1x');return false"><span>H8-Group · Digitale</span><b>M4TR1X</b><p>Una rete sociale senza server centrale, senza account, senza sorveglianza. Il codice è pubblico, e chiunque abbia un computer può reggerne un pezzo.</p><em>Entra →</em></a>
+        <a class="shop-card reveal" href="#kalendae" onclick="showPanel('h8');showSubH8('kalendae');return false"><span>H8-Group · Digitale</span><b>Kalendae</b><p>Un'agenda che vive solo sul tuo telefono. Niente cloud, niente tracciamento.</p><em>Entra →</em></a>
+        <a class="shop-card reveal" href="#elea" onclick="showPanel('h8');showSubH8('elea');return false"><span>H8-Group · Fisico</span><b>Elea Vending</b><p>Distributori automatici recuperati e ricostruiti a mano. Si tiene il giusto e si butta lo sbagliato, una macchina alla volta.</p><em>Entra →</em></a>
+        <a class="shop-card reveal" href="#h8-coin" onclick="showPanel('coin');return false"><span>Il credito</span><b>H8-Coin</b><p>Un credito interno a M4TR1X, spiegato per intero. Non è una criptovaluta e non è un investimento.</p><em>Entra →</em></a>
+        <div class="shop-card soon reveal"><span>In arrivo</span><b>Lo shop</b><p>Oggetti reali, frutto delle mie capacità.</p></div>
+        <div class="shop-card soon reveal"><span>In arrivo</span><b>H8-Media</b><p>E i progetti che verranno.</p></div>
+      </div>
+    </div>
+  </section>
+  <!-- 07 CHI RACCOGLIE I PEZZI -->
+  <section class="jr" id="chi">
+    <div class="frame">
+      <div class="eyebrow">07 · Chi raccoglie i pezzi</div>
+      <h2>Alla pari <em>degli umanisti</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Online mi presento come H8db0y. Ho 26 anni, sono nato e cresciuto in Italia da famiglia albanese, e porto dentro tutte e due le radici senza viverle come una contraddizione.</p>
+        <p>Sono una persona comune, dentro il sistema come la maggior parte di voi. Non ho titoli da sventolare: quello che so l'ho imparato da solo, leggendo, capendo e mettendo in pratica. Non mi metto sopra nessuno. Sono alla pari degli umanisti: uno che raccoglie i pezzi e ci prova.</p>
+        <p>Quando ho deciso di fare qualcosa, ho bussato a ogni porta. Le istituzioni non mi hanno dato modo di essere aiutato. La banca mi offriva solo di cambiare capo. Così ho scelto di costruire da solo, e di farlo davanti a tutti. Dico tutto prima, apertamente, così domani nessuno potrà inventarsi niente su di me.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 DETTO IN FACCIA -->
+  <section class="jr" id="entra">
+    <div class="frame">
+      <div class="eyebrow">08 · Detto in faccia</div>
+      <h2>Non prometto <em>niente</em></h2>
+      <div class="jr-body">
+        <p class="jr-lead">Fa parte del nostro realismo ammetterlo: in quest'epoca, senza qualcosa da vendere, di soli valori non si mangia.</p>
+        <p>Io non fingo il contrario. Quindi te lo dico subito: vendo le mie capacità, i prodotti dello shop e il lavoro di Elea. Se un giorno sponsorizzerò qualcosa, lo dichiarerò. Tutto il resto è aperto: il codice è pubblico, e non devi fidarti della mia parola, puoi controllare tu.</p>
+        <p>Non prometto niente, perché non ho niente da promettere. Non ti dico che farai soldi, non ti dico che diventeremo chissà cosa.</p>
+        <p class="jr-pull">Ti dico solo questo: per me vale la pena provarci. Se vale anche per te, contattami ed entra nel progetto.</p>
+        <p>Scarica l'app, fai girare un nodo, leggi il codice, criticami, proponimi qualcosa.</p>
+        <div class="jr-cta">
+          <button class="btn primary" type="button" onclick="goDownload()">Scarica M4TR1X</button>
+          <a class="btn" href="https://github.com/H8dboy/m4tr1x-node#readme" target="_blank" rel="noopener">Fai girare un nodo</a>
+          <a class="btn" href="https://github.com/H8dboy" target="_blank" rel="noopener">Leggi il codice</a>
+        </div>
+        <p class="jr-end">Chi vuole entra. Chi non vuole, va bene lo stesso.</p>
+        <div class="jr-sign">— <b>H8db0y</b></div>
       </div>
     </div>
   </section>
@@ -740,39 +999,18 @@
             <span class="cglow" aria-hidden="true"></span>
             <span class="cemb"><img class="only-dark" src="img/h8-coin-eagle.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"><img class="only-light" src="img/h8-coin-eagle-light.webp" alt="H8" width="640" height="640" loading="lazy" decoding="async"></span>
             <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
-              <defs>
-                <path id="h8arcTopA" d="M 200 200 m -161 0 a 161 161 0 1 1 322 0"></path>
-                <path id="h8arcBotA" d="M 200 200 m -157 0 a 157 157 0 0 0 314 0"></path>
-              </defs>
-              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcTopA" startOffset="50%" text-anchor="middle">NDERJA · REALIZMI ETIK SOVRAN</textPath></text>
-              <text class="fg"><textPath href="#h8arcTopA" startOffset="50%" text-anchor="middle">NDERJA · REALIZMI ETIK SOVRAN</textPath></text>
-              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcBotA" startOffset="50%" text-anchor="middle">H8 · GROUP · BESA</textPath></text>
-              <text class="fg"><textPath href="#h8arcBotA" startOffset="50%" text-anchor="middle">H8 · GROUP · BESA</textPath></text>
+              <g class="sh stars" transform="translate(1.6,1.6)"><polygon points="200.0,20.4 202.1,26.2 208.2,26.3 203.3,30.1 205.1,36.0 200.0,32.5 194.9,36.0 196.7,30.1 191.8,26.3 197.9,26.2"/><polygon points="285.5,43.3 287.6,49.1 293.7,49.3 288.8,53.0 290.6,58.9 285.5,55.4 280.4,58.9 282.2,53.0 277.3,49.3 283.4,49.1"/><polygon points="348.1,105.9 350.1,111.7 356.3,111.8 351.4,115.6 353.1,121.5 348.1,118.0 343.0,121.5 344.8,115.6 339.9,111.8 346.0,111.7"/><polygon points="371.0,191.4 373.1,197.2 379.2,197.3 374.3,201.1 376.1,207.0 371.0,203.5 365.9,207.0 367.7,201.1 362.8,197.3 368.9,197.2"/><polygon points="348.1,276.9 350.1,282.7 356.3,282.8 351.4,286.6 353.1,292.5 348.1,289.0 343.0,292.5 344.8,286.6 339.9,282.8 346.0,282.7"/><polygon points="285.5,339.5 287.6,345.3 293.7,345.4 288.8,349.2 290.6,355.0 285.5,351.6 280.4,355.0 282.2,349.2 277.3,345.4 283.4,345.3"/><polygon points="200.0,362.4 202.1,368.2 208.2,368.3 203.3,372.1 205.1,378.0 200.0,374.5 194.9,378.0 196.7,372.1 191.8,368.3 197.9,368.2"/><polygon points="114.5,339.5 116.6,345.3 122.7,345.4 117.8,349.2 119.6,355.0 114.5,351.6 109.4,355.0 111.2,349.2 106.3,345.4 112.4,345.3"/><polygon points="51.9,276.9 54.0,282.7 60.1,282.8 55.2,286.6 57.0,292.5 51.9,289.0 46.9,292.5 48.6,286.6 43.7,282.8 49.9,282.7"/><polygon points="29.0,191.4 31.1,197.2 37.2,197.3 32.3,201.1 34.1,207.0 29.0,203.5 23.9,207.0 25.7,201.1 20.8,197.3 26.9,197.2"/><polygon points="51.9,105.9 54.0,111.7 60.1,111.8 55.2,115.6 57.0,121.5 51.9,118.0 46.9,121.5 48.6,115.6 43.7,111.8 49.9,111.7"/><polygon points="114.5,43.3 116.6,49.1 122.7,49.3 117.8,53.0 119.6,58.9 114.5,55.4 109.4,58.9 111.2,53.0 106.3,49.3 112.4,49.1"/></g>
+              <g class="fg stars"><polygon points="200.0,20.4 202.1,26.2 208.2,26.3 203.3,30.1 205.1,36.0 200.0,32.5 194.9,36.0 196.7,30.1 191.8,26.3 197.9,26.2"/><polygon points="285.5,43.3 287.6,49.1 293.7,49.3 288.8,53.0 290.6,58.9 285.5,55.4 280.4,58.9 282.2,53.0 277.3,49.3 283.4,49.1"/><polygon points="348.1,105.9 350.1,111.7 356.3,111.8 351.4,115.6 353.1,121.5 348.1,118.0 343.0,121.5 344.8,115.6 339.9,111.8 346.0,111.7"/><polygon points="371.0,191.4 373.1,197.2 379.2,197.3 374.3,201.1 376.1,207.0 371.0,203.5 365.9,207.0 367.7,201.1 362.8,197.3 368.9,197.2"/><polygon points="348.1,276.9 350.1,282.7 356.3,282.8 351.4,286.6 353.1,292.5 348.1,289.0 343.0,292.5 344.8,286.6 339.9,282.8 346.0,282.7"/><polygon points="285.5,339.5 287.6,345.3 293.7,345.4 288.8,349.2 290.6,355.0 285.5,351.6 280.4,355.0 282.2,349.2 277.3,345.4 283.4,345.3"/><polygon points="200.0,362.4 202.1,368.2 208.2,368.3 203.3,372.1 205.1,378.0 200.0,374.5 194.9,378.0 196.7,372.1 191.8,368.3 197.9,368.2"/><polygon points="114.5,339.5 116.6,345.3 122.7,345.4 117.8,349.2 119.6,355.0 114.5,351.6 109.4,355.0 111.2,349.2 106.3,345.4 112.4,345.3"/><polygon points="51.9,276.9 54.0,282.7 60.1,282.8 55.2,286.6 57.0,292.5 51.9,289.0 46.9,292.5 48.6,286.6 43.7,282.8 49.9,282.7"/><polygon points="29.0,191.4 31.1,197.2 37.2,197.3 32.3,201.1 34.1,207.0 29.0,203.5 23.9,207.0 25.7,201.1 20.8,197.3 26.9,197.2"/><polygon points="51.9,105.9 54.0,111.7 60.1,111.8 55.2,115.6 57.0,121.5 51.9,118.0 46.9,121.5 48.6,115.6 43.7,111.8 49.9,111.7"/><polygon points="114.5,43.3 116.6,49.1 122.7,49.3 117.8,53.0 119.6,58.9 114.5,55.4 109.4,58.9 111.2,53.0 106.3,49.3 112.4,49.1"/></g>
             </svg>
           </div>
           <div class="cface cback">
-            <div class="cval">
-              <span class="cv-one">NJË · ONE</span>
-              <span class="cv-h8">H8</span>
-              <span class="cv-rule" aria-hidden="true"></span>
-              <span class="cv-unit">100 UNITÀ</span>
-              <span class="cv-sig">ML-DSA-65 · SHA3-256</span>
-            </div>
-            <svg class="carc" viewBox="0 0 400 400" aria-hidden="true">
-              <defs>
-                <path id="h8arcTopB" d="M 200 200 m -161 0 a 161 161 0 1 1 322 0"></path>
-                <path id="h8arcBotB" d="M 200 200 m -157 0 a 157 157 0 0 0 314 0"></path>
-              </defs>
-              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcTopB" startOffset="50%" text-anchor="middle">M4TR1X NETWORK</textPath></text>
-              <text class="fg"><textPath href="#h8arcTopB" startOffset="50%" text-anchor="middle">M4TR1X NETWORK</textPath></text>
-              <text class="sh" transform="translate(1.6,1.6)"><textPath href="#h8arcBotB" startOffset="50%" text-anchor="middle">CLOSED-LOOP UTILITY CREDIT</textPath></text>
-              <text class="fg"><textPath href="#h8arcBotB" startOffset="50%" text-anchor="middle">CLOSED-LOOP UTILITY CREDIT</textPath></text>
-            </svg>
+            <svg class="cyy" viewBox="0 0 400 400" aria-hidden="true"><defs><pattern id="yyh1" width="7" height="7" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="7"/></pattern></defs><path class="yy-fill" fill="url(#yyh1)" d="M200,32 A168,168 0 0 1 200,368 A84,84 0 0 1 200,200 A84,84 0 0 0 200,32 Z"/><circle class="yy-line" cx="200" cy="200" r="168"/><path class="yy-line" d="M200,32 A84,84 0 0 0 200,200 A84,84 0 0 1 200,368"/><circle class="yy-line" cx="200" cy="116" r="17"/><circle class="yy-dot" cx="200" cy="284" r="17"/></svg>
+            <span class="ch8" aria-hidden="true"><svg class="chH" viewBox="0 0 516 618" aria-hidden="true"><path d="M63.66656494140625 56.66741943359375 0.0 45.66717529296875V14.00006103515625Q9.66680908203125 12.3333740234375 26.00030517578125 10.000030517578125Q42.33380126953125 7.66668701171875 60.0006103515625 5.333343505859375Q77.66741943359375 3.0 91.0008544921875 1.5Q104.33428955078125 0.0 107.33428955078125 0.0Q110.0009765625 0.0 117.00103759765625 6.166717529296875Q124.0010986328125 12.33343505859375 129.83447265625 19.83349609375Q135.6678466796875 27.33355712890625 135.6678466796875 30.000244140625V562.9993896484375L217.6680908203125 573.9996337890625L200.33465576171875 604.3333740234375Q190.66796875 605.3333740234375 173.33444213867188 607.8334045410156Q156.00091552734375 610.3334350585938 138.50070190429688 612.5001220703125Q121.00048828125 614.6668090820312 108.00033569335938 616.1668395996094Q95.00018310546875 617.6668701171875 93.00018310546875 617.6668701171875Q90.66680908203125 617.6668701171875 83.666748046875 611.5001525878906Q76.66668701171875 605.3334350585938 70.1666259765625 598.1667175292969Q63.66656494140625 591.0 63.66656494140625 588.3333129882812ZM379.33349609375 56.66741943359375 315.66693115234375 45.66717529296875V14.00006103515625Q328.33380126953125 11.66668701171875 352.3340148925781 8.333343505859375Q376.334228515625 5.0 397.8343811035156 2.5Q419.33453369140625 0.0 423.001220703125 0.0Q425.66790771484375 0.0 432.66796875 6.166717529296875Q439.66802978515625 12.33343505859375 445.50140380859375 19.83349609375Q451.33477783203125 27.33355712890625 451.33477783203125 30.000244140625V560.9994506835938L515.0013427734375 571.9996948242188V603.6668090820312Q505.6678466796875 605.33349609375 489.1676940917969 607.6668395996094Q472.66754150390625 610.0001831054688 455.000732421875 612.3335266113281Q437.33392333984375 614.6668701171875 424.00048828125 616.1668701171875Q410.66705322265625 617.6668701171875 407.66705322265625 617.6668701171875Q405.33367919921875 617.6668701171875 398.1669616699219 611.1668090820312Q391.000244140625 604.666748046875 385.1668701171875 597.5000305175781Q379.33349609375 590.3333129882812 379.33349609375 587.6666259765625ZM200.334228515625 279.66656494140625 401.33367919921875 273.66644287109375V325.33380126953125L200.334228515625 319.33367919921875ZM213.6680908203125 9.33331298828125H236.33489990234375V524.9991455078125Q236.33489990234375 531.665771484375 232.50149536132812 543.6659851074219Q228.6680908203125 555.6661987304688 217.6680908203125 573.9996337890625H191.66778564453125V87.33380126953125Q191.66778564453125 77.333740234375 198.16790771484375 55.66693115234375Q204.66802978515625 34.0001220703125 213.6680908203125 9.33331298828125Z"/></svg><span class="couro"><i></i></span></span>
           </div>
         </div>
         </div>
       </div>
-      <div class="cnote" data-i="hc_spin">One coin, two faces: the eagle and the credit</div>
+      <div class="cnote" data-i="hc_spin2">One coin, two faces: the eagle among the stars of Europe, and the serpent of the cycle</div>
         </div>
         <div class="chero-txt">
       <div class="eyebrow" data-i="hc_eyebrow">The credit</div>
@@ -816,6 +1054,8 @@
 <script>
 const T = {
   en: {
+    or_eyebrow2:'Where M4TR1X comes from', or_title2:'How <em>M4TR1X</em> was born', or_p1b:'M4TR1X did not begin as a manifesto. It began as work — months of building, alone, with no one watching. Today it is the product Nderja is betting on to grow.',
+    hc_spin2:'One coin, two faces: the eagle among the stars of Europe, and the serpent of the cycle',
     out_tag:'Service notice',
     out_p:'M4TR1X is temporarily out of service: a weather event has left the site hosting the main infrastructure without an internet connection. The network will be back as soon as the line is restored.',
     hc_c7_t:'Why a closed credit',
@@ -1064,6 +1304,8 @@ const T = {
     ft_note:"Lëvizje e pavarur. Pa përkatësi partiake, pa financime të huaja, pa leje të kërkuara. © 2026 nderja.com"
   },
   it: {
+    or_eyebrow2:'Da dove viene M4TR1X', or_title2:'Come è nata <em>M4TR1X</em>', or_p1b:'M4TR1X non è nata come manifesto. È nata come lavoro: mesi di costruzione, da solo, senza nessuno a guardare. Oggi è il prodotto su cui Nderja punta per crescere.',
+    hc_spin2:'Una moneta, due facce: l\'aquila tra le stelle d\'Europa, e il serpente del ciclo',
     out_tag:'Avviso di servizio',
     out_p:"M4TR1X è temporaneamente fuori uso: un evento meteorologico ha lasciato senza connessione internet il luogo dove risiede l'infrastruttura principale. La rete tornerà appena la linea sarà ripristinata.",
     hc_c7_t:'Perché un credito chiuso',
@@ -2118,9 +2360,7 @@ if(location.hash) applyRoute();
 })();
 
 /* H8 coin: build the rim so the coin has thickness while it spins */
-(function(){
-  const coin=document.getElementById('h8coin-3d');
-  if(!coin) return;
+document.querySelectorAll('.coin').forEach(function(coin){
   const N=120;
   function build(){
     coin.querySelectorAll('.cseg').forEach(e=>e.remove());
@@ -2146,7 +2386,7 @@ if(location.hash) applyRoute();
     let last=0;
     new ResizeObserver(()=>{ const w=coin.offsetWidth; if(w && w!==last){ last=w; build(); } }).observe(coin);
   }
-})();
+});
 
 /* scroll reveal */
 const io = new IntersectionObserver(entries=>{
