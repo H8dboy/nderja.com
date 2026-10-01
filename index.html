@@ -395,6 +395,18 @@
   .hero .hero-voice{font-family:var(--serif);font-style:italic;font-size:clamp(1.35rem,2.5vw,1.85rem);line-height:1.45;
     color:var(--text);max-width:640px;margin-top:2rem}
   #panel-home .hero-cta{justify-content:flex-start}
+  .sectors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(420px,100%),1fr));gap:1px;background:var(--line);
+    border:1px solid var(--line);margin:2.4rem 0 1.6rem;max-width:1080px}
+  .sector{background:var(--panel);padding:1.6rem 1.5rem}
+  .sc-n{display:block;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:.8rem}
+  .sector p{font-size:.95rem;line-height:1.65;max-width:none;margin:0}
+  .sector p b{color:var(--text);font-weight:500}
+  .sector p.sc-crust{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.45;color:var(--muted);margin-bottom:.8rem}
+  .sector.soon .sc-n{color:var(--muted)}
+  .sector:last-child:nth-child(odd){grid-column:1/-1}
+  :root[data-theme="light"] .sector p.sc-crust{font-style:normal}
+  :root[data-theme="light"] .sectors{border-radius:18px;overflow:hidden}
+  #bottega .shop-cards{margin-top:1rem}
   .shop-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:1px;background:var(--line);
     border:1px solid var(--line);margin:2.4rem 0 0;max-width:1080px}
   .shop-card{background:var(--panel);padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.45rem;text-decoration:none;transition:background .25s}
@@ -757,10 +769,24 @@
   <section class="jr" id="bottega">
     <div class="frame">
       <div class="eyebrow">06 · La bottega</div>
-      <h2>Dove l'artigiano <em>è anche un pensatore</em></h2>
+      <h2>Ogni ramo riprende <em>un dono catturato</em></h2>
       <div class="jr-body">
-        <p class="jr-lead">Il Rinascimento si faceva nelle botteghe. Questa è la mia: i pezzi nuovi che provo a lasciare a chi verrà dopo.</p>
-        <p>Tutto sta sotto <strong>H8-Group</strong>, il motore economico che tiene in piedi il resto, senza soldi di partito e senza finanziamenti esterni. È uno schema aperto: si aggiunge un progetto senza cambiare la base.</p>
+        <p class="jr-lead">Il Rinascimento si faceva nelle botteghe, dove l'artigiano era anche un pensatore. La mia lavora così: ogni ramo toglie di mezzo una dipendenza da un sistema centrale, e rimette un dono in mano alle persone.</p>
+        <p>Nessuno di questi rami è un lusso. Sono tutti bene comune. È il ciclo applicato settore per settore.</p>
+      </div>
+      <div class="sectors">
+        <div class="sector reveal"><span class="sc-n">Comunicare</span><p class="sc-crust">Internet è nata libera. Oggi è un sistema per sorvegliarci e venderci.</p><p><b>M4TR1X</b>, una rete senza centro, senza account, senza sorveglianza. <b>Kalendae</b>, un'agenda i cui dati non lasciano mai il tuo telefono.</p></div>
+        <div class="sector reveal"><span class="sc-n">Il denaro</span><p class="sc-crust">Ogni scambio passa da un intermediario che decide e trattiene.</p><p><b>H8-Coin</b>, un credito chiuso dentro M4TR1X, con ogni regola scritta in chiaro e verificabile da chiunque.</p></div>
+        <div class="sector reveal"><span class="sc-n">Produrre</span><p class="sc-crust">Il mestiere è diventato un privilegio: macchine e software costano così tanto che a produrre restano in pochi.</p><p><b>CNC</b> e fresatura, anche ridando vita a macchine vecchie con software libero. <b>Stampa 3D</b>. Modellazione con <b>FreeCAD e Blender</b> invece dei programmi da migliaia di euro. Robotica <b>open-source</b>.</p></div>
+        <div class="sector reveal"><span class="sc-n">Il software</span><p class="sc-crust">Per costruire un programma serviva un'azienda intera.</p><p>Il <b>vibecoding</b>: scrivere software dialogando con un'intelligenza artificiale. Una persona sola oggi costruisce quello che prima richiedeva un'azienda. M4TR1X è nata così. È la nostra stampa a caratteri mobili.</p></div>
+        <div class="sector reveal"><span class="sc-n">Cultura e arte</span><p class="sc-crust">Musica, film, racconti: se non si monetizzano, muoiono.</p><p><b>H8-Media</b>: musica, serie e personaggi creati con l'AI, che arrivano prima su M4TR1X. Uno dei volti si chiama Virgil, come la guida che porta Dante fuori dall'Inferno.</p></div>
+        <div class="sector reveal"><span class="sc-n">Le cose di tutti i giorni</span><p class="sc-crust">Macchine buone buttate perché conviene comprarne di nuove.</p><p><b>Elea</b>: distributori recuperati e ricostruiti, con l'AI che segue scorte e scadenze.</p></div>
+        <div class="sector soon reveal"><span class="sc-n">Vestire · in arrivo</span><p class="sc-crust">Un marchio vale quanto chi lo esibisce.</p><p><b>H8SW3AR</b>: vestiti che portano lo stile H8-verse e finanziano il resto, invece delle bottiglie nei locali.</p></div>
+        <div class="sector soon reveal"><span class="sc-n">Muoversi · in arrivo</span><p class="sc-crust">Le auto vecchie sono condannate, e con loro la cultura dell'automobile di chi non può comprarne una nuova.</p><p>Un <b>biodiesel</b> nostro e il retrofit delle auto d'epoca, con l'AI a bordo.</p></div>
+        <div class="sector soon reveal"><span class="sc-n">Difesa · in arrivo</span><p class="sc-crust">Un mestiere di cinque secoli rischia di restare solo nelle mani delle grandi fabbriche.</p><p>Ho appreso l'arte dell'<b>armaiolo</b>, un mestiere che si tramanda da cinque secoli. È il pezzo di Musashi: solo chi sa combattere può scegliere davvero la pace. La produzione non inizierà finché non avremo tutti i permessi previsti dalla legge.</p></div>
+      </div>
+      <div class="jr-body">
+        <p>Dove si entra, oggi:</p>
       </div>
       <div class="shop-cards">
         <a class="shop-card reveal" href="#m4tr1x" onclick="showPanel('h8');showSubH8('m4tr1x');return false"><span>H8-Group · Digitale</span><b>M4TR1X</b><p>Una rete sociale senza server centrale, senza account, senza sorveglianza. Il codice è pubblico, e chiunque abbia un computer può reggerne un pezzo.</p><em>Entra →</em></a>
@@ -779,7 +805,8 @@
       <h2>Alla pari <em>degli umanisti</em></h2>
       <div class="jr-body">
         <p class="jr-lead">Online mi presento come H8db0y. Ho 26 anni, sono nato e cresciuto in Italia da famiglia albanese, e porto dentro tutte e due le radici senza viverle come una contraddizione.</p>
-        <p>Sono una persona comune, dentro il sistema come la maggior parte di voi. Non ho titoli da sventolare: quello che so l'ho imparato da solo, leggendo, capendo e mettendo in pratica. Non mi metto sopra nessuno. Sono alla pari degli umanisti: uno che raccoglie i pezzi e ci prova.</p>
+        <p>Sono una persona comune, dentro il sistema come la maggior parte di voi. Di giorno lavoro in officina, alle frese CNC. Il resto del tempo lo passo tra stampa 3D, modellazione, codice scritto insieme all'intelligenza artificiale, musica. Non ho titoli da sventolare: quello che so l'ho imparato da solo, leggendo, capendo e mettendo in pratica.</p>
+        <p>Non mi metto sopra nessuno. Sono alla pari degli umanisti: un artigiano che raccoglie i pezzi e ci prova, con le mani e con il codice.</p>
         <p>Quando ho deciso di fare qualcosa, ho bussato a ogni porta. Le istituzioni non mi hanno dato modo di essere aiutato. La banca mi offriva solo di cambiare capo. Così ho scelto di costruire da solo, e di farlo davanti a tutti. Dico tutto prima, apertamente, così domani nessuno potrà inventarsi niente su di me.</p>
       </div>
     </div>
